@@ -1,7 +1,7 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 
 body {
-  background-color: #000;
+  /* background-color: #000; */
   /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;
