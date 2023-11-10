@@ -2,9 +2,53 @@ p {
   margin: 0;
 }
 
-/* .module_container {
+.module_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
-} */
+.left_side {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play {
+  width: 24px;
+  height: 24px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.calories {
+  color: rgba(239, 237, 232, 0.30);
+  font-size: 14px;
+  line-height: 1.28; 
+}
+
+.calories_amount {
+  color: var(--orange-dark);
+}
+
+.right_side {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.gif {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+}
 
 .exercise_descr {
   display: grid;
@@ -16,6 +60,7 @@ p {
   display: flex;
   gap: 4px;
   flex-direction: column;
+  width: 100%;
   padding: 12px 18px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -35,7 +80,29 @@ p {
   line-height: 1.28;
 }
 
+@media screen and (min-width: 375px) {
+  .gif {
+    width: 270px;
+    height: 226px;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .module_container {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .right_side {
+    gap: 254px;
+    align-items: flex-end;
+  }
+
+  .exercise_div {
+    width: 168px;
+    height: 70px;
+  }
+
   .type {
     line-height: 1.5;
   }
