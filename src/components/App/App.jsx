@@ -15,6 +15,7 @@ const ExercisesPage = lazy(() => import('../../pages/Exercises/Exercises'));
 const ProductsPage = lazy(() => import('../../pages/Products/Products'));
 const SignInPage = lazy(() => import('../../pages/SignIn/SignIn'));
 const SignUpPage = lazy(() => import('../../pages/SignUp/SignUp'));
+const UserPage = lazy(() => import('../../pages/UserPage/UserPage'));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/diary" element={<DiarysPage />} />
           <Route path="/exercises" element={<ExercisesPage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/user" element={<UserPage />} />
         </Route>
       </Routes>
     </div>
