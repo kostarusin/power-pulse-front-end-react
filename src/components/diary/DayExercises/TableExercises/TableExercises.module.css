@@ -1,21 +1,15 @@
 .DayExercises {
+  max-width: 335px;
   border-radius: 12px;
   padding: 16px 0;
   margin-bottom: 32px;
 
   position: relative;
   min-height: 335px;
-  max-width: 824px;
+  max-width: 335px;
   overflow: hidden;
 }
 
-.DayExercises ::-webkit-scrollbar {
-  width: 6px;
-}
-.DayExercises ::-webkit-scrollbar-thumb {
-  background: #efede81a;
-  border-radius: 12px;
-}
 .DayExercises span {
   display: flex;
   align-items: center;

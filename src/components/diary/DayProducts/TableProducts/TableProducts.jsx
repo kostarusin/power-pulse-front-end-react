@@ -2,7 +2,6 @@ import styles from './TableProducts.module.css';
 
 function TableProducts({ products }) {
   const listOfProducts = products?.map((obj) => {
-    const caloriesEaten = Math.round((obj.weight * obj.product.calories) / 100);
     return (
       <tr key={obj._id}>
         <td className={styles.tdTitle}>
@@ -12,7 +11,7 @@ function TableProducts({ products }) {
           <div>{obj.product.category}</div>
         </td>
         <td className={styles.tdCalories}>
-          <div>{caloriesEaten}</div>
+          <div>caloriesEaten</div>
         </td>
         <td className={styles.tdWeight}>
           <div>{obj.weight}</div>
