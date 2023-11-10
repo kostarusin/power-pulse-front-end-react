@@ -1,5 +1,11 @@
+import ProfileSettingsForm from '../../components/ProfileSettingsForm';
+
 const UserPage = () => {
-  return <div>User Page</div>;
+  return (
+    <div>
+      <ProfileSettingsForm />
+    </div>
+  );
 };
 
 export default UserPage;
