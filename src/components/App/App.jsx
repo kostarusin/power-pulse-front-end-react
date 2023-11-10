@@ -5,8 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout';
 
 //red
-import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
+// import RestrictedRoute from './RestrictedRoute';
+// import PrivateRoute from './PrivateRoute';
 
 //components
 const HomePage = lazy(() => import('../../pages/Home/Home'));
