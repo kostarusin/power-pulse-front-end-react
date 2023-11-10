@@ -1,34 +1,24 @@
-//components
-import StyledDatepicker from '../../components/Datepicker/StyledDatepicker';
-import DailyProgressList from '../../components/DailyProgressList/DailyProgressList';
-import InfoDiary from '../../components/InfoDiary/InfoDiary';
-import MyProductsDiary from '../../components/MyProductsDiary/MyProductsDiary';
+import TitlePage from '../../components/diary/TitlePage';
+import DayProducts from '../../components/diary/DayProducts';
+import DayExercises from 'components/diary/DayExercises';
+import DayDashboard from 'components/diary/DayDashboard';
+import styles from './Dairy.module.css';
 
-//styles
-import css from './Diary.module.css';
-
-const daily = [
-  { title: 'Artem Artem Artem Artem', number: 30 },
-  { title: 'Artem', number: 30 },
-  { title: 'Artem', number: 30 },
-  { title: 'Artem', number: 30 },
-  { title: 'Artem', number: 30 },
-  { title: 'Artem', number: 30 },
-];
-
-const Diary = () => {
+function Diary() {
   return (
-    <div className={css.wrapper}>
-      <div className={css.wrapperTitle}>
-        <div className={css.title}>Diary</div>
-        <StyledDatepicker />
+    <div className={styles.backGround}>
+      <div className={styles.titleCont}>
+        <TitlePage title="Diary" />
       </div>
-
-      <DailyProgressList data={daily} />
-      <InfoDiary />
-      <MyProductsDiary />
+      <div className={styles.container}>
+        <div className={styles.itemsCont}>
+          <DayProducts products={[]} />
+          <DayExercises exercises={[]} />
+        </div>
+        <DayDashboard />
+      </div>
     </div>
   );
-};
+}
 
 export default Diary;
