@@ -1,7 +1,7 @@
 .backGround {
   padding-bottom: 72px;
   position: relative;
-  min-width: 375px;
+  min-width: 335px;
   height: 812px;
   margin: 0 auto;
   padding-top: 40px;
@@ -26,7 +26,7 @@
 
 .titleCont {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 }
 
