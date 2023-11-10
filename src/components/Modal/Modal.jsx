@@ -2,6 +2,7 @@ import { useActionData } from 'react-router-dom';
 import css from './Modal.module.css';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
+
 import sprite from '../../assets/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');

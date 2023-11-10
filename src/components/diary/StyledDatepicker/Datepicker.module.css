@@ -1,0 +1,15 @@
+.datePicker {
+  display: flex;
+}
+
+.input {
+  margin-right: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.arrowLeft {
+  margin-right: 6px;
+  margin-left: 20px;
+}
