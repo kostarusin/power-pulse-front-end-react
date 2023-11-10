@@ -1,0 +1,29 @@
+.button {
+  height: 42px;
+  padding: 12px 32px;
+
+  border: none;
+  border-radius: 12px;
+  background: var(--orange-dark);
+
+  font-family: Roboto;
+  font-size: 16px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.button:hover,
+.button:focus {
+    background: var(--orange-light);
+}
+
+@media screen and (min-width: 768px) {
+    .button {
+        height: 52px;
+     
+        line-height: 1.5;
+      }
+}
+
