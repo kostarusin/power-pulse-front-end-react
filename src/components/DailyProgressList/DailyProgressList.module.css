@@ -1,9 +1,0 @@
-@media (max-width: 374px) {
-  .wrapperList {
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-}
