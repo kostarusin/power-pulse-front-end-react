@@ -6,6 +6,7 @@ import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseFor
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
 const Exercises = () => {
+  // const []
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
