@@ -12,6 +12,7 @@
   --borderInput: rgba(239, 237, 232, 0.3);
 }
 
+
 body {
   background-color: var(--black);
   /* background-image: url('./assets/background.png'); */
