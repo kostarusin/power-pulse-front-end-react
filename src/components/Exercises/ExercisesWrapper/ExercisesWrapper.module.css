@@ -1,0 +1,23 @@
+
+.wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+  
+
+
+.exercises_box {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.exercises_title {
+  color: #efede8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 20px;
+}
