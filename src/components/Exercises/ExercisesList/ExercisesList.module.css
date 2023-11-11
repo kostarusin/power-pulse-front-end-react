@@ -1,15 +1,18 @@
-.exercisesUl{
+.exercisesUl {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
+  .exercisesUl {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
+}
 
-  @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
+  .exercisesUl {
     flex-wrap: wrap;
     justify-content: start;
     column-gap: 22px;

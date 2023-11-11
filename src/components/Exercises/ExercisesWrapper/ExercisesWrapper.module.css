@@ -3,13 +3,19 @@
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 10px;
-}
   
+}
+@media screen and (min-width: 1440px) {
+  .wrapper {
+  padding-left: 96px;
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}}
 
-
+@media screen and (min-width: 768px) {
 .exercises_box {
-  @media screen and (min-width: 768px) {
-    display: flex;
+ display: flex;
     justify-content: space-between;
   }
 }
