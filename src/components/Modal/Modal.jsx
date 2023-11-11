@@ -2,7 +2,8 @@ import { useActionData } from 'react-router-dom';
 import css from './Modal.module.css';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import sprite from '../../assets/sprite.svg';
+
+import icons from '../../assets/icons.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -35,7 +36,7 @@ export const Modal = ({ onClose, children }) => {
     <div className={css.modal_backdrop} onClick={handleBackdropClick}>
       <div className={css.modal_content}>
         <svg className={css.close_x} onClick={handleCloseClick}>
-          <use href={sprite + '#icon-x'} />
+          <use href={icons + '#icon-x'} />
         </svg>
         {children}
       </div>

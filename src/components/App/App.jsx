@@ -5,8 +5,8 @@ import { Route, Routes ,Navigate} from 'react-router-dom';
 import SharedLayout from './SharedLayout';
 
 //red
-import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
+// import RestrictedRoute from './RestrictedRoute';
+// import PrivateRoute from './PrivateRoute';
 
 //components
 const HomePage = lazy(() => import('../../pages/Home/Home'));
@@ -16,6 +16,9 @@ const ProductsPage = lazy(() => import('../../pages/Products/Products'));
 const SignInPage = lazy(() => import('../../pages/SignIn/SignIn'));
 const SignUpPage = lazy(() => import('../../pages/SignUp/SignUp'));
 const NotFoundPage = lazy(() => import('../../pages/NotFound/NotFound'));
+
+const UserPage = lazy(() => import('../../pages/UserPage/UserPage'));
+
 
 function App() {
   return (
@@ -28,7 +31,7 @@ function App() {
           <Route path="/diary" element={<DiarysPage />} />
           <Route path="/exercises" element={<ExercisesPage />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="notfound" element={<NotFoundPage />} />
+          <Route path="/user" element={<UserPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/notfound" />} />
       </Routes>
