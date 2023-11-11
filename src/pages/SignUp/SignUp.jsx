@@ -1,4 +1,3 @@
-import React from 'react';
 import SignUpInForm from '../../components/SignUpInForm/SignUpInForm';
 import css from './SignUp.module.css';
 
