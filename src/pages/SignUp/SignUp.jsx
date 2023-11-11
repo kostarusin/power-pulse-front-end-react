@@ -11,7 +11,17 @@ const SignUp = () => {
           registration process, please provide us with the following
           information.
         </p>
-        <SignUpInForm />
+        <SignUpInForm includeName />
+        <p className={css.text2}>
+          Don’t have an account?
+          <a
+            className={css.link}
+            href="http://localhost:5173/power-pulse-front-end-react/login"
+          >
+            {' '}
+            Sign In
+          </a>
+        </p>
       </div>
     </>
   );
