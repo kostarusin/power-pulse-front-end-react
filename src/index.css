@@ -9,6 +9,9 @@
   --white: #efede8;
   --red: #e9101d;
   --green: #419b09;
+  --gray: #303030;
+  --gray-middle: rgba(239, 237, 232, 0.3);
+  --gray-light: rgba(239, 237, 232, 0.65);
 }
 
 body {
