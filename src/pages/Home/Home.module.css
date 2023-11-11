@@ -19,7 +19,7 @@
   /* letter-spacing: 0,01em; */
 }
 .overlay {
-  background-image: url(/src/assets/line.svg);
+  background-image: url(./images/Line.svg);
   position: absolute;
   top: 84px;
   left: -16px;
@@ -42,10 +42,6 @@
   font-size: 20px;
   line-height: 24px;
 }
-.button:hover {
-  background-color: var(--black);
-  border: 1px solid var(--gray-middle);
-}
 
 /* .hero {
 } */
@@ -55,96 +51,17 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 670px;
+  width: 100%;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: right center;
   margin: 0;
 }
-.statistic1 {
-  display: flex;
-  align-items: center;
-  position: relative;
-  top: 384px;
-  right: 0;
-  background-color: var(--gray);
-  border-radius: 12px;
+.statistic {
+  /* background-image: url(./images/block.jpg); */
+  background-color: aquamarine;
+  position: absolute;
+  top: 536px;
   width: 206px;
   height: 96px;
-  padding-left: 23px;
-}
-.boxp {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-  margin-left: 12px;
-}
-.number1 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  color: var(--white);
-  margin: 0;
-}
-.vid {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--gray-light);
-  margin: 0;
-}
-
-/* .image {
-} */
-.statistic2 {
-  position: relative;
-  top: 519px;
-  left: 458px;
-  background-color: var(--orange-light);
-  border-radius: 12px;
-  width: 180px;
-  height: 110px;
-  padding-top: 14px;
-  padding-left: 28px;
-}
-
-.boxsvg1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--orange-light);
-  border-radius: 50%;
-}
-
-.boxsvg2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: var(--bage);
-  border-radius: 50%;
-  margin-bottom: 8px;
-}
-
-.number2 {
-  display: inline;
-  font-size: 48px;
-  line-height: 50px;
-  font-weight: 700;
-  color: var(--white);
-  margin-top: 0;
-  margin-right: 11px;
-}
-
-.cal {
-  display: inline;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--gray-light);
-  margin-top: 0;
 }
