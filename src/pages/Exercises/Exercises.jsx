@@ -3,12 +3,18 @@ import { useState } from 'react';
 import React from 'react';
 import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
+import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
 const Exercises = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showExerciseModal, setShowExerciseModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal((prevState) => !prevState);
+  const toggleExerciseModal = () => {
+    setShowExerciseModal((prevState) => !prevState);
+  };
+
+  const toggleSuccessModal = () => {
+    setShowSuccessModal((prevState) => !prevState);
   };
 
   const exerciseTest = {
@@ -25,12 +31,21 @@ const Exercises = () => {
   return (
     <div>
       Exercises
-      <button type="button" onClick={toggleModal}>
+      <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>
-      {showModal && (
-        <Modal onClose={toggleModal}>
+      {showExerciseModal && (
+        <Modal onClose={toggleExerciseModal}>
           <AddExerciseForm exercise={exerciseTest} />
+        </Modal>
+      )}
+
+<button type="button" onClick={toggleSuccessModal}>
+        TEST Open exercise
+      </button>
+      {showSuccessModal && (
+        <Modal onClose={toggleSuccessModal}>
+          <AddExerciseSuccess exercise={exerciseTest} />
         </Modal>
       )}
     </div>
