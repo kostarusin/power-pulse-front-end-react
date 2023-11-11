@@ -58,8 +58,8 @@
   width: 670px;
   background-size: auto;
   background-repeat: no-repeat;
-  background-position: right center;
   margin: 0;
+  z-index: 0;
 }
 .statistic1 {
   display: flex;
