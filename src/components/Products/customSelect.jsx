@@ -1,5 +1,12 @@
 import { useState } from 'react';
 import Select from 'react-select';
+import {
+  black,
+  blackLight,
+  grayMiddle,
+  orangeDark,
+  white,
+} from '../Helpers/helpers';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -13,7 +20,6 @@ const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
 export default function CustomSelect({ placeholder, minWidth }) {
   const [selectedOption, setSelectedOption] = useState(null);
-
   return (
     <div
       className="selector"
@@ -29,41 +35,45 @@ export default function CustomSelect({ placeholder, minWidth }) {
         styles={{
           control: (base, state) => ({
             ...base,
-            backgroundColor: '#040404',
+            backgroundColor: black,
             borderRadius: '12px',
             minWidth: '110px',
-            borderColor: state.isFocused
-              ? '#e6533c'
-              : 'rgba(239, 237, 232, 0.3)',
+            borderColor: state.isFocused ? orangeDark : grayMiddle,
             boxShadow: 'none',
             padding: '5px',
             [mq[0]]: {
               minWidth: '192px',
             },
+            [mq[1]]: {
+              backgroundColor: 'inherit',
+            },
           }),
           menu: (base) => ({
             ...base,
-            backgroundColor: '#1C1C1C',
+            backgroundColor: blackLight,
           }),
           menuList: (base) => ({
             ...base,
-            backgroundColor: '#1C1C1C',
+            backgroundColor: blackLight,
             borderRadius: '12px',
             padding: '14px 32px 14px 14px',
             gap: '10px',
+            [mq[1]]: {
+              opacity: '50%',
+            },
           }),
 
           placeholder: (base) => ({
             ...base,
-            color: 'white',
+            color: white,
           }),
           indicatorContainer: (base) => ({
             ...base,
-            color: '#EFEDE8',
+            color: white,
           }),
           singleValue: (base) => ({
             ...base,
-            color: '#EFEDE8',
+            color: white,
           }),
           indicatorSeparator: (base) => ({
             ...base,
@@ -75,7 +85,7 @@ export default function CustomSelect({ placeholder, minWidth }) {
           borderRadius: '12px',
           colors: {
             ...theme.colors,
-            primary25: 'black',
+            primary25: black,
           },
         })}
       />

@@ -16,6 +16,10 @@
   }
 }
 
+.filtersContainer:hover {
+  border-color: var(--grayMiddle);
+}
+
 .searchInput {
   position: relative;
   max-width: 335px;
@@ -34,6 +38,7 @@
   border: 1px solid rgba(239, 237, 232, 0.3);
   padding: 14px;
   color: var(--white);
+  outline: none;
 
   @media screen and (min-width: 768px) {
     min-width: 236px;
@@ -51,6 +56,7 @@
 }
 
 .selectContainer {
+  border-color: var(--orange-dark);
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -98,7 +104,7 @@
 
 .card {
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.20);
+  border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   padding: 16px;
 
@@ -129,7 +135,9 @@
 
 .cardPart2 {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: center;
 
   margin-top: 41px;
 }
@@ -143,13 +151,46 @@
 
 .dietField {
   padding: 5px 7.5px;
-  border: 1px ;
+  border: 1px;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
 }
 
-.runnerSvg{
+.runnerSvg {
   border-radius: 50%;
   /* fill: var(--white); */
   background-color: var(--orange-light);
+  padding: 3px;
+}
+
+.react-select__control:hover {
+  border-color: var(--grayMiddle);
+}
+
+.productsSection {
+  @media screen and (min-width: 1440px) {
+    background-image: url(src/assets/products-desk.jpg);
+    background-position: 100%;
+    background-attachment: auto;
+    background-repeat: no-repeat;
+    background-size: auto;
+    max-width: 1440px;
+    min-height: 716px;
+  }
+}
+
+.toolTip {
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
+}
+
+.titleSearchBox{
+  display: block;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 96px;
+  }
 }
