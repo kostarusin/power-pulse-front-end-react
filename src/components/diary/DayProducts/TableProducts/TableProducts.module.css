@@ -1,0 +1,315 @@
+.DayProducts {
+  padding: 16px 0;
+  margin-bottom: 32px;
+  position: relative;
+  width: 100%;
+  min-height: 335px;
+  max-width: 824px;
+  box-sizing: border-box;
+}
+
+.DayProducts ::-webkit-scrollbar {
+  width: 6px;
+}
+.DayProducts ::-webkit-scrollbar-thumb {
+  background: #efede81a;
+  border-radius: 12px;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+span p {
+  display: inline-block;
+}
+
+.DayProducts .tdDellete {
+  border: none;
+  padding-left: 30px;
+}
+.DayProducts .tdDellete button {
+  display: block;
+  padding: 0px;
+  background-color: transparent;
+}
+.DayProducts .tdDellete svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.DayProducts table {
+  display: block;
+  margin: 0px;
+  position: relative;
+  padding-left: 24px;
+  padding-right: 10px;
+  border-spacing: 8px;
+  border: none;
+}
+
+.DayProducts thead {
+  display: block;
+  height: 18px;
+}
+.DayProducts tbody {
+  display: block;
+  color: white;
+  margin-top: 8px;
+  max-height: 740px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px;
+}
+.DayProducts thead,
+.DayProducts tbody {
+  padding-right: 4px;
+}
+
+.DayProducts th {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  color: #ef8964;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.DayProducts td div {
+  font-size: 14px;
+  height: 40px;
+  border-radius: 12px;
+  margin: 4px;
+
+  border: 1px solid white;
+  padding: 8px 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.DayProducts td span {
+  font-size: 14px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid white;
+  padding: 8px 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tdTitle,
+.thTitle {
+  max-width: 212px;
+  min-width: 212px;
+}
+
+.tdCategory,
+.thCategory {
+  max-width: 166px;
+  min-width: 166px;
+}
+.tdCalories,
+.thCalories {
+  max-width: 105px;
+  min-width: 105px;
+}
+.tdWeight,
+.thWeight {
+  max-width: 105px;
+  min-width: 105px;
+}
+.tdRecommend,
+.thRecommend {
+  max-width: 110px;
+  min-width: 110px;
+}
+
+.recommendCircle {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.btnAddProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (max-width: 1439px) {
+  .DayProducts table {
+    padding-left: 8px;
+  }
+  .DayProducts .tdDellete {
+    padding-left: 30px;
+  }
+
+  .tdTitle,
+  .thTitle {
+    max-width: 204px;
+    min-width: 204px;
+  }
+
+  .tdCategory,
+  .thCategory {
+    max-width: 128px;
+    min-width: 128px;
+  }
+  .tdCalories,
+  .thCalories {
+    max-width: 90px;
+    min-width: 90px;
+  }
+  .tdWeight,
+  .thWeight {
+    max-width: 90px;
+    min-width: 90px;
+  }
+  .tdRecommend,
+  .thRecommend {
+    max-width: 80px;
+    min-width: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .DayProducts {
+    min-height: 0;
+    height: 234px;
+  }
+  .DayProducts tbody {
+    height: 146px;
+  }
+  .DayProducts tbody tr {
+    height: 40px;
+  }
+  .DayProducts td {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .DayProducts {
+    padding-left: 16px;
+    padding-right: 8px;
+  }
+  .DayProductsHead {
+    margin: 0px 8px 0px 0px;
+  }
+
+  .DayProducts .tdDellete {
+    padding: 0px;
+  }
+  .DayProducts .tdDellete svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .DayProductsTable table {
+    border-spacing: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .DayProducts tbody {
+    padding-right: 0px;
+    margin-top: 22px;
+    width: 309px;
+  }
+
+  .DayProducts thead {
+    display: none;
+  }
+
+  .DayProducts tbody tr {
+    display: block;
+    height: 240px;
+
+    margin-top: 24px;
+  }
+  .DayProducts td {
+    position: relative;
+
+    display: inline-grid;
+    align-items: center;
+
+    margin-bottom: 42px;
+  }
+
+  .DayProducts td:nth-of-type(1) {
+    max-width: 297px;
+    min-width: 297px;
+  }
+  .DayProducts td:nth-of-type(1)::before {
+    content: 'Title';
+    position: absolute;
+    top: -24px;
+    font-size: 12px;
+    color: #ef8964;
+  }
+
+  .DayProducts td:nth-of-type(2) {
+    max-width: 297px;
+    min-width: 297px;
+  }
+  .DayProducts td:nth-of-type(2)::before {
+    content: 'Category';
+    position: absolute;
+    top: -24px;
+    font-size: 12px;
+    color: #ef8964;
+  }
+
+  .DayProducts td:nth-of-type(3) {
+    max-width: 81px;
+    min-width: 81px;
+    margin-right: 16px;
+  }
+  .DayProducts td:nth-of-type(3)::before {
+    content: 'Calories';
+    position: absolute;
+    top: -24px;
+    font-size: 12px;
+    color: #ef8964;
+  }
+
+  .DayProducts td:nth-of-type(4) {
+    max-width: 80px;
+    min-width: 80px;
+    margin-right: 16px;
+  }
+  .DayProducts td:nth-of-type(4)::before {
+    content: 'Weight';
+    position: absolute;
+    top: -24px;
+    font-size: 12px;
+    color: #ef8964;
+  }
+
+  .DayProducts td:nth-of-type(5) {
+    max-width: 78px;
+    min-width: 78px;
+    margin-right: 8px;
+  }
+  .DayProducts td:nth-of-type(5)::before {
+    content: 'Recomended';
+    position: absolute;
+    top: -24px;
+    font-size: 12px;
+    color: #ef8964;
+  }
+}
+.not_found {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

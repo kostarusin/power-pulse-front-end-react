@@ -1,0 +1,45 @@
+.dayExercisesWrapper {
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.2);
+  width: 335px;
+}
+
+.headerWrapper {
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 14px;
+  line-height: 1.2;
+}
+.addExerciseBtn {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-right: 8px;
+}
+.errNotFound {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .dayExercisesWrapper {
+    height: 234px;
+    width: 704px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .dayExercisesWrapper {
+    height: 234px;
+    width: 826px;
+  }
+}
