@@ -1,7 +1,7 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 import css from './AddExerciseForm.module.css';
-import sprite from '../../assets/sprite.svg';
+import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { useState } from 'react';
 
@@ -46,15 +46,17 @@ export const AddExerciseForm = ({ exercise }) => {
           </CountdownCircleTimer>
           {!isPlaying && (
             <svg className={css.play} onClick={togglePlayer}>
-              <use href={sprite + '#icon-x'} />
+              <use href={icons + '#icon-play'} />
             </svg>
           )}
           {isPlaying && (
             <svg className={css.play} onClick={togglePlayer}>
-              <use href={sprite + '#icon-x'} />
+              <use href={icons + '#icon-pause-square'} />
             </svg>
           )}
-          <p className={css.calories}>Burned calories: <span className={css.calories_amount}>0</span></p>
+          <p className={css.calories}>
+            Burned calories: <span className={css.calories_amount}>0</span>
+          </p>
         </div>
       </div>
 

@@ -38,6 +38,7 @@
     .modal_content {
         min-width: 430px;
         max-width: 694px;
+        width: fit-content;
     }
 
     .close_x {
@@ -47,3 +48,4 @@
         height: 26px;
     }
 }
+
