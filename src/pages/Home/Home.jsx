@@ -38,17 +38,15 @@ const Home = () => {
 
           <ul className={css.list}>
             <li className={css.item}>
-              <button type="submit" className={css.button}>
-                {' '}
-                <NavLink to="/login"></NavLink>
+              <NavLink to="/register" className={css.link}>
                 Sign Up
-              </button>
+              </NavLink>
             </li>
             <li className={css.item}>
-              <button type="submit" className={css.button}>
-                <NavLink to="/register"></NavLink>
+              {' '}
+              <NavLink to="/login" className={css.link}>
                 Sign In
-              </button>
+              </NavLink>
             </li>
           </ul>
         </div>
