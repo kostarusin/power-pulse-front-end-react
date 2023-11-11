@@ -1,12 +1,47 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 import css from './AddExerciseForm.module.css';
-import sprite from '../../assets/sprite.svg';
+import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const AddExerciseForm = ({ exercise }) => {
+  const [duration, setDuration] = useState(0);
+  const [burnedCalories, setBurnedCalories] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    let timer;
+  
+    if (isPlaying) {
+      timer = setInterval(() => {
+        setDuration(prevDuration => {
+          const newDuration = prevDuration + 1;
+          console.log('duration', newDuration);
+
+          if (newDuration === 180) {
+            clearInterval(timer);
+            setIsPlaying(false);
+          }
+
+          return newDuration;
+        });
+      }, 1000);
+    } 
+   
+    else {
+      clearInterval(timer);
+    }
+  
+    return () => {
+      clearInterval(timer);
+    };
+  }, [isPlaying, setIsPlaying]);
+
+  useEffect(() => {
+    const calories = ((duration / 60) * exercise.burnedCalories / 3).toFixed();
+    setBurnedCalories(calories);
+  }, [duration])
 
   const togglePlayer = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
@@ -46,15 +81,17 @@ export const AddExerciseForm = ({ exercise }) => {
           </CountdownCircleTimer>
           {!isPlaying && (
             <svg className={css.play} onClick={togglePlayer}>
-              <use href={sprite + '#icon-x'} />
+              <use href={icons + '#icon-play'} />
             </svg>
           )}
           {isPlaying && (
             <svg className={css.play} onClick={togglePlayer}>
-              <use href={sprite + '#icon-x'} />
+              <use href={icons + '#icon-pause-square'} />
             </svg>
           )}
-          <p className={css.calories}>Burned calories: <span className={css.calories_amount}>0</span></p>
+          <p className={css.calories}>
+            Burned calories: <span className={css.calories_amount}>{burnedCalories}</span>
+          </p>
         </div>
       </div>
 
