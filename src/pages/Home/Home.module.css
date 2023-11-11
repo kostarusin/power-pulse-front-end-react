@@ -51,14 +51,13 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100%;
+  width: 670px;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: right center;
   margin: 0;
 }
 .statistic {
-  /* background-image: url(./images/block.jpg); */
   background-color: aquamarine;
   position: absolute;
   top: 536px;

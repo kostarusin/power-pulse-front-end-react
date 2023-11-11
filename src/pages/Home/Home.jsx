@@ -5,8 +5,10 @@ const Home = () => {
   return (
     <div>
       <section className={css.hero}>
-        <div className={css.image}></div>
-        {/* <div className={statistic}></div> */}
+        <div className={css.image}>
+          <div className={css.statistic}></div>
+        </div>
+
         <div className={css.container}>
           <div className={css.wrapper}>
             <h1 className={css.title}>
