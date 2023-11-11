@@ -1,0 +1,15 @@
+.nav {
+  /* color: var(--white); */
+  gap: 16px;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-btn {
+color: var(--white);
+width: 28px;
+height: 28px;
+flex-shrink: 0;
+}

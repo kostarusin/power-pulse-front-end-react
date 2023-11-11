@@ -1,4 +1,5 @@
 //components
+import React from 'react';
 import Logo from "../Logo/Logo";
 import UserNav from "../UserNav/UserNav";
 import UserBar from "../UserBar/UserBar";
