@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes ,Navigate} from 'react-router-dom';
 
 //SharedLayout
 import SharedLayout from './SharedLayout';
@@ -15,6 +15,7 @@ const ExercisesPage = lazy(() => import('../../pages/Exercises/Exercises'));
 const ProductsPage = lazy(() => import('../../pages/Products/Products'));
 const SignInPage = lazy(() => import('../../pages/SignIn/SignIn'));
 const SignUpPage = lazy(() => import('../../pages/SignUp/SignUp'));
+const NotFoundPage = lazy(() => import('../../pages/NotFound/NotFound'));
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
           <Route path="/diary" element={<DiarysPage />} />
           <Route path="/exercises" element={<ExercisesPage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="notfound" element={<NotFoundPage />} />
         </Route>
+        <Route path="*" element={<Navigate to="/notfound" />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,18 @@
+tab1. {
+    width: 600,
+    marginLeft: 100,
+  };
+  tab2: {
+    width: 600,
+    marginLeft: 100,
+  },
+  tabsRoot: {
+    width: 800,
+    height: 500,
+    flexShrink: 1,
+    flexGrow: 1,
+    maxWidth: "auto",
+  },
+    workarea: {
+        margin: "0px 5%",
+      },
