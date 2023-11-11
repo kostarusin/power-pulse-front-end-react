@@ -1,4 +1,4 @@
-import { css } from './ExercisesWrapper.module.css';
+import css from './ExercisesWrapper.module.css';
 import { BodyPartList } from '../ExercisesList/BodyPartList';
 import { MusculesList } from '../ExercisesList/MusculesList';
 import { EquipmentList } from '../ExercisesList/EquipmentList';

@@ -1,6 +1,6 @@
 
 import { PropTypes } from 'prop-types';
-import {css} from './ExercisesItem.module.css'
+import css from './ExercisesItem.module.css'
 export const ExercisesItem = () => {
 
 

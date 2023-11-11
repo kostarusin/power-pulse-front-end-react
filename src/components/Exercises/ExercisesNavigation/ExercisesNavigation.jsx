@@ -1,4 +1,4 @@
-import { css } from './ExercisesNavigation.module.css';
+import css from './ExercisesNavigation.module.css';
 
 
 export const ExercisesNavigation = () => {
