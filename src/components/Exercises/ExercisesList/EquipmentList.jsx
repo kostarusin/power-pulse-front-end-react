@@ -1,5 +1,5 @@
 
-import { css } from './ExercisesList.module.css';
+import  css from './ExercisesList.module.css';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 
 
