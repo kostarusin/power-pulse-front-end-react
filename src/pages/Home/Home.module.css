@@ -1,0 +1,67 @@
+.container {
+  padding-top: 200px;
+  padding-bottom: 246px;
+}
+.wrapper {
+  position: relative;
+  width: 598px;
+  height: 234px;
+  margin-left: 96px;
+  margin-bottom: 64px;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 78px;
+  /* letter-spacing: 0,01em; */
+}
+.overlay {
+  background-image: url(./images/Line.svg);
+  position: absolute;
+  top: 84px;
+  left: -16px;
+  width: 187px;
+  height: 69px;
+}
+
+.list {
+  display: flex;
+  gap: 20px;
+  margin-left: 96px;
+}
+
+.button {
+  padding: 16px 60px 16px 60px;
+  border-radius: 12px;
+  background-color: var(--orange-dark);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* .hero {
+} */
+.image {
+  background-image: url(./images/side-view-people-training-gym1.jpg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right center;
+  margin: 0;
+}
+.statistic {
+  /* background-image: url(./images/block.jpg); */
+  background-color: aquamarine;
+  position: absolute;
+  top: 536px;
+  width: 206px;
+  height: 96px;
+}
