@@ -1,23 +1,25 @@
 import css from './ExercisesNavigation.module.css';
 
 
-export const ExercisesNavigation = () => {
+export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
   return (
     <ul className={css.exercisesNavList}>
-      <li >
+      <li className={css.exercisesFilter}>
         <button className={css.filterBtn}
           type="button"
+          onClick={() => handleFilterClick('Body parts')}
+        
         >
           Body parts
         </button>
       </li>
-      <li >
+      <li className={css.exercisesFilter}>
         <button className={css.filterBtn}
           type="button" >
           Muscules
         </button>
       </li>
-      <li>
+      <li className={css.exercisesFilter}>
         <button className={css.filterBtn}
           type="button"
         >
