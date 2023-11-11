@@ -8,6 +8,7 @@ import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerc
 import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
 const Exercises = () => {
+  // const []
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
