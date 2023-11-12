@@ -9,13 +9,13 @@ export const MobileMenuBlock = styled.div`
   height: 100%;
   background-color: var(--orange-dark);
   z-index: 100;
-  padding: 20px;
+  /* padding: 20px; */
   padding-top: 245px;
 `;
 
 export const MobileMenuItem = styled.div`
   flex: 1;
-  flex-direction: column;
+  /* flex-direction: column; */
   font-size: 14px;
   color: var(--white);
   cursor: pointer;
@@ -49,10 +49,15 @@ export const CloseButton = styled.div`
   cursor: pointer;
 `;
 
-export const LogOut = styled.button`
-  margin-left: 20px;
-  margin-bottom: 20px;
-  /* margin-top: 350px; */
+export const LogOutBtn = styled.button`
+  margin: 380px 20px 110px 20px;
+  line-height: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.20);
+  padding: 10px 27px;
+  background-color: var(--orange-dark);
+  color: var(--white);
+  cursor: pointer;
 `;
 
 export const LogOutTextMob = styled.div`
@@ -61,22 +66,20 @@ export const LogOutTextMob = styled.div`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   cursor: pointer;
-
-
+  margin-right: 8px;
 `;
 
 export const LogOutSvgMob = styled.svg`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20px;
   height: 20px;
   color: var(--white);
   fill: var(--white);
   font-size: 14px;
   cursor: pointer;
-  display: flex;
-  /* justify-content: center;
-  align-items: center; */
-
 `;
 

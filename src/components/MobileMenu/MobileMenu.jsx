@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MobileMenuBlock, MobileMenuItem, CloseButton, MobileMenuBtn } from './MobileMenu.styled';
 import { LogOut } from '../UserBar/UserBar.styled';
-import {LogOutSvgMob, LogOutTextMob} from './MobileMenu.styled';
+import {LogOutSvgMob, LogOutTextMob, LogOutBtn} from './MobileMenu.styled';
 import sprite from '../../assets/icons-optimized.svg';
 
 const MobileMenu = ({ isOpen, onClose, onLogout }) => {
@@ -20,16 +20,17 @@ const MobileMenu = ({ isOpen, onClose, onLogout }) => {
         <MobileMenuItem as={Link} to="/products" onClick={onClose}>
           <MobileMenuBtn>Products</MobileMenuBtn>          
         </MobileMenuItem>
-        <MobileMenuItem onClick={onLogout}>
-          <LogOut to={'/'}>
-            <LogOutTextMob>Logout</LogOutTextMob>
-            <LogOutSvgMob>
-              <use href={`${sprite}#icon-log-out-white`} />
-            </LogOutSvgMob>
-          </LogOut>
-        </MobileMenuItem>
+        <LogOutBtn>
+          <MobileMenuItem onClick={onLogout}>
+            <LogOut to={'/'}>        
+              <LogOutTextMob>Logout</LogOutTextMob>
+              <LogOutSvgMob>
+                <use href={`${sprite}#icon-log-out-white`} />
+              </LogOutSvgMob>
+            </LogOut>
+          </MobileMenuItem>
+        </LogOutBtn>
       </MobileMenuBlock>
-
     </div>
   );
 };
