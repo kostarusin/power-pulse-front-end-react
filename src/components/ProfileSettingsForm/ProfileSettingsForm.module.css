@@ -27,7 +27,7 @@
 
 .infoInput {
   height: 46px;
-  max-width: 160px;
+  width: 160px;
   font-size: 14px;
   color: var(--white);
   background-color: transparent;
@@ -123,4 +123,96 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.saveBtn {
+  width: 115px;
+  height: 42px;
+  color: var(--gray-light);
+  font-weight: 500;
+  border: 1px solid var(--orange-dark);
+  background-color: var(--orange-dark);
+  border-radius: 12px;
+}
+
+.saveBtn:is(:hover, :focus) {
+  outline: none;
+  background-color: var(--orange-light);
+  border-color: var(--orange-light);
+}
+
+.ErrorMessage {
+  color: var(--red);
+  margin-top: 5px;
+  position: absolute;
+}
+
+@media (min-width: 768px) {
+  .formContainer {
+    max-width: 768px;
+  }
+
+  .basicInfoContainer {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+  }
+
+  .setName {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .basicInfoInput {
+    height: 52px;
+    width: 341px;
+    font-size: 16px;
+  }
+
+  .infoInput {
+    height: 52px;
+    width: 163px;
+    font-size: 16px;
+  }
+
+  .secondaryInfoContainer {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .flexContainer {
+    margin-bottom: 0;
+  }
+
+  .flexContainer:nth-of-type(2) {
+    margin-bottom: 0;
+  }
+
+  .bloodSexGroup {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .lifestyleGroup {
+    max-width: 523px;
+    margin-bottom: 38px;
+  }
+
+  .radioBtnLabel {
+    font-size: 16px;
+  }
+
+  .saveBtn {
+    width: 144px;
+    height: 56px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .formContainer {
+    max-width: 756px;
+    border-right: 1px solid var(--gray-middle);
+  }
 }
