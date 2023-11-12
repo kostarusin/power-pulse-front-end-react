@@ -97,12 +97,16 @@
 .cardContainer {
   margin-top: 40px;
   display: block;
-  overflow-y: scroll;
-  gap: 16px;
+
+
+  
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 16px;
+
   }
 
   @media screen and (min-width: 1440px) {
@@ -138,8 +142,10 @@
   padding: 16px;
   min-width: 335px;
   max-height: 141px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 16px;
   }
 
   @media screen and (min-width: 1440px) {

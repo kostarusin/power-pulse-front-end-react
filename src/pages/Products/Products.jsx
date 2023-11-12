@@ -12,13 +12,16 @@ import {
 
 import products from '../../../src/temp/power-puls.products.json';
 import productsCategories from '../../../src/temp/productsCategories.json';
+import { useState } from 'react';
+import { Modal } from '../../components/Modal/Modal.jsx';
+import { ButtonModal } from '../../components/ButtonModal/ButtonModal.jsx';
 
 const optionsCategories = [];
 const optionsRecomendation = [
-  {value: 'All', label: 'All'},
-  {value: 'Recommended', label: 'Recommended'},
-  {value: 'Not recommended', label: 'Not recommended'},
-]
+  { value: 'All', label: 'All' },
+  { value: 'Recommended', label: 'Recommended' },
+  { value: 'Not recommended', label: 'Not recommended' },
+];
 
 productsCategories.map((product) => {
   optionsCategories.push({
@@ -28,6 +31,13 @@ productsCategories.map((product) => {
 });
 
 const Products = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [productId, setProductId] = useState('');
+
+  const toggleSuccessModal = () => {
+    setShowSuccessModal((prevState) => !prevState);
+  };
+
   return (
     <section className={css.productsSection}>
       <p className={css.toolTip}>Filters</p>
@@ -36,7 +46,11 @@ const Products = () => {
         <div className={css.filtersContainer}>
           <div>
             <div className={css.searchInput}>
-              <input type="text" className={css.searchField} placeholder='Search' />
+              <input
+                type="text"
+                className={css.searchField}
+                placeholder="Search"
+              />
               <div className={css.buttonContainer}>
                 <button className={css.closeButton}>
                   <CloseIcon color={orangeDark} fontSize="medium" />
@@ -65,7 +79,7 @@ const Products = () => {
       <ul className={css.cardContainer}>
         {products.map((product) => {
           return (
-            <li key={product.id} className={css.card}>
+            <li key={product._id.id} className={css.card}>
               <div className={css.cardPart1}>
                 <p className={css.dietField}>DIET</p>
                 <div
@@ -77,7 +91,10 @@ const Products = () => {
                 >
                   {' '}
                   <p>Recommended</p>
-                  <button className={css.addButton}>
+                  <button
+                    className={css.addButton}
+                    onClick={toggleSuccessModal}
+                  >
                     Add
                     <ArrowForwardIcon fontSize="small" />
                   </button>
@@ -111,6 +128,22 @@ const Products = () => {
           );
         })}
       </ul>
+
+      {showSuccessModal && (
+        <Modal onClose={toggleSuccessModal}>
+          <div>
+            <form>
+              <input type="text"></input>
+              <input type="text" />
+              <p>
+                <span>Calories: </span>
+              </p>
+            </form>
+            <ButtonModal btnType={'button'} text={'Add to diary'} />
+            <button onClick={toggleSuccessModal}>Cancel</button>
+          </div>
+        </Modal>
+      )}
     </section>
   );
 };
