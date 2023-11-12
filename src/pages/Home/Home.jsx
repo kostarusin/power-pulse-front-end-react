@@ -1,57 +1,34 @@
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
+import HomeBackground from '../../components/HomeBackground/HomeBackground';
 
 const Home = () => {
   return (
-    <div>
-      <section className={css.hero}>
-        <div className={css.image}>
-          <div className={css.statistic1}>
-            <div className={css.boxsvg1}>
-              <svg width="20" height="20">
-                <use href="/src/assets/icons-optimized.svg#icon-play"></use>
-              </svg>
-            </div>
-            <div className={css.boxp}>
-              <p className={css.number1}>350+</p>
-              <p className={css.vid}>Video tutorial</p>
-            </div>
-          </div>
-          <div className={css.statistic2}>
-            <div className={css.boxsvg2}>
-              <svg width="16" height="16">
-                <use href="/src/assets/icons-optimized.svg#icon-running-figure"></use>
-              </svg>
-            </div>
-            <p className={css.number2}>500</p>
-            <p className={css.cal}>cal</p>
-          </div>
+    <section className={css.hero}>
+      <div className={css.container}>
+        <div className={css.wrapper}>
+          <h1 className={css.title}>
+            Transforming your body shape with Power Pulse
+          </h1>
+          <div className={css.overlay}></div>
         </div>
 
-        <div className={css.container}>
-          <div className={css.wrapper}>
-            <h1 className={css.title}>
-              Transforming your body shape with Power Pulse
-            </h1>
-            <div className={css.overlay}></div>
-          </div>
-
-          <ul className={css.list}>
-            <li className={css.item}>
-              <NavLink to="/register" className={css.link}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li className={css.item}>
-              {' '}
-              <NavLink to="/login" className={css.link}>
-                Sign In
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
+        <ul className={css.list}>
+          <li className={css.item}>
+            <NavLink to="/register" className={css.link1}>
+              Sign Up
+            </NavLink>
+          </li>
+          <li className={css.item}>
+            {' '}
+            <NavLink to="/login" className={css.link2}>
+              Sign In
+            </NavLink>
+          </li>
+        </ul>
+        <HomeBackground />
+      </div>
+    </section>
   );
 };
 

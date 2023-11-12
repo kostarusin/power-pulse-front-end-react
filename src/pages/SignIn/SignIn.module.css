@@ -1,30 +1,34 @@
+.signin {
+  padding-top: 200px;
+  padding-left: 96px;
+}
+
 .container {
   width: 496px;
-  height: 336px;
-  margin-top: 200px;
-  margin-left: 96px;
+  height: 84px;
 }
 
 .title {
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
-  margin-bottom: 16px;
 }
 
-.text {
+.text1 {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: var(--gray-middle);
+  margin-top: 16px;
 }
 .text2 {
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  color: var(--gray-middle);
+  color: var(--gray-light);
+  margin-top: 12px;
 }
 .link {
   text-decoration: underline;
-  color: var(--white);
+  color: var(--gray-soft);
 }
