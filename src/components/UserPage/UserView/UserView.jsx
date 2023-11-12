@@ -9,7 +9,7 @@ const UserView = () => {
           <img className={css['user-img']} src="./src/assets/user.jpg" alt="" />
           <button className={css['user-img-button']}>
             <svg className={css['user-img-button-svg']}>
-              <use href="src\assets\icons-optimized.svg#icon-check-mark"></use>
+              <use href="./src/assets/icons-optimized.svg#icon-check-mark"></use>
             </svg>
           </button>
         </div>
@@ -23,7 +23,7 @@ const UserView = () => {
           <li className={css['user-daily-items']}>
             <div className={css['user-daily']}>
               <svg width="20" height="20">
-                <use href="src\assets\icons-optimized.svg#icon-fork-knife"></use>
+                <use href="./src/assets/icons-optimized.svg#icon-fork-knife"></use>
               </svg>
               <p className={css['user-daily-text']}>Daily calorie intake</p>
             </div>
@@ -34,7 +34,7 @@ const UserView = () => {
           <li className={css['user-daily-items']}>
             <div className={css['user-daily']}>
               <svg width="20" height="20">
-                <use href="src\assets\icons-optimized.svg#icon-dumbbell"></use>
+                <use href="./src/assets/icons-optimized.svg#icon-dumbbell"></use>
               </svg>
               <p className={css['user-daily-text']}>Daily physical activity</p>
             </div>
@@ -46,7 +46,7 @@ const UserView = () => {
         <p className={css['user-notification']}>
           <span>
             <svg width="24" height="24">
-              <use href="src\assets\icons.svg#icon-exclamation-mark"></use>
+              <use href="./src/assets/icons.svg#icon-exclamation-mark"></use>
             </svg>
           </span>
           We understand that each individual is unique, so the entire approach
@@ -57,7 +57,7 @@ const UserView = () => {
           <button className={css['user-logaut']}>
             Logaut
             <svg width="24" height="24">
-              <use href="src\assets\icons-optimized.svg#icon-log-out"></use>
+              <use href="./src/assets/icons-optimized.svg#icon-log-out"></use>
             </svg>
           </button>
         </div>
