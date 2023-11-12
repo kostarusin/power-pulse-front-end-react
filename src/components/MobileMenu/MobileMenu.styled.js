@@ -80,6 +80,3 @@ export const LogOutSvgMob = styled.svg`
 
 `;
 
-export const LogOutSvgMob + LogOutSvgMob `
-  gap: 8px;
-`;
