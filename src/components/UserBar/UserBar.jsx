@@ -29,11 +29,11 @@ const UserBar = () => {
         <use href={`${sprite}#icon-burger-menu`} />
       </Burger>
       <LogOut to={'/'}>
-      <LogOutText>Logout</LogOutText>
-      <LogOutSvg>
-        <use href={`${sprite}#icon-log-out`} />
-      </LogOutSvg>
-    </LogOut>
+        <LogOutText>Logout</LogOutText>
+        <LogOutSvg>
+          <use href={`${sprite}#icon-log-out`} />
+        </LogOutSvg>
+      </LogOut>
     </UserBarBlock>
   );
 };

@@ -10,10 +10,9 @@ const Header = () => {
         <Logo />
       </LogoWrap>
       <User>
-        <UserNav />
-        <UserBar />
+        <UserNav/>
+        <UserBar/>
       </User>
-      
     </HeaderBar>
   );
 };
