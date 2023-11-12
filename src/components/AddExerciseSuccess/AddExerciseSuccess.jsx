@@ -1,5 +1,5 @@
 import css from './AddExerciseSuccess.module.css';
-import pic from '../../assets/Thumb-up.png';
+import pic from '../../assets/thumb_up.png';
 import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';

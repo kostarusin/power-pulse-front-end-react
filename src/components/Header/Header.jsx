@@ -1,16 +1,20 @@
-//components
-import Logo from "../Logo/Logo";
-import UserNav from "../UserNav/UserNav";
-import UserBar from "../UserBar/UserBar";
-
+import Logo from '../Logo/Logo';
+import { HeaderBar, LogoWrap, User } from './Header.styled';
+import UserNav from 'components/UserNav/UserNav';
+import UserBar from 'components/UserBar/UserBar';
 
 const Header = () => {
   return (
-    <header>
-      <Logo/>
-      <UserNav/>
-      <UserBar/>
-    </header>
+    <HeaderBar>
+      <LogoWrap>
+        <Logo />
+      </LogoWrap>
+      <User>
+        <UserNav />
+        <UserBar />
+      </User>
+      
+    </HeaderBar>
   );
 };
 
