@@ -212,6 +212,7 @@
 
 @media (min-width: 1440px) {
   .formContainer {
+    padding-right: 56px;
     max-width: 756px;
     border-right: 1px solid var(--gray-middle);
   }

@@ -1,15 +1,18 @@
 import css from './UserView.module.css';
 import sprite from '../../../assets/icons-optimized.svg';
 import icon from '../../../assets/icons.svg';
+import iconUser from '../../../assets/user.jpg';
 
 const UserView = () => {
   return (
     <>
-      <h1 className={css.title}>Profile Settings</h1>
-
       <div className={css['user-view-container']}>
         <div className={css['user-img-container']}>
-          <img className={css['user-img']} src="./src/assets/user.jpg" alt="" />
+          {/* <svg className={css['user-img']}>
+            <use href={`${sprite}#icon-user`}></use>
+          </svg> */}
+
+          <img className={css['user-img']} src={`${iconUser}`} alt="" />
           <button className={css['user-img-button']}>
             <svg className={css['user-img-button-svg']}>
               <use href={`${sprite}#icon-check-mark`}></use>

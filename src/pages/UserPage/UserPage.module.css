@@ -1,0 +1,6 @@
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
