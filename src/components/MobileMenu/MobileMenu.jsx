@@ -6,6 +6,7 @@ import {LogOutSvgMob, LogOutTextMob} from './MobileMenu.styled';
 import sprite from '../../assets/icons-optimized.svg';
 
 const MobileMenu = ({ isOpen, onClose, onLogout }) => {
+  
   return (
     <div>
       <MobileMenuBlock isOpen={isOpen}>
@@ -23,7 +24,7 @@ const MobileMenu = ({ isOpen, onClose, onLogout }) => {
           <LogOut to={'/'}>
             <LogOutTextMob>Logout</LogOutTextMob>
             <LogOutSvgMob>
-              <use href={`${sprite}#icon-log-out`} />
+              <use href={`${sprite}#icon-log-out-white`} />
             </LogOutSvgMob>
           </LogOut>
         </MobileMenuItem>
