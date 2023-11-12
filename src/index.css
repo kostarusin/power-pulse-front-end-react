@@ -15,9 +15,9 @@
   --gray: #303030;
   --gray-middle: rgba(239, 237, 232, 0.3);
   --gray-light: rgba(239, 237, 232, 0.65);
-
+  --gray-soft: rgba(239, 237, 232, 1);
+  --grayUltraLight: rgba(239, 237, 232, 0.1);
 }
-
 
 body {
   background-color: var(--black);

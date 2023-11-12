@@ -11,9 +11,13 @@ function DayProducts({ products }) {
         <p className={styles.title}>Products</p>
         <div className={styles.btnWrapper}>
           <button className={styles.addProductBtn}>
-            <NavLink to="/products">Add product</NavLink>
+            <NavLink className={styles.link} to="/products">
+              Add product{' '}
+            </NavLink>
+            <svg width="16" height="16">
+              <use href="src\assets\icons-optimized.svg#icon-add-arrow"></use>
+            </svg>
           </button>
-          <div>sv</div>
         </div>
       </div>
 
