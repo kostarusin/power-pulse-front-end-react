@@ -14,7 +14,7 @@ const StyledDatepicker = () => {
         <div className={css.input}>{format(selectedDate, 'dd/MM/yyyy')}</div>
         <div>
           <svg width="20" height="20">
-            <use href="src\assets\icons-optimized.svg#icon-calendar-bage"></use>
+            <use href="./src/assets/icons-optimized.svg#icon-calendar-bage"></use>
           </svg>
         </div>
       </div>
