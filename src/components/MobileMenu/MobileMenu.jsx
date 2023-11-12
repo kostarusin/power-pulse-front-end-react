@@ -1,12 +1,18 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { MobileMenuBlock, MobileMenuItem, CloseButton, MobileMenuBtn } from './MobileMenu.styled';
+import {
+  MobileMenuBlock,
+  MobileMenuItem,
+  CloseButton,
+  MobileMenuBtn,
+} from './MobileMenu.styled';
 import { LogOut } from '../UserBar/UserBar.styled';
-import {LogOutSvgMob, LogOutTextMob, LogOutBtn} from './MobileMenu.styled';
+import { LogOutSvgMob, LogOutTextMob, LogOutBtn } from './MobileMenu.styled';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 import sprite from '../../assets/icons-optimized.svg';
 
 const MobileMenu = ({ isOpen, onClose, onLogout }) => {
-  
+  const dispatch = useDispatch();
   return (
     <div>
       <MobileMenuBlock isOpen={isOpen}>
@@ -15,14 +21,14 @@ const MobileMenu = ({ isOpen, onClose, onLogout }) => {
           <MobileMenuBtn>Diary</MobileMenuBtn>
         </MobileMenuItem>
         <MobileMenuItem as={Link} to="/exercises" onClick={onClose}>
-          <MobileMenuBtn>Exercises</MobileMenuBtn>          
+          <MobileMenuBtn>Exercises</MobileMenuBtn>
         </MobileMenuItem>
         <MobileMenuItem as={Link} to="/products" onClick={onClose}>
-          <MobileMenuBtn>Products</MobileMenuBtn>          
+          <MobileMenuBtn>Products</MobileMenuBtn>
         </MobileMenuItem>
         <LogOutBtn>
           <MobileMenuItem onClick={onLogout}>
-            <LogOut to={'/'}>        
+            <LogOut onClick={() => dispatch(logOut())}>
               <LogOutTextMob>Logout</LogOutTextMob>
               <LogOutSvgMob>
                 <use href={`${sprite}#icon-log-out-white`} />
