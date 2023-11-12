@@ -11,3 +11,7 @@ export const green = '#419b09';
 export const gray = '#303030';
 export const grayMiddle = 'rgba(239, 237, 232, 0.3)';
 export const grayLight = 'rgba(239, 237, 232, 0.65)';
+export const grayUltraLight = 'rgba(239, 237, 232, 0.10)';
+export const grayForText = 'rgba(239, 237, 232, 0.40)';
+
+

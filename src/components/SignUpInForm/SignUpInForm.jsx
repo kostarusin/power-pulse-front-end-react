@@ -28,7 +28,7 @@ const SignUpInForm = ({ includeName }) => {
   });
 
   function handleSubmit(values, { resetForm }) {
-    if (includeName && values.username) {
+    if (includeName) {
       dispatch(register(values));
     } else {
       dispatch(logIn(values));
@@ -43,40 +43,42 @@ const SignUpInForm = ({ includeName }) => {
       onSubmit={handleSubmit}
       validationSchema={SignUpSchema}
     >
-      <Form className={css.form}>
-        {includeName && (
-          <label htmlFor="username">
+      <Form className={css.container2}>
+        <div className={css.form}>
+          {includeName && (
+            <label htmlFor="username">
+              <Field
+                type="text"
+                name="username"
+                placeholder="Name"
+                className={css.field}
+              />
+              <ErrorMessage component="div" name="username" />
+            </label>
+          )}
+          <label htmlFor="email">
             <Field
               type="text"
-              name="username"
-              placeholder="Name"
+              name="email"
+              placeholder="Email"
               className={css.field}
             />
-            <ErrorMessage component="div" name="username" />
+            <ErrorMessage component="div" name="email" />
           </label>
-        )}
-        <label htmlFor="email">
-          <Field
-            type="text"
-            name="email"
-            placeholder="Email"
-            className={css.field}
-          />
-          <ErrorMessage component="div" name="email" />
-        </label>
 
-        <label htmlFor="password">
-          <Field
-            type="password"
-            name="password"
-            placeholder="Password"
-            className={css.field}
-          />
-          <ErrorMessage component="div" name="password" />
-        </label>
+          <label htmlFor="password">
+            <Field
+              type="password"
+              name="password"
+              placeholder="Password"
+              className={css.field}
+            />
+            <ErrorMessage component="div" name="password" />
+          </label>
+        </div>
 
         <button type="submit" className={css.button}>
-          Sign In
+          {includeName ? 'Sign Up' : 'Sign In'}
         </button>
       </Form>
     </Formik>

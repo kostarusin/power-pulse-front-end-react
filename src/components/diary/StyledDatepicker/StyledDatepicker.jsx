@@ -3,6 +3,7 @@ import { format, addDays, subDays } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
+import sprite from '../../../assets/icons-optimized.svg';
 import css from './Datepicker.module.css';
 
 const StyledDatepicker = () => {
@@ -12,7 +13,11 @@ const StyledDatepicker = () => {
     return (
       <div onClick={onClick} ref={ref} className={css.datePicker}>
         <div className={css.input}>{format(selectedDate, 'dd/MM/yyyy')}</div>
-        <div>sv</div>
+        <div>
+          <svg width="20" height="20">
+            <use href={`${sprite}#icon-calendar-bage`}></use>
+          </svg>
+        </div>
       </div>
     );
   });

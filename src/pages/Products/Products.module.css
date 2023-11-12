@@ -46,6 +46,10 @@
   }
 }
 
+.searchField::placeholder {
+  color: var(--white);
+}
+
 .searchField:focus {
   border-color: var(--orange-dark);
 }
@@ -96,10 +100,34 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 16px;
   }
 
   @media screen and (min-width: 1440px) {
+    max-width: 858px;
+    max-height: 487px;
+    min-height: 487px;
   }
+}
+
+/* width */
+.cardContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 153px;
+}
+
+/* Track */
+.cardContainer::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey; */
+  background-color: var(--grayUltraLight);
+  border-radius: 12px;
+}
+
+/* Handle */
+.cardContainer::-webkit-scrollbar-thumb {
+  background: var(--orange-light);
+  border-radius: 12px;
 }
 
 .card {
@@ -107,12 +135,17 @@
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   padding: 16px;
+  min-width: 335px;
+  max-height: 141px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
-    min-width: 335px;
+    margin-bottom: 16px;
   }
 
   @media screen and (min-width: 1440px) {
+    min-width: 405px;
+    max-width: 405px;
   }
 }
 
@@ -129,8 +162,6 @@
 .cardPart1 {
   display: flex;
   justify-content: space-between;
-
-  margin-top: 12px;
 }
 
 .cardPart2 {
@@ -139,7 +170,14 @@
   justify-content: flex-start;
   align-items: center;
 
-  margin-top: 41px;
+  margin-top: 35px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 27px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
 }
 
 .productEnergyList {
@@ -186,11 +224,141 @@
   }
 }
 
-.titleSearchBox{
+.titleSearchBox {
   display: block;
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
     margin-right: 96px;
+  }
+}
+
+.productEnergyItem1 {
+  min-width: 21px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.productEnergyItem {
+  min-width: 21px;
+  white-space: nowrap;
+
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.productName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 258px;
+
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  @media screen and (min-width: 768px) {
+    line-height: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 333px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.modalInput {
+  background-color: inherit;
+  border-radius: 12px;
+  border: 1px solid var(--orange-dark);
+  padding: 8px;
+  color: var(--white);
+
+  width: 100%;
+
+  margin-bottom: 16px;
+
+  outline: none;
+}
+
+.modalInputcall{
+  background-color: inherit;
+  border-radius: 12px;
+  border: 1px solid var(--orange-dark);
+  padding: 8px;
+  color: var(--white);
+
+  width: 100%;
+
+  margin-bottom: 16px;
+
+  outline: none;
+
+  @media screen and (min-width: 768px) {
+   max-width: 155px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
+.modalInput:disabled {
+  color: var(--grayMiddle);
+  outline: none;
+}
+
+.closeModalButton {
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--grayMiddle);
+  width: 121px;
+  height: 42px;
+
+  @media screen and (min-width: 768px) {
+    height: 52px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
+.inputModalBox {
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
+.buttonModalBox {
+  display: flex;
+  justify-content: space-between;
+    margin-top: 24px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    margin-top: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 }

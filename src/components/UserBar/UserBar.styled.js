@@ -12,8 +12,8 @@ export const UserBarBlock = styled.div`
 `;
 
 export const UserBarLink = styled(Link)`
-  width: 24px; 
-  height: 24px; 
+  width: 24px;
+  height: 24px;
   display: inline-block;
 `;
 
@@ -27,23 +27,19 @@ export const UserAvatar = styled.div`
   border-radius: 50%;
 `;
 
-export const IconSettings = styled.svg(
-  {
-    width: '24px',
-    height: '24px',
-  }
-);
+export const IconSettings = styled.svg({
+  width: '24px',
+  height: '24px',
+});
 
-export const IconUserAvatar = styled.svg(
-  {
-    width: '21px',
-    height: '21px',
-  }
-);
+export const IconUserAvatar = styled.svg({
+  width: '21px',
+  height: '21px',
+});
 
 export const Burger = styled.svg`
-width: 24px; 
-height: 24px; 
+  width: 24px;
+  height: 24px;
 
 @media screen and (min-width: 1440px) {
   display: none;
@@ -56,15 +52,18 @@ export const LogOut = styled(Link)`
   align-items: center;
   gap: 8px;
 }
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
 `;
 
 export const LogOutText = styled.div`
-color: #EFEDE8;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
+  color: #efede8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 `;
 
 export const LogOutSvg = styled.svg`

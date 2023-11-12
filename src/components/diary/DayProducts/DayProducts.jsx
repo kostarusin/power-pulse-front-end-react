@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import sprite from '../../../assets/icons-optimized.svg';
 
 import styles from './DayProducts.module.css';
 
@@ -11,9 +12,13 @@ function DayProducts({ products }) {
         <p className={styles.title}>Products</p>
         <div className={styles.btnWrapper}>
           <button className={styles.addProductBtn}>
-            <NavLink to="/products">Add product</NavLink>
+            <NavLink className={styles.link} to="/products">
+              Add product{' '}
+            </NavLink>
+            <svg width="16" height="16">
+              <use href={`${sprite}#icon-add-arrow`}></use>
+            </svg>
           </button>
-          <div>sv</div>
         </div>
       </div>
 
