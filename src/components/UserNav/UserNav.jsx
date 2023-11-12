@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { UserNavBlock, UserNavLink } from './UserNav.styled';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import UserBar from '../UserBar/UserBar'; 
+import UserBar from '../UserBar/UserBar';
 
 const UserNav = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const UserNav = () => {
   const handleMobileMenuClose = () => {
     setMobileMenuOpen(false);
   };
-  
+
   return (
     <div>
       <UserNavBlock>
@@ -22,7 +22,7 @@ const UserNav = () => {
         <UserNavLink to="/products">Products</UserNavLink>
       </UserNavBlock>
       <UserBar onBurgerClick={handleToggleMobileMenu} />
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} onLogout={() => console.log('Logout clicked')} />
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />
     </div>
   );
 };
