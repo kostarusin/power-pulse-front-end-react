@@ -51,14 +51,3 @@ export const fetchEquipment = createAsyncThunk(
 
 
 
-// export const deleteExercise = createAsyncThunk(
-//   'exercises/deleteExercise',
-//   async (exerciseId, thunkAPI) => {
-//     try {
-//       const response = await axios.delete(`/exercises/${exerciseId}`);
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   },
-// );
