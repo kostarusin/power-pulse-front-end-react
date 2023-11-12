@@ -13,7 +13,6 @@ const Header = () => {
         <UserNav />
         <UserBar />
       </User>
-      
     </HeaderBar>
   );
 };
