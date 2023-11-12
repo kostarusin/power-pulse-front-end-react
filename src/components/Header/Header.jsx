@@ -10,10 +10,6 @@ const Header = () => {
       <LogoWrap>
         <Logo />
       </LogoWrap>
-      <User>
-        <UserNav/>
-        <UserBar/>
-      </User>
       <User>{isLoggedIn && <UserNav />}</User>
     </HeaderBar>
   );
