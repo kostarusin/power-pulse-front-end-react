@@ -32,10 +32,22 @@ productsCategories.map((product) => {
 
 const Products = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [productId, setProductId] = useState('');
+  const [productData, setProductData] = useState({});
+  const [caclCall, setCalcCall] = useState(0);
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
+    setCalcCall(0);
+  };
+
+  const toggleSuccessModal1 = (data) => {
+    setProductData(data);
+  };
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+
+    setCalcCall(value * productData.calories);
   };
 
   return (
@@ -93,7 +105,10 @@ const Products = () => {
                   <p>Recommended</p>
                   <button
                     className={css.addButton}
-                    onClick={toggleSuccessModal}
+                    onClick={() => {
+                      toggleSuccessModal();
+                      toggleSuccessModal1(product);
+                    }}
                   >
                     Add
                     <ArrowForwardIcon fontSize="small" />
@@ -133,14 +148,37 @@ const Products = () => {
         <Modal onClose={toggleSuccessModal}>
           <div>
             <form>
-              <input type="text"></input>
-              <input type="text" />
+              <input
+                type="text"
+                value={productData.title}
+                className={css.modalInput}
+                disabled
+              />
+              <input
+                type="text"
+                className={css.modalInput}
+                onChange={handleChange}
+              />
               <p>
-                <span>Calories: </span>
+                <span style={{ color: grayForText }}>Calories: </span>
+                {caclCall}
               </p>
             </form>
-            <ButtonModal btnType={'button'} text={'Add to diary'} />
-            <button onClick={toggleSuccessModal}>Cancel</button>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginTop: '24px',
+              }}
+            >
+              <ButtonModal btnType={'button'} text={'Add to diary'} />
+              <button
+                className={css.closeModalButton}
+                onClick={toggleSuccessModal}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </Modal>
       )}
