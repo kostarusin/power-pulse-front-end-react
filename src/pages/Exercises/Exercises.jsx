@@ -35,7 +35,6 @@ const Exercises = () => {
     <div>
       Exercises
       <ExercisesWrap></ExercisesWrap>
- 
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>
@@ -44,8 +43,7 @@ const Exercises = () => {
           <AddExerciseForm exercise={exerciseTest} />
         </Modal>
       )}
-
-<button type="button" onClick={toggleSuccessModal}>
+      <button type="button" onClick={toggleSuccessModal}>
         TEST Open exercise
       </button>
       {showSuccessModal && (

@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   grayForText,
+  grayMiddle,
   orangeDark,
   white,
 } from '../../components/Helpers/helpers.js';
@@ -148,29 +149,26 @@ const Products = () => {
         <Modal onClose={toggleSuccessModal}>
           <div>
             <form>
-              <input
-                type="text"
-                value={productData.title}
-                className={css.modalInput}
-                disabled
-              />
-              <input
-                type="text"
-                className={css.modalInput}
-                onChange={handleChange}
-              />
+              <div className={css.inputModalBox}>
+                <input
+                  type="text"
+                  value={productData.title}
+                  className={css.modalInput}
+                  style={{ color: grayMiddle }}
+                  disabled
+                />
+                <input
+                  type="text"
+                  className={css.modalInputcall}
+                  onChange={handleChange}
+                />
+              </div>
               <p>
                 <span style={{ color: grayForText }}>Calories: </span>
                 {caclCall}
               </p>
             </form>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: '24px',
-              }}
-            >
+            <div className={css.buttonModalBox}>
               <ButtonModal btnType={'button'} text={'Add to diary'} />
               <button
                 className={css.closeModalButton}

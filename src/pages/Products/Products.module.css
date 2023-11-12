@@ -294,15 +294,71 @@
   outline: none;
 }
 
+.modalInputcall{
+  background-color: inherit;
+  border-radius: 12px;
+  border: 1px solid var(--orange-dark);
+  padding: 8px;
+  color: var(--white);
+
+  width: 100%;
+
+  margin-bottom: 16px;
+
+  outline: none;
+
+  @media screen and (min-width: 768px) {
+   max-width: 155px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
 .modalInput:disabled {
   color: var(--grayMiddle);
   outline: none;
 }
 
 .closeModalButton {
-  width: 121px;
-  /* padding: 12px 36px; */
   align-items: center;
   border-radius: 12px;
   border: 1px solid var(--grayMiddle);
+  width: 121px;
+  height: 42px;
+
+  @media screen and (min-width: 768px) {
+    height: 52px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
+.inputModalBox {
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
+
+.buttonModalBox {
+  display: flex;
+  justify-content: space-between;
+    margin-top: 24px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    margin-top: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
 }
