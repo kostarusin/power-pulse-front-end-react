@@ -4,21 +4,16 @@ import {
   black,
   blackLight,
   grayMiddle,
+  grayUltraLight,
   orangeDark,
   white,
 } from '../Helpers/helpers';
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
 
 const breakpoints = [768, 1440];
 
 const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
-export default function CustomSelect({ placeholder, minWidth }) {
+export default function CustomSelect({ placeholder, minWidth, options }) {
   const [selectedOption, setSelectedOption] = useState(null);
   return (
     <div
@@ -51,13 +46,25 @@ export default function CustomSelect({ placeholder, minWidth }) {
           menu: (base) => ({
             ...base,
             backgroundColor: blackLight,
+            color: white,
           }),
+
           menuList: (base) => ({
             ...base,
             backgroundColor: blackLight,
             borderRadius: '12px',
             padding: '14px 32px 14px 14px',
             gap: '10px',
+            maxHeight: '276px',
+            overflowY: 'auto',
+            '&::-webkit-scrollbar': {
+              width: '8px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: grayUltraLight, // Измените цвет здесь
+              borderRadius: '8px',
+            },
+            color: white,
             [mq[1]]: {
               opacity: '50%',
             },
