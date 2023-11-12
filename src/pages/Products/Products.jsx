@@ -15,10 +15,10 @@ import productsCategories from '../../../src/temp/productsCategories.json';
 
 const optionsCategories = [];
 const optionsRecomendation = [
-  {value: 'All', label: 'All'},
-  {value: 'Recommended', label: 'Recommended'},
-  {value: 'Not recommended', label: 'Not recommended'},
-]
+  { value: 'All', label: 'All' },
+  { value: 'Recommended', label: 'Recommended' },
+  { value: 'Not recommended', label: 'Not recommended' },
+];
 
 productsCategories.map((product) => {
   optionsCategories.push({
@@ -36,7 +36,11 @@ const Products = () => {
         <div className={css.filtersContainer}>
           <div>
             <div className={css.searchInput}>
-              <input type="text" className={css.searchField} placeholder='Search' />
+              <input
+                type="text"
+                className={css.searchField}
+                placeholder="Search"
+              />
               <div className={css.buttonContainer}>
                 <button className={css.closeButton}>
                   <CloseIcon color={orangeDark} fontSize="medium" />
