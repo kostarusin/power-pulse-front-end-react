@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import css from './ProfileSettingsForm.module.css';
 
 const ProfileSettingsForm = () => {
   const initialValues = {
@@ -12,7 +13,7 @@ const ProfileSettingsForm = () => {
   };
   const ProfileSettingsSchema = Yup.object().shape({
     fullName: Yup.string().required(),
-    email: Yup.string().email('Invalid email address').required('Required'),
+    email: Yup.string().email('Invalid email address').required(),
     height: Yup.number().min(150, 'Must be at least 150 cm').required(),
     currentWeight: Yup.number().min(35, 'Must be at least 35 kg').required(),
     desiredWeight: Yup.number().min(35, 'Must be at least 35 kg').required(),
@@ -36,81 +37,186 @@ const ProfileSettingsForm = () => {
     >
       <Form>
         <label htmlFor="fullName">
-          Basic info
-          <Field name="fullName" type="text" placeholder="Anna Rybachok" />
+          <div className={css.setName}>Basic info</div>
+          <Field
+            className={css.basicInfoInput}
+            name="fullName"
+            type="text"
+            placeholder="Anna Rybachok"
+          />
           <ErrorMessage component="div" name="fullName" />
         </label>
         <label>
           <Field
+            className={css.basicInfoInput}
             name="email"
             type="email"
             placeholder="annarybachok@gmail.com"
           />
           <ErrorMessage component="div" name="email" />
         </label>
-        <label htmlFor="height">
-          Height
-          <Field name="height" type="number" placeholder="0" />
-          <ErrorMessage component="div" name="height" />
-        </label>
-        <label htmlFor="currentWeight">
-          Current Weight
-          <Field name="currentWeight" type="number" placeholder="0" />
-          <ErrorMessage component="div" name="currentWeight" />
-        </label>
-        <label htmlFor="desiredWeight">
-          Desired Weight
-          <Field name="desiredWeight" type="number" placeholder="0" />
-          <ErrorMessage component="div" name="desiredWeight" />
-        </label>
-        <label htmlFor="birthday">
-          <Field name="birthday" type="date" placeholder="00.00.0000" />
-          <ErrorMessage component="div" name="birthday" />
-        </label>
-        <div id="blood-radio-group">Blood</div>
-        <div role="group" aria-labelledby="blood-radio-group">
-          <label>
-            <Field type="radio" name="blood" value="1" />1
+        <div className={css.flexContainer}>
+          <label htmlFor="height" className={css.secondaryInfoLabel}>
+            <span className={css.setName}>Height</span>
+            <Field
+              className={css.infoInput}
+              name="height"
+              type="number"
+              placeholder="0"
+            />
+            <ErrorMessage component="div" name="height" />
           </label>
-          <label>
-            <Field type="radio" name="blood" value="2" />2
-          </label>
-          <label>
-            <Field type="radio" name="blood" value="3" />3
-          </label>
-          <label>
-            <Field type="radio" name="blood" value="4" />4
+          <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
+            <span className={css.setName}>Current Weight</span>
+            <Field
+              className={css.infoInput}
+              name="currentWeight"
+              type="number"
+              placeholder="0"
+            />
+            <ErrorMessage component="div" name="currentWeight" />
           </label>
         </div>
-        <div role="group">
-          <label>
-            <Field type="radio" name="sex" value="male" />
-            Male
+        <div className={css.flexContainer}>
+          <label htmlFor="desiredWeight" className={css.secondaryInfoLabel}>
+            <span className={css.setName}>Desired Weight</span>
+            <Field
+              className={css.infoInput}
+              name="desiredWeight"
+              type="number"
+              placeholder="0"
+            />
+            <ErrorMessage component="div" name="desiredWeight" />
           </label>
-          <label>
-            <Field type="radio" name="sex" value="female" />
-            Female
+          <label htmlFor="birthday">
+            <Field
+              className={css.infoInput}
+              name="birthday"
+              type="date"
+              placeholder="00.00.0000"
+            />
+            <ErrorMessage component="div" name="birthday" />
           </label>
         </div>
-        <div role="group">
-          <label>
-            <Field type="radio" name="levelActivity" value="1" />
+
+        <div id="blood-radio-group" className={css.setName}>
+          Blood
+        </div>
+        <div className={css.bloodSexGroup}>
+          <div
+            role="group"
+            aria-labelledby="blood-radio-group"
+            className={css.radioGroup}
+          >
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="blood"
+                value="1"
+              />
+              <span className={css.customRadioBtn}></span>1
+            </label>
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="blood"
+                value="2"
+              />
+              <span className={css.customRadioBtn}></span>2
+            </label>
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="blood"
+                value="3"
+              />
+              <span className={css.customRadioBtn}></span>3
+            </label>
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="blood"
+                value="4"
+              />
+              <span className={css.customRadioBtn}></span>4
+            </label>
+          </div>
+          <div role="group" className={css.radioGroup}>
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="sex"
+                value="male"
+              />
+              <span className={css.customRadioBtn}></span>
+              Male
+            </label>
+            <label className={css.radioBtnLabel}>
+              <Field
+                className={css.radioBtn}
+                type="radio"
+                name="sex"
+                value="female"
+              />
+              <span className={css.customRadioBtn}></span>
+              Female
+            </label>
+          </div>
+        </div>
+        <div role="group" className={css.lifestyleGroup}>
+          <label className={css.radioBtnLabel}>
+            <Field
+              className={css.radioBtn}
+              type="radio"
+              name="levelActivity"
+              value="1"
+            />
+            <span className={css.customRadioBtn}></span>
             Sedentary lifestyle (little or no physical activity)
           </label>
-          <label>
-            <Field type="radio" name="levelActivity" value="2" />
+          <label className={css.radioBtnLabel}>
+            <Field
+              className={css.radioBtn}
+              type="radio"
+              name="levelActivity"
+              value="2"
+            />
+            <span className={css.customRadioBtn}></span>
             Light activity (light exercises/sports 1-3 days per week)
           </label>
-          <label>
-            <Field type="radio" name="levelActivity" value="3" />
+          <label className={css.radioBtnLabel}>
+            <Field
+              className={css.radioBtn}
+              type="radio"
+              name="levelActivity"
+              value="3"
+            />
+            <span className={css.customRadioBtn}></span>
             Moderately active (moderate exercises/sports 3-5 days per week)
           </label>
-          <label>
-            <Field type="radio" name="levelActivity" value="4" />
+          <label className={css.radioBtnLabel}>
+            <Field
+              className={css.radioBtn}
+              type="radio"
+              name="levelActivity"
+              value="4"
+            />
+            <span className={css.customRadioBtn}></span>
             Very active (intense exercises/sports 6-7 days per week)
           </label>
-          <label>
-            <Field type="radio" name="levelActivity" value="5" />
+          <label className={css.radioBtnLabel}>
+            <Field
+              className={css.radioBtn}
+              type="radio"
+              name="levelActivity"
+              value="5"
+            />
+            <span className={css.customRadioBtn}></span>
             Extremely active (very strenuous exercises/sports and physical work)
           </label>
         </div>
