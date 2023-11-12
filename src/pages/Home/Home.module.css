@@ -33,7 +33,7 @@
   margin-left: 96px;
 }
 
-.link {
+.link1 {
   padding: 16px 60px 16px 60px;
   border-radius: 12px;
   background-color: var(--orange-dark);
@@ -42,6 +42,7 @@
   font-size: 20px;
   line-height: 24px;
 }
+
 .button:hover {
   background-color: var(--black);
   border: 1px solid var(--gray-middle);
@@ -95,56 +96,21 @@
   margin: 0;
 }
 
-/* .image {
-} */
-.statistic2 {
-  position: relative;
-  top: 519px;
-  left: 458px;
+.link1:hover {
   background-color: var(--orange-light);
-  border-radius: 12px;
-  width: 180px;
-  height: 110px;
-  padding-top: 14px;
-  padding-left: 28px;
 }
 
-.boxsvg1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--orange-light);
-  border-radius: 50%;
-}
-
-.boxsvg2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: var(--bage);
-  border-radius: 50%;
-  margin-bottom: 8px;
-}
-
-.number2 {
-  display: inline;
-  font-size: 48px;
-  line-height: 50px;
-  font-weight: 700;
+.link2 {
+  padding: 16px 60px 16px 60px;
   color: var(--white);
-  margin-top: 0;
-  margin-right: 11px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: var(--black);
+  border-radius: 12px;
+  border: 1px solid var(--gray-middle);
 }
 
-.cal {
-  display: inline;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--gray-light);
-  margin-top: 0;
+.link2:hover {
+  border: 1px solid var(--orange-dark);
 }
