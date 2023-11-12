@@ -1,82 +1,131 @@
 .container {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 13px;
+  margin-bottom: 20px;
+}
 
-  @media screen and (min-width: 1440px) {
-    justify-content: space-between;
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    width: 593px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 390px;
   }
 }
 
-.box {
-  list-style: none;
-  width: 157px;
-  height: 96px;
-  background-color: var(--orange-dark);
-  border-radius: 12px;
-  color: var(--white);
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  font-size: 12px;
-  padding: 14px;
-}
-
-.darkBox {
-  list-style: none;
-  width: 157px;
-  height: 96px;
-  background-color: rgba(239, 237, 232, 0.2);
-  border: 1px solid var(--transparent-medium-2);
-  border-radius: 12px;
-  font-size: 12px;
-  padding: 14px;
-  color: var(--main-text-color);
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  gap: 8;
-}
-
-.title {
-  color: var(--white);
-}
-
-.result {
-  margin-top: 28px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.textCont {
+.user-daily {
   display: flex;
   gap: 8px;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.user-daily-items:nth-child(2) .user-daily {
+  margin-bottom: 16px;
+}
+.user-daily-items:nth-last-child(-n + 4) {
+  background-color: rgba(239, 237, 232, 0.05);
 }
 
-.text {
-  color: var(--white);
-  font-size: 14px;
+.user-daily-list {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 40px;
 }
 
-/* .warningIcon {
-} */
+.user-daily-items {
+  width: 157px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: #e6533c;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .user-daily-items:nth-child(2) .user-daily {
+    margin-bottom: 28px;
+  }
+
+  .user-daily-items:nth-child(1) {
+    order: 1; /* Новый порядок для первого элемента списка */
+  }
+
+  .user-daily-items:nth-child(2) {
+    order: 5; /* Новый порядок для второго элемента списка */
+  }
+
+  .user-daily-items:nth-child(3) {
+    order: 2; /* Новый порядок для третьего элемента списка */
+  }
+
+  .user-daily-items:nth-child(4) {
+    order: 6; /* Новый порядок для четвёртого элемента списка */
+  }
+
+  .user-daily-items:nth-child(5) {
+    order: 3; /* Новый порядок для пятого элемента списка */
+  }
+
+  .user-daily-items:nth-child(6) {
+    order: 6; /* Новый порядок для шестого элемента списка */
+  }
+}
+
+.user-daily-text {
+  display: flex;
+  color: rgba(239, 237, 232, 0.8);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  margin-bottom: 0;
+}
+.user-daily-text-value {
+  color: #efede8;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.11;
+  margin: 0;
+}
 
 @media screen and (min-width: 768px) {
-  .box {
-    width: 187px;
-    height: 116px;
+  .user-daily-list {
+    gap: 16px;
   }
-  .darkBox {
-    width: 187px;
-    height: 116px;
+  .user-daily-text {
+    line-height: 1.5;
   }
-  .result {
+  .user-daily-items {
+    width: 187px;
+    padding: 14px 18px;
+  }
+
+  .user-daily-text-value {
     font-size: 24px;
+    line-height: 1.33;
   }
-  .text {
-    font-size: 16px;
+}
+
+.user-notification {
+  display: flex;
+  gap: 8px;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .user-notification {
+    width: 593px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .user-notification {
+    width: 390px;
   }
 }
