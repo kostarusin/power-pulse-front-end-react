@@ -1,18 +1,17 @@
-.signup {
+.signin {
   padding-top: 200px;
   padding-left: 96px;
 }
 
-.container1 {
+.container {
   width: 496px;
-  height: 108px;
+  height: 84px;
 }
 
 .title {
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
-  margin-bottom: 16px;
 }
 
 .text1 {
@@ -20,8 +19,8 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--gray-middle);
+  margin-top: 16px;
 }
-
 .text2 {
   font-weight: 400;
   font-size: 12px;

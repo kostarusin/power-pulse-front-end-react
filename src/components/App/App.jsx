@@ -1,5 +1,9 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+//redux
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../../redux/auth/operations';
 
 //SharedLayout
 import SharedLayout from './SharedLayout';
@@ -18,6 +22,12 @@ const SignUpPage = lazy(() => import('../../pages/SignUp/SignUp'));
 const UserPage = lazy(() => import('../../pages/UserPage/UserPage'));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <div>
       <Routes>

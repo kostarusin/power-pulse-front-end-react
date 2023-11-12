@@ -1,13 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { UserNavBlock, UserNavLink } from './UserNav.styled';
 
 const UserNav = () => {
   return (
-    <div>
-      <NavLink to="/user">User Page</NavLink>
-      <NavLink to="/diary">Diary</NavLink>
-      <NavLink to="/products">Products</NavLink>
-      <NavLink to="/exercises">Exercises</NavLink>
-    </div>
+    <UserNavBlock>
+      <UserNavLink to="/diary">Diary</UserNavLink>
+      <UserNavLink to="/exercises">Exercises</UserNavLink>
+      <UserNavLink to="/products">Products</UserNavLink>
+    </UserNavBlock>
   );
 };
 
