@@ -1,14 +1,30 @@
 .image {
-  background-image: url(/src/assets/home-desc.jpg);
+  background-image: url(/src/assets/home-mobile.jpg);
+  z-index: -1;
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 670px;
+  top: 241px;
+  right: -148px;
+  height: 669px;
+  width: 446px;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: right center;
-  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(/src/assets/home-tablet.jpg);
+    top: 131px;
+    right: -233px;
+    height: 1005px;
+    width: 670px;
+  }
+  @media screen and (min-width: 1440px) {
+    background-image: url(/src/assets/home-desc.jpg);
+    /* top: -152px; */
+    top: 0;
+    /* top: -68px; */
+    right: 0;
+    height: 100vh;
+  }
 }
 .statistic1 {
   display: flex;

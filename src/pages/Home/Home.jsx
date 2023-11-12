@@ -26,8 +26,8 @@ const Home = () => {
             </NavLink>
           </li>
         </ul>
+        <HomeBackground />
       </div>
-      <HomeBackground />
     </section>
   );
 };
