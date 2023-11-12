@@ -6,6 +6,8 @@ export const HeaderBar = styled.header`
   justify-content: space-between;
   height: 61px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 `;
 export const LogoWrap = styled.div`
   display: flex;

@@ -5,14 +5,17 @@ import {
   UserBarBlock,
   UserBarLink,
   Burger,
-  LogOut, 
+  LogOut,
   LogOutText,
-  LogOutSvg
+  LogOutSvg,
 } from './UserBar.styled';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 
 import sprite from '../../assets/icons-optimized.svg';
 
 const UserBar = () => {
+  const dispatch = useDispatch();
   return (
     <UserBarBlock>
       <UserBarLink to="/profile">
@@ -28,12 +31,12 @@ const UserBar = () => {
       <Burger>
         <use href={`${sprite}#icon-burger-menu`} />
       </Burger>
-      <LogOut to={'/'}>
-      <LogOutText>Logout</LogOutText>
-      <LogOutSvg>
-        <use href={`${sprite}#icon-log-out`} />
-      </LogOutSvg>
-    </LogOut>
+      <LogOut onClick={() => dispatch(logOut)}>
+        <LogOutText>Logout</LogOutText>
+        <LogOutSvg>
+          <use href={`${sprite}#icon-log-out`} />
+        </LogOutSvg>
+      </LogOut>
     </UserBarBlock>
   );
 };
