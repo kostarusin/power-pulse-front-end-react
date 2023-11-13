@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const UserBarBlock = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 14px;
 
   @media screen and (min-width: 769px) {
     gap: 16px;
@@ -41,19 +42,18 @@ export const Burger = styled.svg`
   width: 24px;
   height: 24px;
 
-@media screen and (min-width: 1440px) {
-  display: none;
-}
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 `;
 
 export const LogOut = styled(Link)`
-@media screen and (min-width: 1440px) {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-  @media screen and (min-width: 769px) {
-    display: none;
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 `;
 
