@@ -1,6 +1,11 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import css from './ProfileSettingsForm.module.css';
 import ProfileSettingsSchema from './yapValidateSchema';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateInfo } from '../../../redux/auth/operations';
+import { selectUser } from '../../../redux/auth/selectors';
+import { useEffect } from 'react';
+import { useAuth } from '../../../redux/hooks';
 
 //redux
 import { useDispatch } from 'react-redux';
@@ -10,6 +15,7 @@ import { useAuth } from '../../../redux/hooks';
 const ProfileSettingsForm = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
+
   console.log(user);
   const handleSubmit = (values, { resetForm }) => {
     const updatedValues = { ...values };

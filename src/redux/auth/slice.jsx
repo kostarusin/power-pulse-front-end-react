@@ -5,6 +5,7 @@ const initialState = {
   user: {
     username: null,
     email: null,
+
     height: null,
     currentWeight: null,
     desiredWeight: null,
@@ -12,6 +13,7 @@ const initialState = {
     blood: null,
     sex: null,
     levelActivity: null,
+
   },
   token: null,
   isLoggedIn: false,
