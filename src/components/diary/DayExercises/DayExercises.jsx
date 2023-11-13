@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
+//style
 import sprite from '../../../assets/icons-optimized.svg';
-
 import styles from './DayExercises.module.css';
-
+//component
 import TableExercises from './TableExercises';
 
 function DayExercises({ exercises }) {

@@ -1,8 +1,10 @@
+//components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
 import DayExercises from 'components/diary/DayExercises';
 import DayDashboard from 'components/diary/DayDashboard';
 import StyledDatepicker from '../../components/diary/StyledDatepicker/StyledDatepicker';
+//style
 import styles from './Dairy.module.css';
 
 function Diary() {
