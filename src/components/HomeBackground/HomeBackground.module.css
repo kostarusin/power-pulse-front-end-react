@@ -1,27 +1,23 @@
 .image {
-  background-image: url(/src/assets/home-mobile.jpg);
+  background-image: url(/src/pages/Home/home-mobile-i.jpg);
   z-index: -1;
   position: absolute;
-  top: 241px;
-  right: -148px;
+  bottom: 0;
+  right: 0;
   height: 669px;
   width: 446px;
   background-size: auto;
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: right bottom;
 
   @media screen and (min-width: 768px) {
     background-image: url(/src/assets/home-tablet.jpg);
-    top: 131px;
-    right: -233px;
     height: 1005px;
     width: 670px;
   }
   @media screen and (min-width: 1440px) {
     background-image: url(/src/assets/home-desc.jpg);
-    /* top: -152px; */
     top: 0;
-    /* top: -68px; */
     right: 0;
     height: 100vh;
   }
@@ -30,13 +26,23 @@
   display: flex;
   align-items: center;
   position: relative;
-  top: 384px;
-  right: 0;
+  top: 319px;
+  left: 62px;
   background-color: var(--gray);
   border-radius: 12px;
-  width: 206px;
-  height: 96px;
-  padding-left: 23px;
+  width: 146px;
+  height: 66px;
+  padding-left: 18px;
+  @media screen and (min-width: 768px) {
+    right: 0;
+    top: 583px;
+    width: 206px;
+    height: 96px;
+    padding-left: 23px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 536px;
+  }
 }
 
 .boxsvg1 {
@@ -53,34 +59,58 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 8px;
-  margin-left: 12px;
+  gap: 4px;
+  margin-left: 8px;
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+    margin-left: 12px;
+  }
 }
 .number1 {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 18px;
   color: var(--white);
   margin: 0;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
 }
 .vid {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 16px;
   color: var(--gray-light);
   margin: 0;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .statistic2 {
   position: relative;
-  top: 519px;
-  left: 458px;
+  top: 455px;
+  left: 159px;
   background-color: var(--orange-light);
   border-radius: 12px;
-  width: 180px;
-  height: 110px;
+  width: 119px;
+  height: 76px;
   padding-top: 14px;
-  padding-left: 28px;
+  padding-left: 18px;
+  @media screen and (min-width: 768px) {
+    top: 735px;
+    left: 225px;
+    width: 180px;
+    height: 110px;
+    padding-top: 14px;
+    padding-left: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 671px;
+    left: 458px;
+  }
 }
 
 .boxsvg2 {
@@ -96,19 +126,30 @@
 
 .number2 {
   display: inline;
-  font-size: 48px;
-  line-height: 50px;
   font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
   color: var(--white);
   margin-top: 0;
-  margin-right: 11px;
+  margin-right: 8px;
+  @media screen and (min-width: 768px) {
+    display: inline;
+    font-size: 48px;
+    line-height: 50px;
+    color: var(--white);
+    margin-right: 11px;
+  }
 }
 
 .cal {
   display: inline;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 16px;
   color: var(--gray-light);
-  margin-top: 0;
+  @media screen and (min-width: 768px) {
+    display: inline;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }

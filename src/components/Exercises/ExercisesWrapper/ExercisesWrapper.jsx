@@ -5,6 +5,7 @@ import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 import { useState } from 'react';
 
+
 export const ExercisesWrap = () => {
   const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName, setExerciseName] = useState('');
@@ -24,9 +25,9 @@ export const ExercisesWrap = () => {
   return (
     <div className={css.wrapper}>
       <li className={css.exercises_box}>
-      {activeFilter !== 'Waist' ? (
-        <h2 className={css.exercises_title}>Exercises</h2>   ) : (
-        <h2 className={css.exercises_title}>{capitalizeFirstLeter(exerciseName)}</h2>  )}
+     
+        <h2 className={css.exercises_title}>Exercises</h2>  
+        <h2 className={css.exercises_title}>{capitalizeFirstLeter(exerciseName)}</h2>  
 <ExercisesNavigation
 activeFilter={activeFilter}
 handleFilterClick={handleFilterClick} />
@@ -48,6 +49,6 @@ handleFilterClick={handleFilterClick} />
           handleSetExName={handleSetExName}
         />
       )}
-      {activeFilter === 'Waist' }  </div>
+     </div>
   );
 };
