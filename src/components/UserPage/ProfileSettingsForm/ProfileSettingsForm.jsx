@@ -1,31 +1,65 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import css from './ProfileSettingsForm.module.css';
 import ProfileSettingsSchema from './yapValidateSchema';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateInfo } from '../../../redux/auth/operations';
+import { selectUser } from '../../../redux/auth/selectors';
+import { useEffect } from 'react';
+import { useAuth } from '../../../redux/hooks';
 
 const ProfileSettingsForm = () => {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
+  console.log('user', user);
+  // const formik = useFormikContext();
+
+  // useEffect(() => {
+  //   if (user) {
+  //     formik.setValues({
+  //       username: user.username || '',
+  //       email: user.email || '',
+  //     });
+  //   }
+  // }, [formik, user]);
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(
+      updateInfo({
+        username: values.username,
+        email: values.email,
+        height: values.height,
+        currentWeight: values.currentWeight,
+        desiredWeight: values.desiredWeight,
+        birthday: values.birthday,
+        blood: values.blood,
+        sex: values.sex,
+        levelActivity: values.levelActivity,
+      }),
+    );
+    resetForm();
+  };
+
   const initialValues = {
-    username: '',
-    email: '',
+    username: user.username,
+    email: user.email,
     height: '',
     currentWeight: '',
     desiredWeight: '',
     birthday: '',
+    blood: '',
+    sex: '',
+    levelActivity: '',
   };
-
-  // const handleSubmit = (values, { resetForm }) => {
-  //   console.log(values);
-
-  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
     >
       <Form className={css.formContainer}>
         <div className={css.basicInfoContainer}>
-          <label htmlFor="username">
+          <label htmlFor="username" className={css.fieldWithError}>
             <div className={css.setName}>Basic info</div>
             <Field
               className={css.basicInfoInput}
@@ -39,7 +73,7 @@ const ProfileSettingsForm = () => {
               className={css.ErrorMessage}
             />
           </label>
-          <label htmlFor="email">
+          <label htmlFor="email" className={css.fieldWithError}>
             <Field
               className={css.basicInfoInput}
               name="email"
@@ -99,7 +133,7 @@ const ProfileSettingsForm = () => {
                 className={css.ErrorMessage}
               />
             </label>
-            <label htmlFor="birthday">
+            <label htmlFor="birthday" className={css.fieldWithError}>
               <Field
                 className={css.infoInput}
                 name="birthday"

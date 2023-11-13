@@ -61,7 +61,7 @@ const UserView = () => {
 
         <div className={css['user-logaut-container']}>
           <button className={css['user-logaut']}>
-            Logaut
+            Logout
             <svg width="24" height="24">
               <use href={`${sprite}#icon-log-out`}></use>
             </svg>

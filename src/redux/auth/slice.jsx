@@ -5,6 +5,13 @@ const initialState = {
   user: {
     username: null,
     email: null,
+    // height: null,
+    // currentWeight: null,
+    // desiredWeight: null,
+    // birthday: null,
+    // blood: null,
+    // sex: null,
+    // levelActivity: null,
   },
   token: null,
   isLoggedIn: false,
