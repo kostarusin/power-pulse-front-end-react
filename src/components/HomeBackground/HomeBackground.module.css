@@ -2,8 +2,9 @@
   background-image: url(/src/assets/home-mobile.jpg);
   z-index: -1;
   position: absolute;
-  top: 241px;
-  right: -148px;
+  top: 91px;
+  /* right: -148px; */
+  right: 0;
   height: 669px;
   width: 446px;
   background-size: auto;
@@ -12,8 +13,10 @@
 
   @media screen and (min-width: 768px) {
     background-image: url(/src/assets/home-tablet.jpg);
-    top: 131px;
-    right: -233px;
+    /* top: 131px; */
+    top: 47px;
+    /* right: -233px; */
+    right: 0;
     height: 1005px;
     width: 670px;
   }
