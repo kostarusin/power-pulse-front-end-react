@@ -1,16 +1,13 @@
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
-import css from './ProfileSettingsForm.module.css';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateInfo } from '../../../redux/auth/operations';
-import { selectUser } from '../../../redux/auth/selectors';
-import { useEffect } from 'react';
-import { useAuth } from '../../../redux/hooks';
-
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
+//datepicker
+
+//styles
+import css from './ProfileSettingsForm.module.css';
 
 const ProfileSettingsForm = () => {
   const dispatch = useDispatch();
@@ -64,6 +61,7 @@ const ProfileSettingsForm = () => {
               name="email"
               type="email"
               placeholder="annarybachok@gmail.com"
+              readOnly
             />
             <ErrorMessage
               component="div"
