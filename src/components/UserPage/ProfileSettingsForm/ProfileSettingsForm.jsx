@@ -1,31 +1,47 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import css from './ProfileSettingsForm.module.css';
 import ProfileSettingsSchema from './yapValidateSchema';
+//redux
+import { useDispatch } from 'react-redux';
+import { updateInfo } from '../../../redux/auth/operations';
+import { useAuth } from '../../../redux/hooks';
+//datepicker
+
+//styles
+import css from './ProfileSettingsForm.module.css';
 
 const ProfileSettingsForm = () => {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
+
+  console.log(user);
+  const handleSubmit = (values, { resetForm }) => {
+    const updatedValues = { ...values };
+    delete updatedValues.email;
+    dispatch(updateInfo(updatedValues));
+    resetForm();
+  };
+
   const initialValues = {
-    username: '',
-    email: '',
+    username: user.username,
+    email: user.email,
     height: '',
     currentWeight: '',
     desiredWeight: '',
     birthday: '',
+    blood: '',
+    sex: '',
+    levelActivity: '',
   };
-
-  // const handleSubmit = (values, { resetForm }) => {
-  //   console.log(values);
-
-  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
     >
       <Form className={css.formContainer}>
         <div className={css.basicInfoContainer}>
-          <label htmlFor="username">
+          <label htmlFor="username" className={css.fieldWithError}>
             <div className={css.setName}>Basic info</div>
             <Field
               className={css.basicInfoInput}
@@ -39,12 +55,13 @@ const ProfileSettingsForm = () => {
               className={css.ErrorMessage}
             />
           </label>
-          <label htmlFor="email">
+          <label htmlFor="email" className={css.fieldWithError}>
             <Field
               className={css.basicInfoInput}
               name="email"
               type="email"
               placeholder="annarybachok@gmail.com"
+              readOnly
             />
             <ErrorMessage
               component="div"
@@ -99,7 +116,7 @@ const ProfileSettingsForm = () => {
                 className={css.ErrorMessage}
               />
             </label>
-            <label htmlFor="birthday">
+            <label htmlFor="birthday" className={css.fieldWithError}>
               <Field
                 className={css.infoInput}
                 name="birthday"

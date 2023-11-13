@@ -72,9 +72,8 @@ export const updateInfo = createAsyncThunk(
   'auth/info',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/updatedetails', credentials);
+      const res = await axios.patch('/updatedetails', credentials);
       setAuthHeader(res.data.token);
-      console.log('updateInfo', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
