@@ -1,1 +1,0 @@
-import{j as s}from"./index-e9ca95b5.js";import{H as r}from"./HomeBackground-e0bf094f.js";const t=()=>s.jsxs("section",{className:css.error,children:[s.jsx("h1",{children:"404"}),s.jsx(r,{})]});export{t as default};
