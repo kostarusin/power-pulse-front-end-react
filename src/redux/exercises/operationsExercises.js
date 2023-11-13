@@ -1,6 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+//axios.defaults.baseURL = 'https://power-pulse-fx29.onrender.com';
+
+// const setAuthHeader = (token) => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
+
 export const fetchExercises = createAsyncThunk(
   'exercises/fetchExercises',
   async (_, thunkAPI) => {
@@ -48,6 +58,3 @@ export const fetchEquipment = createAsyncThunk(
     }
   },
 );
-
-
-
