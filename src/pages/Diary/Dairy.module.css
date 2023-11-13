@@ -2,17 +2,18 @@
   padding-bottom: 72px;
   position: relative;
   min-width: 335px;
+
   height: 812px;
   margin: 0 auto;
   padding-top: 40px;
 
   @media screen and (min-width: 768px) {
-    min-width: 768px;
+    min-width: 704px;
     height: 1024px;
     /* padding-top: ?); */
   }
   @media screen and (min-width: 1440px) {
-    min-width: 1440px;
+    min-width: 1248px;
     height: 100%;
     /* padding-top: ?; */
   }

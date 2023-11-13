@@ -41,16 +41,19 @@ export const Burger = styled.svg`
   width: 24px;
   height: 24px;
 
-  @media screen and (min-width: 769px) {
-    display: none;
-  }
+@media screen and (min-width: 1440px) {
+  display: none;
+}
 `;
 
 export const LogOut = styled(Link)`
+@media screen and (min-width: 1440px) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
   @media screen and (min-width: 769px) {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: none;
   }
 `;
 

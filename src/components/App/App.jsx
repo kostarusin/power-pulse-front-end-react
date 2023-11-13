@@ -8,9 +8,9 @@ import { refreshUser } from '../../redux/auth/operations';
 //SharedLayout
 import SharedLayout from './SharedLayout';
 
-//red
-// import RestrictedRoute from './RestrictedRoute';
-// import PrivateRoute from './PrivateRoute';
+//routes
+import PublicRoute from '../routes/PublicRoute';
+import PrivateRoute from '../routes/PrivateRoute';
 
 //components
 const HomePage = lazy(() => import('../../pages/Home/Home'));
@@ -20,6 +20,7 @@ const ProductsPage = lazy(() => import('../../pages/Products/Products'));
 const SignInPage = lazy(() => import('../../pages/SignIn/SignIn'));
 const SignUpPage = lazy(() => import('../../pages/SignUp/SignUp'));
 const UserPage = lazy(() => import('../../pages/UserPage/UserPage'));
+const ErrorPage = lazy(() => import('../../pages/Error/Error'));
 
 function App() {
   const dispatch = useDispatch();
@@ -33,12 +34,31 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/register" element={<SignUpPage />} />
-          <Route path="/login" element={<SignInPage />} />
-          <Route path="/diary" element={<DiarysPage />} />
-          <Route path="/exercises" element={<ExercisesPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route
+            path="login"
+            element={<PublicRoute redirectto="/diary" component={SignInPage} />}
+          />
+          <Route
+            path="register"
+            element={<PublicRoute redirectto="/user" component={SignUpPage} />}
+          />
+          <Route
+            path="diary"
+            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
+          />
+          <Route
+            path="profile"
+            element={<PrivateRoute redirectto="/" component={UserPage} />}
+          />
+          <Route
+            path="products"
+            element={<PrivateRoute redirectto="/" component={ProductsPage} />}
+          />
+          <Route
+            path="exercises"
+            element={<PrivateRoute redirectto="/" component={ExercisesPage} />}
+          />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </div>

@@ -6,12 +6,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   grayForText,
+  grayMiddle,
   orangeDark,
   white,
 } from '../../components/Helpers/helpers.js';
 
 import products from '../../../src/temp/power-puls.products.json';
 import productsCategories from '../../../src/temp/productsCategories.json';
+import { useState } from 'react';
+import { Modal } from '../../components/Modal/Modal.jsx';
+import { ButtonModal } from '../../components/ButtonModal/ButtonModal.jsx';
 
 const optionsCategories = [];
 const optionsRecomendation = [
@@ -28,6 +32,25 @@ productsCategories.map((product) => {
 });
 
 const Products = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [productData, setProductData] = useState({});
+  const [caclCall, setCalcCall] = useState(0);
+
+  const toggleSuccessModal = () => {
+    setShowSuccessModal((prevState) => !prevState);
+    setCalcCall(0);
+  };
+
+  const toggleSuccessModal1 = (data) => {
+    setProductData(data);
+  };
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+
+    setCalcCall(value * productData.calories);
+  };
+
   return (
     <section className={css.productsSection}>
       <p className={css.toolTip}>Filters</p>
@@ -69,7 +92,7 @@ const Products = () => {
       <ul className={css.cardContainer}>
         {products.map((product) => {
           return (
-            <li key={product.id} className={css.card}>
+            <li key={product._id.id} className={css.card}>
               <div className={css.cardPart1}>
                 <p className={css.dietField}>DIET</p>
                 <div
@@ -81,7 +104,13 @@ const Products = () => {
                 >
                   {' '}
                   <p>Recommended</p>
-                  <button className={css.addButton}>
+                  <button
+                    className={css.addButton}
+                    onClick={() => {
+                      toggleSuccessModal();
+                      toggleSuccessModal1(product);
+                    }}
+                  >
                     Add
                     <ArrowForwardIcon fontSize="small" />
                   </button>
@@ -115,6 +144,42 @@ const Products = () => {
           );
         })}
       </ul>
+
+      {showSuccessModal && (
+        <Modal onClose={toggleSuccessModal}>
+          <div>
+            <form>
+              <div className={css.inputModalBox}>
+                <input
+                  type="text"
+                  value={productData.title}
+                  className={css.modalInput}
+                  style={{ color: grayMiddle }}
+                  disabled
+                />
+                <input
+                  type="text"
+                  className={css.modalInputcall}
+                  onChange={handleChange}
+                />
+              </div>
+              <p>
+                <span style={{ color: grayForText }}>Calories: </span>
+                {caclCall}
+              </p>
+            </form>
+            <div className={css.buttonModalBox}>
+              <ButtonModal btnType={'button'} text={'Add to diary'} />
+              <button
+                className={css.closeModalButton}
+                onClick={toggleSuccessModal}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </section>
   );
 };

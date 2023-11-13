@@ -21,11 +21,22 @@
   line-height: 1.2;
 }
 .addProductBtn {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.28;
+  background: transparent;
+  display: flex;
+
+  align-items: center;
+  padding: 0;
+  border: none;
+  color: #efede8;
+}
+.link {
+  color: #e6533c;
   margin-right: 8px;
 }
+
 .errNotFound {
   font-size: 16px;
   line-height: 24px;

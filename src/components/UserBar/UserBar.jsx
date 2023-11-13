@@ -14,8 +14,9 @@ import { logOut } from '../../redux/auth/operations';
 
 import sprite from '../../assets/icons-optimized.svg';
 
-const UserBar = () => {
+const UserBar = ({ onBurgerClick }) => {
   const dispatch = useDispatch();
+
   return (
     <UserBarBlock>
       <UserBarLink to="/profile">
@@ -28,10 +29,10 @@ const UserBar = () => {
           <use href={`${sprite}#icon-user`} />
         </IconUserAvatar>
       </UserAvatar>
-      <Burger>
+      <Burger onClick={onBurgerClick}>
         <use href={`${sprite}#icon-burger-menu`} />
       </Burger>
-      <LogOut onClick={() => dispatch(logOut)}>
+      <LogOut onClick={() => dispatch(logOut())}>
         <LogOutText>Logout</LogOutText>
         <LogOutSvg>
           <use href={`${sprite}#icon-log-out`} />
