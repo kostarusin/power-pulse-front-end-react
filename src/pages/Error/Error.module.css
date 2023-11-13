@@ -1,4 +1,16 @@
-.container2 {
+body {
+  /* background-color: var(--orange-dark); */
+}
+.error {
+  /* position: absolute; */
+  top: 0;
+  left: 96px;
+  width: 669px;
+  height: 800px;
+  background-color: var(--orange-dark);
+}
+
+.container1 {
   padding-top: 221px;
   width: 477px;
 }
@@ -14,7 +26,6 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--white);
-  margin-top: 28px;
   margin-bottom: 28px;
 }
 .link {
@@ -42,10 +53,10 @@
   /* background-image: url(/src/pages/Home/home-mobile-i.jpg); */
   z-index: -1;
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  height: 669px;
-  width: 446px;
+  /* height: 669px; */
+  /* width: 446px; */
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
@@ -56,18 +67,8 @@
   @media screen and (min-width: 1440px) {
     background-image: url(/src/assets/home-desc.jpg);
     top: 0;
-  }
-}
-
-.container1 {
-  background-color: var(--orange-dark);
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  width: 669px;
-  height: 100vh;
-
-  @media screen and (min-width: 1440px) {
-    top: 0;
+    right: 0;
+    /* bottom: 0; */
+    /* height: 100vh; */
   }
 }
