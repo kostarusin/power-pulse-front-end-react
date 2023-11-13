@@ -7,35 +7,20 @@ import { selectUser } from '../../../redux/auth/selectors';
 import { useEffect } from 'react';
 import { useAuth } from '../../../redux/hooks';
 
+//redux
+import { useDispatch } from 'react-redux';
+import { updateInfo } from '../../../redux/auth/operations';
+import { useAuth } from '../../../redux/hooks';
+
 const ProfileSettingsForm = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log('user', user);
-  // const formik = useFormikContext();
 
-  // useEffect(() => {
-  //   if (user) {
-  //     formik.setValues({
-  //       username: user.username || '',
-  //       email: user.email || '',
-  //     });
-  //   }
-  // }, [formik, user]);
-
+  console.log(user);
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(
-      updateInfo({
-        username: values.username,
-        email: values.email,
-        height: values.height,
-        currentWeight: values.currentWeight,
-        desiredWeight: values.desiredWeight,
-        birthday: values.birthday,
-        blood: values.blood,
-        sex: values.sex,
-        levelActivity: values.levelActivity,
-      }),
-    );
+    const updatedValues = { ...values };
+    delete updatedValues.email;
+    dispatch(updateInfo(updatedValues));
     resetForm();
   };
 
