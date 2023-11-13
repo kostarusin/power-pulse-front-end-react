@@ -1,9 +1,3 @@
-.title {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 24px;
-  line-height: 1.16;
-}
 .user-view-container {
   margin: 0 auto;
   display: flex;
@@ -14,8 +8,7 @@
 @media screen and (min-width: 768px) {
   .user-view-container {
     width: 439px;
-    margin-top: 72px;
-    margin-bottom: 64px;
+
     font-size: 32px;
     line-height: 1.37;
   }
@@ -156,6 +149,7 @@
 @media screen and (min-width: 768px) {
   .user-daily-list {
     gap: 16px;
+    margin-bottom: 32px;
   }
   .user-daily-text {
     line-height: 1.5;
@@ -188,11 +182,12 @@
     width: 439px;
     font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 32px;
   }
 }
 
 .user-logaut-container {
-  width: 231px;
+  width: 335px;
   display: flex;
   align-items: flex-end;
   flex-direction: column;

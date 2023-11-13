@@ -12,14 +12,14 @@ const ProfileSettingsForm = () => {
     birthday: '',
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-  };
+  // const handleSubmit = (values, { resetForm }) => {
+  //   console.log(values);
+  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
     >
       <Form className={css.formContainer}>
