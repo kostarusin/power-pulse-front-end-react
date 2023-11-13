@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 const ProfileSettingsSchema = Yup.object().shape({
-  fullName: Yup.string().required(),
+  username: Yup.string().required(),
   email: Yup.string().email('Invalid email address').required(),
   height: Yup.number().min(150, 'Must be at least 150 cm').required(),
   currentWeight: Yup.number().min(35, 'Must be at least 35 kg').required(),
