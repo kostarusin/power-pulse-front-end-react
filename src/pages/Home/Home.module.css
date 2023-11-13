@@ -1,5 +1,7 @@
 .hero {
   padding-top: 127px;
+  min-width: 320px;
+  max-width: 1440px;
 
   @media screen and (min-width: 768px) {
     padding-top: 105px;
@@ -32,7 +34,7 @@
   }
 }
 .overlay {
-  background-image: url(./Line-mobile.svg);
+  background-image: url(/src/assets/line-mobile.svg);
   background-repeat: no-repeat;
   position: relative;
   top: -79px;
