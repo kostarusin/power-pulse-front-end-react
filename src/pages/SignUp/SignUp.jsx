@@ -28,7 +28,7 @@ const SignUp = () => {
           </a>
         </p>
       </div>
-      <HomeBackground />
+      <HomeBackground darkPhoto />
     </section>
   );
 };

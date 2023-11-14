@@ -1,26 +1,45 @@
 .signin {
-  padding-top: 200px;
-  padding-left: 96px;
+  padding-top: 127px;
+  @media screen and (min-width: 768px) {
+    padding-top: 189px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 200px;
+  }
 }
 
 .container {
-  width: 496px;
-  height: 84px;
+  width: 335px;
+  height: 78px;
+  @media screen and (min-width: 768px) {
+    width: 496px;
+    height: 84px;
+  }
 }
 
 .title {
   font-weight: 700;
-  font-size: 32px;
-  line-height: 44px;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 16px;
+  }
 }
 
 .text1 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 18px;
   color: var(--gray-middle);
-  margin-top: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
+
 .text2 {
   font-weight: 400;
   font-size: 12px;
