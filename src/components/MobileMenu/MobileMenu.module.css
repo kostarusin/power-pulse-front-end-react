@@ -1,8 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-export const MobileMenuBlock = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+.mobileMenuWrap {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,19 +8,19 @@ export const MobileMenuBlock = styled.div`
   background-color: var(--orange-dark);
   z-index: 100;
   padding-left: 20px;
-`;
+}
 
-export const UserNaviWrap = styled.div`
+.userNaviWrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 245px;
-`;
+}
 
-export const MobileMenuItem = styled.div`
+.mobMenuItem {
   flex: 1;
-  /* flex-direction: column; */
+  flex-direction: column;
   font-size: 14px;
   color: var(--white);
   cursor: pointer;
@@ -31,9 +28,6 @@ export const MobileMenuItem = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-`;
-
-export const MobileMenuBtn = styled.button`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 10px 27px;
@@ -45,29 +39,18 @@ export const MobileMenuBtn = styled.button`
   &:hover {
     border-color: var(--white);
   }
-`;
+}
 
-export const CloseButton = styled.div`
+.xButton {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 24px;
   color: var(--white);
   cursor: pointer;
-`;
+}
 
-export const LogOutBtn = styled.button`
-  margin: 380px 20px 110px 20px;
-  line-height: 18px;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  padding: 10px 27px;
-  background-color: var(--orange-dark);
-  color: var(--white);
-  cursor: pointer;
-`;
-
-export const LogOutTextMob = styled.div`
+.logoutText {
   color: var(--white);
   font-family: Roboto;
   font-size: 14px;
@@ -76,9 +59,9 @@ export const LogOutTextMob = styled.div`
   line-height: 24px;
   cursor: pointer;
   margin-right: 8px;
-`;
+}
 
-export const LogOutSvgMob = styled.svg`
+.logoutIcon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,15 +71,15 @@ export const LogOutSvgMob = styled.svg`
   fill: var(--white);
   font-size: 14px;
   cursor: pointer;
-`;
+}
 
-export const LogOutMobWrap = styled.div`
+.loguotWrap {
   display: flex;
   justify-content: start;
   align-items: center;
-`;
+}
 
-export const LogOutMob = styled(Link)`
+.logoutLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,4 +89,4 @@ export const LogOutMob = styled(Link)`
   fill: var(--white);
   font-size: 14px;
   cursor: pointer;
-`;
+}

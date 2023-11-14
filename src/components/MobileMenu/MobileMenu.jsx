@@ -1,62 +1,37 @@
 import { Link } from 'react-router-dom';
-import {
-  MobileMenuBlock,
-  MobileMenuItem,
-  CloseButton,
-  MobileMenuBtn,
-} from './MobileMenu.styled';
-import { LogOut } from '../UserBar/UserBar.styled';
-import { LogOutSvgMob, LogOutTextMob, LogOutBtn } from './MobileMenu.styled';
+import css from './MobileMenu.module.css';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 import sprite from '../../assets/icons-optimized.svg';
 
-const MobileMenu = ({ isOpen, onClose, onLogout }) => {
+const MobileMenu = ({ onClose }) => {
   const dispatch = useDispatch();
   return (
-    <div>
-      <MobileMenuBlock isOpen={isOpen}>
-        <CloseButton onClick={onClose}>&times;</CloseButton>
-        <MobileMenuItem as={Link} to="/diary" onClick={onClose}>
-          <MobileMenuBtn>Diary</MobileMenuBtn>
-        </MobileMenuItem>
-        <MobileMenuItem as={Link} to="/exercises" onClick={onClose}>
-          <MobileMenuBtn>Exercises</MobileMenuBtn>
-        </MobileMenuItem>
-        <MobileMenuItem as={Link} to="/products" onClick={onClose}>
-          <MobileMenuBtn>Products</MobileMenuBtn>
-        </MobileMenuItem>
-        <LogOutBtn>
-          <MobileMenuItem onClick={onLogout}>
-            <LogOut onClick={() => dispatch(logOut())}>
-              <LogOutTextMob>Logout</LogOutTextMob>
-              <LogOutSvgMob>
-                <use href={`${sprite}#icon-log-out-white`} />
-              </LogOutSvgMob>
-            </LogOut>
-          </MobileMenuItem>
-        </LogOutBtn>
-      </MobileMenuBlock>
+    <div className={css.mobileMenuWrap}>
+      <div className={css.xButton} onClick={onClose}>
+        &times;
+      </div>
+      <div className={css.userNaviWrap}>
+        <Link className={css.mobMenuItem} to="/diary">
+          Diary
+        </Link>
+        <Link className={css.mobMenuItem} to="/exercises">
+          Exercises
+        </Link>
+        <Link className={css.mobMenuItem} to="/products">
+          Products
+        </Link>
+      </div>
+      <div className={css.loguotWrap}>
+        <Link className={css.logoutLink} onClick={() => dispatch(logOut())}>
+          <p className={css.logoutText}>Logout</p>
+          <svg className={css.logoutIcon}>
+            <use href={`${sprite}#icon-log-out-white`} />
+          </svg>
+        </Link>
+      </div>
     </div>
   );
 };
 
 export default MobileMenu;
-
-// import React from 'react';
-// import { MobileMenuBlock, MobileMenuItem, CloseButton } from './MobileMenu.styled';
-// // import sprite from '../../assets/icons-optimized.svg';
-
-// const MobileMenu = ({ isOpen, onClose, onLogout }) => {
-//   return (
-//     <MobileMenuBlock isOpen={isOpen}>
-//       <CloseButton onClick={onClose}>&times;</CloseButton>
-//       <MobileMenuItem as="div" onClick={() => console.log('Diary clicked')}>Diary</MobileMenuItem>
-//       <MobileMenuItem as="div" onClick={() => console.log('Exercises clicked')}>Exercises</MobileMenuItem>
-//       <MobileMenuItem as="div" onClick={() => console.log('Products clicked')}>Products</MobileMenuItem>
-//       <MobileMenuItem as="div" onClick={onLogout}>Log Out</MobileMenuItem>
-//     </MobileMenuBlock>
-//   );
-// };
-
-// export default MobileMenu;
