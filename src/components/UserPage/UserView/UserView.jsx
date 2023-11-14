@@ -1,9 +1,13 @@
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../../redux/auth/operations';
+
 import css from './UserView.module.css';
 import sprite from '../../../assets/icons-optimized.svg';
 import icon from '../../../assets/icons.svg';
 import iconUser from '../../../assets/user.jpg';
 
 const UserView = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className={css['user-view-container']}>
@@ -60,7 +64,10 @@ const UserView = () => {
         </p>
 
         <div className={css['user-logaut-container']}>
-          <button className={css['user-logaut']}>
+          <button
+            className={css['user-logaut']}
+            onClick={() => dispatch(logOut())}
+          >
             Logout
             <svg width="24" height="24">
               <use href={`${sprite}#icon-log-out`}></use>
