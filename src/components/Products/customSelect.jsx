@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import {
   black,
@@ -8,13 +8,35 @@ import {
   orangeDark,
   white,
 } from '../Helpers/helpers';
+import { useDispatch } from 'react-redux';
+import { findProduct, findProductByRec } from '../../redux/products/slice';
 
 const breakpoints = [768, 1440];
-
 const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
-export default function CustomSelect({ placeholder, minWidth, options }) {
+export default function CustomSelect({ placeholder, minWidth, options, name }) {
   const [selectedOption, setSelectedOption] = useState(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (name === 'Categories') {
+      dispatch(findProduct(selectedOption));
+    }
+    if (name === 'Recommendations') {
+      dispatch(findProductByRec(selectedOption));
+      setSelectedOption(placeholder);
+    }
+  }, [dispatch, selectedOption, name, placeholder]);
+
+  const optionsCategories = [];
+  options.map((product) => {
+    optionsCategories.push({
+      value: product,
+      label: product,
+    });
+  });
+
   return (
     <div
       className="selector"
@@ -25,7 +47,7 @@ export default function CustomSelect({ placeholder, minWidth, options }) {
       <Select
         defaultValue={selectedOption}
         onChange={setSelectedOption}
-        options={options}
+        options={optionsCategories}
         placeholder={placeholder}
         styles={{
           control: (base, state) => ({
