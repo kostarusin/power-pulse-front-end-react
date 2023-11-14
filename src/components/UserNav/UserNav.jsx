@@ -15,13 +15,15 @@ const UserNav = () => {
   };
 
   return (
-    <UserNavBlock>
-      <UserNavLink to="/diary">Diary</UserNavLink>
-      <UserNavLink to="/exercises">Exercises</UserNavLink>
-      <UserNavLink to="/products">Products</UserNavLink>
+    <>
+      <UserNavBlock>
+        <UserNavLink to="/diary">Diary</UserNavLink>
+        <UserNavLink to="/exercises">Exercises</UserNavLink>
+        <UserNavLink to="/products">Products</UserNavLink>
+      </UserNavBlock>
       <UserBar onBurgerClick={handleToggleMobileMenu} />
       <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />
-    </UserNavBlock>
+    </>
   );
 };
 

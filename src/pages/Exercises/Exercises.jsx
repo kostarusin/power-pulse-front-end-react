@@ -4,7 +4,7 @@ import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
-// import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
+ import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
 //redux
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ import { fetchExercises } from '../../redux/exercises/operations';
 const Exercises = () => {
   const dispatch = useDispatch();
   const { exercises } = useExercises();
-  console.log(exercises);
+  // console.log(exercises);
 
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -45,7 +45,7 @@ const Exercises = () => {
   return (
     <div>
       Exercises
-      {/* <ExercisesWrap></ExercisesWrap> */}
+       <ExercisesWrap></ExercisesWrap> 
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>
