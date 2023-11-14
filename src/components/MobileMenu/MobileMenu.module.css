@@ -1,5 +1,18 @@
-.mobileMenuWrap {
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(4, 4, 4, 0.4);
+}
+
+.backdropVisible {
   display: block;
+}
+
+.mobileMenuWrap {
   position: fixed;
   top: 0;
   left: 0;
@@ -73,7 +86,7 @@
   cursor: pointer;
 }
 
-.loguotWrap {
+.logoutWrap {
   display: flex;
   justify-content: start;
   align-items: center;
