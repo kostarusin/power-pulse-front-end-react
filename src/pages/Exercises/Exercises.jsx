@@ -4,7 +4,7 @@ import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
- import { ExercisesWrapper } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
+ import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
 //redux
 import { useDispatch } from 'react-redux';
@@ -45,7 +45,7 @@ const Exercises = () => {
   return (
     <div>
       Exercises
-       <ExercisesWrapper></ExercisesWrapper> 
+       <ExercisesWrap></ExercisesWrap> 
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>

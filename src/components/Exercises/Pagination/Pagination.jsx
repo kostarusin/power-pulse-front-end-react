@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import sprite from '../../../assets/sprite.svg';
+import sprite from '../../../../images/sprite.svg';
 import { PaginationItem } from './Pagination.styled';
 
 const Pagination = ({

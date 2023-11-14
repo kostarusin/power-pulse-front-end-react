@@ -1,36 +1,47 @@
-import css from './ExercisesNavigation.module.css';
 import { PropTypes } from 'prop-types';
+import {
+  ExercisesFilter,
+  ExercisesNavList,
+  FilterBtn,
+} from './ExercisesNavigation.styled';
 
 export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
   return (
-    <ul className={css.exercisesNavList}>
-      <li className={activeFilter === 'Body parts' ? 'active' : ''}>
-        <button 
+    <ExercisesNavList>
+      <ExercisesFilter
+        className={activeFilter === 'Body parts' ? 'active' : ''}
+      >
+        <FilterBtn
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={activeFilter === 'Body part' ? 'active' : ''}
+          className={activeFilter === 'Body parts' ? 'active' : ''}
         >
           Body parts
-        </button>
-      </li>
-      <li className={activeFilter === 'Muscules' ? 'active' : ''}>
-        <button className={activeFilter === 'Muscules' ? 'active' : ''}
-          type="button" >
-          Muscules
-        </button>
-      </li>
-      <li className={activeFilter === 'Equipment' ? 'active' : ''}>
-        <button className={activeFilter === 'Equipment' ? 'active' : ''}
+        </FilterBtn>
+      </ExercisesFilter>
+      <ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
+        <FilterBtn
           type="button"
+          onClick={() => handleFilterClick('Muscules')}
+          className={activeFilter === 'Muscules' ? 'active' : ''}
+        >
+          Muscules
+        </FilterBtn>
+      </ExercisesFilter>
+      <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>
+        <FilterBtn
+          type="button"
+          onClick={() => handleFilterClick('Equipment')}
+          className={activeFilter === 'Equipment' ? 'active' : ''}
         >
           Equipment
-        </button>
-      </li>
-    </ul>
+        </FilterBtn>
+      </ExercisesFilter>
+    </ExercisesNavList>
   );
 };
+
 ExercisesNavigation.propTypes = {
   activeFilter: PropTypes.string,
   handleFilterClick: PropTypes.func,
 };
-

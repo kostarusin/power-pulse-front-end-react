@@ -1,12 +1,16 @@
-import css from './ExercisesWrapper.module.css';
-import { BodyPartList } from '../ExercisesList/BodyPartList';
-import { MusculesList } from '../ExercisesList/MusculesList';
-import { EquipmentList } from '../ExercisesList/EquipmentList';
-import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 import { useState } from 'react';
+import { BodyPartList } from '../ExercisesList/BodyPartList';
+import {
+  ExercisesTitle,
+  ExercisesWrapper,
+  ExercisesBox,
+} from './ExercisesWrapper.styled';
+//import { MusculesList } from '../ExercisesList/MusculesList';
+//import { EquipmentList } from '../ExercisesList/EquipmentList';
+import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 
 
-export const ExercisesWrapper = () => {
+export const ExercisesWrap = () => {
   const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName, setExerciseName] = useState('');
 
@@ -22,33 +26,39 @@ export const ExercisesWrapper = () => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
+
   return (
-    <div className={css.wrapper}>
-      <li className={css.exercises_box}>
-     
-        <h2 className={css.exercises_title}>Exercises</h2>  
-        <h2 className={css.exercises_title}>{capitalizeFirstLeter(exerciseName)}</h2>  
-<ExercisesNavigation
-activeFilter={activeFilter}
-handleFilterClick={handleFilterClick} />
-      </li>
+    <ExercisesWrapper>
+      <ExercisesBox>
+        
+          <ExercisesTitle>Exercises</ExercisesTitle>
+      
+          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
+       
+        <ExercisesNavigation
+          activeFilter={activeFilter}
+          handleFilterClick={handleFilterClick}
+        />
+      </ExercisesBox>
       {activeFilter === 'Body part' && (
-      <BodyPartList 
-       handleFilterClick={handleFilterClick}
-       handleSetExName={handleSetExName}
-       />)}
- {activeFilter === 'Muscules' && (
-        <MusculesList
+        <BodyPartList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
         />
       )}
-      {activeFilter === 'Equipment' && (
+      {/* {activeFilter === 'Muscules' && (
+        <MusculesList
+          handleFilterClick={handleFilterClick}
+          handleSetExName={handleSetExName}
+        />
+      )} */}
+      {/* {activeFilter === 'Equipment' && (
         <EquipmentList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
         />
       )}
-     </div>
+       */}
+    </ExercisesWrapper>
   );
 };

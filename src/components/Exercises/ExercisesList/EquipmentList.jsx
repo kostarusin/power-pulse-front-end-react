@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import css from './ExercisesList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchExercises } from '../../../redux/exercises/operations';
+import { selectExercises } from '../../../redux/exercises/selectors';
+import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) => {
+export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchExercises());
+  }, [dispatch]);
+
+  const exercises = useSelector(selectExercises);
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {
@@ -35,7 +45,7 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) 
     };
   }, []);
 
-  const handlePageChange = (newPage) => {
+  const handlePageChange = newPage => {
     setCurrentPage(newPage);
   };
 
@@ -45,8 +55,8 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) 
 
   return (
     <PaginationContainer>
-      <ul className={css.exercisesUl}>
-        {currentItems.map((item) => (
+      <ExercisesUl>
+        {currentItems.map(item => (
           <ExercisesItem
             key={item._id}
             exercisesItem={item}
@@ -54,7 +64,7 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) 
             handleSetExName={handleSetExName}
           />
         ))}
-      </ul>
+      </ExercisesUl>
       {itemsPerPage < exercises.equipment.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
@@ -66,6 +76,7 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) 
     </PaginationContainer>
   );
 };
+
 EquipmentList.propTypes = {
   equipment: PropTypes.array,
 };
