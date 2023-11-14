@@ -5,8 +5,8 @@ import {
   ExercisesWrapper,
   ExercisesBox,
 } from './ExercisesWrapper.styled';
-//import { MusculesList } from '../ExercisesList/MusculesList';
-//import { EquipmentList } from '../ExercisesList/EquipmentList';
+import { MusculesList } from '../ExercisesList/MusculesList';
+import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 
 
@@ -46,19 +46,19 @@ export const ExercisesWrap = () => {
           handleSetExName={handleSetExName}
         />
       )}
-      {/* {activeFilter === 'Muscules' && (
+      {activeFilter === 'Muscules' && (
         <MusculesList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
         />
-      )} */}
-      {/* {activeFilter === 'Equipment' && (
+      )}
+      {activeFilter === 'Equipment' && (
         <EquipmentList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
         />
       )}
-       */}
+      
     </ExercisesWrapper>
   );
 };

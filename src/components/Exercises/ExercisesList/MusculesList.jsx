@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchExercises } from '../../../redux/exercises/operations';
-import { selectExercises } from '../../../redux/exercises/selectors';
+import { fetchByType } from '../../../redux/exercises/operations';
+import { selectByType } from '../../../redux/exercises/selectors';
 import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 
@@ -15,10 +15,10 @@ export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchExercises());
+    dispatch(fetchByType());
   }, [dispatch]);
 
-  const exercises = useSelector(selectExercises);
+  const exercises = useSelector(selectByType);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -52,7 +52,7 @@ export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems =exercises.target.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems =exercises.muscles.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <PaginationContainer>
@@ -66,10 +66,10 @@ export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
           />
         ))}
       </ExercisesUl>
-      {itemsPerPage < exercises.target.length && (
+      {itemsPerPage < exercises.muscles.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={exercises.target.length}
+          totalItems={exercises.muscles.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
