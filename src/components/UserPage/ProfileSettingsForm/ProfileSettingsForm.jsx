@@ -120,7 +120,7 @@ const ProfileSettingsForm = () => {
                 <ErrorMessage
                   component="div"
                   name="height"
-                  className={css.ErrorMessage}
+                  // className={css.ErrorMessage}
                 />
               </label>
               <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
