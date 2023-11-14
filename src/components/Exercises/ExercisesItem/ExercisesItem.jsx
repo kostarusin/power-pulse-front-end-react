@@ -14,7 +14,7 @@ export const ExercisesItem = ({
   handleFilterClick,
   handleSetExName,
 }) => {
-  const { name, filter, gifURL } = exercisesItem;
+  const { name, filter, imgURL } = exercisesItem;
   const onClick = name => {
     handleFilterClick('Waist');
     handleSetExName(name);
@@ -27,7 +27,7 @@ export const ExercisesItem = ({
 
   return (
     <ExercisesLi onClick={() => onClick(name)}>
-      <Image src={gifURL ? gifURL : images} alt={name} />
+      <Image src={imgURL ? imgURL : images} alt={name} />
       <TitleContainer>
         <ExerciseItemTitle>{capitalizeFirstLeter(name)}</ExerciseItemTitle>
         <ExerciseItemText>{filter}</ExerciseItemText>
