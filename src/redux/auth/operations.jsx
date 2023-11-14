@@ -81,3 +81,16 @@ export const updateInfo = createAsyncThunk(
     }
   },
 );
+
+export const getUserCalories = createAsyncThunk(
+  'auth/calories',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.post('/api/auth/calories');
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

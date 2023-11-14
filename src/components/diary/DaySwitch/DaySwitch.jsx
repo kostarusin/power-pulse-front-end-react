@@ -15,7 +15,7 @@ const DaySwitch = ({
       {/* <StyledDatepicker
         minDate={minDate}
         selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
+        onChange={setSelectedDate}
       /> */}
       <button
         type="button"

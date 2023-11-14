@@ -1,343 +1,167 @@
-.DayExercises {
-  max-width: 335px;
-  border-radius: 12px;
-  padding: 16px 0;
-  margin-bottom: 32px;
-
-  position: relative;
-  min-height: 335px;
-  max-width: 335px;
-  overflow: hidden;
-}
-
-.DayExercises span {
+.wrapper {
+  padding-left: 16px;
+  margin-top: 22px;
+  padding-right: 22px;
+  gap: 40px;
+  overflow-y: scroll;
+  height: 810px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
 }
-span p {
-  display: inline-block;
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-height: 170px;
+    margin-top: 19px;
+    padding-right: 16px;
+    gap: 8px;
+  }
 }
-
-/* ------------------------------------- */
-
-.DayExercises .tdDellete {
-  border: none;
-  padding-left: 45px;
-}
-.DayExercises .tdDellete button {
-  display: block;
-  padding: 0px;
-  background-color: transparent;
-}
-.DayExercises .tdDellete svg {
-  display: block;
-  width: 20px;
-  height: 20px;
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    gap: 8px;
+    margin-top: 19px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
-.DayExercises table {
-  display: block;
-  margin: 0px;
-  position: relative;
-  padding-left: 24px;
-  padding-right: 10px;
-  border-spacing: 8px;
-  border: none;
+.wrapperList {
+  gap: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 768px) {
+  .wrapperList {
+    gap: 8px;
+  }
 }
 
-.DayExercises thead {
-  display: block;
-  height: 18px;
-}
-.DayExercises tbody {
-  display: block;
-  margin-top: 8px;
-  max-height: 740px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0px;
-}
-.DayExercises thead,
-.DayExercises tbody {
-  padding-right: 18px;
-}
-.DayExercises tbody tr {
-  height: 38px;
-}
-
-.DayExercises th {
+.title {
+  color: var(--orange-light);
   font-size: 12px;
   font-weight: 400;
-  text-align: left;
-  color: #ef8964;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 18px;
+  margin-bottom: 8px;
 }
 
-.DayExercises td {
-  text-align: left;
-}
-.DayExercises td div {
-  font-size: 14px;
-  height: 40px;
+.text {
+  border: 1px solid var(--gray-middle);
+  padding-left: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 12px;
-  border: 1px solid var(--transparent-medium-2);
-  padding: 8px 14px;
-  margin: 4px;
-
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-.tdBodyPart,
-.thBodyPart {
-  max-width: 115px;
-  min-width: 115px;
-}
-.tdEquipment,
-.thEquipment {
-  max-width: 157px;
-  min-width: 157px;
-}
-.tdName,
-.thName {
-  max-width: 131px;
-  min-width: 131px;
-}
-.tdTarget,
-.thTarget {
-  max-width: 106px;
-  min-width: 106px;
-}
-.tdBurnedCalories,
-.thBurnedCalories {
-  max-width: 91px;
-  min-width: 91px;
-}
-.tdTime,
-.thTime {
-  max-width: 82px;
-  min-width: 82px;
-}
-.btnAddExersisec {
+.flex {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.arrowIcon {
-  width: 16px;
-  height: 16px;
 }
 
-@media screen and (max-width: 1439px) {
-  .DayExercises table {
-    padding-left: 2px;
-  }
-  .DayExercises .tdDellete {
-    padding-left: 2px;
-  }
-
-  .tdBodyPart,
-  .thBodyPart {
-    max-width: 90px;
-    min-width: 90px;
-  }
-  .tdEquipment,
-  .thEquipment {
-    max-width: 132px;
-    min-width: 132px;
-  }
-  .tdName,
-  .thName {
-    max-width: 128px;
-    min-width: 128px;
-  }
-  .tdTarget,
-  .thTarget {
-    max-width: 84px;
-    min-width: 84px;
-  }
-  .tdBurnedCalories,
-  .thBurnedCalories {
-    max-width: 78px;
-    min-width: 78px;
-  }
-  .tdTime,
-  .thTime {
-    max-width: 72px;
-    min-width: 72px;
-  }
+.btnDelete {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
 }
 
-/* ---------------------------------- */
-
-.recommendCircle {
-  display: block;
-  width: 14px;
-  height: 14px;
+.wrapperBodyPart {
+  width: 297px;
 }
-
 @media screen and (min-width: 768px) {
-  .DayExercises {
-    min-height: 0;
-    height: 234px;
+  .wrapperBodyPart {
+    width: 90px;
   }
-  .DayExercises tbody {
-    height: 146px;
+}
+@media screen and (min-width: 1440px) {
+  .wrapperBodyPart {
+    width: 115px;
   }
-  .DayExercises tbody tr {
+}
+
+.wrapperEquipment {
+  width: 297px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperEquipment {
+    width: 132px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapperEquipment {
+    width: 157px;
+  }
+}
+
+.wrapeerName {
+  width: 297px;
+  height: 38px;
+}
+@media screen and (min-width: 768px) {
+  .wrapeerName {
+    width: 128px;
     height: 40px;
   }
-  .DayExercises td {
-    font-size: 16px;
+}
+@media screen and (min-width: 1440px) {
+  .wrapeerName {
+    width: 131px;
   }
 }
 
-@media screen and (max-width: 767px) {
-  .DayExercises {
-    padding-left: 16px;
-    padding-right: 8px;
+.wrapperTarget {
+  width: 81px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperTarget {
+    width: 84px;
   }
-  .DayExercisesHead {
-    margin-bottom: 8px;
-  }
-
-  .DayExercises .tdDellete {
-    padding: 0px;
-  }
-  .DayExercises .tdDellete svg {
-    display: block;
-    width: 20px;
-    height: 20px;
-  }
-
-  .DayExercises tbody {
-    padding-right: 0px;
-    margin-top: 22px;
-    width: 309px;
-  }
-  .DayExercises thead {
-    display: none;
-  }
-
-  .DayExercises tbody tr {
-    display: block;
-    height: 320px;
-
-    margin-top: 24px;
-  }
-  .DayExercises td {
-    position: relative;
-
-    display: inline-grid;
-    align-items: center;
-
-    height: 38px;
-    margin-bottom: 42px;
-  }
-
-  .DayExercises td:nth-of-type(1) {
-    max-width: 297px;
-    min-width: 297px;
-  }
-  .DayExercises td:nth-of-type(1)::before {
-    content: 'Body Part';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
-  }
-
-  .DayExercises td:nth-of-type(2) {
-    max-width: 297px;
-    min-width: 297px;
-  }
-  .DayExercises td:nth-of-type(2)::before {
-    content: 'Equipment';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
-  }
-
-  .DayExercises td:nth-of-type(3) {
-    max-width: 297px;
-    min-width: 297px;
-  }
-  .DayExercises td:nth-of-type(3)::before {
-    content: 'Name';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
-  }
-
-  .DayExercises td:nth-of-type(4) {
-    max-width: 81px;
-    min-width: 81px;
-    margin-right: 16px;
-  }
-  .DayExercises td:nth-of-type(4)::before {
-    content: 'Target';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
-  }
-
-  .DayExercises td:nth-of-type(5) {
-    max-width: 80px;
-    min-width: 80px;
-    margin-right: 16px;
-  }
-  .DayExercises td:nth-of-type(5)::before {
-    content: 'Burned Cal...';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
-  }
-
-  .DayExercises td:nth-of-type(6) {
-    max-width: 76px;
-    min-width: 76px;
-    margin-right: 8px;
-  }
-  .DayExercises td:nth-of-type(6)::before {
-    content: 'Time';
-    position: absolute;
-    top: -24px;
-    font-size: 12px;
-    color: #ef8964;
+}
+@media screen and (min-width: 1440px) {
+  .wrapperTarget {
+    width: 106px;
   }
 }
 
-.not_found {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.wrapperBurnedCalories {
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.linkExercises {
-  transition: color var(--transition-duration) var(--transition-cubic);
-}
-
-.linkExercises:hover,
-.linkExercises:focus {
-  color: var(--white);
-}
-
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .DayExercises .tdDellete {
-    padding-left: 35px;
+@media screen and (min-width: 768px) {
+  .wrapperBurnedCalories {
+    width: 78px;
   }
-  .DayExercises table {
-    padding-left: 8px;
+}
+@media screen and (min-width: 1440px) {
+  .wrapperBurnedCalories {
+    width: 91px;
   }
+}
+
+.wrapperTime {
+  width: 102px;
+}
+@media screen and(min-width: 768px) {
+  .wrapperTime {
+    width: 72px;
+  }
+}
+@media screen and(min-width: 1440px) {
+  .wrapperTime {
+    width: 82px;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.withTime {
+  width: 76px;
 }

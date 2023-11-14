@@ -6,22 +6,34 @@ import DaySwitch from '../../components/diary/DaySwitch';
 import styles from './Dairy.module.css';
 import { useEffect, useState } from 'react';
 import { addDays, subDays } from 'date-fns';
-import { format } from 'date-fns';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
+import { getUserCalories } from '../../redux/auth/operations';
 import { useDiary } from '../../redux/hooks';
 
 function Diary() {
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const minDate = '13/11/2023';
-  const formattedDate = format(selectedDate, 'dd/MM/yyyy');
+  const formattedDate = selectedDate
+    .toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+    .replace(/\//g, '-');
+  console.log(formattedDate);
+  const minDate = '14/11/2023';
+
   const { doneExercises, consumedProducts } = useDiary();
 
   useEffect(() => {
-    dispatch(getDiary({ date: formattedDate }));
+    dispatch(getDiary(formattedDate));
   }, [dispatch, formattedDate]);
+
+  useEffect(() => {
+    dispatch(getUserCalories());
+  }, [dispatch]);
 
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));

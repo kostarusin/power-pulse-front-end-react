@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 //styles
+import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../../assets/icons-optimized.svg';
 
