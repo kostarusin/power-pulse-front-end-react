@@ -14,10 +14,11 @@ const ErrorPage = () => {
             Perhaps this page went on vacation or decided to disappear into
             another dimension. We apologize for this inconvenience.
           </p>
+
+          <NavLink to="/" className={css.link}>
+            Go Home
+          </NavLink>
         </div>
-        <NavLink to="/" className={css.link}>
-          Go Home
-        </NavLink>
       </div>
 
       <div className={css.image}></div>

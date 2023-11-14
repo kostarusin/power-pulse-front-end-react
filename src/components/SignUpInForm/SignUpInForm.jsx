@@ -33,7 +33,6 @@ const SignUpInForm = ({ includeName }) => {
     } else {
       dispatch(logIn(values));
     }
-
     resetForm();
   }
 
