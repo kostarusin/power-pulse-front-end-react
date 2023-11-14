@@ -2,19 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getDiary } from './operations';
 
 const initialState = {
-  products: [],
-  exercises: [],
+  consumedProducts: [],
+  doneExercises: [],
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const diarySlice = createSlice({
+  name: 'diary',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(getDiary.fulfilled, (state, action) => {
-      state.user = action.payload.doneExercises;
-      state.user = action.payload.consumedProducts;
+    builder.addCase(getDiary.fulfilled, (state, { payload }) => {
+      state.consumedProducts = payload.consumedProducts;
+      state.doneExercises = payload.doneExercises;
     });
   },
 });
 
-export const authReducer = authSlice.reducer;
+export const diaryReducer = diarySlice.reducer;
