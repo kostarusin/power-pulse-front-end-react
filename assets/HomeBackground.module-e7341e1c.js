@@ -1,0 +1,1 @@
+const s="_image_16w6b_1",_="_image2_16w6b_26",t="_statistic1_16w6b_32",b="_boxsvg1_16w6b_55",c="_boxp_16w6b_65",o="_number1_16w6b_76",i="_vid_16w6b_87",n="_statistic2_16w6b_99",a="_boxsvg2_16w6b_125",e="_number2_16w6b_136",g="_cal_16w6b_153",m={image:s,image2:_,statistic1:t,boxsvg1:b,boxp:c,number1:o,vid:i,statistic2:n,boxsvg2:a,number2:e,cal:g};export{m as c};
