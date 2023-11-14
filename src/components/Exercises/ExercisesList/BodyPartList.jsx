@@ -64,10 +64,10 @@ import { PaginationContainer } from '../Pagination/Pagination.styled';
             />
           ))}
         </ExercisesUl>
-        {itemsPerPage < data.length && (
+        {itemsPerPage < data.bodyParts.length && (
           <Pagination
             itemsPerPage={itemsPerPage}
-            totalItems={data.length}
+            totalItems={data.bodyParts.length}
             currentPage={currentPage}
             onPageChange={handlePageChange}
           />
