@@ -17,7 +17,6 @@ export const register = createAsyncThunk(
     try {
       const res = await axios.post('/api/auth/signup', credentials);
       setAuthHeader(res.data.token);
-      console.log('register', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +30,6 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post('/api/auth/signin', credentials);
       setAuthHeader(res.data.token);
-      console.log('logIn', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -42,8 +40,15 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk(
   '/api/auth/logout',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
-      await axios.post('/logout');
+      setAuthHeader(persistedToken);
+      await axios.post('/api/auth//logout');
       clearAuthHeader();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -76,6 +81,19 @@ export const updateInfo = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.patch('/api/auth/updatedetails', credentials);
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const getUserCalories = createAsyncThunk(
+  'auth/calories',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.post('/api/auth/calories');
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
