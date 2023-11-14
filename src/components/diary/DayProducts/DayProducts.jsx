@@ -3,7 +3,7 @@ import sprite from '../../../assets/icons-optimized.svg';
 
 import styles from './DayProducts.module.css';
 
-import TableProducts from './TableProducts';
+import ProductsList from './ProductsList';
 
 function DayProducts({ products }) {
   return (
@@ -22,7 +22,7 @@ function DayProducts({ products }) {
         </div>
       </div>
 
-      <TableProducts products={products} />
+      <ProductsList products={products} />
     </div>
   );
 }

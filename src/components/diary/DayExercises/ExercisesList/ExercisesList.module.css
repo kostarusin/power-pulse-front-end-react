@@ -1,0 +1,192 @@
+.wrapper {
+  padding-left: 16px;
+  margin-top: 22px;
+  padding-right: 22px;
+  gap: 40px;
+  overflow-y: scroll;
+  height: 810px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-height: 170px;
+    margin-top: 19px;
+    padding-right: 16px;
+    gap: 8px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    gap: 8px;
+    margin-top: 19px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.wrapperList {
+  gap: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 768px) {
+  .wrapperList {
+    gap: 8px;
+  }
+}
+
+.title {
+  color: var(--orange-light);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+
+.text {
+  border: 1px solid var(--gray-middle);
+  padding-left: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.btnDelete {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+@media screen and (min-width: 1440px) {
+  .btnDelete {
+    margin-left: 20px;
+  }
+}
+
+.wrapperBodyPart {
+  width: 297px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperBodyPart {
+    width: 90px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapperBodyPart {
+    width: 115px;
+  }
+}
+
+.wrapperEquipment {
+  width: 297px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperEquipment {
+    width: 132px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapperEquipment {
+    width: 157px;
+  }
+}
+
+.wrapeerName {
+  width: 297px;
+  height: 38px;
+}
+@media screen and (min-width: 768px) {
+  .wrapeerName {
+    width: 128px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapeerName {
+    width: 131px;
+  }
+}
+
+.wrapperTarget {
+  width: 81px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperTarget {
+    width: 84px;
+  }
+}
+@media screen and (min-width: 1140px) {
+  .wrapperTarget {
+    width: 106px;
+  }
+}
+
+.wrapperBurnedCalories {
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (min-width: 768px) {
+  .wrapperBurnedCalories {
+    width: 78px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapperBurnedCalories {
+    width: 91px;
+  }
+}
+
+.wrapperTime {
+  width: 102px;
+}
+@media screen and (min-width: 768px) {
+  .wrapperTime {
+    width: 116px;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.withTime {
+  width: 76px;
+}
+@media screen and(min-width: 768px) {
+  .withTime {
+    width: 72px;
+  }
+}
+@media screen and(min-width: 1440px) {
+  .withTime {
+    width: 82px;
+  }
+}
+
+.containerError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.containerError span {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--gray-middle);
+}

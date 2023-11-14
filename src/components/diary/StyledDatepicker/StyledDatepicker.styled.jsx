@@ -4,6 +4,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     position: fixed;
     z-index:9;
   }
+
   .react-datepicker {
     position: absolute;
     z-index:9;
