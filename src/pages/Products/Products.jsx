@@ -11,30 +11,63 @@ import {
   white,
 } from '../../components/Helpers/helpers.js';
 
-import products from '../../../src/temp/power-puls.products.json';
-import productsCategories from '../../../src/temp/productsCategories.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 import { ButtonModal } from '../../components/ButtonModal/ButtonModal.jsx';
 
-const optionsCategories = [];
-const optionsRecomendation = [
-  { value: 'All', label: 'All' },
-  { value: 'Recommended', label: 'Recommended' },
-  { value: 'Not recommended', label: 'Not recommended' },
-];
+import { useDispatch } from 'react-redux';
+import { useProducts } from '../../redux/hooks/useProducts.jsx';
+import {
+  fetchProductCategories,
+  fetchProducts,
+} from '../../redux/products/operations';
+import { findProductByText } from '../../redux/products/slice.jsx';
 
-productsCategories.map((product) => {
-  optionsCategories.push({
-    value: product,
-    label: product,
-  });
-});
+const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
 const Products = () => {
+  const dispatch = useDispatch();
+  const { products, loading, categories, filter, filterRec, filterByText } =
+    useProducts();
+
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [productData, setProductData] = useState({});
   const [caclCall, setCalcCall] = useState(0);
+
+  const showProducts =
+    Array.isArray(products.products) && products.products.length > 0;
+
+  let showCloseBtn = false;
+  if (filterByText !== '') {
+    showCloseBtn = true;
+  }
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    dispatch(fetchProductCategories());
+  }, [dispatch]);
+
+  const getVisibleProducts = () => {
+    if (!filter) {
+      return products.products;
+    } else {
+      return products.products.filter(({ item }) =>
+        item.category.toLowerCase().trim().includes(filter.value),
+      );
+    }
+  };
+  const visibleProducts = getVisibleProducts();
+
+  const getVisibleProductsByTitle = () => {
+    if (!filterByText) {
+      return visibleProducts;
+    } else {
+      return visibleProducts.filter(({ item }) =>
+        item.title.toLowerCase().trim().includes(filterByText.toLowerCase()),
+      );
+    }
+  };
+  const visibleProductsByTitle = getVisibleProductsByTitle();
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
@@ -48,7 +81,17 @@ const Products = () => {
   const handleChange = (event) => {
     const value = event.target.value;
 
-    setCalcCall(value * productData.calories);
+    setCalcCall((value * productData.calories) / 100);
+  };
+
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
+    dispatch(findProductByText(value));
+  };
+
+  const handleClearInput = (event) => {
+    event.preventDefault();
+    dispatch(findProductByText(''));
   };
 
   return (
@@ -63,11 +106,18 @@ const Products = () => {
                 type="text"
                 className={css.searchField}
                 placeholder="Search"
+                onChange={handleSearchChange}
+                value={filterByText}
               />
               <div className={css.buttonContainer}>
-                <button className={css.closeButton}>
-                  <CloseIcon color={orangeDark} fontSize="medium" />
-                </button>
+                {showCloseBtn && (
+                  <button
+                    className={css.closeButton}
+                    onClick={handleClearInput}
+                  >
+                    <CloseIcon color={orangeDark} fontSize="medium" />
+                  </button>
+                )}
                 <button className={css.searchButton}>
                   <SearchOutlinedIcon color={white} fontSize="medium" />
                 </button>
@@ -78,71 +128,83 @@ const Products = () => {
             <CustomSelect
               placeholder="Categories"
               minWidth="146px"
-              options={optionsCategories}
+              options={categories}
+              name="Categories"
             />
             <CustomSelect
               placeholder="All"
               minWidth="173px"
               options={optionsRecomendation}
+              name="Recommendations"
             />
           </div>
         </div>
       </div>
 
       <ul className={css.cardContainer}>
-        {products.map((product) => {
-          return (
-            <li key={product._id.id} className={css.card}>
-              <div className={css.cardPart1}>
-                <p className={css.dietField}>DIET</p>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '8px',
-                    alignItems: 'flex-start',
-                  }}
-                >
-                  {' '}
-                  <p>Recommended</p>
-                  <button
-                    className={css.addButton}
-                    onClick={() => {
-                      toggleSuccessModal();
-                      toggleSuccessModal1(product);
-                    }}
-                  >
-                    Add
-                    <ArrowForwardIcon fontSize="small" />
-                  </button>
-                </div>
-              </div>
-              <div className={css.cardPart2}>
-                <svg height={'24px'} width={'24px'} className={css.runnerSvg}>
-                  <use
-                    href="src/assets/icons.svg#icon-running-stick-figure-svgrepo-com-1"
-                    style={{ fill: 'white', display: 'block', margin: 'auto' }}
-                  />
-                </svg>
+        {loading ||
+          (showProducts &&
+            visibleProductsByTitle.map(({ item }) => {
+              return (
+                <li key={item._id} className={css.card}>
+                  <div className={css.cardPart1}>
+                    <p className={css.dietField}>DIET</p>
+                    <div
+                      style={{
+                        display: 'flex',
+                        gap: '8px',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      {' '}
+                      <p>Recommended</p>
+                      <button
+                        className={css.addButton}
+                        onClick={() => {
+                          toggleSuccessModal();
+                          toggleSuccessModal1(item);
+                        }}
+                      >
+                        Add
+                        <ArrowForwardIcon fontSize="small" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className={css.cardPart2}>
+                    <svg
+                      height={'24px'}
+                      width={'24px'}
+                      className={css.runnerSvg}
+                    >
+                      <use
+                        href="src/assets/icons.svg#icon-running-stick-figure-svgrepo-com-1"
+                        style={{
+                          fill: 'white',
+                          display: 'block',
+                          margin: 'auto',
+                        }}
+                      />
+                    </svg>
 
-                <span className={css.productName}>{product.title}</span>
-              </div>
-              <ul className={css.productEnergyList}>
-                <li className={css.productEnergyItem}>
-                  <span style={{ color: grayForText }}>Calories: </span>
-                  {product.calories}
+                    <span className={css.productName}>{item.title}</span>
+                  </div>
+                  <ul className={css.productEnergyList}>
+                    <li className={css.productEnergyItem}>
+                      <span style={{ color: grayForText }}>Calories: </span>
+                      <span>{item.calories}</span>
+                    </li>
+                    <li className={css.productEnergyItem1}>
+                      <span style={{ color: grayForText }}>Category: </span>
+                      {item.category}
+                    </li>
+                    <li className={css.productEnergyItem}>
+                      <span style={{ color: grayForText }}>Weight: </span>
+                      {item.weight}
+                    </li>
+                  </ul>
                 </li>
-                <li className={css.productEnergyItem1}>
-                  <span style={{ color: grayForText }}>Category: </span>
-                  {product.category}
-                </li>
-                <li className={css.productEnergyItem}>
-                  <span style={{ color: grayForText }}>Weight: </span>
-                  {product.weight}
-                </li>
-              </ul>
-            </li>
-          );
-        })}
+              );
+            }))}
       </ul>
 
       {showSuccessModal && (

@@ -14,7 +14,7 @@ import { fetchExercises } from '../../redux/exercises/operations';
 const Exercises = () => {
   const dispatch = useDispatch();
   const { exercises } = useExercises();
-  console.log(exercises);
+  // console.log(exercises);
 
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
