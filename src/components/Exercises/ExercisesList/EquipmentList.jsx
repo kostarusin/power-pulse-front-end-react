@@ -6,7 +6,7 @@ import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
+export const EquipmentList = ({ handleFilterClick, handleSetExName,exercises }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {
@@ -41,7 +41,7 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = equipment.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = exercises.equipment.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <PaginationContainer>
@@ -55,10 +55,10 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
           />
         ))}
       </ul>
-      {itemsPerPage < equipment.length && (
+      {itemsPerPage < exercises.equipment.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={equipment.length}
+          totalItems={exercises.equipment.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />

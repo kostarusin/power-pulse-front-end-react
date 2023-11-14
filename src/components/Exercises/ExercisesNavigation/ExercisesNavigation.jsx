@@ -8,7 +8,7 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
         <button 
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={activeFilter === 'Body parts' ? 'active' : ''}
+          className={activeFilter === 'Body part' ? 'active' : ''}
         >
           Body parts
         </button>

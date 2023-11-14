@@ -7,7 +7,7 @@ export const ExercisesItem = ({
   handleFilterClick,
   handleSetExName,
 }) => {
-const { name, filter, imgURL } = exercisesItem;
+const { name, filter, gifURL } = exercisesItem;
   const onClick = name => {
     handleFilterClick('Waist');
     handleSetExName(name);
@@ -20,7 +20,7 @@ const capitalizeFirstLeter = string => {
 
   return (
     <li className={css.exercisesLi} onClick={() => onClick(name)}>
-      <img className={css.image} src={imgURL ? imgURL : images} alt={name} />
+      <img className={css.image} src={gifURL ? gifURL : images} alt={name} />
       <div className={css.titleContainer}>
         <h3 className={css.exerciseItemTitle}>{capitalizeFirstLeter(name)}</h3>
         <p className={css.exerciseItemText}>{filter}</p>
