@@ -12,3 +12,14 @@ export const fetchExercises = createAsyncThunk(
     }
   },
 );
+export const fetchExercisesByType = createAsyncThunk(
+  'exercises/allExercises',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get(`/api/exercises/type`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

@@ -11,14 +11,15 @@ import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const MusculesList = ({ handleFilterClick, handleSetExName,exercises }) => {
-  // const dispatch = useDispatch();
+export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchExercises());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchExercises());
+  }, [dispatch]);
 
-  // const exercises = useSelector(selectExercises);
+  const exercises = useSelector(selectExercises);
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {

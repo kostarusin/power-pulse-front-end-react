@@ -11,7 +11,7 @@ import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation'
 
 
 export const ExercisesWrap = () => {
-  const [activeFilter, setActiveFilter] = useState('Body parts');
+  const [activeFilter, setActiveFilter] = useState('Body part');
   const [exerciseName, setExerciseName] = useState('');
 
   const handleSetExName = name => {
@@ -40,7 +40,7 @@ export const ExercisesWrap = () => {
           handleFilterClick={handleFilterClick}
         />
       </ExercisesBox>
-      {activeFilter === 'Body part' && (
+      {activeFilter === 'Body parts' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
