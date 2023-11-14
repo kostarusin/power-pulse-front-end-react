@@ -68,6 +68,11 @@
   height: 20px;
   margin-left: 8px;
 }
+@media screen and (min-width: 1440px) {
+  .btnDelete {
+    margin-left: 20px;
+  }
+}
 
 .wrapperBodyPart {
   width: 297px;
@@ -121,7 +126,7 @@
     width: 84px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1140px) {
   .wrapperTarget {
     width: 106px;
   }
@@ -147,14 +152,9 @@
 .wrapperTime {
   width: 102px;
 }
-@media screen and(min-width: 768px) {
+@media screen and (min-width: 768px) {
   .wrapperTime {
-    width: 72px;
-  }
-}
-@media screen and(min-width: 1440px) {
-  .wrapperTime {
-    width: 82px;
+    width: 116px;
   }
 }
 
@@ -164,4 +164,29 @@
 
 .withTime {
   width: 76px;
+}
+@media screen and(min-width: 768px) {
+  .withTime {
+    width: 72px;
+  }
+}
+@media screen and(min-width: 1440px) {
+  .withTime {
+    width: 82px;
+  }
+}
+
+.containerError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.containerError span {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--gray-middle);
 }

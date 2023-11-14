@@ -20,8 +20,8 @@ const diarySlice = createSlice({
         state.consumedCalories = payload.consumedCalories;
       })
       .addCase(getDiary.rejected, (state) => {
-        state.consumedProducts = {};
-        state.doneExercises = {};
+        state.consumedProducts = [];
+        state.doneExercises = [];
         state.burnedCalories = null;
         state.consumedCalories = null;
       });

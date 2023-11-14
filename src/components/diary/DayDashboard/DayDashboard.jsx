@@ -22,6 +22,7 @@ function DayDashboard() {
   const SportsRemaining = Math.max(dailyExerciseTime - totalSportsRemaining, 0);
 
   const CaloriesRemaining = DailyCalorieIntake - consumedCalories;
+
   return (
     <div>
       <ul className={styles.container}>
@@ -46,7 +47,9 @@ function DayDashboard() {
             <p className={styles['user-daily-text']}>Daily physical activity</p>
           </div>
 
-          <p className={styles['user-daily-text-value']}>110 min</p>
+          <p className={styles['user-daily-text-value']}>
+            {dailyExerciseTime} min
+          </p>
         </li>
 
         <li className={styles['user-daily-items']}>
@@ -57,7 +60,9 @@ function DayDashboard() {
             <p className={styles['user-daily-text']}>Сalories consumed</p>
           </div>
 
-          <p className={styles['user-daily-text-value']}>{consumedCalories}</p>
+          <p className={styles['user-daily-text-value']}>
+            {consumedCalories || 0}
+          </p>
         </li>
 
         <li className={styles['user-daily-items']}>
@@ -68,7 +73,9 @@ function DayDashboard() {
             <p className={styles['user-daily-text']}>Сalories burned</p>
           </div>
 
-          <p className={styles['user-daily-text-value']}>{burnedCalories}</p>
+          <p className={styles['user-daily-text-value']}>
+            {burnedCalories || 0}
+          </p>
         </li>
 
         <li className={styles['user-daily-items']}>

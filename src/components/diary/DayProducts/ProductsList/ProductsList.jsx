@@ -14,11 +14,11 @@ const ProductsList = ({ products }) => {
   }, []);
 
   return (
-    <ul className={css.wrapper}>
-      {products.length === 0 ? (
+    <div className={css.wrapper}>
+      {products.length !== 0 ? (
         products.map((product, index) => {
           return (
-            <li key={product._id}>
+            <div key={product._id}>
               <ul className={css.wrapperList}>
                 <li className={css.wrapperItemTitle}>
                   <div
@@ -92,13 +92,15 @@ const ProductsList = ({ products }) => {
                   </div>
                 </li>
               </ul>
-            </li>
+            </div>
           );
         })
       ) : (
-        <div>Not found products</div>
+        <div className={css.containerError}>
+          <span>Not found products</span>
+        </div>
       )}
-    </ul>
+    </div>
   );
 };
 

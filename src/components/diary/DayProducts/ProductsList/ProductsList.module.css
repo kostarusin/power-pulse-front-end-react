@@ -71,11 +71,16 @@
   border-radius: 12px;
   width: 76px;
 }
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .wrapperRecommend {
+    width: 80px;
+  }
+}
+@media screen and (min-width: 1440px) {
   .wrapperRecommend {
     width: 110px;
   }
-} */
+}
 
 .wrapperItemTitle {
   width: 297px;
@@ -146,6 +151,11 @@
     width: 110px;
   }
 }
+@media screen and (min-width: 1440px) {
+  .flex {
+    width: 144px;
+  }
+}
 
 .btnDelete {
   width: 20px;
@@ -156,4 +166,19 @@
   .btnDelete {
     margin-left: 8px;
   }
+}
+
+.containerError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.containerError span {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--gray-middle);
 }

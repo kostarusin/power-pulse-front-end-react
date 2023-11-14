@@ -11,10 +11,16 @@ import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
 import { getUserCalories } from '../../redux/auth/operations';
 import { useDiary } from '../../redux/hooks';
-
+import { useAuth } from '../../redux/hooks';
+//date lib
+import { parseISO, startOfDay } from 'date-fns';
 function Diary() {
   const dispatch = useDispatch();
+  const { user } = useAuth();
+
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const minDate = startOfDay(parseISO(user.birthday));
+
   const formattedDate = selectedDate
     .toLocaleDateString('en-GB', {
       day: '2-digit',
@@ -22,8 +28,6 @@ function Diary() {
       year: 'numeric',
     })
     .replace(/\//g, '-');
-  console.log(formattedDate);
-  const minDate = '14/11/2023';
 
   const { doneExercises, consumedProducts } = useDiary();
 

@@ -12,11 +12,12 @@ function ExercisesList({ exercises }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
-    <ul className={css.wrapper}>
-      {exercises.length === 0 ? (
+    <div className={css.wrapper}>
+      {exercises.length !== 0 ? (
         exercises.map((exercise, index) => (
-          <li key={exercise._id}>
+          <div key={exercise._id}>
             <ul className={css.wrapperList}>
               <li className={css.wrapperBodyPart}>
                 <div
@@ -28,7 +29,7 @@ function ExercisesList({ exercises }) {
                 >
                   Body Part
                 </div>
-                <div className={css.text}>Body Part</div>
+                <div className={css.text}>{exercise.bodyPart}</div>
               </li>
               <li className={css.wrapperEquipment}>
                 <div
@@ -96,12 +97,14 @@ function ExercisesList({ exercises }) {
                 </div>
               </li>
             </ul>
-          </li>
+          </div>
         ))
       ) : (
-        <div>Not found exercises</div>
+        <div className={css.containerError}>
+          <span>Not found products</span>
+        </div>
       )}
-    </ul>
+    </div>
   );
 }
 

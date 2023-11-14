@@ -12,11 +12,11 @@ const DaySwitch = ({
 }) => {
   return (
     <div>
-      {/* <StyledDatepicker
+      <StyledDatepicker
         minDate={minDate}
         selectedDate={selectedDate}
         onChange={setSelectedDate}
-      /> */}
+      />
       <button
         type="button"
         className={css.arrowLeft}

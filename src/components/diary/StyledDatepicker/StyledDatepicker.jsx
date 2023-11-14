@@ -1,18 +1,18 @@
 import { forwardRef } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-//styles
-import { CalendarGlobalStyles } from './StyledDatepicker.styled';
-import 'react-datepicker/dist/react-datepicker.css';
+
 import sprite from '../../../assets/icons-optimized.svg';
+import { CalendarGlobalStyles } from './StyledDatepicker.styled';
+import css from './CustomInput.module.css';
 
 const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
-      <div onClick={onClick} ref={ref}>
-        <div className={css.input}>{format(selectedDate, 'dd/MM/yyyy')}</div>
+      <div onClick={onClick} ref={ref} className={css.container}>
+        <div>{format(selectedDate, 'dd-MM-yyyy')}</div>
         <div>
-          <svg width="20" height="20">
+          <svg width="20" height="20" className={css.svg}>
             <use href={`${sprite}#icon-calendar-bage`}></use>
           </svg>
         </div>
@@ -21,18 +21,17 @@ const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
   });
 
   return (
-    <div>
+    <>
       <DatePicker
-        inline
         selected={selectedDate}
         onChange={onChange}
-        minDate={minDate}
-        calendarStartDay={1}
         customInput={<CustomInput />}
+        minDate={minDate}
+        dateFormat={'dd MM yyyy'}
+        calendarStartDay={1}
       />
-
       <CalendarGlobalStyles />
-    </div>
+    </>
   );
 };
 
