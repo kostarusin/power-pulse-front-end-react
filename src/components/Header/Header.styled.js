@@ -17,5 +17,7 @@ export const LogoWrap = styled.div`
 export const User = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 32px;
-`;
+
+   @media screen and (min-width: 769px) {
+    gap: 32px;
+ `;

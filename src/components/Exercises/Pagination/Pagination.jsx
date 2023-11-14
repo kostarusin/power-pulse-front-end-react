@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import sprite from '../../../assets/sprite.svg';
+//import sprite from '../../../../images/sprite.svg';
 import { PaginationItem } from './Pagination.styled';
 
 const Pagination = ({
@@ -27,11 +27,11 @@ const Pagination = ({
         >
           <button className="page-link" onClick={() => handlePageChange(i)}>
             {i}
-            {i === currentPage && (
+            {/* {i === currentPage && (
               <svg>
                 <use href={`${sprite}#pagination-btn`} />
               </svg>
-            )}
+            )} */}
           </button>
         </PaginationItem>,
       );

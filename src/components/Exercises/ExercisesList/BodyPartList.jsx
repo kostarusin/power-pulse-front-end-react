@@ -1,23 +1,22 @@
-
-import css from "./ExercisesList.module.css";
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBodyParts } from '../../../redux/exercises/operationsExercises';
-import { selectBodyParts } from '../../../redux/exercises/selectorsExercises';
+import { fetchExercises} from '../../../redux/exercises/operations';
+import { selectExercises } from '../../../redux/exercises/selectors';
+import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
+
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
-
 
 export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBodyParts());
+    dispatch(fetchExercises());
   }, [dispatch]);
 
-  const bodyParts = useSelector(selectBodyParts);
+  const exercises = useSelector(selectExercises);
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {
@@ -50,33 +49,32 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = bodyParts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = exercises.bodyPart.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <PaginationContainer>
-    <div>
-      <ul className={css.exercisesUl}>
-      {currentItems.map(item => (
+      <ExercisesUl>
+        {currentItems.map(item => (
           <ExercisesItem
-          key={item._id}
-          exercisesItem={item}
-          handleFilterClick={handleFilterClick}
-          handleSetExName={handleSetExName}/>
-          ))}
-      </ul>
-      {itemsPerPage < bodyParts.length && (
+            key={item._id}
+            exercisesItem={item}
+            handleFilterClick={handleFilterClick}
+            handleSetExName={handleSetExName}
+          />
+        ))}
+      </ExercisesUl>
+      {itemsPerPage < exercises.bodyPart.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={bodyParts.length}
+          totalItems={exercises.bodyPart.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
       )}
-    </div>
     </PaginationContainer>
   );
 };
 
 BodyPartList.propTypes = {
-  bodyParts: PropTypes.array,
+  exercises: PropTypes.array,
 };

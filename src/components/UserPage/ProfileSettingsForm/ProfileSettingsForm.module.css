@@ -44,6 +44,7 @@
 }
 
 .secondaryInfoLabel {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -141,10 +142,17 @@
   border-color: var(--orange-light);
 }
 
+.fieldWithError {
+  position: relative;
+}
+
 .ErrorMessage {
-  color: var(--red);
-  margin-top: 5px;
+  color: var(--black);
   position: absolute;
+  z-index: 1;
+  background-color: var(--red);
+  border-radius: 12px;
+  padding: 5px;
 }
 
 @media (min-width: 768px) {

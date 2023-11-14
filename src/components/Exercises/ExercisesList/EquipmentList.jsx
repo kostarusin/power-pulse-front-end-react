@@ -1,10 +1,9 @@
-
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchEquipment } from '../../../redux/exercises/operationsExercises';
-import { selectEquipment } from '../../../redux/exercises/selectorsExercises';
-import css from './ExercisesList.module.css';
+import { fetchExercises } from '../../../redux/exercises/operations';
+import { selectExercises } from '../../../redux/exercises/selectors';
+import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 
 import Pagination from '../Pagination/Pagination';
@@ -14,10 +13,10 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchEquipment());
+    dispatch(fetchExercises());
   }, [dispatch]);
 
-  const equipment = useSelector(selectEquipment);
+  const exercises = useSelector(selectExercises);
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {
@@ -52,12 +51,12 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = equipment.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = exercises.equipment.slice(indexOfFirstItem, indexOfLastItem);
 
-    return (
-        <PaginationContainer>
-          <ul className={css.exercisesUl}>
-          {currentItems.map(item => (
+  return (
+    <PaginationContainer>
+      <ExercisesUl>
+        {currentItems.map(item => (
           <ExercisesItem
             key={item._id}
             exercisesItem={item}
@@ -65,19 +64,19 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
             handleSetExName={handleSetExName}
           />
         ))}
-              </ul>
-              {itemsPerPage < equipment.length && (
+      </ExercisesUl>
+      {itemsPerPage < exercises.equipment.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={equipment.length}
+          totalItems={exercises.equipment.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
       )}
-            </PaginationContainer>
-          );
-        };
-        EquipmentList.propTypes = {
-          equipment: PropTypes.array,
-        };
-        
+    </PaginationContainer>
+  );
+};
+
+EquipmentList.propTypes = {
+  equipment: PropTypes.array,
+};
