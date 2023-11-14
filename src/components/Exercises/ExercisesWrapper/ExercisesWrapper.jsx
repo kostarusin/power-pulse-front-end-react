@@ -1,13 +1,17 @@
-import css from './ExercisesWrapper.module.css';
+import { useState } from 'react';
 import { BodyPartList } from '../ExercisesList/BodyPartList';
+import {
+  ExercisesTitle,
+  ExercisesWrapper,
+  ExercisesBox,
+} from './ExercisesWrapper.styled';
 import { MusculesList } from '../ExercisesList/MusculesList';
 import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
-import { useState } from 'react';
 
 
 export const ExercisesWrap = () => {
-  const [activeFilter, setActiveFilter] = useState('Body parts');
+  const [activeFilter, setActiveFilter] = useState('Body part');
   const [exerciseName, setExerciseName] = useState('');
 
   const handleSetExName = name => {
@@ -22,22 +26,27 @@ export const ExercisesWrap = () => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
+
   return (
-    <div className={css.wrapper}>
-      <li className={css.exercises_box}>
-     
-        <h2 className={css.exercises_title}>Exercises</h2>  
-        <h2 className={css.exercises_title}>{capitalizeFirstLeter(exerciseName)}</h2>  
-<ExercisesNavigation
-activeFilter={activeFilter}
-handleFilterClick={handleFilterClick} />
-      </li>
+    <ExercisesWrapper>
+      <ExercisesBox>
+        
+          <ExercisesTitle>Exercises</ExercisesTitle>
+      
+          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
+       
+        <ExercisesNavigation
+          activeFilter={activeFilter}
+          handleFilterClick={handleFilterClick}
+        />
+      </ExercisesBox>
       {activeFilter === 'Body parts' && (
-      <BodyPartList 
-       handleFilterClick={handleFilterClick}
-       handleSetExName={handleSetExName}
-       />)}
- {activeFilter === 'Muscules' && (
+        <BodyPartList
+          handleFilterClick={handleFilterClick}
+          handleSetExName={handleSetExName}
+        />
+      )}
+      {activeFilter === 'Muscules' && (
         <MusculesList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
@@ -49,6 +58,7 @@ handleFilterClick={handleFilterClick} />
           handleSetExName={handleSetExName}
         />
       )}
-     </div>
+      
+    </ExercisesWrapper>
   );
 };

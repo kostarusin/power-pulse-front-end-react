@@ -1,22 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchExercises = createAsyncThunk(
-  'exercises/allExercises',
+export const fetchProducts = createAsyncThunk(
+  'products/allProducts',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get(`/api/exercises/`);
+      const res = await axios.get(`/api/products/groupBloodNotAllowed`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
-export const fetchByType = createAsyncThunk(
-  'exercises/fetchByType',
+
+export const fetchProductCategories = createAsyncThunk(
+  'products/productCategory',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('api/exercises/type');
+      const res = await axios.get(`/api/products`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

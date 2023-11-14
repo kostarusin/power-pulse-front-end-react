@@ -1,8 +1,8 @@
 import css from './HomeBackground.module.css';
 
-const HomeBackground = () => {
+const HomeBackground = ({ darkPhoto }) => {
   return (
-    <div className={css.image}>
+    <div className={css.image + (darkPhoto ? ' ' + css.image2 : '')}>
       <div className={css.statistic1}>
         <div className={css.boxsvg1}>
           <svg width="20" height="20">

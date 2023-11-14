@@ -1,22 +1,22 @@
-.exercisesNavList{
+import styled from 'styled-components';
+
+export const ExercisesNavList = styled.ul`
   display: flex;
   gap: 28px;
   margin-bottom: 48px;
-}
-@media screen and (min-width: 1440px) {
-  .exercisesNavList{
-  padding-right: 96px;
+  @media screen and (min-width: 1440px) {
+    padding-right: 96px;
   }
-}
+`;
 
-.exercisesFilter{
+export const ExercisesFilter = styled.li`
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   position: relative;
-}
-  .exercisesFilter:active::after {
+
+  &.active::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -25,21 +25,22 @@
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: rgba(239, 137, 100, 1);
+    background-color: var(--orange-color);
   }
 
-  .exercisesFilter:active {
+  &.active {
     color: #efede8;
   }
+`;
 
-
-.filterBtn{
+export const FilterBtn = styled.button`
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
   font-weight: 400;
-  background-color: var(--black);
-  border:none;
-}
-  .filterBtn:active {
+
+  background-color: var(--black-color);
+
+  &.active {
     color: #efede8;
   }
+`;
