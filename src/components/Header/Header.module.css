@@ -1,6 +1,4 @@
-import styled from '@emotion/styled';
-
-export const HeaderBar = styled.header`
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,16 +6,18 @@ export const HeaderBar = styled.header`
   width: 100%;
   position: relative;
   z-index: 1;
-`;
-export const LogoWrap = styled.div`
+}
+
+.logoWrap {
   display: flex;
   align-items: left;
-`;
+}
 
-export const User = styled.div`
+.user {
   display: flex;
   flex-direction: row;
 
-   @media screen and (min-width: 769px) {
+  @media screen and (min-width: 769px) {
     gap: 32px;
- `;
+  }
+}

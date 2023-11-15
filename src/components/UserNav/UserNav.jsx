@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { UserNavBlock, UserNavLink } from './UserNav.styled';
+import { NavLink } from 'react-router-dom';
+import css from './UserNav.module.css';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import UserBar from '../UserBar/UserBar';
 
@@ -16,11 +17,17 @@ const UserNav = () => {
 
   return (
     <>
-      <UserNavBlock>
-        <UserNavLink to="/diary">Diary</UserNavLink>
-        <UserNavLink to="/exercises">Exercises</UserNavLink>
-        <UserNavLink to="/products">Products</UserNavLink>
-      </UserNavBlock>
+      <nav className={css.nav}>
+        <NavLink className={css.naviLink} to="/diary">
+          Diary
+        </NavLink>
+        <NavLink className={css.naviLink} to="/exercises">
+          Exercises
+        </NavLink>
+        <NavLink className={css.naviLink} to="/products">
+          Products
+        </NavLink>
+      </nav>
       <UserBar onBurgerClick={handleToggleMobileMenu} />
       <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />
     </>
