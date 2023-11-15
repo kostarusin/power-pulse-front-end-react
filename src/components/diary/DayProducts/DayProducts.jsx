@@ -5,7 +5,7 @@ import styles from './DayProducts.module.css';
 
 import ProductsList from './ProductsList';
 
-function DayProducts({ products }) {
+function DayProducts({ products, selectedDate }) {
   return (
     <div className={styles.dayProductsWrapper}>
       <div className={styles.headerWrapper}>
@@ -22,7 +22,7 @@ function DayProducts({ products }) {
         </div>
       </div>
 
-      <ProductsList products={products} />
+      <ProductsList products={products} selectedDate={selectedDate} />
     </div>
   );
 }

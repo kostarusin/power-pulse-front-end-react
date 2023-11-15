@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
+import isEqual from 'lodash/isEqual';
+import _ from 'lodash';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
@@ -8,29 +10,60 @@ import { useAuth } from '../../../redux/hooks';
 
 //styles
 import css from './ProfileSettingsForm.module.css';
+import { useState } from 'react';
 
 const ProfileSettingsForm = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
-  console.log(user);
+  const [isFormChanged, setFormChanged] = useState(false);
+
+  const convertValues = (obj) => {
+    return _.omitBy(
+      _.mapValues(obj, (value, key) => {
+        if (key === 'birthday') {
+          return value.split('T')[0];
+        } else if (_.isNumber(value) || _.isString(value)) {
+          return _.isNaN(Number(value)) ? value : Number(value);
+        }
+        return value;
+      }),
+      (_, key) => key === 'avatarURL',
+    );
+  };
+
   const handleSubmit = (values, { resetForm }) => {
-    const updatedValues = { ...values };
-    delete updatedValues.email;
-    dispatch(updateInfo(updatedValues));
+    const convertedUser = convertValues(user);
+    const convertedValues = convertValues(values);
+    const areEqual = isEqual(convertedUser, convertedValues);
+
+    if (areEqual) {
+      console.log('The objects have the same values.');
+      setFormChanged(false);
+    } else {
+      const updatedValues = { ...values };
+      delete updatedValues.email;
+      dispatch(updateInfo(updatedValues));
+      setFormChanged(true);
+    }
+
     resetForm();
+  };
+
+  const handleFormChange = () => {
+    setFormChanged(true);
   };
 
   const initialValues = {
     username: user.username,
     email: user.email,
-    height: '',
-    currentWeight: '',
-    desiredWeight: '',
-    birthday: '',
-    blood: '',
-    sex: '',
-    levelActivity: '',
+    height: user.height,
+    currentWeight: user.currentWeight,
+    desiredWeight: user.desiredWeight,
+    birthday: user.birthday,
+    blood: user.blood,
+    sex: user.sex,
+    levelActivity: user.levelActivity,
   };
 
   return (
@@ -39,7 +72,7 @@ const ProfileSettingsForm = () => {
       onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
     >
-      <Form className={css.formContainer}>
+      <Form className={css.formContainer} onChange={handleFormChange}>
         <div className={css.basicInfoContainer}>
           <label htmlFor="username" className={css.fieldWithError}>
             <div className={css.setName}>Basic info</div>
@@ -116,7 +149,7 @@ const ProfileSettingsForm = () => {
                 className={css.ErrorMessage}
               />
             </label>
-            <label htmlFor="birthday" className={css.fieldWithError}>
+            <label htmlFor="birthday">
               <Field
                 className={css.infoInput}
                 name="birthday"
@@ -252,7 +285,7 @@ const ProfileSettingsForm = () => {
             Extremely active (very strenuous exercises/sports and physical work)
           </label>
         </div>
-        <button className={css.saveBtn} type="submit">
+        <button className={css.saveBtn} type="submit" disabled={!isFormChanged}>
           Save
         </button>
       </Form>

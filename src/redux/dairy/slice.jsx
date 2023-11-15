@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDiary } from './operations';
+import { getDiary, deleteExerciseOrProduct } from './operations';
 
 const initialState = {
   consumedProducts: [],
   doneExercises: [],
   burnedCalories: null,
   consumedCalories: null,
+  efficiency: {
+    time: null,
+    burnedCalories: null,
+  },
 };
 
 const diarySlice = createSlice({
@@ -24,6 +28,12 @@ const diarySlice = createSlice({
         state.doneExercises = [];
         state.burnedCalories = null;
         state.consumedCalories = null;
+      })
+      .addCase(deleteExerciseOrProduct.fulfilled, (state, { payload }) => {
+        state.consumedProducts = payload.consumedProducts;
+        state.doneExercises = payload.doneExercises;
+        state.burnedCalories = payload.burnedCalories;
+        state.consumedCalories = payload.consumedCalories;
       });
   },
 });

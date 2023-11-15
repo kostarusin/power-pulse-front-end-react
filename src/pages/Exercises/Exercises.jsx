@@ -4,7 +4,7 @@ import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
- import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
+import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
 //redux
 import { useDispatch } from 'react-redux';
@@ -13,12 +13,13 @@ import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 
 const Exercises = () => {
   const dispatch = useDispatch();
- const { exercises } = useExercises();
- const {bodyParts}=useExercises();
-console.log(exercises);
-console.log(bodyParts)
+  const { exercises } = useExercises();
+  const { bodyParts } = useExercises();
+  console.log(exercises);
+  console.log(bodyParts);
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [exercise, setExercise] = useState({});
 
   useEffect(() => {
     dispatch(fetchExercises());
@@ -27,7 +28,6 @@ console.log(bodyParts)
   useEffect(() => {
     dispatch(fetchByType());
   }, [dispatch]);
-
 
   const toggleExerciseModal = () => {
     setShowExerciseModal((prevState) => !prevState);
@@ -50,22 +50,26 @@ console.log(bodyParts)
 
   return (
     <div>
+
       {/* <WaistList></WaistList> */}
        <ExercisesWrap></ExercisesWrap> 
+
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>
       {showExerciseModal && (
         <Modal onClose={toggleExerciseModal}>
-          <AddExerciseForm exercise={exerciseTest} />
+          <AddExerciseForm
+            exercise={exerciseTest}
+            toggleExerciseModal={toggleExerciseModal}
+            toggleSuccessModal={toggleSuccessModal}
+            setExercise={setExercise}
+          />
         </Modal>
       )}
-      <button type="button" onClick={toggleSuccessModal}>
-        TEST Open exercise
-      </button>
       {showSuccessModal && (
         <Modal onClose={toggleSuccessModal}>
-          <AddExerciseSuccess exercise={exerciseTest} />
+          <AddExerciseSuccess exercise={exercise} />
         </Modal>
       )}
     </div>
