@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import css from './ExercisesList.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
 
-function ExercisesList({ exercises }) {
+function ExercisesList({ exercises, selectedDate }) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -12,6 +17,17 @@ function ExercisesList({ exercises }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const handleDeleteExercise = (exercise) => {
+    dispatch(
+      deleteExerciseOrProduct({
+        date: selectedDate,
+        credentials: {
+          id: exercise._id,
+        },
+      }),
+    );
+  };
 
   return (
     <div className={css.wrapper}>
@@ -93,7 +109,11 @@ function ExercisesList({ exercises }) {
                   <div className={`${css.text} ${css.withTime}`}>
                     {exercise.time}
                   </div>
-                  <button type="button" className={css.btnDelete}></button>
+                  <button
+                    type="button"
+                    className={css.btnDelete}
+                    onClick={() => handleDeleteExercise(exercise)}
+                  ></button>
                 </div>
               </li>
             </ul>

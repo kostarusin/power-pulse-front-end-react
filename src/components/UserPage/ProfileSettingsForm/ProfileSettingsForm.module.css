@@ -7,7 +7,6 @@
 
 .basicInfoInput {
   display: block;
-  margin-bottom: 14px;
   height: 46px;
   width: 335px;
   font-size: 14px;
@@ -44,7 +43,6 @@
 }
 
 .secondaryInfoLabel {
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -142,17 +140,29 @@
   border-color: var(--orange-light);
 }
 
+.saveBtn:disabled {
+  background-color: var(--gray-middle);
+  border-color: var(--gray-middle);
+  cursor: not-allowed;
+}
+
+.saveBtn:disabled:is(:hover, :focus) {
+  background-color: var(--gray-middle);
+  border-color: var(--orange-dark);
+  cursor: not-allowed;
+}
+
 .fieldWithError {
-  position: relative;
+  display: block;
+  margin-bottom: 14px;
 }
 
 .ErrorMessage {
-  color: var(--black);
+  color: var(--red);
   position: absolute;
+  bottom: 0;
+  font-size: 12px;
   z-index: 1;
-  background-color: var(--red);
-  border-radius: 12px;
-  padding: 5px;
 }
 
 @media (min-width: 768px) {

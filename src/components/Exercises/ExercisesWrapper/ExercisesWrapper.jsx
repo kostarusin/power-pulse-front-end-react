@@ -8,6 +8,7 @@ import {
 import { MusculesList } from '../ExercisesList/MusculesList';
 import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
+import { WaistList } from '../Waist/WaistList/WaistList';
 
 
 export const ExercisesWrap = () => {
@@ -58,7 +59,7 @@ export const ExercisesWrap = () => {
           handleSetExName={handleSetExName}
         />
       )}
-      
+       {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
     </ExercisesWrapper>
   );
 };

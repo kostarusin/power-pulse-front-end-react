@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchByType } from '../../../redux/exercises/operations';
-import { selectByType } from '../../../redux/exercises/selectors';
+import { useDispatch} from 'react-redux';
+import { fetchByType} from '../../../redux/exercises/operations';
 import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
-
+import { useExercises } from '../../../redux/hooks';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchByType());
-  }, [dispatch]);
+export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
+ const dispatch = useDispatch();
 
-  const data = useSelector(selectByType);
+ const {bodyParts}=useExercises();
+  console.log(bodyParts.bodyParts)
+ useEffect(() => {
+  dispatch(fetchByType());
+}, [dispatch]);
+
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(data);
+
   const determineItemsPerPage = () => {
     const windowWidth = window.innerWidth;
 
@@ -49,7 +50,7 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
   console.log();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.bodyParts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = bodyParts.bodyParts.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <PaginationContainer>
@@ -63,10 +64,10 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
           />
         ))}
       </ExercisesUl>
-      {itemsPerPage < data.length && (
+      {itemsPerPage <bodyParts.bodyParts.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={data.length}
+          totalItems={bodyParts.bodyParts.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
