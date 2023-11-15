@@ -83,7 +83,7 @@ export const WaistList = ({exerciseName}) => {
             </NoExercisesTitle>
         )}
         </WaistItemUl>
-        {/* <ImgWaist src={images} alt="image" /> */}
+        <ImgWaist src={images} alt="image" />
       </WaistListContainer>
     </>
   );
