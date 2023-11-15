@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { fetchByType} from '../../../redux/exercises/operations';
 import { selectByType } from '../../../redux/exercises/selectors';
 import { ExercisesUl } from './ExercisesList.styled';

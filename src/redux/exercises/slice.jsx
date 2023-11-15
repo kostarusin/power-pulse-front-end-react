@@ -16,7 +16,7 @@ const exercisesSlice = createSlice({
     exercises: [],
     isLoading: false,
     error: null,
-   data:[],
+data:[]
   },
   extraReducers: (builder) =>
     builder

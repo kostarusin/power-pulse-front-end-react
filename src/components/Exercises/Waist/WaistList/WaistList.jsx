@@ -9,8 +9,7 @@ import {
 import { selectExercises } from '../../../../redux/exercises/selectors';
 import { useEffect } from 'react';
 import { fetchExercises } from '../../../../redux/exercises/operations';
-import images from '../../../../images/waist-1x.jpg';
-import { useState } from 'react';
+import images from '../../Waist/img/Waist1.jpg';
 
 export const WaistList = ({ exerciseName }) => {
  
