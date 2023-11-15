@@ -6,36 +6,20 @@ import {
   WaistListContainer,
   ImgWaist,
 } from './WaistList.styled';
-import { selectExercises } from '../../../../redux/exercises/selectorsExercises';
+import { selectExercises } from '../../../../redux/exercises/selectors';
 import { useEffect } from 'react';
-import { fetchExercises } from '../../../../redux/exercises/operationsExercises';
-import images from '../../../../images/waist-1x.jpg';
-import { useState } from 'react';
-import BasicModalWindow from '../../../BasicModalWindow/BasicModalWindow';
-import { ExersiceModalWindow } from '../../../ExersiceModalWindow/ExersiceModalWindow';
-import { SuccessExerciseModalWindow } from '../../../ExersiceModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow';
+import { fetchExercises } from '../../../../redux/exercises/operations';
+import images from '../../Waist/img/Waist1.jpg';
 
 export const WaistList = ({ exerciseName }) => {
-  const [modalChange, setModalChange] = useState('');
-  const [modalData, setModalData] = useState(null);
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchExercises());
   }, [dispatch]);
 
-  const openModalToggle = el => {
-    setModalData(el);
-  };
-
-  const closeModal = () => {
-    setModalData(null);
-  };
-
-  const changeModal = () => {
-    setModalChange('well');
-  };
-
+  
   const exercises = useSelector(selectExercises);
   const visibleExercises = exercises.filter(
     exercise =>
@@ -45,23 +29,7 @@ export const WaistList = ({ exerciseName }) => {
   );
   return (
     <>
-      {modalData && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
-          {modalChange !== 'well' ? (
-            <ExersiceModalWindow
-              data={modalData}
-              closeModal={closeModal}
-              onClick={changeModal}
-            />
-          ) : (
-            <SuccessExerciseModalWindow
-              closeModal={closeModal}
-              data={modalData}
-              onClick={closeModal}
-            />
-          )}
-        </BasicModalWindow>
-      )}
+ 
       <WaistListContainer>
         <WaistItemUl>
           {visibleExercises.length ? (
@@ -71,7 +39,7 @@ export const WaistList = ({ exerciseName }) => {
                 <WaistItem
                   key={el._id}
                   data={el}
-                  openModalToggle={openModalToggle}
+                  
                 />
               ))
           ) : (

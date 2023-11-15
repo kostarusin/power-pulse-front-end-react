@@ -1,14 +1,5 @@
-import {
-  IconSettings,
-  IconUserAvatar,
-  UserAvatar,
-  UserBarBlock,
-  UserBarLink,
-  Burger,
-  LogOut,
-  LogOutText,
-  LogOutSvg,
-} from './UserBar.styled';
+import css from './UserBar.module.css';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 
@@ -18,27 +9,27 @@ const UserBar = ({ onBurgerClick }) => {
   const dispatch = useDispatch();
 
   return (
-    <UserBarBlock>
-      <UserBarLink to="/profile">
-        <IconSettings>
+    <div className={css.userBarWrap}>
+      <Link className={css.profileLink} to="/profile">
+        <svg className={css.settingsIcon}>
           <use href={`${sprite}#icon-settings`} />
-        </IconSettings>
-      </UserBarLink>
-      <UserAvatar>
-        <IconUserAvatar>
+        </svg>
+      </Link>
+      <div className={css.avatar}>
+        <svg className={css.avatarIcon}>
           <use href={`${sprite}#icon-user`} />
-        </IconUserAvatar>
-      </UserAvatar>
-      <Burger onClick={onBurgerClick}>
+        </svg>
+      </div>
+      <svg className={css.burger} onClick={onBurgerClick}>
         <use href={`${sprite}#icon-burger-menu`} />
-      </Burger>
-      <LogOut onClick={() => dispatch(logOut())}>
-        <LogOutText>Logout</LogOutText>
-        <LogOutSvg>
+      </svg>
+      <Link className={css.logout} onClick={() => dispatch(logOut())}>
+        <p className={css.logoutText}>Logout</p>
+        <svg className={css.logoutIcon}>
           <use href={`${sprite}#icon-log-out`} />
-        </LogOutSvg>
-      </LogOut>
-    </UserBarBlock>
+        </svg>
+      </Link>
+    </div>
   );
 };
 

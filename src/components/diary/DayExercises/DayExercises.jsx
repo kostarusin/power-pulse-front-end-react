@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import sprite from '../../../assets/icons-optimized.svg';
 import styles from './DayExercises.module.css';
 //component
-import TableExercises from './TableExercises';
+import ExercisesList from './ExercisesList/ExercisesList';
 
 function DayExercises({ exercises }) {
   return (
@@ -22,7 +22,7 @@ function DayExercises({ exercises }) {
         </div>
       </div>
 
-      <TableExercises exercises={exercises} />
+      <ExercisesList exercises={exercises} />
     </div>
   );
 }

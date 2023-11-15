@@ -1,16 +1,17 @@
 import sprite from '../../assets/icons-optimized.svg';
-import { LogoIcon, LogoText, LogoDiv } from './Logo.styled';
+import { Link } from 'react-router-dom';
+import css from './Logo.module.css';
 
 const Logo = () => {
   return (
-    <LogoDiv to={'/'}>
-      <LogoIcon>
+    <Link className={css.logoWrap} to={'/'}>
+      <svg className={css.logoIcon}>
         <use href={`${sprite}#icon-logo-large-img`} />
-      </LogoIcon>
-      <LogoText>
+      </svg>
+      <svg className={css.logoText}>
         <use href={`${sprite}#icon-logo-large-text`} />
-      </LogoText>
-    </LogoDiv>
+      </svg>
+    </Link>
   );
 };
 

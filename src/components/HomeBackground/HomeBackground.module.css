@@ -4,44 +4,51 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 669px;
-  width: 446px;
-  background-size: auto;
+  height: 571px;
+  width: 298px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: right bottom;
 
   @media screen and (min-width: 768px) {
     background-image: url(/src/assets/home-tablet.jpg);
-    height: 1005px;
-    width: 670px;
+    height: 893px;
+    width: 437px;
   }
   @media screen and (min-width: 1440px) {
     background-image: url(/src/assets/home-desc.jpg);
-    top: 0;
-    right: 0;
+    background-position: right top;
     height: 100vh;
+    width: 780px;
   }
 }
+
+.image2 {
+  @media screen and (max-width: 768px) {
+    background-image: url(/src/assets/home-mobile-dark.jpg);
+  }
+}
+
 .statistic1 {
   display: flex;
   align-items: center;
   position: relative;
-  top: 319px;
-  left: 62px;
   background-color: var(--gray);
   border-radius: 12px;
+  top: 319px;
+  left: 44px;
   width: 146px;
   height: 66px;
   padding-left: 18px;
   @media screen and (min-width: 768px) {
-    right: 0;
     top: 583px;
+    left: 0;
     width: 206px;
     height: 96px;
     padding-left: 23px;
   }
   @media screen and (min-width: 1440px) {
-    top: 536px;
+    top: 454px;
   }
 }
 
@@ -90,7 +97,8 @@
 }
 
 .statistic2 {
-  position: relative;
+  position: absolute;
+  /* margin-top: 70px; */
   top: 455px;
   left: 159px;
   background-color: var(--orange-light);
@@ -108,8 +116,9 @@
     padding-left: 28px;
   }
   @media screen and (min-width: 1440px) {
-    top: 671px;
-    left: 458px;
+    top: 630px;
+    left: 558px;
+    /* right: 32px; */
   }
 }
 
