@@ -256,8 +256,9 @@ const Products = () => {
               </p>
             </form>
             <div className={css.buttonModalBox}>
-              <ButtonModal btnType={'button'} text={'Add to diary'} />
+              <ButtonModal btnType={'submit'} text={'Add to diary'} />
               <button
+                type="button"
                 className={css.closeModalButton}
                 onClick={toggleSuccessModal}
               >
