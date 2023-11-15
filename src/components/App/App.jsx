@@ -40,7 +40,9 @@ function App() {
           />
           <Route
             path="register"
-            element={<PublicRoute redirectto="/user" component={SignUpPage} />}
+            element={
+              <PublicRoute redirectto="/profile" component={SignUpPage} />
+            }
           />
           <Route
             path="diary"

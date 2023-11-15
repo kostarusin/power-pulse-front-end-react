@@ -35,7 +35,7 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {DailyCalorieIntake}
+            {DailyCalorieIntake || 0}
           </p>
         </li>
 
@@ -48,7 +48,7 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {dailyExerciseTime} min
+            {dailyExerciseTime || 0} min
           </p>
         </li>
 
@@ -86,7 +86,9 @@ function DayDashboard() {
             <p className={styles['user-daily-text']}>Calories remaining</p>
           </div>
 
-          <p className={styles['user-daily-text-value']}>{CaloriesRemaining}</p>
+          <p className={styles['user-daily-text-value']}>
+            {CaloriesRemaining || 0}
+          </p>
         </li>
 
         <li className={styles['user-daily-items']}>
@@ -98,7 +100,7 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {SportsRemaining} min
+            {SportsRemaining || 0} min
           </p>
         </li>
       </ul>
