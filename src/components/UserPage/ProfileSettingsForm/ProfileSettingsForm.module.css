@@ -140,6 +140,18 @@
   border-color: var(--orange-light);
 }
 
+.saveBtn:disabled {
+  background-color: var(--gray-middle);
+  border-color: var(--gray-middle);
+  cursor: not-allowed;
+}
+
+.saveBtn:disabled:is(:hover, :focus) {
+  background-color: var(--gray-middle);
+  border-color: var(--orange-dark);
+  cursor: not-allowed;
+}
+
 .fieldWithError {
   display: block;
   margin-bottom: 14px;
