@@ -1,18 +1,34 @@
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../../redux/auth/operations';
+import { logOut, updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
+
 import css from './UserView.module.css';
 import sprite from '../../../assets/icons-optimized.svg';
 import icon from '../../../assets/icons.svg';
 import iconUser from '../../../assets/user.jpg';
-// import AvatarUploader from '../AvatarUploader/AvatarUploader';
 
 const UserView = () => {
+  const [avatar, setFile] = useState(null);
+
   const { colories } = useAuth();
   const dispatch = useDispatch();
 
   const { bmr, dailyExerciseTime } = colories;
   const DailyCalorieIntake = Math.floor(bmr);
+
+  useEffect(() => {
+    // Действия, которые нужно выполнить после обновления состояния avatar
+    console.log(avatar);
+    dispatch(updateInfo(avatar));
+  }, [avatar]);
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
+    setFile(selectedFile);
+  };
 
   return (
     <>
@@ -27,6 +43,9 @@ const UserView = () => {
               <use href={`${sprite}#icon-check-mark`}></use>
             </svg>
           </button>
+          <div>
+            <input type="file" onChange={handleFileChange} />
+          </div>
         </div>
         <div className={css['user-name-container']}>
           <h2 className={css['user-name-container-title']}>Anna Rybachok</h2>
