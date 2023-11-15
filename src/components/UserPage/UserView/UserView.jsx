@@ -17,17 +17,18 @@ const UserView = () => {
   const { bmr, dailyExerciseTime } = colories;
   const DailyCalorieIntake = Math.floor(bmr);
 
-  useEffect(() => {
-    // Действия, которые нужно выполнить после обновления состояния avatar
-    console.log(avatar);
-    dispatch(updateInfo(avatar));
-  }, [avatar]);
+  // useEffect(() => {
+
+  //   dispatch(updateInfo(avatar));
+  //   console.log(avatar);
+  // }, [avatar, dispatch]);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    const formData = new FormData();
-    formData.append('avatar', selectedFile);
+    // const formData = new FormData();
+    // formData.append('avatar', selectedFile);
     setFile(selectedFile);
+    dispatch(updateInfo(avatar));
   };
 
   return (
