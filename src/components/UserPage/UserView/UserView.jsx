@@ -9,8 +9,6 @@ import icon from '../../../assets/icons.svg';
 import iconUser from '../../../assets/user.jpg';
 
 const UserView = () => {
-  const [avatar, setFile] = useState(null);
-
   const { colories } = useAuth();
   const dispatch = useDispatch();
 
@@ -25,10 +23,11 @@ const UserView = () => {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    // const formData = new FormData();
-    // formData.append('avatar', selectedFile);
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
     setFile(selectedFile);
-    dispatch(updateInfo(avatar));
+    console.log(formData);
+    dispatch(updateInfo(formData));
   };
 
   return (
