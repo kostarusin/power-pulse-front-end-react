@@ -47,7 +47,7 @@ export const CardLabel = styled.p`
 export const BtnLabel = styled.button`
   background: transparent;
   border: none;
-  color: var(--orange-color);
+  color: var(--orange);
   font-size: 16px;
   line-height: 1.5;
   display: flex;
@@ -56,18 +56,12 @@ export const BtnLabel = styled.button`
   padding: 0;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  /* &::after {
-    content: url(../../../../src/components/MainExercises/Waist/img/Icon.svg);
-    display: block;
-    width: 16px;
-    height: 16px;
-  } */
 
   &:hover {
-    color: var(--white-color);
+    color: var(--white);
   }
   &:focus {
-    color: var(--white-color);
+    color: var(--white);
   }
 `;
 
@@ -89,7 +83,7 @@ export const Title = styled.h3`
   position: relative;
   font-size: 24px;
   line-height: 1.333;
-  color: var(--white-color);
+  color: var(--white);
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -105,12 +99,13 @@ export const Title = styled.h3`
 export const SvgExerciseRun = styled.svg`
   width: 16px;
   height: 16px;
+  fill:var(--white)
 `;
 export const SpanExerciseRun = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--beige-color);
+  background-color: var(--bage);
 
   border-radius: 50%;
 
@@ -128,11 +123,11 @@ export const ListItem = styled.li`
   display: flex;
   flex-direction: row;
   gap: 4px;
-  color: rgba(239, 237, 232, 0.4);
+  color: var(--grayEx);
   font-size: 12px;
   line-height: 1.5;
 `;
 
 export const ListItemValue = styled.span`
-  color: var(--white-color);
+  color: var(--white);
 `;
