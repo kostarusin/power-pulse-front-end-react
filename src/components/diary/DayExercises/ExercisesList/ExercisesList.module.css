@@ -64,9 +64,12 @@
 }
 
 .btnDelete {
-  width: 20px;
-  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
   margin-left: 8px;
+  border: none;
 }
 @media screen and (min-width: 1440px) {
   .btnDelete {
