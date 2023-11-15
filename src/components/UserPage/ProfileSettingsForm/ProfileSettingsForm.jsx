@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
+import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
@@ -35,10 +36,16 @@ const ProfileSettingsForm = () => {
   // }, [user]);
 
   const handleSubmit = (values, { resetForm }) => {
-    const updatedValues = { ...values };
-    delete updatedValues.email;
-    dispatch(updateInfo(updatedValues));
-    resetForm();
+    const areEqual = isEqual(values, user);
+    if (areEqual) {
+      console.log('The objects have the same values.');
+    } else {
+      console.log('The objects have different values.');
+    }
+    // const updatedValues = { ...values };
+    // delete updatedValues.email;
+    // dispatch(updateInfo(updatedValues));
+    // resetForm();
   };
 
   const [isFormChanged, setIsFormChanged] = useState(false);
@@ -120,7 +127,7 @@ const ProfileSettingsForm = () => {
                 <ErrorMessage
                   component="div"
                   name="height"
-                  // className={css.ErrorMessage}
+                  className={css.ErrorMessage}
                 />
               </label>
               <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
@@ -155,7 +162,7 @@ const ProfileSettingsForm = () => {
                   className={css.ErrorMessage}
                 />
               </label>
-              <label htmlFor="birthday" className={css.fieldWithError}>
+              <label htmlFor="birthday">
                 <Field
                   className={css.infoInput}
                   name="birthday"
