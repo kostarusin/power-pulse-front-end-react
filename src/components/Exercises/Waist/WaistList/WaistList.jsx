@@ -7,38 +7,23 @@ import {
   ImgWaist,
 } from './WaistList.styled';
 import { useState } from 'react';
-import { selectByType, selectExercises } from '../../../../redux/exercises/selectors';
+import {selectExercises } from '../../../../redux/exercises/selectors';
 import { useEffect } from 'react';
-import { fetchByType} from '../../../../redux/exercises/operations';
-import images from '../../Waist/img/Waist1.jpg';
+import { fetchExercises} from '../../../../redux/exercises/operations';
+import images from '../img/Waist1.jpg';
 import { Modal } from '../../../Modal/Modal';
 import { AddExerciseSuccess } from '../../../AddExerciseSuccess/AddExerciseSuccess';
 import { AddExerciseForm } from '../../../AddExerciseForm/AddExerciseForm';
-import { useExercises } from '../../../../redux/hooks';
+
 export const WaistList = ({exerciseName}) => {
   const [modalChange, setModalChange] = useState('');
   const [modalData, setModalData] = useState(null);
-
-
   const dispatch = useDispatch();
 
-  const {bodyParts}=useExercises();
-   console.log(bodyParts.bodyParts)
   useEffect(() => {
-   dispatch(fetchByType());
- }, [dispatch]);
- 
+    dispatch(fetchExercises());
+  }, [dispatch]);
 
-
-const array=bodyParts.bodyParts.concat(bodyParts.equipment);
-const exercises=array.concat(bodyParts.muscles)
-console.log(exercises)
-  const visibleExercises = exercises.filter(
-    exercise =>
-      exercise.bodyParts ||
-      exercise.muscles ||
-      exercise.equipment === exerciseName,
-  );
   const openModalToggle = el => {
     setModalData(el);
   };
@@ -50,6 +35,16 @@ console.log(exercises)
   const changeModal = () => {
     setModalChange('well');
   };
+
+  const exercises = useSelector(selectExercises);
+  console.log(exercises)
+  const visibleExercises = exercises.filter(
+    exercise =>
+      exercise.bodyPart ||
+      exercise.muscles ||
+      exercise.equipment === exerciseName,
+  );
+
 
   return (
     <>
@@ -88,7 +83,7 @@ console.log(exercises)
             </NoExercisesTitle>
         )}
         </WaistItemUl>
-        <ImgWaist src={images} alt="image" />
+        {/* <ImgWaist src={images} alt="image" /> */}
       </WaistListContainer>
     </>
   );

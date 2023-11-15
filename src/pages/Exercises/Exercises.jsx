@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-
+import { WaistList } from '../../components/exercises/Waist/WaistList/WaistList';
 import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 
-import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
-
+import { ExercisesWrap } from '../../components/exercises/ExercisesWrapper/ExercisesWrapper';
+import css from "./Exercises.module.css"
 //redux
 import { useDispatch } from 'react-redux';
 import { useExercises } from '../../redux/hooks';
@@ -49,11 +49,11 @@ const Exercises = () => {
   };
 
   return (
-    <div>
+    <div className={css.container}>
 
-      {/* <WaistList></WaistList> */}
+   
        <ExercisesWrap></ExercisesWrap> 
-
+       <WaistList></WaistList>
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>
