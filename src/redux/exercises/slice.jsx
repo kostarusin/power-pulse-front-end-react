@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchExercises, fetchByType } from './operations';
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.isLoading = true;
 };
 
@@ -14,11 +14,11 @@ const exercisesSlice = createSlice({
   name: 'exercises',
   initialState: {
     exercises: [],
+    data:[],
     isLoading: false,
     error: null,
-    data: [],
   },
-  extraReducers: (builder) =>
+  extraReducers: builder =>
     builder
       .addCase(fetchExercises.pending, handlePending)
       .addCase(fetchExercises.fulfilled, (state, action) => {
