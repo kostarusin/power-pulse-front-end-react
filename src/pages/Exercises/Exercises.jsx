@@ -50,7 +50,7 @@ console.log(bodyParts)
 
   return (
     <div>
-      Exercises
+      {/* <WaistList></WaistList> */}
        <ExercisesWrap></ExercisesWrap> 
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
