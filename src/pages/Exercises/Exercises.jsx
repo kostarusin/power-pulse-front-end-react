@@ -9,19 +9,25 @@ import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerc
 //redux
 import { useDispatch } from 'react-redux';
 import { useExercises } from '../../redux/hooks';
-import { fetchExercises } from '../../redux/exercises/operations';
+import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 
 const Exercises = () => {
   const dispatch = useDispatch();
-  const { exercises } = useExercises();
-   console.log(exercises);
-
+ const { exercises } = useExercises();
+ const {bodyParts}=useExercises();
+console.log(exercises);
+console.log(bodyParts)
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchExercises());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchByType());
+  }, [dispatch]);
+
 
   const toggleExerciseModal = () => {
     setShowExerciseModal((prevState) => !prevState);

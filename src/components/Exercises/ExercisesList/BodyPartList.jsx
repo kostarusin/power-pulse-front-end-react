@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { fetchByType} from '../../../redux/exercises/operations';
-import { selectByType } from '../../../redux/exercises/selectors';
 import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
-
+import { useExercises } from '../../../redux/hooks';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
-  const dispatch = useDispatch();
 
-useEffect(() => {
-    dispatch(fetchByType());
-  }, [dispatch]);
+export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
+ const dispatch = useDispatch();
 
-  const data = useSelector(selectByType);
-  console.log(data);
+ const {bodyParts}=useExercises();
   
+ useEffect(() => {
+  dispatch(fetchByType());
+}, [dispatch]);
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const determineItemsPerPage = () => {
@@ -51,7 +50,7 @@ useEffect(() => {
   console.log();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.bodyParts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = bodyParts.bodyParts.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <PaginationContainer>
@@ -65,10 +64,10 @@ useEffect(() => {
           />
         ))}
       </ExercisesUl>
-      {itemsPerPage < data.length && (
+      {itemsPerPage <bodyParts.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={data.length}
+          totalItems={bodyParts.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />

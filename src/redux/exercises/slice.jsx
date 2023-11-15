@@ -14,7 +14,7 @@ const exercisesSlice = createSlice({
   name: 'exercises',
   initialState: {
     exercises: [],
-    data:[],
+    bodyParts:[],
     isLoading: false,
     error: null,
   },
@@ -32,7 +32,7 @@ const exercisesSlice = createSlice({
       .addCase(fetchByType.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data = action.payload;
+        state.bodyParts = action.payload;
       })
       .addCase(fetchByType.rejected, handleRejected),
 });
