@@ -101,3 +101,16 @@ export const getUserCalories = createAsyncThunk(
     }
   },
 );
+
+export const addToDairy = createAsyncThunk(
+  'auth/dairy',
+  async (data, thunkAPI) => {
+    try {
+      const res = await axios.post('/api/dairy/', data);
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

@@ -1,5 +1,5 @@
 .image {
-  background-image: url(/src/pages/Home/home-mobile-i.jpg);
+  background-image: url(/src/assets/home-mobile.jpg);
   z-index: -1;
   position: absolute;
   bottom: 0;
