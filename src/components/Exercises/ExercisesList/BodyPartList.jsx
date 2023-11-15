@@ -13,7 +13,7 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
  const dispatch = useDispatch();
 
  const {bodyParts}=useExercises();
-  
+  console.log(bodyParts.bodyParts)
  useEffect(() => {
   dispatch(fetchByType());
 }, [dispatch]);
@@ -64,10 +64,10 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
           />
         ))}
       </ExercisesUl>
-      {itemsPerPage <bodyParts.length && (
+      {itemsPerPage <bodyParts.bodyParts.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={bodyParts.length}
+          totalItems={bodyParts.bodyParts.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
