@@ -21,10 +21,18 @@ export default function CustomSelect({ placeholder, minWidth, options, name }) {
 
   useEffect(() => {
     if (name === 'Categories') {
-      dispatch(findProduct(selectedOption));
+      dispatch(findProduct(selectedOption === 'all' ? '' : selectedOption));
     }
     if (name === 'Recommendations') {
-      dispatch(findProductByRec(selectedOption));
+      dispatch(
+        findProductByRec(
+          selectedOption === 'Recommended'
+            ? true
+            : selectedOption === 'All'
+            ? ''
+            : 'false',
+        ),
+      );
       setSelectedOption(placeholder);
     }
   }, [dispatch, selectedOption, name, placeholder]);
