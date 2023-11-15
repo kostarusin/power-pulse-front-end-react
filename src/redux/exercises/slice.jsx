@@ -16,7 +16,7 @@ const exercisesSlice = createSlice({
     exercises: [],
     isLoading: false,
     error: null,
-data:[]
+    data: [],
   },
   extraReducers: (builder) =>
     builder
@@ -32,7 +32,7 @@ data:[]
       .addCase(fetchByType.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data = action.payload.bodyParts;
+        state.data = action.payload;
       })
       .addCase(fetchByType.rejected, handleRejected),
 });

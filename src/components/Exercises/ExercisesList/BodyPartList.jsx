@@ -17,8 +17,10 @@ useEffect(() => {
   }, [dispatch]);
 
   const data = useSelector(selectByType);
-  const [currentPage, setCurrentPage] = useState(1);
   console.log(data);
+  
+  const [currentPage, setCurrentPage] = useState(1);
+
   const determineItemsPerPage = () => {
     const windowWidth = window.innerWidth;
 

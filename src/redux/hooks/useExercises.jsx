@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectLoading, selectExercises } from '../exercises/selectors';
+import { selectLoading, selectExercises} from '../exercises/selectors';
 
 export const useExercises = () => {
   const loading = useSelector(selectLoading);

@@ -23,7 +23,7 @@ export const fetchExercises = createAsyncThunk(
   },
 );
 export const fetchByType = createAsyncThunk(
-  'exercises/fetchByType',
+  'exercises/byType',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -34,10 +34,9 @@ export const fetchByType = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
 
-      const res = await axios.get('api/exercises/type');
+      const res = await axios.get('api/exercises/type/');
 
       return res.data;
-      
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
