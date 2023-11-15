@@ -44,4 +44,10 @@
 <path fill="#efede8" style="fill: var(--color3, #efede8)" opacity="0.1" d="M16 0c2.122 0 4.157 0.843 5.657 2.343s2.343 3.535 2.343 5.657-0.843 4.157-2.343 5.657c-1.5 1.5-3.535 2.343-5.657 2.343s-4.157-0.843-5.657-2.343c-1.5-1.5-2.343-3.535-2.343-5.657s0.843-4.157 2.343-5.657c1.5-1.5 3.535-2.343 5.657-2.343zM16 32c0 0 16 0 16-4 0-4.8-7.8-10-16-10s-16 5.2-16 10c0 4 16 4 16 4z"></path>
 </symbol>
 <symbol id="icon-x-orange" viewBox="0 0 32 32"><path fill="none" stroke="#e6533c" style="stroke:var(--color1, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-width="3.556" d="M24 8 8 24M8 8l16 16"/></symbol>
+<symbol id="icon-chevron-left" viewBox="0 0 32 32">
+<path fill="#efede8" style="fill: var(--color1, #efede8)" opacity="0.2" d="M21.086 1.086l2.828 2.828-11.586 11.586 11.586 11.586-2.828 2.828-14.414-14.414 14.414-14.414z"></path>
+</symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 19 32">
+<path fill="#efede8" style="fill: var(--color1, #efede8)" d="M3.108 31.908l-3.017-3.017 12.358-12.358-12.358-12.358 3.017-3.017 15.375 15.375-15.375 15.375z"></path>
+</symbol>
 </defs></svg>
