@@ -50,8 +50,10 @@ const Exercises = () => {
 
   return (
     <div>
-      Exercises
-      <ExercisesWrap></ExercisesWrap>
+
+      {/* <WaistList></WaistList> */}
+       <ExercisesWrap></ExercisesWrap> 
+
       <button type="button" onClick={toggleExerciseModal}>
         TEST Open exercise
       </button>

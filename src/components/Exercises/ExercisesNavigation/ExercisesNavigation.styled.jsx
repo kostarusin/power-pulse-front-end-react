@@ -10,7 +10,7 @@ export const ExercisesNavList = styled.ul`
 `;
 
 export const ExercisesFilter = styled.li`
-  color: rgba(239, 237, 232, 0.4);
+  color:  var(--greyEx);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -25,22 +25,22 @@ export const ExercisesFilter = styled.li`
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: var(--orange-color);
+    background-color: var(--orange);
   }
 
   &.active {
-    color: #efede8;
+    color: var(--white);
   }
 `;
 
 export const FilterBtn = styled.button`
-  color: rgba(239, 237, 232, 0.4);
+  color:var(--grayEx);
   font-size: 14px;
   font-weight: 400;
-
-  background-color: var(--black-color);
+  border: none;
+  background-color: var(--black);
 
   &.active {
-    color: #efede8;
+    color: var(--white);
   }
 `;

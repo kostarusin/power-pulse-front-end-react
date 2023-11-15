@@ -11,6 +11,8 @@ import {
   white,
 } from '../../components/Helpers/helpers.js';
 
+import Brightness1Icon from '@mui/icons-material/Brightness1';
+
 import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 import { ButtonModal } from '../../components/ButtonModal/ButtonModal.jsx';
@@ -47,8 +49,22 @@ const Products = () => {
     dispatch(fetchProductCategories());
   }, [dispatch]);
 
+  // const test = () => {
+  //   return products.products.filter((product) => {
+  //     (!filter.value||filter.value==='all' ||
+  //       product.item.category.toLowerCase().trim().includes(filter.value)) &&
+  //       (!filterByText ||
+  //         product.item.title
+  //           .toLowerCase()
+  //           .trim()
+  //           .includes(filterByText.toLowerCase())) &&
+  //       (!filterRec.value || filterRec.value==='All' || product.allowed.includes(filterRec.value));
+  //   });
+  // };
+  // const test1 = test();
+  // console.log(test1);
   const getVisibleProducts = () => {
-    if (!filter) {
+    if (!filter || filter.value === 'all') {
       return products.products;
     } else {
       return products.products.filter(({ item }) =>
@@ -144,25 +160,32 @@ const Products = () => {
       <ul className={css.cardContainer}>
         {loading ||
           (showProducts &&
-            visibleProductsByTitle.map(({ item }) => {
+            visibleProductsByTitle.map((product) => {
               return (
-                <li key={item._id} className={css.card}>
+                <li key={product.item._id} className={css.card}>
                   <div className={css.cardPart1}>
                     <p className={css.dietField}>DIET</p>
                     <div
                       style={{
                         display: 'flex',
                         gap: '8px',
-                        alignItems: 'flex-start',
+                        alignItems: 'center',
                       }}
                     >
                       {' '}
-                      <p>Recommended</p>
+                      <Brightness1Icon
+                        color={product.allowed ? 'success' : 'error'}
+                        viewBox="0 0 24 24"
+                        fontSize="small"
+                      />
+                      <p>
+                        {product.allowed ? 'Recommended' : 'Not Recommended'}
+                      </p>
                       <button
                         className={css.addButton}
                         onClick={() => {
                           toggleSuccessModal();
-                          toggleSuccessModal1(item);
+                          toggleSuccessModal1(product.item);
                         }}
                       >
                         Add
@@ -186,20 +209,22 @@ const Products = () => {
                       />
                     </svg>
 
-                    <span className={css.productName}>{item.title}</span>
+                    <span className={css.productName}>
+                      {product.item.title}
+                    </span>
                   </div>
                   <ul className={css.productEnergyList}>
                     <li className={css.productEnergyItem}>
                       <span style={{ color: grayForText }}>Calories: </span>
-                      <span>{item.calories}</span>
+                      <span>{product.item.calories}</span>
                     </li>
                     <li className={css.productEnergyItem1}>
                       <span style={{ color: grayForText }}>Category: </span>
-                      {item.category}
+                      {product.item.category}
                     </li>
                     <li className={css.productEnergyItem}>
                       <span style={{ color: grayForText }}>Weight: </span>
-                      {item.weight}
+                      {product.item.weight}
                     </li>
                   </ul>
                 </li>
