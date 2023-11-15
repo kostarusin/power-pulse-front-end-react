@@ -6,14 +6,24 @@ import sprite from '../../assets/icons-optimized.svg';
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
+
+  const handleBackdropClick = (e) => {
+    if (e.target.classList.contains(css.backdrop)) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={`${css.backdrop} ${isOpen ? css.backdropVisible : ''}`}>
+    <div
+      className={`${css.backdrop} ${isOpen ? css.backdropVisible : ''}`}
+      onClick={handleBackdropClick}
+    >
       <div className={css.mobileMenuWrap}>
         <div className={css.xButton} onClick={onClose}>
           &times;
         </div>
         <div className={css.userNaviWrap}>
-          <Link className={css.mobMenuItem} onClick={onClose} to="/diary">
+          <Link className={css.mobMenuItemUpper} onClick={onClose} to="/diary">
             Diary
           </Link>
           <Link className={css.mobMenuItem} onClick={onClose} to="/exercises">
@@ -23,7 +33,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             Products
           </Link>
         </div>
-        <div className={css.logoutWrap} onClick={onClose}>
+        <div className={css.logoutWrap}>
           <Link className={css.logoutLink} onClick={() => dispatch(logOut())}>
             <p className={css.logoutText}>Logout</p>
             <svg className={css.logoutIcon}>
