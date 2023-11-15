@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut, updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
@@ -25,7 +25,10 @@ const UserView = () => {
     const selectedFile = event.target.files[0];
     const formData = new FormData();
     formData.append('avatar', selectedFile);
-    setFile(selectedFile);
+    for (const entry of formData.entries()) {
+      console.log(entry);
+    }
+    // setFile(selectedFile);
     console.log(formData);
     dispatch(updateInfo(formData));
   };
