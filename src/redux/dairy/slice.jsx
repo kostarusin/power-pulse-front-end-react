@@ -6,6 +6,10 @@ const initialState = {
   doneExercises: [],
   burnedCalories: null,
   consumedCalories: null,
+  efficiency: {
+    time: null,
+    burnedCalories: null,
+  },
 };
 
 const diarySlice = createSlice({
