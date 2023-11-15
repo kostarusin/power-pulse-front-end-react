@@ -144,7 +144,6 @@
 
   @media screen and (min-width: 1440px) {
     width: 405px;
-
   }
 }
 
@@ -161,6 +160,7 @@
 .cardPart1 {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .cardPart2 {
