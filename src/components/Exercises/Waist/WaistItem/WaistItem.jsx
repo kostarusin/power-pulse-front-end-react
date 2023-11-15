@@ -13,6 +13,10 @@ import {
     WaistItemLi,
   } from './WaistItem.styled';
   import sprite from '../../../../assets/sprite.svg';
+import { useExercises } from '../../../../redux/hooks';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchByType } from '../../../../redux/exercises/operations';
   const texts = {
     cardLabel: 'Workout',
     btnLabel: 'Start',
@@ -28,7 +32,16 @@ import {
     return newString;
   };
   
-  export const WaistItem = ({ exercises, toggleExerciseModal }) => {
+  export const WaistItem = ({ toggleExerciseModal }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+     dispatch(fetchByType());
+   }, [dispatch]);
+   
+  
+    const{exercises}=useExercises()
+    console.log(exercises)
     return (
       <WaistItemLi>
         <BtnWrapper>

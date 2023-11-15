@@ -15,6 +15,8 @@
   --gray-light: rgba(239, 237, 232, 0.65);
   --gray-soft: rgba(239, 237, 232, 1);
   --grayUltraLight: rgba(239, 237, 232, 0.1);
+  --grayEx: rgba(239, 237, 232, 0.4);
+  --orange:  rgba(239, 137, 100, 1);
 }
 
 body {
