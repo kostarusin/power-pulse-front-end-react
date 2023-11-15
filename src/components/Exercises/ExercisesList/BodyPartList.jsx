@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchByType } from '../../../redux/exercises/operations';
+import { useDispatch, useSelector} from 'react-redux';
+import { fetchByType} from '../../../redux/exercises/operations';
 import { selectByType } from '../../../redux/exercises/selectors';
 import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
@@ -12,7 +12,7 @@ import { PaginationContainer } from '../Pagination/Pagination.styled';
 export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
+useEffect(() => {
     dispatch(fetchByType());
   }, [dispatch]);
 

@@ -16,7 +16,7 @@ const exercisesSlice = createSlice({
     exercises: [],
     isLoading: false,
     error: null,
-    data: [],
+data:[]
   },
   extraReducers: (builder) =>
     builder
@@ -27,6 +27,7 @@ const exercisesSlice = createSlice({
         state.exercises = action.payload;
       })
       .addCase(fetchExercises.rejected, handleRejected)
+
       .addCase(fetchByType.pending, handlePending)
       .addCase(fetchByType.fulfilled, (state, action) => {
         state.isLoading = false;
