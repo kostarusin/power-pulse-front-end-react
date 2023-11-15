@@ -33,8 +33,9 @@ export const fetchByType = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('api/exercises/type/');
-      console.log(res.data)
+
+      const res = await axios.get('api/exercises/type');
+
       return res.data;
       
     } catch (error) {

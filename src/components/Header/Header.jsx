@@ -1,17 +1,17 @@
 import Logo from '../Logo/Logo';
-import { HeaderBar, LogoWrap, User } from './Header.styled';
+import css from './Header.module.css';
 import UserNav from 'components/UserNav/UserNav';
 import { useAuth } from '../../redux/hooks';
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <HeaderBar>
-      <LogoWrap>
+    <header className={css.header}>
+      <div className={css.logoWrap}>
         <Logo />
-      </LogoWrap>
-      <User>{isLoggedIn && <UserNav />}</User>
-    </HeaderBar>
+      </div>
+      <div className={css.user}>{isLoggedIn && <UserNav />}</div>
+    </header>
   );
 };
 

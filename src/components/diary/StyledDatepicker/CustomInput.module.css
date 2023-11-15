@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.svg {
+  margin-left: 8px;
+}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchExercises,fetchByType } from './operations';
+import { fetchExercises, fetchByType } from './operations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -32,10 +32,9 @@ data:[]
       .addCase(fetchByType.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data = action.payload;
+        state.data = action.payload.bodyParts;
       })
-      .addCase(fetchByType.rejected, handleRejected)
-     
+      .addCase(fetchByType.rejected, handleRejected),
 });
 
 export const exercisesReducer = exercisesSlice.reducer;
