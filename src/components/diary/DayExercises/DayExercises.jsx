@@ -5,7 +5,7 @@ import styles from './DayExercises.module.css';
 //component
 import ExercisesList from './ExercisesList/ExercisesList';
 
-function DayExercises({ exercises }) {
+function DayExercises({ exercises, selectedDate }) {
   return (
     <div className={styles.dayExercisesWrapper}>
       <div className={styles.headerWrapper}>
@@ -22,7 +22,7 @@ function DayExercises({ exercises }) {
         </div>
       </div>
 
-      <ExercisesList exercises={exercises} />
+      <ExercisesList exercises={exercises} selectedDate={selectedDate} />
     </div>
   );
 }

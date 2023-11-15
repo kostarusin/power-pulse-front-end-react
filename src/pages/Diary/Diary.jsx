@@ -1,11 +1,10 @@
+import { useEffect, useState } from 'react';
+//components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
 import DayExercises from 'components/diary/DayExercises';
 import DayDashboard from 'components/diary/DayDashboard';
 import DaySwitch from '../../components/diary/DaySwitch';
-import styles from './Dairy.module.css';
-import { useEffect, useState } from 'react';
-import { addDays, subDays } from 'date-fns';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
@@ -14,6 +13,10 @@ import { useDiary } from '../../redux/hooks';
 import { useAuth } from '../../redux/hooks';
 //date lib
 import { parseISO, startOfDay } from 'date-fns';
+import { addDays, subDays } from 'date-fns';
+// style
+import styles from './Dairy.module.css';
+
 function Diary() {
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -61,8 +64,14 @@ function Diary() {
       </div>
       <div className={styles.container}>
         <div className={styles.itemsCont}>
-          <DayProducts products={consumedProducts} />
-          <DayExercises exercises={doneExercises} />
+          <DayProducts
+            products={consumedProducts}
+            selectedDate={formattedDate}
+          />
+          <DayExercises
+            exercises={doneExercises}
+            selectedDate={formattedDate}
+          />
         </div>
         <DayDashboard />
       </div>

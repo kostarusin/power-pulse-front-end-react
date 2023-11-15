@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import css from './ProductsList.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, selectedDate }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -12,6 +17,17 @@ const ProductsList = ({ products }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const handleDeleteExercise = (product) => {
+    dispatch(
+      deleteExerciseOrProduct({
+        date: selectedDate,
+        credentials: {
+          id: product._id,
+        },
+      }),
+    );
+  };
 
   return (
     <div className={css.wrapper}>
@@ -88,7 +104,11 @@ const ProductsList = ({ products }) => {
                       <div>sv</div>
                       <div className={css.textRecommend}>Yes</div>
                     </div>
-                    <button type="button" className={css.btnDelete}></button>
+                    <button
+                      type="button"
+                      className={css.btnDelete}
+                      onClick={() => handleDeleteExercise(product)}
+                    ></button>
                   </div>
                 </li>
               </ul>
