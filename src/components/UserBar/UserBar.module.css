@@ -1,7 +1,4 @@
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-
-export const UserBarBlock = styled.div`
+.userBarWrap {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -10,15 +7,20 @@ export const UserBarBlock = styled.div`
   @media screen and (min-width: 769px) {
     gap: 16px;
   }
-`;
+}
 
-export const UserBarLink = styled(Link)`
+.profileLink {
   width: 24px;
   height: 24px;
   display: inline-block;
-`;
+}
 
-export const UserAvatar = styled.div`
+.settingsIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.avatar {
   width: 37px;
   height: 37px;
   display: flex;
@@ -26,28 +28,23 @@ export const UserAvatar = styled.div`
   align-items: center;
   border: solid 1px #e6533c;
   border-radius: 50%;
-`;
+}
 
-export const IconSettings = styled.svg({
-  width: '24px',
-  height: '24px',
-});
+.avatarIcon {
+  width: 21px;
+  height: 21px;
+}
 
-export const IconUserAvatar = styled.svg({
-  width: '21px',
-  height: '21px',
-});
-
-export const Burger = styled.svg`
+.burger {
   width: 24px;
   height: 24px;
 
   @media screen and (min-width: 1440px) {
     display: none;
   }
-`;
+}
 
-export const LogOut = styled(Link)`
+.logout {
   display: none;
 
   @media screen and (min-width: 1440px) {
@@ -55,18 +52,18 @@ export const LogOut = styled(Link)`
     align-items: center;
     gap: 8px;
   }
-`;
+}
 
-export const LogOutText = styled.div`
+.logoutText {
   color: #efede8;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
-`;
+}
 
-export const LogOutSvg = styled.svg`
+.logoutIcon {
   width: 20px;
   height: 20px;
-`;
+}
