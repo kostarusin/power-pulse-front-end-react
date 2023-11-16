@@ -157,10 +157,15 @@
   margin-bottom: 14px;
 }
 
+.error {
+  position: relative;
+  margin-top: 2px;
+  padding-left: 2px;
+}
+
 .ErrorMessage {
   color: var(--red);
   position: absolute;
-  bottom: 0;
   font-size: 12px;
   z-index: 1;
 }
