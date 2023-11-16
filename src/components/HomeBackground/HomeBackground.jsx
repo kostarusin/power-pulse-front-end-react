@@ -17,7 +17,7 @@ const HomeBackground = ({ darkPhoto }) => {
       <div className={css.statistic2}>
         <div className={css.boxsvg2}>
           <svg width="16" height="16">
-            <use href="/src/assets/icons-optimized.svg#icon-running-figure"></use>
+            <use href="/src/assets/icons-optimized.svg#icon-running-figure-white"></use>
           </svg>
         </div>
         <p className={css.number2}>500</p>
