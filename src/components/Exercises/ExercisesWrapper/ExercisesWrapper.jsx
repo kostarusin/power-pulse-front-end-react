@@ -25,11 +25,11 @@ export const ExercisesWrap = () => {
 
   return (
     <div className={css.exercisesWrapper}>
-      <li className={css.exercisesbox}>
+      <li className={css.exercisesBox}>
         {activeFilter !== 'Waist' ? (
-          <h2 className={css.exercisesBox}>Exercises</h2>
+          <h2 className={css.exercisesTitle}>Exercises</h2>
         ) : (
-          <h2 className={css.exercisesBox}>
+          <h2 className={css.exercisesTitle}>
             {capitalizeFirstLeter(exerciseName)}
           </h2>
         )}
