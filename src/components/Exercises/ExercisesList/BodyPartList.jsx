@@ -49,7 +49,7 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
   console.log();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = bodyParts.bodyParts.slice(
+  const currentItems = bodyParts.bodyPart.slice(
     indexOfFirstItem,
     indexOfLastItem,
   );
@@ -66,10 +66,10 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
           />
         ))}
       </ul>
-      {itemsPerPage < bodyParts.bodyParts.length && (
+      {itemsPerPage < bodyParts.bodyPart.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={bodyParts.bodyParts.length}
+          totalItems={bodyParts.bodyPart.length}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
