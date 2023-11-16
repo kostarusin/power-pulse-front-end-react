@@ -1,85 +1,72 @@
 import {
-    BtnLabel,
-    BtnWrapper,
-    CardLabel,
-    ExercisesTitleBox,
-    List,
-    ListItem,
-    ListItemValue,
-    SpanExerciseRun,
-    SvgExercise,
-    SvgExerciseRun,
-    Title,
-    WaistItemLi,
-  } from './WaistItem.styled';
-  import sprite from '../../../../assets/sprite.svg';
-import { useExercises } from '../../../../redux/hooks';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchByType } from '../../../../redux/exercises/operations';
-  const texts = {
-    cardLabel: 'Workout',
-    btnLabel: 'Start',
-    list: {
-      burnedCalories: 'Burned calories:',
-      bodyPart: 'Body part:',
-      target: 'Target:',
-    },
-  };
-  
-  const capitalizeFirstLeter = string => {
-    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
-    return newString;
-  };
-  
-  export const WaistItem = ({ toggleExerciseModal }) => {
-    const dispatch = useDispatch();
+  BtnLabel,
+  BtnWrapper,
+  CardLabel,
+  ExercisesTitleBox,
+  List,
+  ListItem,
+  ListItemValue,
+  SpanExerciseRun,
+  SvgExercise,
+  SvgExerciseRun,
+  Title,
+  WaistItemLi,
+} from './WaistItem.styled';
+import icons from '../../../../assets/icons.svg';
 
-    useEffect(() => {
-     dispatch(fetchByType());
-   }, [dispatch]);
-   
+const texts = {
+  cardLabel: 'Workout',
+  btnLabel: 'Start',
+  list: {
+    burnedCalories: 'Burned calories:',
+    bodyPart: 'Body part:',
+    target: 'Target:',
+  },
+};
+
+const capitalizeFirstLeter = string => {
+  const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+  return newString;
+};
+
+export const WaistItem = ({ data,toggleExerciseModal }) => {
   
-    const{exercises}=useExercises()
-    console.log(exercises)
-    return (
-      <WaistItemLi>
-        <BtnWrapper>
-          <CardLabel>{texts.cardLabel}</CardLabel>
-          <BtnLabel
-            onClick={() => {
-                toggleExerciseModal(exercises);
-            }}
-            type="button"
-          >
-            {texts.btnLabel}
-            <span>
-              <SvgExercise>
-                <use href={`${sprite}#icon-arrow-right`}></use>
-              </SvgExercise>
-            </span>
-          </BtnLabel>
-        </BtnWrapper>
-        <ExercisesTitleBox>
-          <SpanExerciseRun>
-            <SvgExerciseRun width={24} height={24}>
-              <use href={`${sprite}#icon-run-exercises`}></use>
-              <use href={`${sprite}#icon-running-stick-figure`}></use>
-            </SvgExerciseRun>
-          </SpanExerciseRun>
-          <Title>{capitalizeFirstLeter(exercises.name)} </Title>
-        </ExercisesTitleBox>
-  
-        <List>
-          {Object.keys(texts.list).map(e => (
-            <ListItem key={e}>
-              {texts.list[e]}
-              <ListItemValue>
-                {capitalizeFirstLeter(String(exercises[e]))}
-              </ListItemValue>
-            </ListItem>
-          ))}
-        </List>
-      </WaistItemLi>
-    );
-  };
+  return (
+    <WaistItemLi>
+      <BtnWrapper>
+        <CardLabel>{texts.cardLabel}</CardLabel>
+        <BtnLabel
+         onClick={toggleExerciseModal}
+          type="button"
+        >
+          {texts.btnLabel}
+          <span>
+            <SvgExercise>
+              <use href={`${icons}#icon-add-arrow`}></use>
+            </SvgExercise>
+          </span>
+        </BtnLabel>
+      </BtnWrapper>
+      <ExercisesTitleBox>
+        <SpanExerciseRun>
+          <SvgExerciseRun width={24} height={24}>
+            <use href={`${icons}#icon-runn   ing-figure`}></use>
+            <use href={`${icons}#icon-running-stick-figure-svgrepo-com-1`}></use>
+          </SvgExerciseRun>
+        </SpanExerciseRun>
+        <Title>{capitalizeFirstLeter(data.name)} </Title>
+      </ExercisesTitleBox>
+
+      <List>
+        {Object.keys(texts.list).map((e) => (
+          <ListItem key={e}>
+            {texts.list[e]}
+            <ListItemValue>
+              {capitalizeFirstLeter(String(data[e]))}
+            </ListItemValue>
+          </ListItem>
+        ))}
+      </List>
+    </WaistItemLi>
+  );
+};
