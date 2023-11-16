@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import css from './MobileMenu.module.css';
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../../redux/auth/operations';
-import sprite from '../../../assets/icons-optimized.svg';
+import css from './MobileMenu.module.css';
+import { logOut } from '../../redux/auth/operations';
+import sprite from '../../assets/icons-optimized.svg';
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -58,8 +58,8 @@ export default MobileMenu;
 // import { Link } from 'react-router-dom';
 // import css from './MobileMenu.module.css';
 // import { useDispatch } from 'react-redux';
-// import { logOut } from '../../../redux/auth/operations';
-// import sprite from '../../../assets/icons-optimized.svg';
+// import { logOut } from '../../redux/auth/operations';
+// import sprite from '../../assets/icons-optimized.svg';
 
 // const MobileMenu = ({ isOpen, onClose }) => {
 //   const dispatch = useDispatch();
