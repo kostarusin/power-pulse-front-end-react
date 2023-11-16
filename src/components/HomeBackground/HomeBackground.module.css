@@ -28,6 +28,9 @@
     background-image: url(/src/assets/home-mobile-dark.jpg);
   }
 }
+/* .svg {
+  fill: var(--white);
+} */
 
 .statistic1 {
   display: flex;

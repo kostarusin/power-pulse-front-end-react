@@ -15,12 +15,6 @@ const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
           <svg width="20" height="20" className={css.svg}>
             <use href={`${sprite}#icon-calendar-bage`}></use>
           </svg>
-          <svg width="16" height="16">
-            <use href="/src/assets/icons-dairy-opt.svg#icon-leftopt"></use>
-          </svg>
-          <svg width="16" height="16">
-            <use href="/src/assets/icons-dairy-opt.svg#icon-rightopt"></use>
-          </svg>
         </div>
       </div>
     );
