@@ -4,18 +4,27 @@ import css from './AddExerciseForm.module.css';
 import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { useEffect, useState } from 'react';
+//redux
+import { useDispatch } from 'react-redux';
+import { addExercises } from '../../redux/dairy/operations';
 
-export const AddExerciseForm = ({ exercise }) => {
+export const AddExerciseForm = ({
+  exercise,
+  toggleExerciseModal,
+  toggleSuccessModal,
+  setExercise,
+}) => {
   const [duration, setDuration] = useState(0);
   const [burnedCalories, setBurnedCalories] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let timer;
-  
+
     if (isPlaying) {
       timer = setInterval(() => {
-        setDuration(prevDuration => {
+        setDuration((prevDuration) => {
           const newDuration = prevDuration + 1;
           console.log('duration', newDuration);
 
@@ -27,21 +36,22 @@ export const AddExerciseForm = ({ exercise }) => {
           return newDuration;
         });
       }, 1000);
-    } 
-   
-    else {
+    } else {
       clearInterval(timer);
     }
-  
+
     return () => {
       clearInterval(timer);
     };
   }, [isPlaying, setIsPlaying]);
 
   useEffect(() => {
-    const calories = ((duration / 60) * exercise.burnedCalories / 3).toFixed();
+    const calories = (
+      ((duration / 60) * exercise.burnedCalories) /
+      3
+    ).toFixed();
     setBurnedCalories(calories);
-  }, [duration])
+  }, [duration, exercise.burnedCalories]);
 
   const togglePlayer = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
@@ -49,6 +59,36 @@ export const AddExerciseForm = ({ exercise }) => {
 
   const capitalizeFirstLetter = (text) => {
     return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
+  const formattedDate = new Date()
+    .toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+    .replace(/\//g, '-');
+
+  const minutes = Math.floor(duration / 60);
+
+  const submiExercise = () => {
+    dispatch(
+      addExercises({
+        date: formattedDate,
+        credentials: {
+          doneExercises: [
+            {
+              exercise: exercise._id,
+              time: minutes,
+              calories: burnedCalories,
+            },
+          ],
+        },
+      }),
+    );
+    setExercise({ time: minutes, calories: burnedCalories });
+    toggleExerciseModal();
+    toggleSuccessModal();
   };
 
   return (
@@ -90,7 +130,8 @@ export const AddExerciseForm = ({ exercise }) => {
             </svg>
           )}
           <p className={css.calories}>
-            Burned calories: <span className={css.calories_amount}>{burnedCalories}</span>
+            Burned calories:{' '}
+            <span className={css.calories_amount}>{burnedCalories}</span>
           </p>
         </div>
       </div>
@@ -122,7 +163,12 @@ export const AddExerciseForm = ({ exercise }) => {
             </p>
           </div>
         </div>
-        <ButtonModal btnType={'button'} text={'Add to diary'} />
+        <ButtonModal
+          btnType={'button'}
+          text={'Add to diary'}
+          onClick={submiExercise}
+          disabled={minutes < 1}
+        />
       </div>
     </div>
   );

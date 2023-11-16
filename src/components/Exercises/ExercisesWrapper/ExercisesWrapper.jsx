@@ -1,42 +1,50 @@
-import css from './ExercisesWrapper.module.css';
+import { useState } from 'react';
 import { BodyPartList } from '../ExercisesList/BodyPartList';
+import css from './ExercisesWrapper.module.css';
 import { MusculesList } from '../ExercisesList/MusculesList';
 import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
-import { useState } from 'react';
+import { WaistList } from '../Waist/WaistList/WaistList';
 
 export const ExercisesWrap = () => {
-  const [activeFilter, setActiveFilter] = useState('Body parts');
+  const [activeFilter, setActiveFilter] = useState('Body part');
   const [exerciseName, setExerciseName] = useState('');
 
-  const handleSetExName = name => {
+  const handleSetExName = (name) => {
     setExerciseName(name);
   };
 
-  const handleFilterClick = filter => {
+  const handleFilterClick = (filter) => {
     setActiveFilter(filter);
   };
 
-  const capitalizeFirstLeter = string => {
+  const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
+
   return (
-    <div className={css.wrapper}>
-      <li className={css.exercises_box}>
-      {activeFilter !== 'Waist' ? (
-        <h2 className={css.exercises_title}>Exercises</h2>   ) : (
-        <h2 className={css.exercises_title}>{capitalizeFirstLeter(exerciseName)}</h2>  )}
-<ExercisesNavigation
-activeFilter={activeFilter}
-handleFilterClick={handleFilterClick} />
+    <div className={css.exercisesWrapper}>
+      <li className={css.exercisesbox}>
+        {activeFilter !== 'Waist' ? (
+          <h2 className={css.exercisesBox}>Exercises</h2>
+        ) : (
+          <h2 className={css.exercisesBox}>
+            {capitalizeFirstLeter(exerciseName)}
+          </h2>
+        )}
+        <ExercisesNavigation
+          activeFilter={activeFilter}
+          handleFilterClick={handleFilterClick}
+        />
       </li>
       {activeFilter === 'Body parts' && (
-      <BodyPartList 
-       handleFilterClick={handleFilterClick}
-       handleSetExName={handleSetExName}
-       />)}
- {activeFilter === 'Muscules' && (
+        <BodyPartList
+          handleFilterClick={handleFilterClick}
+          handleSetExName={handleSetExName}
+        />
+      )}
+      {activeFilter === 'Muscules' && (
         <MusculesList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
@@ -48,6 +56,7 @@ handleFilterClick={handleFilterClick} />
           handleSetExName={handleSetExName}
         />
       )}
-      {activeFilter === 'Waist' }  </div>
+      {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
+    </div>
   );
 };

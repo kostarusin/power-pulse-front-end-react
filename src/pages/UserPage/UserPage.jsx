@@ -1,11 +1,17 @@
-import ProfileSettingsForm from '../../components/ProfileSettingsForm';
+import UserForm from '../../components/UserPage/UserForm';
+import UserTitle from '../../components/UserPage/UserTitle';
 import UserView from '../../components/UserPage/UserView';
+
+import css from './UserPage.module.css';
 
 const UserPage = () => {
   return (
     <>
-      <UserView />
-      <ProfileSettingsForm />
+      <UserTitle />
+      <div className={css.container}>
+        <UserView />
+        <UserForm />
+      </div>
     </>
   );
 };

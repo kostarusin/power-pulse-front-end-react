@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
+//style
 import sprite from '../../../assets/icons-optimized.svg';
-
 import styles from './DayExercises.module.css';
+//component
+import ExercisesList from './ExercisesList/ExercisesList';
 
-import TableExercises from './TableExercises';
-
-function DayExercises({ exercises }) {
+function DayExercises({ exercises, selectedDate }) {
   return (
     <div className={styles.dayExercisesWrapper}>
       <div className={styles.headerWrapper}>
@@ -22,7 +22,7 @@ function DayExercises({ exercises }) {
         </div>
       </div>
 
-      <TableExercises exercises={exercises} />
+      <ExercisesList exercises={exercises} selectedDate={selectedDate} />
     </div>
   );
 }

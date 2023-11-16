@@ -1,0 +1,23 @@
+.nav {
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.naviLink {
+  display: flex;
+  padding: 10px 27px;
+  justify-content: center;
+  align-items: center;
+  color: #efede8;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  &.active {
+    background-color: #e6533c;
+    border: 1px solid #e6533c;
+  }
+}

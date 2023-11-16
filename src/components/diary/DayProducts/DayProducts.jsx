@@ -3,9 +3,9 @@ import sprite from '../../../assets/icons-optimized.svg';
 
 import styles from './DayProducts.module.css';
 
-import TableProducts from './TableProducts';
+import ProductsList from './ProductsList';
 
-function DayProducts({ products }) {
+function DayProducts({ products, selectedDate }) {
   return (
     <div className={styles.dayProductsWrapper}>
       <div className={styles.headerWrapper}>
@@ -22,7 +22,7 @@ function DayProducts({ products }) {
         </div>
       </div>
 
-      <TableProducts products={products} />
+      <ProductsList products={products} selectedDate={selectedDate} />
     </div>
   );
 }

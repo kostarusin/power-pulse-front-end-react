@@ -1,20 +1,18 @@
-import { forwardRef, useState } from 'react';
-import { format, addDays, subDays } from 'date-fns';
+import { forwardRef } from 'react';
+import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles } from './StyledDatepicker.styled';
-import 'react-datepicker/dist/react-datepicker.css';
-import sprite from '../../../assets/icons-optimized.svg';
-import css from './Datepicker.module.css';
 
-const StyledDatepicker = () => {
-  const [selectedDate, setSelectedDate] = useState(Date.now());
-  console.log(selectedDate);
+import sprite from '../../../assets/icons-optimized.svg';
+import { CalendarGlobalStyles } from './StyledDatepicker.styled';
+import css from './CustomInput.module.css';
+
+const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
-      <div onClick={onClick} ref={ref} className={css.datePicker}>
-        <div className={css.input}>{format(selectedDate, 'dd/MM/yyyy')}</div>
+      <div onClick={onClick} ref={ref} className={css.container}>
+        <div>{format(selectedDate, 'dd-MM-yyyy')}</div>
         <div>
-          <svg width="20" height="20">
+          <svg width="20" height="20" className={css.svg}>
             <use href={`${sprite}#icon-calendar-bage`}></use>
           </svg>
         </div>
@@ -22,37 +20,18 @@ const StyledDatepicker = () => {
     );
   });
 
-  const handlePrevDayClick = () => {
-    setSelectedDate((prevDate) => subDays(prevDate, 1));
-  };
-
-  const handleNextDayClick = () => {
-    setSelectedDate((prevDate) => addDays(prevDate, 1));
-  };
-
   return (
-    <div>
+    <>
       <DatePicker
         selected={selectedDate}
-        onChange={(date) => {
-          setSelectedDate(date);
-        }}
+        onChange={onChange}
         customInput={<CustomInput />}
+        minDate={minDate}
         dateFormat={'dd MM yyyy'}
+        calendarStartDay={1}
       />
-      <button
-        type="button"
-        className={css.arrowLeft}
-        onClick={handlePrevDayClick}
-      >
-        svl
-      </button>
-      <button type="button" onClick={handleNextDayClick}>
-        svr
-      </button>
-
       <CalendarGlobalStyles />
-    </div>
+    </>
   );
 };
 

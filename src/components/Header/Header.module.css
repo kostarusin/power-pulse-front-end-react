@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 61px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: left;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (min-width: 769px) {
+    gap: 32px;
+  }
+}

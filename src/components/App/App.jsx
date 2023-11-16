@@ -25,6 +25,14 @@ const ErrorPage = lazy(() => import('../../pages/Error/Error'));
 function App() {
   const dispatch = useDispatch();
 
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).replace(/\//g, '-');
+
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -39,23 +47,29 @@ function App() {
             element={<PublicRoute redirectto="/diary" component={SignInPage} />}
           />
           <Route
-            path="register"
-            element={<PublicRoute redirectto="/user" component={SignUpPage} />}
+            path="/register"
+            element={
+              <PublicRoute redirectto="/profile" component={SignUpPage} />
+            }
           />
           <Route
-            path="diary"
-            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
+            path="/diary"
+            element={<PrivateRoute redirectto={`/diary/${formattedDate}`} component={DiarysPage} />}
           />
           <Route
-            path="profile"
+            path="/diary/:date"
+            element={<PrivateRoute component={DiarysPage} />}
+          />
+          <Route
+            path="/profile"
             element={<PrivateRoute redirectto="/" component={UserPage} />}
           />
           <Route
-            path="products"
+            path="/products"
             element={<PrivateRoute redirectto="/" component={ProductsPage} />}
           />
           <Route
-            path="exercises"
+            path="/exercises"
             element={<PrivateRoute redirectto="/" component={ExercisesPage} />}
           />
           <Route path="*" element={<ErrorPage />} />

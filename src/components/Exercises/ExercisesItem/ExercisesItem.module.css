@@ -10,7 +10,6 @@
   height: auto;
   border: 1px #efede8;
   border-radius: 12px;
-
   filter: brightness(40%);
 }
 @media screen and (min-width: 375px) {
@@ -56,5 +55,5 @@
 .exerciseItemText {
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(239, 237, 232, 0.4);
+  color: var(--grayEx);
 }

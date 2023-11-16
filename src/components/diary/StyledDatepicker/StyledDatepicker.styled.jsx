@@ -1,14 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 export const CalendarGlobalStyles = createGlobalStyle`
+  .react-datepicker__tab-loop {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
   .react-datepicker__wrapper {
     position: fixed;
     z-index:9;
   }
+
   .react-datepicker {
     position: absolute;
     z-index:9;
-
-    right: 20px;
+    right: -180px;
     transform: translate(-1%, 0%);
     display: flex;
     flex-direction: column;
@@ -21,7 +27,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
 
 
     @media screen and (min-width: 768px) {
-      right: 50px;
+      right: -80px;
     }
   }
   .react-datepicker__month-container {

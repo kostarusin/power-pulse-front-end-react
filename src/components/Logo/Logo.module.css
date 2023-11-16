@@ -1,0 +1,27 @@
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 13px;
+  fill: #e6533c;
+  stroke: none;
+
+  @media screen and (min-width: 376px) {
+    width: 44px;
+    height: 17px;
+  }
+}
+
+.logoText {
+  width: 82px;
+  height: 13px;
+
+  @media screen and (min-width: 376px) {
+    width: 100px;
+    height: 16px;
+  }
+}
