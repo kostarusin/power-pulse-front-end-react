@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 //components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
@@ -18,19 +19,26 @@ import { addDays, subDays } from 'date-fns';
 import styles from './Dairy.module.css';
 
 function Diary() {
+  const navigate = useNavigate();
+  // const {date} = useParams(); 
   const dispatch = useDispatch();
   const { user } = useAuth();
+
+const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).replace(/\//g, '-');
+
+   
+  useEffect(() => {
+     navigate(`/diary/${formattedDate}`);
+  }, []);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const minDate = startOfDay(parseISO(user.birthday));
 
-  const formattedDate = selectedDate
-    .toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
-    .replace(/\//g, '-');
 
   const { doneExercises, consumedProducts } = useDiary();
 
@@ -44,10 +52,30 @@ function Diary() {
 
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
+    const previousDate = subDays(selectedDate, 1);
+    const formattedPreviousDate = previousDate
+      .toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+      .replace(/\//g, '-');
+    navigate(`/diary/${formattedPreviousDate}`);
+    dispatch(getDiary(formattedPreviousDate));
   };
 
   const handleToNextDay = () => {
     setSelectedDate((prevDate) => addDays(prevDate, 1));
+    const nextDate = addDays(selectedDate, 1);
+    const formattedNextDate = nextDate
+      .toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+      .replace(/\//g, '-');
+    navigate(`/diary/${formattedNextDate}`);
+    dispatch(getDiary(formattedNextDate));
   };
 
   return (
