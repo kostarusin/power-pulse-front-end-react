@@ -5,11 +5,12 @@ import {
   FilterBtn,
 } from './ExercisesNavigation.styled';
 
+
 export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
   return (
-    <ExercisesNavList>
-      <ExercisesFilter
-        className={activeFilter === 'Body parts' ? 'active' : ''}
+    < ExercisesNavList>
+      <ExercisesFilter ExercisesFilter
+      className={activeFilter === 'Body parts' ? 'active' : ''}
       >
         <FilterBtn
           type="button"
@@ -19,7 +20,7 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
           Body parts
         </FilterBtn>
       </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
+      < ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
         <FilterBtn
           type="button"
           onClick={() => handleFilterClick('Muscules')}
@@ -27,7 +28,7 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
         >
           Muscules
         </FilterBtn>
-      </ExercisesFilter>
+      </ ExercisesFilter>
       <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>
         <FilterBtn
           type="button"

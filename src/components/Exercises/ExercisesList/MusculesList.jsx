@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchByType } from '../../../redux/exercises/operations';
 import { selectByType } from '../../../redux/exercises/selectors';
-import { ExercisesUl } from './ExercisesList.styled';
+import css from './ExercisesList.module.css';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 
 import Pagination from '../Pagination/Pagination';
@@ -56,7 +56,7 @@ export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
 
   return (
     <PaginationContainer>
-      <ExercisesUl>
+      <ul className={css.exercisesUl}>
         {currentItems.map(item => (
           <ExercisesItem
             key={item._id}
@@ -65,7 +65,7 @@ export const MusculesList = ({ handleFilterClick, handleSetExName}) => {
             handleSetExName={handleSetExName}
           />
         ))}
-      </ExercisesUl>
+      </ul>
       {itemsPerPage < exercises.muscles.length && (
         <Pagination
           itemsPerPage={itemsPerPage}

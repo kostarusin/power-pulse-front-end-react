@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { WaistItem } from '../WaistItem/WaistItem';
-import {
-  WaistItemUl,
-  NoExercisesTitle,
-  WaistListContainer,
-  ImgWaist,
-} from './WaistList.styled';
+import css from './WaistList.module.css';
 import { useState } from 'react';
 import {selectExercises } from '../../../../redux/exercises/selectors';
 import { useEffect } from 'react';
@@ -49,7 +44,7 @@ export const WaistList = ({exerciseName}) => {
   return (
     <>
  {modalData && (
-  <Modal isOpenModalToggle={closeModal}>
+  <Modal toggleExerciseModal={closeModal}>
     {modalChange !== 'well' ? (
             <AddExerciseForm
               data={modalData}
@@ -64,8 +59,8 @@ export const WaistList = ({exerciseName}) => {
             />
           )}
           </Modal>)}
-      <WaistListContainer>
-        <WaistItemUl>
+      <div className={css.waistContainer}>
+        <ul className={css.waistItemUl}>
           {visibleExercises.length ? (
             visibleExercises
               .slice(0, 50)
@@ -77,14 +72,14 @@ export const WaistList = ({exerciseName}) => {
                 />
               ))
           ) : (
-            <NoExercisesTitle>
+            <h2 className={css.noExercisesTitle}>
               There is not exercises downloaded else, please try choose this
               categorie later!!!
-            </NoExercisesTitle>
+            </h2>
         )}
-        </WaistItemUl>
-        {/* <ImgWaist src={images} alt="image" /> */}
-      </WaistListContainer>
+        </ul>
+        <img className={css.imgWaist} src={images} alt="image" />
+      </div>
     </>
   );
 };
