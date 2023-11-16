@@ -4,7 +4,7 @@ import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
 import css from './Exercises.module.css';
-import { ExercisesWrap } from '../../components/exercises/ExercisesWrapper/ExercisesWrapper';
+import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
 //redux
 import { useDispatch } from 'react-redux';
