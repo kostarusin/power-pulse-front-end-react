@@ -1,4 +1,3 @@
-// import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut, updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
