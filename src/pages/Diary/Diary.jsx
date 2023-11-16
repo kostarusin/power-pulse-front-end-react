@@ -58,28 +58,27 @@ function Diary() {
     dispatch(getUserCalories());
   }, [dispatch]);
 
+  const handlingDate = (date) => {
+    const formattedDate = formattingDate(date);
+    navigate(`/diary/${formattedDate}`);
+    dispatch(getDiary(formattedDate));
+  }
+
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
     const previousDate = subDays(selectedDate, 1);
-    const formattedPreviousDate = formattingDate(previousDate);
-    navigate(`/diary/${formattedPreviousDate}`);
-    dispatch(getDiary(formattedPreviousDate));
+    handlingDate(previousDate);
   };
 
   const handleToNextDay = () => {
     setSelectedDate((prevDate) => addDays(prevDate, 1));
     const nextDate = addDays(selectedDate, 1);
-    const formattedNextDate = formattingDate(nextDate);
-    navigate(`/diary/${formattedNextDate}`);
-    dispatch(getDiary(formattedNextDate));
+    handlingDate(nextDate);
   };
 
   const handleDateChange = (selectedDate) => {
     setSelectedDate(selectedDate);
-
-    const formattedSelectedDate = formattingDate(selectedDate);
-    navigate(`/diary/${formattedSelectedDate}`);
-    dispatch(getDiary(formattedSelectedDate));
+    handlingDate(selectedDate);
   };
 
   return (
