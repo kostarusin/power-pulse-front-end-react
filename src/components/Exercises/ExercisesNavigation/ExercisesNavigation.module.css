@@ -3,7 +3,10 @@
   gap: 28px;
   margin-bottom: 48px;
 }
-
+@media screen and (min-width: 1440px) {
+  .ExercisesNavList {
+  padding-right: 96px;
+}}
 .ExercisesFilter {
   color: var(--greyEx);
   font-size: 14px;

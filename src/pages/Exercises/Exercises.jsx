@@ -25,8 +25,9 @@ const Exercises = () => {
 
   return (
     <div className={css.div}>
+       <WaistList></WaistList>
       <ExercisesWrap></ExercisesWrap>
-      <WaistList></WaistList>
+     
     </div>
   );
 };

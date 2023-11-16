@@ -22,7 +22,7 @@ export const WaistList = () => {
 
   return (
     <>
-      <div className={css.waistContainer}>
+      <div className={css.waistListContainer}>
         <ul className={css.waistItemUl}>
           {visibleExercises.length ? (
             visibleExercises
