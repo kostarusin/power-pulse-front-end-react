@@ -3,12 +3,12 @@ import Brightness1Icon from '@mui/icons-material/Brightness1';
 import css from './ProductCard.module.css';
 import { grayForText } from '../../Helpers/helpers';
 
+import icons from '../../../assets/icons.svg';
 
 const ProductCard = ({
   visibleproducts,
   toggleSuccessModal,
   toggleSuccessModal1,
-  
 }) => {
   return visibleproducts.map((product) => {
     return (
@@ -44,7 +44,7 @@ const ProductCard = ({
         <div className={css.cardPart2}>
           <svg height={'24px'} width={'24px'} className={css.runnerSvg}>
             <use
-              href="src/assets/icons.svg#icon-running-stick-figure-svgrepo-com-1"
+              href={`${icons}#icon-running-stick-figure-svgrepo-com-1`}
               style={{
                 fill: 'white',
                 display: 'block',
