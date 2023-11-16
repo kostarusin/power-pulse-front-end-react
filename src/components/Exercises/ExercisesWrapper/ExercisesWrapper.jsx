@@ -7,7 +7,7 @@ import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation'
 import { WaistList } from '../Waist/WaistList/WaistList';
 
 export const ExercisesWrap = () => {
-  const [activeFilter, setActiveFilter] = useState('Body parts');
+  const [activeFilter, setActiveFilter] = useState('Body part');
   const [exerciseName, setExerciseName] = useState('');
 
   const handleSetExName = (name) => {
