@@ -10,6 +10,7 @@ import iconUser from '../../../assets/user.jpg';
 const UserView = () => {
   const { colories, user } = useAuth();
   const avatar = user.avatarURL;
+  console.log(colories);
 
   const dispatch = useDispatch();
 
@@ -48,8 +49,8 @@ const UserView = () => {
           </label>
         </div>
         <div className={css['user-name-container']}>
-          <h2 className={css['user-name-container-title']}>Anna Rybachok</h2>
-          <p className={css['user-name-container-text']}>User</p>
+          <h2 className={css['user-name-container-title']}>{user.username}</h2>
+          <p className={css['user-name-container-text']}>{user.email}</p>
         </div>
         <ul className={css['user-daily-list']}>
           <li className={css['user-daily-items']}>
