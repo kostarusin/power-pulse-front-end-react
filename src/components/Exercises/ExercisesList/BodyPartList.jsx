@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch} from 'react-redux';
-import { fetchByType} from '../../../redux/exercises/operations';
-import { ExercisesUl } from './ExercisesList.styled';
+import { useDispatch } from 'react-redux';
+import { fetchByType } from '../../../redux/exercises/operations';
+import css from './ExercisesList.module.css';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 import { useExercises } from '../../../redux/hooks';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
+export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
+  const dispatch = useDispatch();
 
-export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
- const dispatch = useDispatch();
+  const { bodyParts } = useExercises();
 
- const {bodyParts}=useExercises();
-  console.log(bodyParts.bodyParts)
- useEffect(() => {
-  dispatch(fetchByType());
-}, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchByType());
+  }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -50,11 +49,14 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
   console.log();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = bodyParts.bodyParts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = bodyParts.bodyParts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
 
   return (
     <PaginationContainer>
-      <ExercisesUl>
+      <ul className={css.exercisesUl}>
         {currentItems.map((item) => (
           <ExercisesItem
             key={item._id}
@@ -63,8 +65,8 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName}) => {
             handleSetExName={handleSetExName}
           />
         ))}
-      </ExercisesUl>
-      {itemsPerPage <bodyParts.bodyParts.length && (
+      </ul>
+      {itemsPerPage < bodyParts.bodyParts.length && (
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={bodyParts.bodyParts.length}
