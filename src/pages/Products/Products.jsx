@@ -19,6 +19,7 @@ import { findProductByText } from '../../redux/products/slice.jsx';
 
 import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
 import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
@@ -55,21 +56,14 @@ const Products = () => {
   };
   const visibleProducts = getVisibleProducts();
 
-
- 
-
   const getVisibleProducts1ByRec = () => {
     if (filterRec === '') {
       return visibleProducts;
     } else {
-      return visibleProducts.filter(({allowed}) =>
-        allowed===filterRec,
-      );
+      return visibleProducts.filter(({ allowed }) => allowed === filterRec);
     }
   };
   const VisibleProducts1ByRec = getVisibleProducts1ByRec();
-
-
 
   const getVisibleProductsByTitle = () => {
     if (!filterByText) {
@@ -155,8 +149,8 @@ const Products = () => {
       </div>
 
       <ul className={css.cardContainer}>
-        {loading ||
-          (showProducts && (
+        {(loading && <Loader />) ||
+          (showProducts && <Loader /> && (
             <ProductCard
               visibleproducts={visibleProductsByTitle}
               toggleSuccessModal={toggleSuccessModal}
