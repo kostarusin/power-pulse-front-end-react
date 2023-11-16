@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { WaistList } from '../../../src/components/Exercises/Waist/WaistList/WaistList';
+//import { WaistList } from '../../../src/components/Exercises/Waist/WaistList/WaistList';
 import css from './Exercises.module.css';
 import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
 
@@ -25,7 +25,7 @@ const Exercises = () => {
 
   return (
     <div className={css.div}>
-       <WaistList></WaistList>
+       {/* <WaistList></WaistList> */}
       <ExercisesWrap></ExercisesWrap>
      
     </div>
