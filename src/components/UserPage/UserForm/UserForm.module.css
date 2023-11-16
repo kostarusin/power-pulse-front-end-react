@@ -15,6 +15,7 @@
   border: 1px solid var(--gray-middle);
   border-radius: 12px;
   padding: 14px;
+  transition: border-color 0.5s ease-out;
 }
 
 .basicInfoInput:is(:hover, :focus) {
@@ -33,6 +34,7 @@
   border: 1px solid var(--gray-middle);
   border-radius: 12px;
   padding: 14px;
+  transition: border-color 0.5s ease-out;
 }
 
 .infoInput:is(:hover, :focus) {
@@ -132,6 +134,7 @@
   border: 1px solid var(--orange-dark);
   background-color: var(--orange-dark);
   border-radius: 12px;
+  transition: background-color 0.5s ease-out;
 }
 
 .saveBtn:is(:hover, :focus) {
@@ -144,6 +147,7 @@
   background-color: var(--gray-middle);
   border-color: var(--gray-middle);
   cursor: not-allowed;
+  transition: background-color 0.5s ease-out;
 }
 
 .saveBtn:disabled:is(:hover, :focus) {
@@ -168,6 +172,15 @@
   position: absolute;
   font-size: 12px;
   z-index: 1;
+}
+
+.customToast {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.toastProgressBar {
+  background-color: var(--white);
 }
 
 @media (min-width: 768px) {
