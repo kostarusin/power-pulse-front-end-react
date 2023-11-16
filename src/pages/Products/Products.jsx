@@ -3,19 +3,11 @@ import css from './Products.module.css';
 
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import {
-  grayForText,
-  grayMiddle,
-  orangeDark,
-  white,
-} from '../../components/Helpers/helpers.js';
 
-import Brightness1Icon from '@mui/icons-material/Brightness1';
+import { orangeDark, white } from '../../components/Helpers/helpers.js';
 
 import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
-import { ButtonModal } from '../../components/ButtonModal/ButtonModal.jsx';
 
 import { useDispatch } from 'react-redux';
 import { useProducts } from '../../redux/hooks/useProducts.jsx';
@@ -24,6 +16,9 @@ import {
   fetchProducts,
 } from '../../redux/products/operations';
 import { findProductByText } from '../../redux/products/slice.jsx';
+
+import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
+import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
 
 const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
@@ -49,36 +44,38 @@ const Products = () => {
     dispatch(fetchProductCategories());
   }, [dispatch]);
 
-  // const test = () => {
-  //   return products.products.filter((product) => {
-  //     (!filter.value||filter.value==='all' ||
-  //       product.item.category.toLowerCase().trim().includes(filter.value)) &&
-  //       (!filterByText ||
-  //         product.item.title
-  //           .toLowerCase()
-  //           .trim()
-  //           .includes(filterByText.toLowerCase())) &&
-  //       (!filterRec.value || filterRec.value==='All' || product.allowed.includes(filterRec.value));
-  //   });
-  // };
-  // const test1 = test();
-  // console.log(test1);
   const getVisibleProducts = () => {
-    if (!filter || filter.value === 'all') {
+    if (!filter || filter.value === 'all' || filter.value === 'All') {
       return products.products;
     } else {
-      return products.products.filter(({ item }) =>
-        item.category.toLowerCase().trim().includes(filter.value),
+      return products.products.filter((product) =>
+        product.item.category.toLowerCase().trim().includes(filter.value),
       );
     }
   };
   const visibleProducts = getVisibleProducts();
 
-  const getVisibleProductsByTitle = () => {
-    if (!filterByText) {
+
+ 
+
+  const getVisibleProducts1ByRec = () => {
+    if (filterRec === '') {
       return visibleProducts;
     } else {
-      return visibleProducts.filter(({ item }) =>
+      return visibleProducts.filter(({allowed}) =>
+        allowed===filterRec,
+      );
+    }
+  };
+  const VisibleProducts1ByRec = getVisibleProducts1ByRec();
+
+
+
+  const getVisibleProductsByTitle = () => {
+    if (!filterByText) {
+      return VisibleProducts1ByRec;
+    } else {
+      return VisibleProducts1ByRec.filter(({ item }) =>
         item.title.toLowerCase().trim().includes(filterByText.toLowerCase()),
       );
     }
@@ -159,113 +156,23 @@ const Products = () => {
 
       <ul className={css.cardContainer}>
         {loading ||
-          (showProducts &&
-            visibleProductsByTitle.map((product) => {
-              return (
-                <li key={product.item._id} className={css.card}>
-                  <div className={css.cardPart1}>
-                    <p className={css.dietField}>DIET</p>
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: '8px',
-                        alignItems: 'center',
-                      }}
-                    >
-                      {' '}
-                      <Brightness1Icon
-                        color={product.allowed ? 'success' : 'error'}
-                        viewBox="0 0 24 24"
-                        fontSize="small"
-                      />
-                      <p>
-                        {product.allowed ? 'Recommended' : 'Not Recommended'}
-                      </p>
-                      <button
-                        className={css.addButton}
-                        onClick={() => {
-                          toggleSuccessModal();
-                          toggleSuccessModal1(product.item);
-                        }}
-                      >
-                        Add
-                        <ArrowForwardIcon fontSize="small" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className={css.cardPart2}>
-                    <svg
-                      height={'24px'}
-                      width={'24px'}
-                      className={css.runnerSvg}
-                    >
-                      <use
-                        href="src/assets/icons.svg#icon-running-stick-figure-svgrepo-com-1"
-                        style={{
-                          fill: 'white',
-                          display: 'block',
-                          margin: 'auto',
-                        }}
-                      />
-                    </svg>
-
-                    <span className={css.productName}>
-                      {product.item.title}
-                    </span>
-                  </div>
-                  <ul className={css.productEnergyList}>
-                    <li className={css.productEnergyItem}>
-                      <span style={{ color: grayForText }}>Calories: </span>
-                      <span>{product.item.calories}</span>
-                    </li>
-                    <li className={css.productEnergyItem1}>
-                      <span style={{ color: grayForText }}>Category: </span>
-                      {product.item.category}
-                    </li>
-                    <li className={css.productEnergyItem}>
-                      <span style={{ color: grayForText }}>Weight: </span>
-                      {product.item.weight}
-                    </li>
-                  </ul>
-                </li>
-              );
-            }))}
+          (showProducts && (
+            <ProductCard
+              visibleproducts={visibleProductsByTitle}
+              toggleSuccessModal={toggleSuccessModal}
+              toggleSuccessModal1={toggleSuccessModal1}
+            />
+          ))}
       </ul>
 
       {showSuccessModal && (
         <Modal onClose={toggleSuccessModal}>
-          <div>
-            <form>
-              <div className={css.inputModalBox}>
-                <input
-                  type="text"
-                  value={productData.title}
-                  className={css.modalInput}
-                  style={{ color: grayMiddle }}
-                  disabled
-                />
-                <input
-                  type="text"
-                  className={css.modalInputcall}
-                  onChange={handleChange}
-                />
-              </div>
-              <p>
-                <span style={{ color: grayForText }}>Calories: </span>
-                {caclCall}
-              </p>
-            </form>
-            <div className={css.buttonModalBox}>
-              <ButtonModal btnType={'submit'} text={'Add to diary'} />
-              <button
-                type="button"
-                className={css.closeModalButton}
-                onClick={toggleSuccessModal}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
+          <AddProductForm
+            toggleSuccessModal={toggleSuccessModal}
+            handleChange={handleChange}
+            productData={productData}
+            caclCall={caclCall}
+          />
         </Modal>
       )}
     </section>
