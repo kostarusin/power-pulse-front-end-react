@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Overlay = styled.div`
+.loader {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -10,4 +8,4 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-`;
+}
