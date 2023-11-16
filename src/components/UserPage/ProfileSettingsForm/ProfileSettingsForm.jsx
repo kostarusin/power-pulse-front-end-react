@@ -34,6 +34,7 @@ const ProfileSettingsForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const convertedUser = convertValues(user);
+    console.log('convertedUser', convertedUser);
     const convertedValues = convertValues(values);
     const areEqual = isEqual(convertedUser, convertedValues);
 
@@ -61,9 +62,9 @@ const ProfileSettingsForm = () => {
     currentWeight: user.currentWeight,
     desiredWeight: user.desiredWeight,
     birthday: user.birthday,
-    blood: user.blood,
+    blood: String(user.blood),
     sex: user.sex,
-    levelActivity: user.levelActivity,
+    levelActivity: String(user.levelActivity),
   };
 
   return (
@@ -82,11 +83,13 @@ const ProfileSettingsForm = () => {
               type="text"
               placeholder="Anna Rybachok"
             />
-            <ErrorMessage
-              component="div"
-              name="username"
-              className={css.ErrorMessage}
-            />
+            <div className={css.error}>
+              <ErrorMessage
+                component="div"
+                name="username"
+                className={css.ErrorMessage}
+              />
+            </div>
           </label>
           <label htmlFor="email" className={css.fieldWithError}>
             <Field
@@ -96,11 +99,13 @@ const ProfileSettingsForm = () => {
               placeholder="annarybachok@gmail.com"
               readOnly
             />
-            <ErrorMessage
-              component="div"
-              name="email"
-              className={css.ErrorMessage}
-            />
+            <div className={css.error}>
+              <ErrorMessage
+                component="div"
+                name="email"
+                className={css.ErrorMessage}
+              />
+            </div>
           </label>
         </div>
         <div className={css.secondaryInfoContainer}>
@@ -113,11 +118,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="height"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="height"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
             <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
               <span className={css.setName}>Current Weight</span>
@@ -127,11 +134,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="currentWeight"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="currentWeight"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
           </div>
           <div className={css.flexContainer}>
@@ -143,11 +152,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="desiredWeight"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="desiredWeight"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
             <label htmlFor="birthday">
               <Field
@@ -156,11 +167,13 @@ const ProfileSettingsForm = () => {
                 type="date"
                 placeholder="00.00.0000"
               />
-              <ErrorMessage
-                component="div"
-                name="birthday"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="birthday"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
           </div>
         </div>

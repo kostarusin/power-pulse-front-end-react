@@ -1,17 +1,25 @@
 import * as Yup from 'yup';
 
 const ProfileSettingsSchema = Yup.object().shape({
-  username: Yup.string().required(),
-  email: Yup.string().email('Invalid email address').required(),
-  height: Yup.number().min(150, 'Must be at least 150 cm').required(),
-  currentWeight: Yup.number().min(35, 'Must be at least 35 kg').required(),
-  desiredWeight: Yup.number().min(35, 'Must be at least 35 kg').required(),
+  username: Yup.string().required('User Name is a required field'),
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('Email is a required field'),
+  height: Yup.number()
+    .min(150, 'Must be at least 150 cm')
+    .required('Height is a required field'),
+  currentWeight: Yup.number()
+    .min(35, 'Must be at least 35 kg')
+    .required('Current weight is a required field'),
+  desiredWeight: Yup.number()
+    .min(35, 'Must be at least 35 kg')
+    .required('Desired weight is a required field'),
   birthday: Yup.date()
     .max(
       new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
       'Must be older than 18 years',
     )
-    .required('This field is required'),
+    .required('Birthday is a required field'),
   blood: Yup.number()
     .oneOf([1, 2, 3, 4], 'Invalid blood type')
     .required('This field is required'),
