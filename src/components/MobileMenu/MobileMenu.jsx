@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import css from './MobileMenu.module.css';
@@ -18,6 +19,19 @@ const MobileMenu = ({ isOpen, onClose }) => {
     navigate(path);
     onClose();
   };
+
+  const handleEscapeKey = (e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscapeKey);
+    return () => {
+      window.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, []);
 
   return (
     <div
