@@ -4,7 +4,7 @@ import HomeBackground from '../../components/HomeBackground/HomeBackground';
 
 const SignIn = () => {
   return (
-    <section className={css.signin}>
+    <section className={css.signin }>
       <div className={css.container1}>
         <h2 className={css.title}>Sign In</h2>
         <p className={css.text1}>
