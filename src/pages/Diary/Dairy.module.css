@@ -1,23 +1,31 @@
-.backGround {
-  padding-bottom: 72px;
-  position: relative;
-  min-width: 335px;
-
-  height: 812px;
+.layoutContainer {
+  width: var(--container-width);
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 0 auto;
-  padding-top: 40px;
+}
 
-  @media screen and (min-width: 768px) {
-    min-width: 704px;
-    height: 1024px;
-    /* padding-top: ?); */
-  }
-  @media screen and (min-width: 1440px) {
-    min-width: 1248px;
-    height: 100%;
-    /* padding-top: ?; */
+@media (min-width: 375px) {
+  .layoutContainer {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
+
+@media (min-width: 768px) {
+  .layoutContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .layoutContainer {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column-reverse;
