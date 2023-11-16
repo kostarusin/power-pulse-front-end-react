@@ -1,17 +1,10 @@
-import {
-  BtnLabel,
-  BtnWrapper,
-  CardLabel,
-  ExercisesTitleBox,
-  List,
-  ListItem,
-  ListItemValue,
-  SpanExerciseRun,
-  SvgExercise,
-  SvgExerciseRun,
-  Title,
-  WaistItemLi,
-} from './WaistItem.styled';
+import { useState } from 'react';
+//components
+import { Modal } from '../../../Modal/Modal';
+import { AddExerciseForm } from '../../../AddExerciseForm/AddExerciseForm';
+import { AddExerciseSuccess } from '../../../AddExerciseSuccess/AddExerciseSuccess';
+//stele
+import css from './WaistItem.module.css';
 import icons from '../../../../assets/icons.svg';
 
 const texts = {
@@ -24,49 +17,78 @@ const texts = {
   },
 };
 
-const capitalizeFirstLeter = string => {
-  const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
-  return newString;
-};
+export const WaistItem = ({ data }) => {
+  const [showExerciseModal, setShowExerciseModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [exercise, setExercise] = useState({});
+  console.log(data);
+  const capitalizeFirstLeter = (string) => {
+    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+    return newString;
+  };
 
-export const WaistItem = ({ data,toggleExerciseModal }) => {
-  
+  const toggleExerciseModal = () => {
+    setShowExerciseModal((prevState) => !prevState);
+  };
+
+  const toggleSuccessModal = () => {
+    setShowSuccessModal((prevState) => !prevState);
+  };
+
   return (
-    <WaistItemLi>
-      <BtnWrapper>
-        <CardLabel>{texts.cardLabel}</CardLabel>
-        <BtnLabel
-         onClick={toggleExerciseModal}
+    <li className={css.waistItemLi}>
+      <div className={css.btnWrapper}>
+        <p className={css.cardLabel}>{texts.cardLabel}</p>
+        <button
+          className={css.btnLabel}
           type="button"
+          onClick={toggleExerciseModal}
         >
           {texts.btnLabel}
           <span>
-            <SvgExercise>
+            <svg className={css.svgExercise}>
               <use href={`${icons}#icon-add-arrow`}></use>
-            </SvgExercise>
+            </svg>
           </span>
-        </BtnLabel>
-      </BtnWrapper>
-      <ExercisesTitleBox>
-        <SpanExerciseRun>
-          <SvgExerciseRun width={24} height={24}>
+        </button>
+      </div>
+      <div className={css.exercisesTitleBox}>
+        <span className={css.spanExerciseRun}>
+          <svg className={css.svgExerciseRun} width={24} height={24}>
             <use href={`${icons}#icon-runn   ing-figure`}></use>
-            <use href={`${icons}#icon-running-stick-figure-svgrepo-com-1`}></use>
-          </SvgExerciseRun>
-        </SpanExerciseRun>
-        <Title>{capitalizeFirstLeter(data.name)} </Title>
-      </ExercisesTitleBox>
+            <use
+              href={`${icons}#icon-running-stick-figure-svgrepo-com-1`}
+            ></use>
+          </svg>
+        </span>
+        <h3 className={css.title}>{capitalizeFirstLeter(data.name)} </h3>
+      </div>
+      {showExerciseModal && (
+        <Modal onClose={toggleExerciseModal}>
+          <AddExerciseForm
+            exercise={data}
+            toggleExerciseModal={toggleExerciseModal}
+            toggleSuccessModal={toggleSuccessModal}
+            setExercise={setExercise}
+          />
+        </Modal>
+      )}
+      {showSuccessModal && (
+        <Modal onClose={toggleSuccessModal}>
+          <AddExerciseSuccess exercise={exercise} />
+        </Modal>
+      )}
 
-      <List>
+      <ul className={css.list}>
         {Object.keys(texts.list).map((e) => (
-          <ListItem key={e}>
+          <li className={css.listItem} key={e}>
             {texts.list[e]}
-            <ListItemValue>
+            <span className={css.listItemValue}>
               {capitalizeFirstLeter(String(data[e]))}
-            </ListItemValue>
-          </ListItem>
+            </span>
+          </li>
         ))}
-      </List>
-    </WaistItemLi>
+      </ul>
+    </li>
   );
 };

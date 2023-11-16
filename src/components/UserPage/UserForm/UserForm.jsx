@@ -1,5 +1,9 @@
+//formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
+import ToastIcon from '../ToastIcon';
+import CloseBtn from '../CloseBtn';
+//lodash
 import isEqual from 'lodash/isEqual';
 import _ from 'lodash';
 //redux
@@ -8,11 +12,14 @@ import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
 //datepicker
 
+//notification
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //styles
-import css from './ProfileSettingsForm.module.css';
+import css from './UserForm.module.css';
 import { useState } from 'react';
 
-const ProfileSettingsForm = () => {
+const UserForm = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
@@ -34,11 +41,18 @@ const ProfileSettingsForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const convertedUser = convertValues(user);
+    console.log('convertedUser', convertedUser);
     const convertedValues = convertValues(values);
     const areEqual = isEqual(convertedUser, convertedValues);
 
     if (areEqual) {
-      console.log('The objects have the same values.');
+      toast.info('Please, choose new options!', {
+        position: 'top-center',
+        className: css.customToast,
+        progressClassName: css.toastProgressBar,
+        icon: ToastIcon,
+        closeButton: CloseBtn,
+      });
       setFormChanged(false);
     } else {
       const updatedValues = { ...values };
@@ -61,9 +75,9 @@ const ProfileSettingsForm = () => {
     currentWeight: user.currentWeight,
     desiredWeight: user.desiredWeight,
     birthday: user.birthday,
-    blood: user.blood,
+    blood: String(user.blood),
     sex: user.sex,
-    levelActivity: user.levelActivity,
+    levelActivity: String(user.levelActivity),
   };
 
   return (
@@ -82,11 +96,13 @@ const ProfileSettingsForm = () => {
               type="text"
               placeholder="Anna Rybachok"
             />
-            <ErrorMessage
-              component="div"
-              name="username"
-              className={css.ErrorMessage}
-            />
+            <div className={css.error}>
+              <ErrorMessage
+                component="div"
+                name="username"
+                className={css.ErrorMessage}
+              />
+            </div>
           </label>
           <label htmlFor="email" className={css.fieldWithError}>
             <Field
@@ -96,11 +112,13 @@ const ProfileSettingsForm = () => {
               placeholder="annarybachok@gmail.com"
               readOnly
             />
-            <ErrorMessage
-              component="div"
-              name="email"
-              className={css.ErrorMessage}
-            />
+            <div className={css.error}>
+              <ErrorMessage
+                component="div"
+                name="email"
+                className={css.ErrorMessage}
+              />
+            </div>
           </label>
         </div>
         <div className={css.secondaryInfoContainer}>
@@ -113,11 +131,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="height"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="height"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
             <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
               <span className={css.setName}>Current Weight</span>
@@ -127,11 +147,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="currentWeight"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="currentWeight"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
           </div>
           <div className={css.flexContainer}>
@@ -143,11 +165,13 @@ const ProfileSettingsForm = () => {
                 type="number"
                 placeholder="0"
               />
-              <ErrorMessage
-                component="div"
-                name="desiredWeight"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="desiredWeight"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
             <label htmlFor="birthday">
               <Field
@@ -156,11 +180,13 @@ const ProfileSettingsForm = () => {
                 type="date"
                 placeholder="00.00.0000"
               />
-              <ErrorMessage
-                component="div"
-                name="birthday"
-                className={css.ErrorMessage}
-              />
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="birthday"
+                  className={css.ErrorMessage}
+                />
+              </div>
             </label>
           </div>
         </div>
@@ -293,4 +319,4 @@ const ProfileSettingsForm = () => {
   );
 };
 
-export default ProfileSettingsForm;
+export default UserForm;

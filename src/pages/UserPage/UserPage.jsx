@@ -1,4 +1,4 @@
-import ProfileSettingsForm from '../../components/UserPage/ProfileSettingsForm';
+import UserForm from '../../components/UserPage/UserForm';
 import UserTitle from '../../components/UserPage/UserTitle';
 import UserView from '../../components/UserPage/UserView';
 
@@ -10,7 +10,7 @@ const UserPage = () => {
       <UserTitle />
       <div className={css.container}>
         <UserView />
-        <ProfileSettingsForm />
+        <UserForm />
       </div>
     </>
   );

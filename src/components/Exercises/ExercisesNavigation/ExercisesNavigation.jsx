@@ -1,43 +1,55 @@
-import { PropTypes } from 'prop-types';
-import {
-  ExercisesFilter,
-  ExercisesNavList,
-  FilterBtn,
-} from './ExercisesNavigation.styled';
+import PropTypes from 'prop-types';
+import styles from './ExercisesNavigation.module.css';
 
 export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
   return (
-    <ExercisesNavList>
-      <ExercisesFilter
-        className={activeFilter === 'Body parts' ? 'active' : ''}
+    <ul className={styles.ExercisesNavList}>
+      <li
+        className={`${styles.ExercisesFilter} ${
+          activeFilter === 'Body parts' ? styles.active : ''
+        }`}
       >
-        <FilterBtn
+        <button
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={activeFilter === 'Body parts' ? 'active' : ''}
+          className={`${styles.FilterBtn} ${
+            activeFilter === 'Body parts' ? styles.active : ''
+          }`}
         >
           Body parts
-        </FilterBtn>
-      </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
-        <FilterBtn
+        </button>
+      </li>
+      <li
+        className={`${styles.ExercisesFilter} ${
+          activeFilter === 'Muscules' ? styles.active : ''
+        }`}
+      >
+        <button
           type="button"
           onClick={() => handleFilterClick('Muscules')}
-          className={activeFilter === 'Muscules' ? 'active' : ''}
+          className={`${styles.FilterBtn} ${
+            activeFilter === 'Muscules' ? styles.active : ''
+          }`}
         >
-          Muscules
-        </FilterBtn>
-      </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>
-        <FilterBtn
+          Muscles
+        </button>
+      </li>
+      <li
+        className={`${styles.ExercisesFilter} ${
+          activeFilter === 'Equipment' ? styles.active : ''
+        }`}
+      >
+        <button
           type="button"
           onClick={() => handleFilterClick('Equipment')}
-          className={activeFilter === 'Equipment' ? 'active' : ''}
+          className={`${styles.FilterBtn} ${
+            activeFilter === 'Equipment' ? styles.active : ''
+          }`}
         >
           Equipment
-        </FilterBtn>
-      </ExercisesFilter>
-    </ExercisesNavList>
+        </button>
+      </li>
+    </ul>
   );
 };
 

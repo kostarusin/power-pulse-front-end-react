@@ -59,17 +59,18 @@
 }
 
 .flex {
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 
 .btnDelete {
-  width: 20px;
-  height: 20px;
+  background-color: inherit;
   margin-left: 8px;
-}
-@media screen and (min-width: 1440px) {
-  .btnDelete {
+  border: none;
+  @media screen and (min-width: 768px) {
+    margin-left: 12px;
+  }
+  @media screen and (min-width: 1440px) {
     margin-left: 20px;
   }
 }

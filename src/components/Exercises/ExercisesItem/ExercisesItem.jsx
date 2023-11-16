@@ -1,12 +1,5 @@
-
-import {
-  ExerciseItemText,
-  ExerciseItemTitle,
-  ExercisesLi,
-  Image,
-  TitleContainer,
-} from './ExercisesItem.styled';
-import images from '../../../images/0-default.jpg';
+import css from './ExercisesItem.module.css';
+import assets from '../../../assets/0-default.jpg';
 import { PropTypes } from 'prop-types';
 
 export const ExercisesItem = ({
@@ -15,24 +8,24 @@ export const ExercisesItem = ({
   handleSetExName,
 }) => {
   const { name, filter, imgURL } = exercisesItem;
-  const onClick = name => {
+  const onClick = (name) => {
     handleFilterClick('Waist');
     handleSetExName(name);
   };
 
-  const capitalizeFirstLeter = string => {
+  const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
 
   return (
-    <ExercisesLi onClick={() => onClick(name)}>
-      <Image src={imgURL ? imgURL : images} alt={name} />
-      <TitleContainer>
-        <ExerciseItemTitle>{capitalizeFirstLeter(name)}</ExerciseItemTitle>
-        <ExerciseItemText>{filter}</ExerciseItemText>
-      </TitleContainer>
-    </ExercisesLi>
+    <li className={css.exercisesLi} onClick={() => onClick(name)}>
+      <img className={css.image} src={imgURL ? imgURL : assets} alt={name} />
+      <div className={css.titleContainer}>
+        <h3 className={css.exerciseItemTitle}>{capitalizeFirstLeter(name)}</h3>
+        <p className={css.exerciseItemtext}>{filter}</p>
+      </div>
+    </li>
   );
 };
 

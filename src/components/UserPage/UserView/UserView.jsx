@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut, updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
@@ -9,24 +8,21 @@ import icon from '../../../assets/icons.svg';
 import iconUser from '../../../assets/user.jpg';
 
 const UserView = () => {
-  const { colories } = useAuth();
+  const { colories, user } = useAuth();
+  const avatar = user.avatarURL;
+
   const dispatch = useDispatch();
 
   const { bmr, dailyExerciseTime } = colories;
   const DailyCalorieIntake = Math.floor(bmr);
 
-  // useEffect(() => {
-
-  //   dispatch(updateInfo(avatar));
-  //   console.log(avatar);
-  // }, [avatar, dispatch]);
-
   const handleFileChange = (event) => {
+    event.preventDefault();
     const selectedFile = event.target.files[0];
+
     const formData = new FormData();
     formData.append('avatar', selectedFile);
-    setFile(selectedFile);
-    console.log(formData);
+
     dispatch(updateInfo(formData));
   };
 
@@ -34,18 +30,22 @@ const UserView = () => {
     <>
       <div className={css['user-view-container']}>
         <div className={css['user-img-container']}>
-          {/* <svg className={css['user-img']}>
-            <use href={`${sprite}#icon-user`}></use>
-          </svg> */}
-          <img className={css['user-img']} src={`${iconUser}`} alt="" />
-          <button className={css['user-img-button']}>
-            <svg className={css['user-img-button-svg']}>
+          <img
+            className={css['user-img']}
+            src={`${avatar ? avatar : iconUser}`}
+            alt=""
+          />
+          <label className={css['user-img-input-container']}>
+            <input
+              id="fileInput"
+              className={css['user-img-input']}
+              type="file"
+              onChange={handleFileChange}
+            />
+            <svg className={css['user-img-imput-svg']}>
               <use href={`${sprite}#icon-check-mark`}></use>
             </svg>
-          </button>
-          <div>
-            <input type="file" onChange={handleFileChange} />
-          </div>
+          </label>
         </div>
         <div className={css['user-name-container']}>
           <h2 className={css['user-name-container-title']}>Anna Rybachok</h2>
