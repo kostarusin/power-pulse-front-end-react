@@ -113,7 +113,11 @@ function ExercisesList({ exercises, selectedDate }) {
                     type="button"
                     className={css.btnDelete}
                     onClick={() => handleDeleteExercise(exercise)}
-                  ></button>
+                  >
+                    <svg width="20" height="20">
+                      <use href="/src/assets/icons-optimized.svg#icon-trash"></use>
+                    </svg>
+                  </button>
                 </div>
               </li>
             </ul>

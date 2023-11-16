@@ -1,45 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { WaistItem } from '../WaistItem/WaistItem';
-import {
-  WaistItemUl,
-  NoExercisesTitle,
-  WaistListContainer,
-  ImgWaist,
-} from './WaistList.styled';
+import css from './WaistList.module.css';
 import { useState } from 'react';
-import { selectByType, selectExercises } from '../../../../redux/exercises/selectors';
+import { selectExercises } from '../../../../redux/exercises/selectors';
 import { useEffect } from 'react';
-import { fetchByType} from '../../../../redux/exercises/operations';
-import images from '../../Waist/img/Waist1.jpg';
+import { fetchExercises } from '../../../../redux/exercises/operations';
+import images from '../img/Waist1.jpg';
 import { Modal } from '../../../Modal/Modal';
 import { AddExerciseSuccess } from '../../../AddExerciseSuccess/AddExerciseSuccess';
 import { AddExerciseForm } from '../../../AddExerciseForm/AddExerciseForm';
-import { useExercises } from '../../../../redux/hooks';
-export const WaistList = ({exerciseName}) => {
+
+export const WaistList = () => {
   const [modalChange, setModalChange] = useState('');
   const [modalData, setModalData] = useState(null);
-
-
   const dispatch = useDispatch();
 
-  const {bodyParts}=useExercises();
-   console.log(bodyParts.bodyParts)
   useEffect(() => {
-   dispatch(fetchByType());
- }, [dispatch]);
- 
+    dispatch(fetchExercises());
+  }, [dispatch]);
 
-
-const array=bodyParts.bodyParts.concat(bodyParts.equipment);
-const exercises=array.concat(bodyParts.muscles)
-console.log(exercises)
-  const visibleExercises = exercises.filter(
-    exercise =>
-      exercise.bodyParts ||
-      exercise.muscles ||
-      exercise.equipment === exerciseName,
-  );
-  const openModalToggle = el => {
+  const openModalToggle = (el) => {
     setModalData(el);
   };
 
@@ -51,11 +31,18 @@ console.log(exercises)
     setModalChange('well');
   };
 
+  const exercises = useSelector(selectExercises);
+  console.log(exercises);
+  const visibleExercises = exercises.filter(
+    (exercise) =>
+      exercise.bodyPart || exercise.muscles || exercise.equipment === '',
+  );
+
   return (
     <>
- {modalData && (
-  <Modal isOpenModalToggle={closeModal}>
-    {modalChange !== 'well' ? (
+      {modalData && (
+        <Modal toggleExerciseModal={closeModal}>
+          {modalChange !== 'well' ? (
             <AddExerciseForm
               data={modalData}
               closeModal={closeModal}
@@ -68,13 +55,14 @@ console.log(exercises)
               onClick={closeModal}
             />
           )}
-          </Modal>)}
-      <WaistListContainer>
-        <WaistItemUl>
+        </Modal>
+      )}
+      <div className={css.waistContainer}>
+        <ul className={css.waistItemUl}>
           {visibleExercises.length ? (
             visibleExercises
               .slice(0, 50)
-              .map(el => (
+              .map((el) => (
                 <WaistItem
                   key={el._id}
                   data={el}
@@ -82,14 +70,14 @@ console.log(exercises)
                 />
               ))
           ) : (
-            <NoExercisesTitle>
+            <h2 className={css.noExercisesTitle}>
               There is not exercises downloaded else, please try choose this
               categorie later!!!
-            </NoExercisesTitle>
-        )}
-        </WaistItemUl>
-        <ImgWaist src={images} alt="image" />
-      </WaistListContainer>
+            </h2>
+          )}
+        </ul>
+        <img className={css.imgWaist} src={images} alt="image" />
+      </div>
     </>
   );
 };
