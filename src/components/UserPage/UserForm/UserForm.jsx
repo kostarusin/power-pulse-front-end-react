@@ -1,5 +1,9 @@
+//formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
+import ToastIcon from '../ToastIcon';
+import CloseBtn from '../CloseBtn';
+//lodash
 import isEqual from 'lodash/isEqual';
 import _ from 'lodash';
 //redux
@@ -8,11 +12,14 @@ import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
 //datepicker
 
+//notification
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //styles
-import css from './ProfileSettingsForm.module.css';
+import css from './UserForm.module.css';
 import { useState } from 'react';
 
-const ProfileSettingsForm = () => {
+const UserForm = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
@@ -39,7 +46,13 @@ const ProfileSettingsForm = () => {
     const areEqual = isEqual(convertedUser, convertedValues);
 
     if (areEqual) {
-      console.log('The objects have the same values.');
+      toast.info('Please, choose new options!', {
+        position: 'top-center',
+        className: css.customToast,
+        progressClassName: css.toastProgressBar,
+        icon: ToastIcon,
+        closeButton: CloseBtn,
+      });
       setFormChanged(false);
     } else {
       const updatedValues = { ...values };
@@ -306,4 +319,4 @@ const ProfileSettingsForm = () => {
   );
 };
 
-export default ProfileSettingsForm;
+export default UserForm;
