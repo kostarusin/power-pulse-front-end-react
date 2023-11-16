@@ -18,13 +18,13 @@ const UserNav = () => {
   return (
     <>
       <nav className={css.nav}>
-        <NavLink className={css.naviLink} to="/diary">
+        <NavLink className={css.naviLink} activeClassName={css.activeLink} to="/diary">
           Diary
         </NavLink>
-        <NavLink className={css.naviLink} to="/exercises">
+        <NavLink className={css.naviLink} activeClassName={css.activeLink} to="/exercises">
           Exercises
         </NavLink>
-        <NavLink className={css.naviLink} to="/products">
+        <NavLink className={css.naviLink} activeClassName={css.activeLink} to="/products">
           Products
         </NavLink>
       </nav>
