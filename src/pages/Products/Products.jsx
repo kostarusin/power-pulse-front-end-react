@@ -20,6 +20,7 @@ import { findProductByText } from '../../redux/products/slice.jsx';
 import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
 import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
 import Loader from '../../components/Loader/Loader.jsx';
+import NotFound from '../../components/Products/Notfound/notFound.jsx';
 
 const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
@@ -148,16 +149,18 @@ const Products = () => {
         </div>
       </div>
 
-      <ul className={css.cardContainer}>
-        {(loading && <Loader />) ||
-          (showProducts && <Loader /> && (
-            <ProductCard
-              visibleproducts={visibleProductsByTitle}
-              toggleSuccessModal={toggleSuccessModal}
-              toggleSuccessModal1={toggleSuccessModal1}
-            />
-          ))}
-      </ul>
+      {(visibleProductsByTitle?.length === 0 && <NotFound />) || (
+        <ul className={css.cardContainer}>
+          {(loading && <Loader />) ||
+            (showProducts && <Loader /> && (
+              <ProductCard
+                visibleproducts={visibleProductsByTitle}
+                toggleSuccessModal={toggleSuccessModal}
+                toggleSuccessModal1={toggleSuccessModal1}
+              />
+            ))}
+        </ul>
+      )}
 
       {showSuccessModal && (
         <Modal onClose={toggleSuccessModal}>
