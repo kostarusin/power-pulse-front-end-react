@@ -1,0 +1,58 @@
+import css from './WaistItem.module.css';
+import icons from '../../../../assets/icons.svg';
+
+const texts = {
+  cardLabel: 'Workout',
+  btnLabel: 'Start',
+  list: {
+    burnedCalories: 'Burned calories:',
+    bodyPart: 'Body part:',
+    target: 'Target:',
+  },
+};
+
+const capitalizeFirstLeter = string => {
+  const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+  return newString;
+};
+
+export const WaistItem = ({ data,toggleExerciseModal }) => {
+  
+  return (
+    <li className={css.waistItemLi}>
+      <div className={css.btnWrapper}>
+        <p className={css.cardLabel}>{texts.cardLabel}</p>
+        <button className={css.btnLabel}
+         type="button"  onClick={() => {toggleExerciseModal(data)}}
+        >
+          {texts.btnLabel}
+          <span>
+            <svg className={css.svgExercise}>
+              <use href={`${icons}#icon-add-arrow`}></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div className={css.exercisesTitleBox}>
+        <span className={css.spanExerciseRun}>
+          <svg className={css.svgExerciseRun} width={24} height={24}>
+            <use href={`${icons}#icon-runn   ing-figure`}></use>
+            <use href={`${icons}#icon-running-stick-figure-svgrepo-com-1`}></use>
+          </svg>
+        </span>
+        <h3 className={css.title}>{capitalizeFirstLeter(data.name)} </h3>
+      </div>
+
+      <ul className={css.list}>
+        {Object.keys(texts.list).map((e) => (
+          <li className={css.listItem}key={e}>
+            {texts.list[e]}
+            <span className={css.listItemValue}>
+              {capitalizeFirstLeter(String(data[e]))}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+};
