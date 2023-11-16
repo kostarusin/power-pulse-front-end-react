@@ -20,25 +20,33 @@ import styles from './Dairy.module.css';
 
 function Diary() {
   const navigate = useNavigate();
-  // const {date} = useParams(); 
+  const { date } = useParams();
   const dispatch = useDispatch();
   const { user } = useAuth();
 
-const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    }).replace(/\//g, '-');
+  const formattingDate = (date) => {
+    return date
+      .toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+      .replace(/\//g, '-');
+  };
 
-   
   useEffect(() => {
-     navigate(`/diary/${formattedDate}`);
+    dispatch(getDiary(date));
+  }, [dispatch, date]);
+
+  const currentDate = new Date();
+  const formattedDate = formattingDate(currentDate);
+
+  useEffect(() => {
+    navigate(`/diary/${formattedDate}`);
   }, []);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const minDate = startOfDay(parseISO(user.birthday));
-
 
   const { doneExercises, consumedProducts } = useDiary();
 
@@ -53,13 +61,7 @@ const currentDate = new Date();
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
     const previousDate = subDays(selectedDate, 1);
-    const formattedPreviousDate = previousDate
-      .toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      })
-      .replace(/\//g, '-');
+    const formattedPreviousDate = formattingDate(previousDate);
     navigate(`/diary/${formattedPreviousDate}`);
     dispatch(getDiary(formattedPreviousDate));
   };
@@ -67,15 +69,17 @@ const currentDate = new Date();
   const handleToNextDay = () => {
     setSelectedDate((prevDate) => addDays(prevDate, 1));
     const nextDate = addDays(selectedDate, 1);
-    const formattedNextDate = nextDate
-      .toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      })
-      .replace(/\//g, '-');
+    const formattedNextDate = formattingDate(nextDate);
     navigate(`/diary/${formattedNextDate}`);
     dispatch(getDiary(formattedNextDate));
+  };
+
+  const handleDateChange = (selectedDate) => {
+    setSelectedDate(selectedDate);
+
+    const formattedSelectedDate = formattingDate(selectedDate);
+    navigate(`/diary/${formattedSelectedDate}`);
+    dispatch(getDiary(formattedSelectedDate));
   };
 
   return (
@@ -85,7 +89,7 @@ const currentDate = new Date();
         <DaySwitch
           minDate={minDate}
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
+          setSelectedDate={handleDateChange}
           handleToNextDay={handleToNextDay}
           handleToPreviousDay={handleToPreviousDay}
         />

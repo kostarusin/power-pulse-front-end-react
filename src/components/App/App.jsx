@@ -47,29 +47,29 @@ function App() {
             element={<PublicRoute redirectto="/diary" component={SignInPage} />}
           />
           <Route
-            path="register"
+            path="/register"
             element={
               <PublicRoute redirectto="/profile" component={SignUpPage} />
             }
           />
           <Route
-            path="diary/"
+            path="/diary"
             element={<PrivateRoute redirectto={`/diary/${formattedDate}`} component={DiarysPage} />}
           />
           <Route
-            path="diary/:date"
+            path="/diary/:date"
             element={<PrivateRoute component={DiarysPage} />}
           />
           <Route
-            path="profile"
+            path="/profile"
             element={<PrivateRoute redirectto="/" component={UserPage} />}
           />
           <Route
-            path="products"
+            path="/products"
             element={<PrivateRoute redirectto="/" component={ProductsPage} />}
           />
           <Route
-            path="exercises"
+            path="/exercises"
             element={<PrivateRoute redirectto="/" component={ExercisesPage} />}
           />
           <Route path="*" element={<ErrorPage />} />
