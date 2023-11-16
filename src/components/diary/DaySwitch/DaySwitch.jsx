@@ -1,6 +1,8 @@
 //component
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //stylesheets
+
+import sprite from '../../../assets/icons-optimized.svg';
 import css from './DaySwitch.module.css';
 
 const DaySwitch = ({
@@ -24,7 +26,7 @@ const DaySwitch = ({
           onClick={handleToPreviousDay}
         >
           <svg width="16" height="16">
-            <use href="/src/assets/icons-optimized.svg#icon-chevron-left"></use>
+            <use href={`${sprite}#icon-chevron-left`}></use>
           </svg>
         </button>
         <button
@@ -33,7 +35,7 @@ const DaySwitch = ({
           className={css.arrowRight}
         >
           <svg width="16" height="16">
-            <use href="/src/assets/icons-optimized.svg#icon-chevron-right"></use>
+            <use href={`${sprite}#icon-chevron-right`}></use>
           </svg>
         </button>
       </div>

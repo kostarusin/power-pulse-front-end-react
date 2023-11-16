@@ -3,6 +3,8 @@ import css from './ExercisesList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
 
+import sprite from '../../../../assets/icons-optimized.svg';
+
 function ExercisesList({ exercises, selectedDate }) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
@@ -115,7 +117,7 @@ function ExercisesList({ exercises, selectedDate }) {
                     onClick={() => handleDeleteExercise(exercise)}
                   >
                     <svg width="20" height="20">
-                      <use href="/src/assets/icons-optimized.svg#icon-trash"></use>
+                      <use href={`${sprite}#icon-trash`}></use>
                     </svg>
                   </button>
                 </div>
