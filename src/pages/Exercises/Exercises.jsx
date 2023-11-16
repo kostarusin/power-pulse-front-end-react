@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { WaistList } from '../../components/exercises/Waist/WaistList/WaistList';
+import { WaistList } from '../../components/Exercises/Waist/WaistList/WaistList';
 import { Modal } from '../../components/Modal/Modal';
 import { AddExerciseForm } from '../../components/AddExerciseForm/AddExerciseForm';
 import { AddExerciseSuccess } from '../../components/AddExerciseSuccess/AddExerciseSuccess';
