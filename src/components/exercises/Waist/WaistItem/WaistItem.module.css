@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const WaistItemLi = styled.li`
+.waistItemLi {
   width: 100%;
   min-height: 141px;
   padding: 16px;
@@ -10,41 +8,47 @@ export const WaistItemLi = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 767px) {
+  .waistItemLi {
     margin: 0 auto;
   }
-  @media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 375px) {
+  .waistItemLi {
     width: 335px;
   }
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
+  .waistItemLi {
     width: calc((100% - 16px) / 2);
   }
-
-  @media screen and (min-width: 1440px) {
+}
+@media screen and (min-width: 1440px) {
+  .waistItemLi {
     width: 370px;
   }
-`;
+}
 
-export const BtnWrapper = styled.div`
+.btnWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-`;
+}
 
-export const CardLabel = styled.p`
+.cardLabel {
   font-size: 12px;
   font-weight: 700;
   line-height: normal;
-  color: #fff;
-
+  color: var(--snow-white);
   padding: 5px 7.5px;
   border-radius: 4px;
-  background: rgba(239, 237, 232, 0.05);
+  background: var(--dark);
   text-transform: uppercase;
-`;
+}
 
-export const BtnLabel = styled.button`
+.btnLabel {
   background: transparent;
   border: none;
   color: var(--orange);
@@ -56,30 +60,30 @@ export const BtnLabel = styled.button`
   padding: 0;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btnLabel:hover {
+  color: var(--white);
+}
+.btnLabel:focus {
+  color: var(--white);
+}
 
-  &:hover {
-    color: var(--white);
-  }
-  &:focus {
-    color: var(--white);
-  }
-`;
-
-export const SvgExercise = styled.svg`
+.svgExercise {
   width: 13px;
   height: 13px;
-
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
+  .svgExercise {
     width: 16px;
     height: 16px;
   }
-`;
-export const ExercisesTitleBox = styled.div`
+}
+.exercisesTitleBox {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-`;
-export const Title = styled.h3`
+}
+.title {
   position: relative;
   font-size: 24px;
   line-height: 1.333;
@@ -90,18 +94,19 @@ export const Title = styled.h3`
   white-space: nowrap;
   padding-left: 8px;
   width: 263px;
-
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
+  .title {
     width: 285px;
   }
-`;
+}
 
-export const SvgExerciseRun = styled.svg`
+.svgExerciseRun {
   width: 16px;
   height: 16px;
-  fill:var(--white)
-`;
-export const SpanExerciseRun = styled.span`
+  fill: var(--white);
+}
+.spanExerciseRun {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,23 +116,23 @@ export const SpanExerciseRun = styled.span`
 
   width: 24px;
   height: 24px;
-`;
+}
 
-export const List = styled.ul`
+.list {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
-`;
+}
 
-export const ListItem = styled.li`
+.listItem {
   display: flex;
   flex-direction: row;
   gap: 4px;
   color: var(--grayEx);
   font-size: 12px;
   line-height: 1.5;
-`;
+}
 
-export const ListItemValue = styled.span`
+.listItemValue {
   color: var(--white);
-`;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 //components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
@@ -18,19 +19,34 @@ import { addDays, subDays } from 'date-fns';
 import styles from './Dairy.module.css';
 
 function Diary() {
+  const navigate = useNavigate();
+  const { date } = useParams();
   const dispatch = useDispatch();
   const { user } = useAuth();
 
+  const formattingDate = (date) => {
+    return date
+      .toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+      .replace(/\//g, '-');
+  };
+
+  useEffect(() => {
+    dispatch(getDiary(date));
+  }, [dispatch, date]);
+
+  const currentDate = new Date();
+  const formattedDate = formattingDate(currentDate);
+
+  useEffect(() => {
+    navigate(`/diary/${formattedDate}`);
+  }, []);
+
   const [selectedDate, setSelectedDate] = useState(new Date());
   const minDate = startOfDay(parseISO(user.birthday));
-
-  const formattedDate = selectedDate
-    .toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
-    .replace(/\//g, '-');
 
   const { doneExercises, consumedProducts } = useDiary();
 
@@ -42,12 +58,27 @@ function Diary() {
     dispatch(getUserCalories());
   }, [dispatch]);
 
+  const handlingDate = (date) => {
+    const formattedDate = formattingDate(date);
+    navigate(`/diary/${formattedDate}`);
+    dispatch(getDiary(formattedDate));
+  }
+
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
+    const previousDate = subDays(selectedDate, 1);
+    handlingDate(previousDate);
   };
 
   const handleToNextDay = () => {
     setSelectedDate((prevDate) => addDays(prevDate, 1));
+    const nextDate = addDays(selectedDate, 1);
+    handlingDate(nextDate);
+  };
+
+  const handleDateChange = (selectedDate) => {
+    setSelectedDate(selectedDate);
+    handlingDate(selectedDate);
   };
 
   return (
@@ -57,7 +88,7 @@ function Diary() {
         <DaySwitch
           minDate={minDate}
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
+          setSelectedDate={handleDateChange}
           handleToNextDay={handleToNextDay}
           handleToPreviousDay={handleToPreviousDay}
         />

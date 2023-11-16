@@ -25,6 +25,15 @@
   }
 }
 
+.btnDelete {
+  background-color: inherit;
+  margin-left: 8px;
+  border: none;
+  @media screen and (min-width: 768px) {
+    margin-left: 12px;
+  }
+}
+
 .wrapperList {
   gap: 16px;
   display: flex;
@@ -154,17 +163,6 @@
 @media screen and (min-width: 1440px) {
   .flex {
     width: 144px;
-  }
-}
-
-.btnDelete {
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-}
-@media screen and (min-width: 1440px) {
-  .btnDelete {
-    margin-left: 8px;
   }
 }
 

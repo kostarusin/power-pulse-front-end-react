@@ -1,32 +1,32 @@
-import styled from 'styled-components';
-
-export const ExercisesLi = styled.li`
+.exercisesLi {
   position: relative;
   cursor: pointer;
-`;
+}
 
-export const Image = styled.img`
+.image {
   display: block;
   width: 100%;
   height: 206px;
   height: auto;
   border: 1px #efede8;
   border-radius: 12px;
-
   filter: brightness(40%);
-
-  @media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 375px) {
+  .image {
     width: 335px;
     height: 206px;
   }
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .image {
     width: 224px;
     height: 206px;
   }
-`;
+}
 
-export const TitleContainer = styled.div`
+.titleContainer {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -39,22 +39,21 @@ export const TitleContainer = styled.div`
 
   width: 100%;
   height: auto;
-`;
-export const ExerciseItemTitle = styled.h3`
+}
+.exerciseItemTitle {
   font-size: 20px;
   line-height: 1.2;
-
-  color: var(--white-color);
-
-  @media screen and (min-width: 375px) {
+  color: var(--white);
+}
+@media screen and (min-width: 375px) {
+  .exerciseItemTitle {
     font-size: 24px;
     line-height: 1.33;
   }
-`;
+}
 
-export const ExerciseItemText = styled.p`
+.exerciseItemText {
   font-size: 12px;
   line-height: 1.5;
-
-  color: rgba(239, 237, 232, 0.4);
-`;
+  color: var(--grayEx);
+}

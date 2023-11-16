@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import sprite from '../../../assets/sprite.svg';
 import { PaginationItem } from './Pagination.styled';
 
@@ -10,7 +9,7 @@ const Pagination = ({
 }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  const handlePageChange = newPage => {
+  const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       onPageChange(newPage);
     }
@@ -45,13 +44,6 @@ const Pagination = ({
       <ul className="pagination">{renderPageNumbers()}</ul>
     </nav>
   );
-};
-
-Pagination.propTypes = {
-  itemsPerPage: PropTypes.number.isRequired,
-  totalItems: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Pagination;
