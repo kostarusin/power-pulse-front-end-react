@@ -43,7 +43,7 @@ function Diary() {
 
   useEffect(() => {
     navigate(`/diary/${formattedDate}`);
-  }, []);
+  }, [formattedDate, navigate]);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const minDate = startOfDay(parseISO(user.birthday));
@@ -62,7 +62,7 @@ function Diary() {
     const formattedDate = formattingDate(date);
     navigate(`/diary/${formattedDate}`);
     dispatch(getDiary(formattedDate));
-  }
+  };
 
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
