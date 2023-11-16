@@ -1,8 +1,7 @@
-import css from './UserBar.module.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
-
+import css from './UserBar.module.css';
 import sprite from '../../assets/icons-optimized.svg';
 
 const UserBar = ({ onBurgerClick }) => {
