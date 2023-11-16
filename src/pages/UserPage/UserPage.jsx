@@ -9,7 +9,7 @@ const UserPage = () => {
     <>
       <UserTitle />
       <div className={css.container}>
-        {/* <UserView /> */}
+        <UserView />
         <ProfileSettingsForm />
       </div>
     </>
