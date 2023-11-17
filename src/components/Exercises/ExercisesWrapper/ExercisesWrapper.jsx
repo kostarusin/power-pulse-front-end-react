@@ -38,7 +38,7 @@ export const ExercisesWrap = () => {
           handleFilterClick={handleFilterClick}
         />
       </li>
-      {activeFilter === 'Body parts' && (
+      {activeFilter === 'Body part' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
