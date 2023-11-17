@@ -20,7 +20,7 @@ import { findProductByText } from '../../redux/products/slice.jsx';
 import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
 import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
 import Loader from '../../components/Loader/Loader.jsx';
-import NotFound from '../../components/Products/Notfound/NotFound.jsx';
+import NotFound from '../../components/Products/NotFound/NotFound.jsx';
 
 const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
