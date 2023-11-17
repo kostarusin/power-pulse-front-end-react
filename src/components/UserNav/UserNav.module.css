@@ -16,8 +16,15 @@
   color: #efede8;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
-  &.active {
-    background-color: #e6533c;
-    border: 1px solid #e6533c;
-  }
+
+}
+
+.activeLink {
+  background-color: var(--orange-dark);
+  border: 1px solid var(--orange-dark);
+}
+
+.naviLink:hover {
+  background-color: var(--orange-dark);
+  border: 1px solid var(--orange-dark);
 }

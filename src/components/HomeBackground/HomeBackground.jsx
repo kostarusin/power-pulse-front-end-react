@@ -1,4 +1,5 @@
 import css from './HomeBackground.module.css';
+import sprite from '../../assets/icons-optimized.svg';
 
 const HomeBackground = ({ darkPhoto }) => {
   return (
@@ -6,7 +7,7 @@ const HomeBackground = ({ darkPhoto }) => {
       <div className={css.statistic1}>
         <div className={css.boxsvg1}>
           <svg width="20" height="20">
-            <use href="/src/assets/icons-optimized.svg#icon-play"></use>
+            <use href={`${sprite}#icon-play`}></use>
           </svg>
         </div>
         <div className={css.boxp}>
@@ -17,7 +18,7 @@ const HomeBackground = ({ darkPhoto }) => {
       <div className={css.statistic2}>
         <div className={css.boxsvg2}>
           <svg width="16" height="16">
-            <use href="/src/assets/icons-optimized.svg#icon-running-figure-white"></use>
+            <use href={`${sprite}#icon-running-figure-white`}></use>
           </svg>
         </div>
         <p className={css.number2}>500</p>

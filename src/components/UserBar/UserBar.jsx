@@ -1,12 +1,13 @@
-import css from './UserBar.module.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
-
+import css from './UserBar.module.css';
 import sprite from '../../assets/icons-optimized.svg';
+import { useAuth } from '../../redux/hooks';
 
 const UserBar = ({ onBurgerClick }) => {
   const dispatch = useDispatch();
+  const { user } = useAuth();
 
   return (
     <div className={css.userBarWrap}>
@@ -16,9 +17,13 @@ const UserBar = ({ onBurgerClick }) => {
         </svg>
       </Link>
       <div className={css.avatar}>
-        <svg className={css.avatarIcon}>
-          <use href={`${sprite}#icon-user`} />
-        </svg>
+        {user ? (
+          <img src={user.avatarURL} className={css.avatar} />
+        ) : (
+          <svg className={css.avatarIcon}>
+            <use href={`${sprite}#icon-user`} />
+          </svg>
+        )}
       </div>
       <svg className={css.burger} onClick={onBurgerClick}>
         <use href={`${sprite}#icon-burger-menu`} />

@@ -105,7 +105,6 @@
 
 .wrapeerName {
   width: 297px;
-  height: 38px;
 }
 @media screen and (min-width: 768px) {
   .wrapeerName {
@@ -127,7 +126,7 @@
     width: 84px;
   }
 }
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1440px) {
   .wrapperTarget {
     width: 106px;
   }
@@ -155,7 +154,17 @@
 }
 @media screen and (min-width: 768px) {
   .wrapperTime {
-    width: 116px;
+    width: 103px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapperList li:nth-last-child(-n + 3) {
+    margin-right: -3px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapperTime {
+    width: 120px;
   }
 }
 

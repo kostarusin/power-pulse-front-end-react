@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import css from './ProductsList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
+import sprite from '../../../../assets/icons-optimized.svg';
 
 const ProductsList = ({ products, selectedDate }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -110,7 +111,7 @@ const ProductsList = ({ products, selectedDate }) => {
                       onClick={() => handleDeleteExercise(product)}
                     >
                       <svg width="20" height="20">
-                        <use href="/src/assets/icons-optimized.svg#icon-trash"></use>
+                        <use href={`${sprite}#icon-trash`}></use>
                       </svg>
                     </button>
                   </div>

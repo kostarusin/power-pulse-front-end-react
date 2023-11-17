@@ -19,9 +19,10 @@ const initialState = {
     blood: null,
     sex: null,
     levelActivity: null,
+    avatarURL: null,
   },
   calories: {},
-  token: null,
+  token: '',
   isLoggedIn: false,
   isRefreshing: false,
 };
