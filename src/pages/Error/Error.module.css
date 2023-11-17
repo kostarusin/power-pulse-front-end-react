@@ -19,20 +19,19 @@
 }
 
 .container2 {
-  position: absolute;
-  top: 250px;
-  left: 20px;
   width: 200px;
+  padding-top: 189px;
+  padding-left: 20px;
   background-color: var(--orange-dark);
   @media screen and (min-width: 768px) {
-    top: 309px;
-    left: 60px;
     width: 356px;
+    padding-top: 255px;
+    padding-left: 32px;
   }
   @media screen and (min-width: 1440px) {
-    top: 221px;
-    left: 130px;
     width: 477px;
+    padding-top: 137px;
+    padding-left: 96px;
   }
 }
 
@@ -47,6 +46,7 @@
     line-height: 150px;
   }
 }
+
 .text {
   font-weight: 400;
   font-size: 14px;
@@ -58,6 +58,7 @@
     line-height: 24px;
   }
 }
+
 .link {
   padding: 12px 40px 12px 40px;
   border-radius: 12px;
@@ -73,7 +74,9 @@
     line-height: 24px;
   }
 }
-.link:hover {
+
+.link:hover,
+.link:focus {
   background-color: var(--orange-light);
   border: 1px solid var(--white);
 }
@@ -85,15 +88,12 @@
   bottom: 0;
   right: 0;
   height: 100vh;
-  /* width: 135px; */
   width: 100%;
   background-size: inherit;
   background-repeat: no-repeat;
   background-position: right bottom;
-
   @media screen and (min-width: 768px) {
     background-image: url(/src/assets/home-tablet.jpg);
-    /* width: 348px; */
     width: 100%;
   }
   @media screen and (min-width: 1440px) {

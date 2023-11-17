@@ -6,28 +6,26 @@ const Home = () => {
   return (
     <section className={css.hero}>
       <div className={css.container}>
-        <div className={css.wrapper}>
-          <h1 className={css.title}>
-            Transforming your body shape with Power Pulse
-          </h1>
-          <div className={css.overlay}></div>
-        </div>
+        <h1 className={css.title}>
+          Transforming your body shape with Power Pulse
+        </h1>
+        <div className={css.overlay}></div>
 
         <ul className={css.list}>
-          <li className={css.item}>
+          <li>
             <NavLink to="/register" className={css.link1}>
               Sign Up
             </NavLink>
           </li>
-          <li className={css.item}>
+          <li>
             {' '}
             <NavLink to="/login" className={css.link2}>
               Sign In
             </NavLink>
           </li>
         </ul>
-        <HomeBackground />
       </div>
+      <HomeBackground />
     </section>
   );
 };
