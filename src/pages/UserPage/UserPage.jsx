@@ -6,13 +6,13 @@ import css from './UserPage.module.css';
 
 const UserPage = () => {
   return (
-    <>
+    <div className={css.layoutContainer}>
       <UserTitle />
       <div className={css.container}>
         <UserView />
         <UserForm />
       </div>
-    </>
+    </div>
   );
 };
 
