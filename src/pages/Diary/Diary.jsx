@@ -82,7 +82,7 @@ function Diary() {
   };
 
   return (
-    <div className={styles.backGround}>
+    <div className={`${styles.backGround} ${styles.layoutContainer}`}>
       <div className={styles.titleCont}>
         <TitlePage title="Diary" />
         <DaySwitch

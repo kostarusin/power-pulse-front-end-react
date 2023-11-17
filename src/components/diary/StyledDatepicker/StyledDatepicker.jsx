@@ -10,7 +10,7 @@ const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
       <div onClick={onClick} ref={ref} className={css.container}>
-        <div>{format(selectedDate, 'dd-MM-yyyy')}</div>
+        <div className={css.txt}>{format(selectedDate, 'dd/MM/yyyy')}</div>
         <div>
           <svg width="20" height="20" className={css.svg}>
             <use href={`${sprite}#icon-calendar-bage`}></use>
