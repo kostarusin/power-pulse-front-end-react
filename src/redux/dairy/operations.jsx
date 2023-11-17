@@ -18,6 +18,7 @@ export const getDiary = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get(`/api/diary/${credentials}`);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
