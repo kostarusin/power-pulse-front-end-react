@@ -116,7 +116,7 @@
   color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: 1.28;
-  margin-bottom: 40px;
+
   align-items: flex-start;
 }
 @media screen and (min-width: 768px) and (max-width: 1439px) {
