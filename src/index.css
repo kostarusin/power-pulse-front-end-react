@@ -19,6 +19,7 @@
   --grayEx: rgba(239, 237, 232, 0.4);
   --orange:  rgba(239, 137, 100, 1);
   --dark: rgba(239, 237, 232, 0.05);
+  --grayToolTip: rgba(239, 237, 232, 0.50);
 }
 
 body {

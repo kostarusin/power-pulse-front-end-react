@@ -39,6 +39,10 @@
     align-items: center;
   }
 
+  .addButton:hover{
+    color: var(--white);
+  }
+
   .cardPart2 {
     display: flex;
     gap: 16px;
