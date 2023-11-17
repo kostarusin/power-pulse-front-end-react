@@ -1,25 +1,27 @@
 //formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
-import ToastIcon from '../ToastIcon';
-import CloseBtn from '../CloseBtn';
+import ToastIconError from '../../toastComponents/ToastIconError';
+// import ToastIconSuccess from '../../toastComponents/ToastIconSuccess';
+import CloseBtn from '../../toastComponents/CloseBtn';
 //lodash
 import isEqual from 'lodash/isEqual';
-import _ from 'lodash';
+import _, { now } from 'lodash';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../redux/hooks';
 //datepicker
-
+import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //notification
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //styles
 import css from './UserForm.module.css';
 import { useState } from 'react';
+import { format } from 'date-fns';
 
-const UserForm = () => {
+const UserForm = ({ selectedDate }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
@@ -39,7 +41,7 @@ const UserForm = () => {
     );
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
     console.log('convertedUser', convertedUser);
     const convertedValues = convertValues(values);
@@ -48,9 +50,9 @@ const UserForm = () => {
     if (areEqual) {
       toast.info('Please, choose new options!', {
         position: 'top-center',
-        className: css.customToast,
+        className: css.customToastError,
         progressClassName: css.toastProgressBar,
-        icon: ToastIcon,
+        icon: ToastIconError,
         closeButton: CloseBtn,
       });
       setFormChanged(false);
@@ -59,9 +61,14 @@ const UserForm = () => {
       delete updatedValues.email;
       dispatch(updateInfo(updatedValues));
       setFormChanged(true);
+      toast.info('Information successfully saved!', {
+        position: 'top-center',
+        className: css.customToastSuccess,
+        progressClassName: css.toastProgressBar,
+        icon: false,
+        closeButton: CloseBtn,
+      });
     }
-
-    resetForm();
   };
 
   const handleFormChange = () => {
@@ -74,7 +81,7 @@ const UserForm = () => {
     height: user.height,
     currentWeight: user.currentWeight,
     desiredWeight: user.desiredWeight,
-    birthday: user.birthday,
+    birthday: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : '',
     blood: String(user.blood),
     sex: user.sex,
     levelActivity: String(user.levelActivity),
@@ -86,235 +93,256 @@ const UserForm = () => {
       onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
     >
-      <Form className={css.formContainer} onChange={handleFormChange}>
-        <div className={css.basicInfoContainer}>
-          <label htmlFor="username" className={css.fieldWithError}>
-            <div className={css.setName}>Basic info</div>
-            <Field
-              className={css.basicInfoInput}
-              name="username"
-              type="text"
-              placeholder="Anna Rybachok"
-            />
-            <div className={css.error}>
-              <ErrorMessage
-                component="div"
+      {(formik) => (
+        <Form className={css.formContainer} onChange={handleFormChange}>
+          <div className={css.basicInfoContainer}>
+            <label htmlFor="username" className={css.fieldWithError}>
+              <div className={css.setName}>Basic info</div>
+              <Field
+                className={`${css.basicInfoInput} ${
+                  formik.errors.username ? css.invalidInput : ''
+                }`}
                 name="username"
-                className={css.ErrorMessage}
+                type="text"
+                placeholder="Anna Rybachok"
               />
-            </div>
-          </label>
-          <label htmlFor="email" className={css.fieldWithError}>
-            <Field
-              className={css.basicInfoInput}
-              name="email"
-              type="email"
-              placeholder="annarybachok@gmail.com"
-              readOnly
-            />
-            <div className={css.error}>
-              <ErrorMessage
-                component="div"
+              <div className={css.error}>
+                <ErrorMessage
+                  component="div"
+                  name="username"
+                  className={css.ErrorMessage}
+                />
+              </div>
+            </label>
+            <label htmlFor="email" className={css.fieldWithError}>
+              <Field
+                className={css.basicInfoInput}
                 name="email"
-                className={css.ErrorMessage}
+                type="email"
+                placeholder="annarybachok@gmail.com"
+                readOnly
               />
-            </div>
-          </label>
-        </div>
-        <div className={css.secondaryInfoContainer}>
-          <div className={css.flexContainer}>
-            <label htmlFor="height" className={css.secondaryInfoLabel}>
-              <span className={css.setName}>Height</span>
-              <Field
-                className={css.infoInput}
-                name="height"
-                type="number"
-                placeholder="0"
-              />
-              <div className={css.error}>
-                <ErrorMessage
-                  component="div"
+              <div className={css.error}></div>
+            </label>
+          </div>
+          <div className={css.secondaryInfoContainer}>
+            <div className={css.flexContainer}>
+              <label htmlFor="height" className={css.secondaryInfoLabel}>
+                <span className={css.setName}>Height</span>
+                <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.height ? css.invalidInput : ''
+                  }`}
                   name="height"
-                  className={css.ErrorMessage}
+                  type="number"
+                  placeholder="0"
                 />
-              </div>
-            </label>
-            <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
-              <span className={css.setName}>Current Weight</span>
-              <Field
-                className={css.infoInput}
-                name="currentWeight"
-                type="number"
-                placeholder="0"
-              />
-              <div className={css.error}>
-                <ErrorMessage
-                  component="div"
+                <div className={css.error}>
+                  <ErrorMessage
+                    component="div"
+                    name="height"
+                    className={css.ErrorMessage}
+                  />
+                </div>
+              </label>
+              <label htmlFor="currentWeight" className={css.secondaryInfoLabel}>
+                <span className={css.setName}>Current Weight</span>
+                <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.currentWeight ? css.invalidInput : ''
+                  }`}
                   name="currentWeight"
-                  className={css.ErrorMessage}
+                  type="number"
+                  placeholder="0"
                 />
-              </div>
-            </label>
-          </div>
-          <div className={css.flexContainer}>
-            <label htmlFor="desiredWeight" className={css.secondaryInfoLabel}>
-              <span className={css.setName}>Desired Weight</span>
-              <Field
-                className={css.infoInput}
-                name="desiredWeight"
-                type="number"
-                placeholder="0"
-              />
-              <div className={css.error}>
-                <ErrorMessage
-                  component="div"
+                <div className={css.error}>
+                  <ErrorMessage
+                    component="div"
+                    name="currentWeight"
+                    className={css.ErrorMessage}
+                  />
+                </div>
+              </label>
+            </div>
+            <div className={css.flexContainer}>
+              <label htmlFor="desiredWeight" className={css.secondaryInfoLabel}>
+                <span className={css.setName}>Desired Weight</span>
+                <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.desiredWeight ? css.invalidInput : ''
+                  }`}
                   name="desiredWeight"
-                  className={css.ErrorMessage}
+                  type="number"
+                  placeholder="0"
                 />
-              </div>
-            </label>
-            <label htmlFor="birthday">
-              <Field
-                className={css.infoInput}
-                name="birthday"
-                type="date"
-                placeholder="00.00.0000"
-              />
-              <div className={css.error}>
-                <ErrorMessage
-                  component="div"
+                <div className={css.error}>
+                  <ErrorMessage
+                    component="div"
+                    name="desiredWeight"
+                    className={css.ErrorMessage}
+                  />
+                </div>
+              </label>
+              <label htmlFor="birthday">
+                <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.birthday ? css.invalidInput : ''
+                  }`}
                   name="birthday"
-                  className={css.ErrorMessage}
+                  type="date"
+                  selectedDate={selectedDate}
+                  render={() => (
+                    <StyledDatepicker
+                      onChange={(date) =>
+                        formik.setFieldValue(
+                          'birthday',
+                          format(date, 'yyyy-MM-dd'),
+                        )
+                      }
+                    />
+                  )}
                 />
-              </div>
-            </label>
+                <div className={css.error}>
+                  <ErrorMessage
+                    component="div"
+                    name="birthday"
+                    className={css.ErrorMessage}
+                  />
+                </div>
+              </label>
+            </div>
           </div>
-        </div>
-        <div id="blood-radio-group" className={css.setName}>
-          Blood
-        </div>
-        <div className={css.bloodSexGroup}>
-          <div
-            role="group"
-            aria-labelledby="blood-radio-group"
-            className={css.radioGroup}
-          >
+          <div id="blood-radio-group" className={css.setName}>
+            Blood
+          </div>
+          <div className={css.bloodSexGroup}>
+            <div
+              role="group"
+              aria-labelledby="blood-radio-group"
+              className={css.radioGroup}
+            >
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="blood"
+                  value="1"
+                />
+                <span className={css.customRadioBtn}></span>1
+              </label>
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="blood"
+                  value="2"
+                />
+                <span className={css.customRadioBtn}></span>2
+              </label>
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="blood"
+                  value="3"
+                />
+                <span className={css.customRadioBtn}></span>3
+              </label>
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="blood"
+                  value="4"
+                />
+                <span className={css.customRadioBtn}></span>4
+              </label>
+            </div>
+            <div role="group" className={css.radioGroup}>
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="sex"
+                  value="male"
+                />
+                <span className={css.customRadioBtn}></span>
+                Male
+              </label>
+              <label className={css.radioBtnLabel}>
+                <Field
+                  className={css.radioBtn}
+                  type="radio"
+                  name="sex"
+                  value="female"
+                />
+                <span className={css.customRadioBtn}></span>
+                Female
+              </label>
+            </div>
+          </div>
+          <div role="group" className={css.lifestyleGroup}>
             <label className={css.radioBtnLabel}>
               <Field
                 className={css.radioBtn}
                 type="radio"
-                name="blood"
+                name="levelActivity"
                 value="1"
               />
-              <span className={css.customRadioBtn}></span>1
+              <span className={css.customRadioBtn}></span>
+              Sedentary lifestyle (little or no physical activity)
             </label>
             <label className={css.radioBtnLabel}>
               <Field
                 className={css.radioBtn}
                 type="radio"
-                name="blood"
+                name="levelActivity"
                 value="2"
               />
-              <span className={css.customRadioBtn}></span>2
+              <span className={css.customRadioBtn}></span>
+              Light activity (light exercises/sports 1-3 days per week)
             </label>
             <label className={css.radioBtnLabel}>
               <Field
                 className={css.radioBtn}
                 type="radio"
-                name="blood"
+                name="levelActivity"
                 value="3"
               />
-              <span className={css.customRadioBtn}></span>3
+              <span className={css.customRadioBtn}></span>
+              Moderately active (moderate exercises/sports 3-5 days per week)
             </label>
             <label className={css.radioBtnLabel}>
               <Field
                 className={css.radioBtn}
                 type="radio"
-                name="blood"
+                name="levelActivity"
                 value="4"
               />
-              <span className={css.customRadioBtn}></span>4
-            </label>
-          </div>
-          <div role="group" className={css.radioGroup}>
-            <label className={css.radioBtnLabel}>
-              <Field
-                className={css.radioBtn}
-                type="radio"
-                name="sex"
-                value="male"
-              />
               <span className={css.customRadioBtn}></span>
-              Male
+              Very active (intense exercises/sports 6-7 days per week)
             </label>
             <label className={css.radioBtnLabel}>
               <Field
                 className={css.radioBtn}
                 type="radio"
-                name="sex"
-                value="female"
+                name="levelActivity"
+                value="5"
               />
               <span className={css.customRadioBtn}></span>
-              Female
+              Extremely active (very strenuous exercises/sports and physical
+              work)
             </label>
           </div>
-        </div>
-        <div role="group" className={css.lifestyleGroup}>
-          <label className={css.radioBtnLabel}>
-            <Field
-              className={css.radioBtn}
-              type="radio"
-              name="levelActivity"
-              value="1"
-            />
-            <span className={css.customRadioBtn}></span>
-            Sedentary lifestyle (little or no physical activity)
-          </label>
-          <label className={css.radioBtnLabel}>
-            <Field
-              className={css.radioBtn}
-              type="radio"
-              name="levelActivity"
-              value="2"
-            />
-            <span className={css.customRadioBtn}></span>
-            Light activity (light exercises/sports 1-3 days per week)
-          </label>
-          <label className={css.radioBtnLabel}>
-            <Field
-              className={css.radioBtn}
-              type="radio"
-              name="levelActivity"
-              value="3"
-            />
-            <span className={css.customRadioBtn}></span>
-            Moderately active (moderate exercises/sports 3-5 days per week)
-          </label>
-          <label className={css.radioBtnLabel}>
-            <Field
-              className={css.radioBtn}
-              type="radio"
-              name="levelActivity"
-              value="4"
-            />
-            <span className={css.customRadioBtn}></span>
-            Very active (intense exercises/sports 6-7 days per week)
-          </label>
-          <label className={css.radioBtnLabel}>
-            <Field
-              className={css.radioBtn}
-              type="radio"
-              name="levelActivity"
-              value="5"
-            />
-            <span className={css.customRadioBtn}></span>
-            Extremely active (very strenuous exercises/sports and physical work)
-          </label>
-        </div>
-        <button className={css.saveBtn} type="submit" disabled={!isFormChanged}>
-          Save
-        </button>
-      </Form>
+          <button
+            className={css.saveBtn}
+            type="submit"
+            disabled={!isFormChanged}
+          >
+            Save
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

@@ -18,7 +18,11 @@
   transition: border-color 0.5s ease-out;
 }
 
-.basicInfoInput:is(:hover, :focus) {
+.basicInfoInput[name='username'] {
+  color: var(--white);
+}
+
+.basicInfoInput[name='username']:is(:hover, :focus) {
   background-color: transparent;
   color: var(--white);
   border-color: var(--orange-dark);
@@ -42,6 +46,10 @@
   color: var(--white);
   border-color: var(--orange-dark);
   outline: none;
+}
+
+.invalidInput {
+  border-color: var(--error);
 }
 
 .secondaryInfoLabel {
@@ -158,7 +166,6 @@
 
 .fieldWithError {
   display: block;
-  margin-bottom: 14px;
 }
 
 .error {
@@ -174,14 +181,24 @@
   z-index: 1;
 }
 
-.customToast {
+/* notification */
+
+.customToastError {
   color: var(--white);
-  background-color: var(--red);
+  background-color: var(--black);
+  border: 1px solid var(--error);
+}
+
+.customToastSuccess {
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--green);
 }
 
 .toastProgressBar {
   background-color: var(--white);
 }
+/* media */
 
 @media (min-width: 768px) {
   .formContainer {
@@ -192,6 +209,7 @@
     display: flex;
     gap: 14px;
     align-items: flex-end;
+    margin-bottom: 14px;
   }
 
   .setName {
