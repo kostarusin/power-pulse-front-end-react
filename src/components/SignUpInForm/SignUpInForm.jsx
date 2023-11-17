@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register, logIn } from '../../redux/auth/operations';
+import { register, logIn, refreshUser } from '../../redux/auth/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -33,6 +33,7 @@ const SignUpInForm = ({ includeName }) => {
     } else {
       dispatch(logIn(values));
     }
+    dispatch(refreshUser());
     resetForm();
   }
 

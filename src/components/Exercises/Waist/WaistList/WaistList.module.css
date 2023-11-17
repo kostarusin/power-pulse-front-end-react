@@ -22,16 +22,17 @@
   gap: 20px;
   width: 100%;
 }
-*::-webkit-scrollbar-thumb {
+
+.waistItemUl::-webkit-scrollbar-thumb {
   background-color: var(--orange-light);
   border-radius: 12px;
 }
 
-*::-webkit-scrollbar {
+.waistItemUl::-webkit-scrollbar {
   width: 8px;
 }
 
-*::-webkit-scrollbar-track {
+.waistItemUl::-webkit-scrollbar-track {
   background: var(--grayUltraLight);
   border-radius: 12px;
 }
