@@ -20,9 +20,9 @@
   display: flex;
   justify-content: center;
   height: 46px;
-  width: 335px;
-  color: white;
-  background-color: transparent;
+  max-width: 335px;
+  color: var(--white);
+  background-color: var(--black);
   border: 1px solid var(--gray-middle);
   border-radius: 12px;
   padding-left: 14px;
@@ -39,6 +39,7 @@
   align-items: center;
   border-radius: 12px;
   background-color: var(--orange-dark);
+  border: transparent;
   color: var(--white);
   font-weight: 500;
   font-size: 16px;
@@ -53,6 +54,7 @@
   }
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background-color: var(--orange-light);
 }
