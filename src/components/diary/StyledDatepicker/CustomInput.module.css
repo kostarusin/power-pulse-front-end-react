@@ -1,7 +1,17 @@
 .container {
   display: flex;
+  align-items: flex-end;
 }
 
 .svg {
   margin-left: 8px;
+}
+
+.txt {
+  color: #efede8;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.11; /* 111.111% */
 }
