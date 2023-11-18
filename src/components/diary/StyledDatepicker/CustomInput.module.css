@@ -1,7 +1,30 @@
 .container {
   display: flex;
+  align-items: center;
 }
 
 .svg {
   margin-left: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.txt {
+  color: #efede8;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.11;
+}
+
+@media screen and (min-width: 768px) {
+  .txt {
+    font-size: 24px;
+    line-height: 1.33px;
+  }
+  .svg {
+    width: 24px;
+    height: 24px;
+  }
 }

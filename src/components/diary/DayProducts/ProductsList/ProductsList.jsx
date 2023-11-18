@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import css from './ProductsList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
+import sprite from '../../../../assets/icons-optimized.svg';
 
 const ProductsList = ({ products, selectedDate }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -34,7 +35,7 @@ const ProductsList = ({ products, selectedDate }) => {
       {products.length !== 0 ? (
         products.map((product, index) => {
           return (
-            <div key={product._id}>
+            <div className={css.wrapperListContainer} key={product._id}>
               <ul className={css.wrapperList}>
                 <li className={css.wrapperItemTitle}>
                   <div
@@ -98,8 +99,7 @@ const ProductsList = ({ products, selectedDate }) => {
                   >
                     Recommend
                   </div>
-
-                  <div className={css.flex}>
+                  <div className={css.wrapperRecommendContainer}>
                     <div className={css.wrapperRecommend}>
                       <div>sv</div>
                       <div className={css.textRecommend}>Yes</div>
@@ -110,12 +110,12 @@ const ProductsList = ({ products, selectedDate }) => {
                       onClick={() => handleDeleteExercise(product)}
                     >
                       <svg width="20" height="20">
-                        <use href="/src/assets/icons-optimized.svg#icon-trash"></use>
+                        <use href={`${sprite}#icon-trash`}></use>
                       </svg>
                     </button>
                   </div>
                 </li>
-              </ul>
+              </ul>{' '}
             </div>
           );
         })

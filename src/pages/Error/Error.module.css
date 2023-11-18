@@ -1,63 +1,64 @@
 .error {
-  height: 100vh;
-  width: 669px;
+  height: 100%;
+  width: 1440px;
 }
 
 .container1 {
   position: absolute;
   height: 100vh;
-  width: 669px;
+  width: 240px;
   top: 0;
   left: 0;
   background-color: var(--orange-dark);
-}
-
-.image {
-  background-image: url(/src/pages/Home/home-mobile-i.jpg);
-  z-index: -1;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
-  width: 100vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-
   @media screen and (min-width: 768px) {
-    background-image: url(/src/assets/home-tablet.jpg);
-    height: 893px;
-    width: 437px;
+    width: 420px;
   }
   @media screen and (min-width: 1440px) {
-    background-image: url(/src/assets/home-desc.jpg);
-    background-position: right top;
-    width: 780px;
-    height: 100vh;
+    width: 669px;
   }
 }
 
 .container2 {
-  position: absolute;
-  top: 221px;
-  left: 96px;
-  width: 477px;
+  width: 200px;
+  padding-top: 189px;
+  padding-left: 20px;
+  background-color: var(--orange-dark);
+  @media screen and (min-width: 768px) {
+    width: 356px;
+    padding-top: 255px;
+    padding-left: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 477px;
+    padding-top: 137px;
+    padding-left: 96px;
+  }
 }
 
 .title {
   font-weight: 500;
-  font-size: 160px;
-  line-height: 150px;
-  letter-spacing: 0, 01em;
+  font-size: 66px;
+  line-height: 66px;
+  /* letter-spacing: 0,01em; */
   color: var(--white);
+  @media screen and (min-width: 768px) {
+    font-size: 160px;
+    line-height: 150px;
+  }
 }
+
 .text {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 18px;
   color: var(--white);
   margin-bottom: 28px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
+
 .link {
   padding: 12px 40px 12px 40px;
   border-radius: 12px;
@@ -73,7 +74,31 @@
     line-height: 24px;
   }
 }
-.link:hover {
+
+.link:hover,
+.link:focus {
   background-color: var(--orange-light);
   border: 1px solid var(--white);
+}
+
+.image {
+  background-image: url(/src/assets/home-mobile.jpg);
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  @media screen and (min-width: 768px) {
+    background-image: url(/src/assets/home-tablet.jpg);
+    width: 100%;
+  }
+  @media screen and (min-width: 1440px) {
+    background-image: url(/src/assets/home-desc.jpg);
+    background-position: right top;
+    width: 780px;
+  }
 }

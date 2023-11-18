@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 //components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
-import DayExercises from 'components/diary/DayExercises';
-import DayDashboard from 'components/diary/DayDashboard';
+import DayExercises from '../../components/diary/DayExercises';
+import DayDashboard from '../../components/diary/DayDashboard';
 import DaySwitch from '../../components/diary/DaySwitch';
 //redux
 import { useDispatch } from 'react-redux';
@@ -41,10 +41,6 @@ function Diary() {
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
 
-  useEffect(() => {
-    navigate(`/diary/${formattedDate}`);
-  }, []);
-
   const [selectedDate, setSelectedDate] = useState(new Date());
   const minDate = startOfDay(parseISO(user.birthday));
 
@@ -52,6 +48,7 @@ function Diary() {
 
   useEffect(() => {
     dispatch(getDiary(formattedDate));
+    navigate(`/diary/${formattedDate}`);
   }, [dispatch, formattedDate]);
 
   useEffect(() => {
@@ -62,7 +59,7 @@ function Diary() {
     const formattedDate = formattingDate(date);
     navigate(`/diary/${formattedDate}`);
     dispatch(getDiary(formattedDate));
-  }
+  };
 
   const handleToPreviousDay = () => {
     setSelectedDate((prevDate) => subDays(prevDate, 1));
@@ -82,7 +79,7 @@ function Diary() {
   };
 
   return (
-    <div className={styles.backGround}>
+    <div className={`${styles.backGround} ${styles.layoutContainer}`}>
       <div className={styles.titleCont}>
         <TitlePage title="Diary" />
         <DaySwitch

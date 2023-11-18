@@ -84,6 +84,7 @@ export const updateInfo = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      console.log(error.status);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -94,19 +95,6 @@ export const getUserCalories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/calories');
-      setAuthHeader(res.data.token);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
-
-export const addToDairy = createAsyncThunk(
-  'auth/dairy',
-  async (data, thunkAPI) => {
-    try {
-      const res = await axios.post('/api/dairy/', data);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {

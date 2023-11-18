@@ -6,38 +6,39 @@ import { EquipmentList } from '../ExercisesList/EquipmentList';
 import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 import { WaistList } from '../Waist/WaistList/WaistList';
 
-
 export const ExercisesWrap = () => {
   const [activeFilter, setActiveFilter] = useState('Body part');
   const [exerciseName, setExerciseName] = useState('');
 
-  const handleSetExName = name => {
+  const handleSetExName = (name) => {
     setExerciseName(name);
   };
 
-  const handleFilterClick = filter => {
+  const handleFilterClick = (filter) => {
     setActiveFilter(filter);
   };
 
-  const capitalizeFirstLeter = string => {
+  const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
 
   return (
     <div className={css.exercisesWrapper}>
-      <li className={css.exercisesbox}>
-      {activeFilter !== 'Waist' ? (
-          <h2 className={css.exercisesBox}>Exercises</h2>
-          ) : (
-          <h2 className={css.exercisesBox}>{capitalizeFirstLeter(exerciseName)}</h2>
-          )}
+      <li className={css.exercisesBox}>
+        {activeFilter !== 'Waist' ? (
+          <h2 className={css.exercisesTitle}>Exercises</h2>
+        ) : (
+          <h2 className={css.exercisesTitle}>
+            {capitalizeFirstLeter(exerciseName)}
+          </h2>
+        )}
         <ExercisesNavigation
           activeFilter={activeFilter}
           handleFilterClick={handleFilterClick}
         />
       </li>
-      {activeFilter === 'Body parts' && (
+      {activeFilter === 'Body part' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
           handleSetExName={handleSetExName}
@@ -55,7 +56,7 @@ export const ExercisesWrap = () => {
           handleSetExName={handleSetExName}
         />
       )}
-       {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
+      {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
     </div>
   );
 };

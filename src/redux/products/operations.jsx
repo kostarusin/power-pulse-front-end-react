@@ -5,7 +5,7 @@ export const fetchProducts = createAsyncThunk(
   'products/allProducts',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get(`/api/products/groupBloodNotAllowed`);
+      const res = await axios.get(`/api/products/byGroupBlood`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

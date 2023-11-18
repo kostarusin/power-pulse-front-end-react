@@ -1,9 +1,6 @@
 .wrapper {
-  padding-left: 16px;
-  margin-top: 22px;
-  padding-right: 22px;
+  overflow-y: auto;
   gap: 40px;
-  overflow-y: scroll;
   height: 810px;
   display: flex;
   flex-direction: column;
@@ -12,7 +9,6 @@
   .wrapper {
     max-height: 170px;
     margin-top: 19px;
-    padding-right: 16px;
     gap: 8px;
   }
 }
@@ -20,17 +16,40 @@
   .wrapper {
     gap: 8px;
     margin-top: 19px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
+}
+
+/* Стили для скроллбара вебкита (Chrome, Safari) */
+.wrapper::-webkit-scrollbar {
+  margin-right: -12px; /* Отступ влево */
+  width: 6px; /* Ширина скроллбара */
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background-color: transparent; /* Цвет фона трека скроллбара */
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(239, 237, 232, 0.1); /* Цвет ползунка скроллбара */
+
+  border-radius: 12px; /* Закругление углов ползунка */
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Цвет ползунка при наведении */
 }
 
 .btnDelete {
   background-color: inherit;
-  margin-left: 8px;
   border: none;
   @media screen and (min-width: 768px) {
-    margin-left: 12px;
+    margin-left: 8px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapperListContainer {
+    margin-left: 16px;
   }
 }
 
@@ -70,7 +89,9 @@
   font-weight: 400;
   line-height: 18px;
 }
-
+.wrapperRecommendContainer {
+  display: flex;
+}
 .wrapperRecommend {
   display: flex;
   border: 1px solid var(--gray-middle);
@@ -145,10 +166,6 @@
   .wrapperItemWeigth {
     width: 105px;
   }
-}
-
-.wrapperItemRecommend {
-  width: 102px;
 }
 
 .flex {

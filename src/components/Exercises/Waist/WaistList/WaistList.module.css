@@ -1,53 +1,53 @@
 .waistListContainer {
   display: flex;
-  flex-direction: row;
 }
 
-.imgWaist{
+.imgWaist {
   display: none;
 }
-  @media screen and (min-width: 1440px) {
-    .imgWaist{
+@media screen and (min-width: 1440px) {
+  .imgWaist {
     display: block;
     width: 530px;
     height: 902px;
-   margin-top: -100px; 
+    margin-top: -100px;
     z-index: -2;
   }
 }
 
-.waistItemUl{
+.waistItemUl {
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
 }
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--orange-light);
-    border-radius: 12px;
-  }
 
-  *::-webkit-scrollbar {
-    width: 8px;
-  }
+.waistItemUl::-webkit-scrollbar-thumb {
+  background-color: var(--orange-light);
+  border-radius: 12px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: var(--grayUltraLight);
-    border-radius: 12px;
-  }
+.waistItemUl::-webkit-scrollbar {
+  width: 8px;
+}
 
-  @media screen and (min-width: 768px) {
-    .waistItemUl{
+.waistItemUl::-webkit-scrollbar-track {
+  background: var(--grayUltraLight);
+  border-radius: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .waistItemUl {
     overflow-y: auto;
     gap: 32px 16px;
     max-width: 100%;
     max-height: 726px;
     padding-right: 10px;
   }
-  }
-  @media screen and (min-width: 1440px) {
-    .waistItemUl{
+}
+@media screen and (min-width: 1440px) {
+  .waistItemUl {
     overflow-y: auto;
     max-height: 900px;
     padding-right: 16px;
@@ -56,7 +56,7 @@
 }
 
 .noExercisesTitle {
-  color:var(--white);
+  color: var(--white);
   font-size: 24px;
   font-weight: 700;
   line-height: 1.16;

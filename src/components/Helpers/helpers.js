@@ -15,3 +15,4 @@ export const grayUltraLight = 'rgba(239, 237, 232, 0.10)';
 export const grayForText = 'rgba(239, 237, 232, 0.40)';
 
 
+

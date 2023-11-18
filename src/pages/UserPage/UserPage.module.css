@@ -4,3 +4,31 @@
     flex-direction: row-reverse;
   }
 }
+
+.layoutContainer {
+  width: var(--container-width);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: 375px) {
+  .layoutContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .layoutContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .layoutContainer {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}

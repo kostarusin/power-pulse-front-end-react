@@ -19,23 +19,23 @@ export default function CustomSelect({ placeholder, minWidth, options, name }) {
 
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     if (name === 'Categories') {
       dispatch(findProduct(selectedOption === 'all' ? '' : selectedOption));
     }
     if (name === 'Recommendations') {
-      dispatch(
-        findProductByRec(
-          selectedOption === 'Recommended'
-            ? true
-            : selectedOption === 'All'
-            ? ''
-            : 'false',
-        ),
-      );
-      setSelectedOption(placeholder);
+    
+      if (selectedOption?.value === 'Recommended') {
+         dispatch(findProductByRec(true));
+      } else if (selectedOption?.value === 'Not recommended') {
+         dispatch(findProductByRec(false));
+      } else {
+         dispatch(findProductByRec(''));
+      }
+
     }
-  }, [dispatch, selectedOption, name, placeholder]);
+  }, [dispatch, name, placeholder, selectedOption]);
 
   const optionsCategories = [];
   options.map((product) => {

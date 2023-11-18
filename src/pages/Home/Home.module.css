@@ -1,31 +1,25 @@
 .hero {
-  padding-top: 127px;
+  padding-top: 66px;
+  padding-left: 20px;
   width: 100%;
-
   @media screen and (min-width: 768px) {
     padding-top: 105px;
+    padding-left: 32px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
-    max-width: 1440px;
-    min-height: 716px;
+    padding-top: 116px;
+    padding-left: 96px;
   }
 }
 
-.wrapper {
+.container {
   width: 332px;
-  height: 120px;
-  margin-bottom: 40px;
   @media screen and (min-width: 768px) {
-    position: relative;
     width: 598px;
-    height: 234px;
-    margin-bottom: 64px;
   }
 }
 
 .title {
-  position: relative;
   font-weight: 500;
   font-size: 38px;
   line-height: 40px;
@@ -34,12 +28,12 @@
     line-height: 78px;
   }
 }
+
 .overlay {
   background-image: url(/src/assets/line-mobile.svg);
   background-repeat: no-repeat;
   position: relative;
   top: -79px;
-  /* top: 43px; */
   left: -9px;
   width: 100px;
   height: 38px;
@@ -47,9 +41,7 @@
     background-image: url(/src/assets/line.svg);
     line-height: 78px;
     top: -150px;
-    /* top: 84px; */
     left: -24px;
-    /* left: -16; */
     width: 187px;
     height: 69px;
   }
@@ -58,8 +50,10 @@
 .list {
   display: flex;
   gap: 14px;
+  width: 280px;
   @media screen and (min-width: 768px) {
     gap: 20px;
+    width: 392px;
   }
 }
 
@@ -78,12 +72,8 @@
   }
 }
 
-.button:hover {
-  background-color: var(--black);
-  border: 1px solid var(--gray-middle);
-}
-
-.link1:hover {
+.link1:hover,
+.link1:focus {
   background-color: var(--orange-light);
 }
 
@@ -91,7 +81,7 @@
   padding: 12px 40px 12px 40px;
   color: var(--white);
   border-radius: 12px;
-  background-color: var(--black);
+  background-color: transparent;
   font-weight: 500;
   font-size: 16px;
   line-height: 18px;
@@ -103,6 +93,7 @@
   }
 }
 
-.link2:hover {
+.link2:hover,
+.link2:focus {
   border: 1px solid var(--orange-dark);
 }
