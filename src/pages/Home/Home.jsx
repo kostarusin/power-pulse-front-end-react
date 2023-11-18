@@ -18,7 +18,7 @@ const Home = () => {
 
   // console.log(totalUser);
   return (
-    <section className={css.hero}>
+    <section className={`layoutContainer ${css.hero}`}>
       <div className={css.container}>
         <h1 className={css.title}>
           Transforming your body shape with Power Pulse
