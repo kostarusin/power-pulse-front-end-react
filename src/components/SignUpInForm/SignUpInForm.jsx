@@ -51,9 +51,13 @@ const SignUpInForm = ({ includeName }) => {
                 type="text"
                 name="username"
                 placeholder="Name"
-                className={css.field}
+                className={css.input}
               />
-              <ErrorMessage component="div" name="username" />
+              <ErrorMessage
+                component="div"
+                name="username"
+                className={css.ErrorMessage}
+              />
             </label>
           )}
           <label htmlFor="email">
@@ -61,9 +65,13 @@ const SignUpInForm = ({ includeName }) => {
               type="text"
               name="email"
               placeholder="Email"
-              className={css.field}
+              className={css.input}
             />
-            <ErrorMessage component="div" name="email" />
+            <ErrorMessage
+              component="div"
+              name="email"
+              className={css.ErrorMessage}
+            />
           </label>
 
           <label htmlFor="password">
@@ -71,9 +79,13 @@ const SignUpInForm = ({ includeName }) => {
               type="password"
               name="password"
               placeholder="Password"
-              className={css.field}
+              className={css.input}
             />
-            <ErrorMessage component="div" name="password" />
+            <ErrorMessage
+              component="div"
+              name="password"
+              className={css.ErrorMessage}
+            />
           </label>
         </div>
 

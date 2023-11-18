@@ -1,14 +1,10 @@
 .signin {
   padding-top: 66px;
-  padding-left: 20px;
-  width: 100%;
   @media screen and (min-width: 768px) {
     padding-top: 105px;
-    padding-left: 32px;
   }
   @media screen and (min-width: 1440px) {
     padding-top: 116px;
-    padding-left: 96px;
   }
 }
 

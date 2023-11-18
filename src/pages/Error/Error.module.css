@@ -21,17 +21,14 @@
 .container2 {
   width: 200px;
   padding-top: 189px;
-  padding-left: 20px;
   background-color: var(--orange-dark);
   @media screen and (min-width: 768px) {
     width: 356px;
     padding-top: 255px;
-    padding-left: 32px;
   }
   @media screen and (min-width: 1440px) {
     width: 477px;
     padding-top: 137px;
-    padding-left: 96px;
   }
 }
 
@@ -39,7 +36,7 @@
   font-weight: 500;
   font-size: 66px;
   line-height: 66px;
-  /* letter-spacing: 0,01em; */
+  letter-spacing: 0, 01em;
   color: var(--white);
   @media screen and (min-width: 768px) {
     font-size: 160px;
@@ -79,6 +76,7 @@
 .link:focus {
   background-color: var(--orange-light);
   border: 1px solid var(--white);
+  transition: border-color 0.5s ease-out;
 }
 
 .image {

@@ -6,7 +6,7 @@ const ErrorPage = () => {
   return (
     <section className={css.error}>
       <div className={css.container1}>
-        <div className={css.container2}>
+        <div className={`layoutContainer ${css.container2}`}>
           <h1 className={css.title}>404</h1>
           <p className={css.text}>
             Sorry, you have reached a page that we could not find. It seems that
