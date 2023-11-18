@@ -8,6 +8,7 @@ import { useAuth } from '../../redux/hooks';
 const UserBar = ({ onBurgerClick }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
+  const { avatarURL } = user;
 
   return (
     <div className={css.userBarWrap}>
@@ -17,7 +18,7 @@ const UserBar = ({ onBurgerClick }) => {
         </svg>
       </Link>
       <div className={css.avatar}>
-        {user ? (
+        {avatarURL ? (
           <img src={user.avatarURL} className={css.avatar} />
         ) : (
           <svg className={css.avatarIcon}>
