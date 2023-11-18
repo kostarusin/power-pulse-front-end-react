@@ -189,7 +189,10 @@ const Products = () => {
 
       {showSuccessModal1 && (
         <Modal onClose={toggleSuccessModalTest}>
-          <AddProductsSuccess toggleSuccessModalTest={toggleSuccessModalTest} />
+          <AddProductsSuccess
+            toggleSuccessModalTest={toggleSuccessModalTest}
+            caclCall={caclCall}
+          />
         </Modal>
       )}
     </section>

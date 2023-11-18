@@ -5,7 +5,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 100;
   background-color: rgba(4, 4, 4, 0.4);
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .backdropVisible {
@@ -70,6 +75,9 @@
 .mobMenuItemUpper:hover {
   border-color: var(--white);
 }
+/* .mobMenuItemUpper.active {
+  border-color: var(--white);
+} */
 
 .mobMenuItem {
   flex: 1;
@@ -103,6 +111,12 @@
 .mobMenuItem:hover {
   border-color: var(--white);
 }
+.activeLink {
+  border-color: var(--white);
+}
+/* .mobMenuItem.active {
+  border-color: var(--white);
+} */
 
 .xButton {
   display: flex;
@@ -113,6 +127,8 @@
   align-self: flex-end;
   font-size: 24px;
   color: var(--white);
+  background-color: var(--orange-dark);
+  border-color: transparent;
   cursor: pointer;
   @media (min-width: 768px) {
     font-size: 32px;
