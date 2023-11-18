@@ -8,7 +8,6 @@ const ProductsList = ({ products, selectedDate }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -101,8 +100,17 @@ const ProductsList = ({ products, selectedDate }) => {
                   </div>
                   <div className={css.wrapperRecommendContainer}>
                     <div className={css.wrapperRecommend}>
-                      <div>sv</div>
-                      <div className={css.textRecommend}>Yes</div>
+                      <div
+                        className={css.circle}
+                        style={{
+                          backgroundColor: product.groupBloodNotAllowed
+                            ? 'green'
+                            : 'red',
+                        }}
+                      ></div>
+                      <div className={css.textRecommend}>
+                        {product.groupBloodNotAllowed ? 'Yes' : 'No'}
+                      </div>
                     </div>
                     <button
                       type="button"
