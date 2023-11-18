@@ -37,10 +37,11 @@ function Diary() {
       .replace(/\//g, '-');
   };
 
-  useEffect(() => {
+
     dispatch(getDiary(date));
     dispatch(refreshUser());
   }, [dispatch, date]);
+
 
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
