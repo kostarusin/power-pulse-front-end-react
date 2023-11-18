@@ -9,17 +9,18 @@
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .container {
     width: 593px;
+    margin-bottom: 32px;
   }
 }
 @media screen and (min-width: 1440px) {
   .container {
     width: 390px;
+    margin-bottom: 48px;
   }
 }
 
 .user-daily {
   display: flex;
-  gap: 8px;
   align-items: center;
   margin-bottom: 28px;
 }
@@ -39,17 +40,23 @@
 
 .user-daily-items {
   width: 157px;
+  height: 96px;
   padding: 14px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #e6533c;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
+  .user-daily-items {
+    height: 116px;
+  }
   .user-daily-items:nth-child(2) .user-daily {
     margin-bottom: 28px;
   }
+}
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
   .user-daily-items:nth-child(1) {
     order: 1; /* Новый порядок для первого элемента списка */
   }
@@ -76,12 +83,12 @@
 }
 
 .user-daily-text {
-  display: flex;
   color: rgba(239, 237, 232, 0.8);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.33;
   margin-bottom: 0;
+  margin-left: 4px;
 }
 .user-daily-text-value {
   color: #efede8;
