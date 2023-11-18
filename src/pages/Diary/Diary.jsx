@@ -10,8 +10,8 @@ import DaySwitch from '../../components/diary/DaySwitch';
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
 import { getUserCalories } from '../../redux/auth/operations';
-import { useDiary } from '../../redux/hooks';
-import { useAuth } from '../../redux/hooks';
+import { useDiary } from '../../hooks';
+import { useAuth } from '../../hooks';
 //date lib
 import { parseISO, startOfDay } from 'date-fns';
 import { addDays, subDays } from 'date-fns';
@@ -82,6 +82,9 @@ function Diary() {
 
   const handleToNextDay = () => {
     const nextDate = addDays(selectedDate, 1);
+
+    const currentDate = startOfDay(new Date());
+
     if (nextDate.getDate() === currentDate.getDate()) {
       setAdditionalIconClass('opacity-right');
       setSelectedDate(nextDate);

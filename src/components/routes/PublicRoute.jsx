@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../redux/hooks';
+import { useAuth } from '../../hooks';
 
 const PublicRoute = ({ component: Component, redirectto = '/user' }) => {
   const { isLoggedIn } = useAuth();

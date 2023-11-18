@@ -1,9 +1,9 @@
 import { grayForText, grayMiddle } from '../../Helpers/helpers';
-import { ButtonModal } from '../../../components/ButtonModal/ButtonModal';
+import { ButtonModal } from '../../ButtonModal/ButtonModal';
 import css from './AddProductForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addExercises } from '../../../redux/dairy/operations';
-import { useDiary } from '../../../redux/hooks/useDiary';
+import { useDiary } from '../../../hooks';
 
 const AddProductForm = ({
   toggleSuccessModal,

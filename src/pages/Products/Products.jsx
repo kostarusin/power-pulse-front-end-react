@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 
 import { useDispatch } from 'react-redux';
-import { useProducts } from '../../redux/hooks/useProducts.jsx';
+import { useProducts } from '../../hooks';
 import {
   fetchProductCategories,
   fetchProducts,

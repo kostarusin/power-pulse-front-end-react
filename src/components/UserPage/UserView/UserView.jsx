@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logOut, updateInfo } from '../../../redux/auth/operations';
-import { useAuth } from '../../../redux/hooks';
+import { useAuth } from '../../../hooks';
 
 import css from './UserView.module.css';
 import sprite from '../../../assets/icons-optimized.svg';

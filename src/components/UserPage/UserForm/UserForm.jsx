@@ -9,7 +9,7 @@ import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
-import { useAuth } from '../../../redux/hooks';
+import { useAuth } from '../../../hooks';
 //datepicker
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //notification
@@ -19,7 +19,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from './UserForm.module.css';
 import { useState } from 'react';
 import { format } from 'date-fns';
-import datePickerStyle from '../StyledDatepicker/CustomInput.module.css';
 
 import convertValues from './typesConvertedFunction';
 

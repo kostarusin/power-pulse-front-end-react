@@ -1,5 +1,5 @@
 //redux
-import { useDiary, useAuth } from '../../../redux/hooks';
+import { useDiary, useAuth } from '../../../hooks';
 //styles
 import sprite from '../../../assets/icons-optimized.svg';
 import icon from '../../../assets/icons.svg';

@@ -5,14 +5,13 @@ import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/Exerc
 
 //redux
 import { useDispatch } from 'react-redux';
-import { useExercises } from '../../redux/hooks';
+import { useExercises } from '../../hooks';
 import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 
 const Exercises = () => {
   const dispatch = useDispatch();
   const { exercises } = useExercises();
   const { bodyParts } = useExercises();
-
 
   useEffect(() => {
     dispatch(fetchExercises());
@@ -24,9 +23,8 @@ const Exercises = () => {
 
   return (
     <div className={css.div}>
-       {/* <WaistList></WaistList> */}
+      {/* <WaistList></WaistList> */}
       <ExercisesWrap></ExercisesWrap>
-     
     </div>
   );
 };
