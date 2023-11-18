@@ -24,6 +24,9 @@ function Diary() {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
+  const [additionalIconClass, setAdditionalIconClass] =
+    useState('opacity-right');
+
   const formattingDate = (date) => {
     return date
       .toLocaleDateString('en-GB', {
@@ -62,14 +65,33 @@ function Diary() {
   };
 
   const handleToPreviousDay = () => {
-    setSelectedDate((prevDate) => subDays(prevDate, 1));
     const previousDate = subDays(selectedDate, 1);
+    if (previousDate < minDate) {
+      setAdditionalIconClass('opacity-left');
+      return;
+    }
+    setAdditionalIconClass('');
+    setSelectedDate(previousDate);
     handlingDate(previousDate);
   };
 
   const handleToNextDay = () => {
-    setSelectedDate((prevDate) => addDays(prevDate, 1));
     const nextDate = addDays(selectedDate, 1);
+    const currentDate = startOfDay(new Date());
+ 
+    if (nextDate.getDate() === currentDate.getDate()) {
+      setAdditionalIconClass('opacity-right');
+      setSelectedDate(nextDate);
+      handlingDate(nextDate);
+      return;
+    }
+
+    if (nextDate > currentDate) {
+      return;
+    }
+
+    setAdditionalIconClass('');
+    setSelectedDate(nextDate);
     handlingDate(nextDate);
   };
 
@@ -79,15 +101,17 @@ function Diary() {
   };
 
   return (
-    <div className={`${styles.backGround} ${styles.layoutContainer}`}>
+    <div className={`${styles.backGround} layoutContainer`}>
       <div className={styles.titleCont}>
         <TitlePage title="Diary" />
         <DaySwitch
           minDate={minDate}
+          maxDate={currentDate}
           selectedDate={selectedDate}
           setSelectedDate={handleDateChange}
           handleToNextDay={handleToNextDay}
           handleToPreviousDay={handleToPreviousDay}
+          additionalIconClass={additionalIconClass}
         />
       </div>
       <div className={styles.container}>

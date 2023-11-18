@@ -4,7 +4,7 @@ import HomeBackground from '../../components/HomeBackground/HomeBackground';
 
 const SignUp = () => {
   return (
-    <section className={css.signup}>
+    <section className={`layoutContainer ${css.signup}`}>
       <div>
         <div className={css.container1}>
           <h2 className={css.title}>Sign Up</h2>

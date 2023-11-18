@@ -1,10 +1,24 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
+import io from 'socket.io-client';
+
+// const socket = io('https://power-pulse-fx29.onrender.com:5050');
 
 const Home = () => {
+  // const [totalUser, setTotalUser] = useState(null);
+
+  // useEffect(() => {
+  //   socket.emit('getUsers');
+  //   socket.on('totalUsers', (allUsers) => {
+  //     setTotalUser(allUsers);
+  //   });
+  // }, []);
+
+  // console.log(totalUser);
   return (
-    <section className={css.hero}>
+    <section className={`layoutContainer ${css.hero}`}>
       <div className={css.container}>
         <h1 className={css.title}>
           Transforming your body shape with Power Pulse

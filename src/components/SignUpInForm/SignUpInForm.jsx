@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register, logIn } from '../../redux/auth/operations';
+import { register, logIn, refreshUser } from '../../redux/auth/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -33,6 +33,7 @@ const SignUpInForm = ({ includeName }) => {
     } else {
       dispatch(logIn(values));
     }
+    dispatch(refreshUser());
     resetForm();
   }
 
@@ -50,9 +51,13 @@ const SignUpInForm = ({ includeName }) => {
                 type="text"
                 name="username"
                 placeholder="Name"
-                className={css.field}
+                className={css.input}
               />
-              <ErrorMessage component="div" name="username" />
+              <ErrorMessage
+                component="div"
+                name="username"
+                className={css.ErrorMessage}
+              />
             </label>
           )}
           <label htmlFor="email">
@@ -60,9 +65,13 @@ const SignUpInForm = ({ includeName }) => {
               type="text"
               name="email"
               placeholder="Email"
-              className={css.field}
+              className={css.input}
             />
-            <ErrorMessage component="div" name="email" />
+            <ErrorMessage
+              component="div"
+              name="email"
+              className={css.ErrorMessage}
+            />
           </label>
 
           <label htmlFor="password">
@@ -70,9 +79,13 @@ const SignUpInForm = ({ includeName }) => {
               type="password"
               name="password"
               placeholder="Password"
-              className={css.field}
+              className={css.input}
             />
-            <ErrorMessage component="div" name="password" />
+            <ErrorMessage
+              component="div"
+              name="password"
+              className={css.ErrorMessage}
+            />
           </label>
         </div>
 

@@ -1,9 +1,7 @@
 .wrapper {
-  padding-left: 16px;
   margin-top: 22px;
-  padding-right: 22px;
   gap: 40px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 810px;
   display: flex;
   flex-direction: column;
@@ -12,7 +10,6 @@
   .wrapper {
     max-height: 170px;
     margin-top: 19px;
-    padding-right: 16px;
     gap: 8px;
   }
 }
@@ -20,11 +17,33 @@
   .wrapper {
     gap: 8px;
     margin-top: 19px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
 }
 
+/* Стили для скроллбара вебкита (Chrome, Safari) */
+.wrapper::-webkit-scrollbar {
+  margin-right: -12px; /* Отступ влево */
+  width: 6px; /* Ширина скроллбара */
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background-color: transparent; /* Цвет фона трека скроллбара */
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(239, 237, 232, 0.1); /* Цвет ползунка скроллбара */
+
+  border-radius: 12px; /* Закругление углов ползунка */
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Цвет ползунка при наведении */
+}
+@media screen and (min-width: 1440px) {
+  .wrapperListContainer {
+    margin-left: 16px;
+  }
+}
 .wrapperList {
   gap: 16px;
   display: flex;
@@ -142,25 +161,6 @@
   }
 }
 
-.wrapperTime {
-  width: 102px;
-}
-@media screen and (min-width: 768px) {
-  .wrapperTime {
-    width: 103px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .wrapperList li:nth-last-child(-n + 3) {
-    margin-right: -3px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .wrapperTime {
-    width: 120px;
-  }
-}
-
 .flex {
   display: flex;
 }
@@ -168,14 +168,17 @@
 .withTime {
   width: 76px;
 }
-@media screen and(min-width: 768px) {
+
+@media screen and (min-width: 768px) {
   .withTime {
     width: 72px;
+    margin-right: 8px;
   }
 }
-@media screen and(min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .withTime {
     width: 82px;
+    margin-right: 16px;
   }
 }
 

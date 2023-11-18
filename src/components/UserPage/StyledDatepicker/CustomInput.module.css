@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  width: 160px;
+  font-size: 14px;
+  color: var(--white);
+  background-color: transparent;
+  border: 1px solid var(--gray-middle);
+  border-radius: 12px;
+  padding: 14px;
+  transition: border-color 0.5s ease-out;
+}
+
+.container:is(:hover, :focus) {
+  background-color: transparent;
+  color: var(--white);
+  border-color: var(--orange-dark);
+  outline: none;
+}
+
+.svg {
+  margin-left: 8px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    height: 52px;
+    width: 163px;
+    font-size: 16px;
+  }
+}

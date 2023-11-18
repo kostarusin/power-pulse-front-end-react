@@ -1,6 +1,29 @@
 import { grayForText, grayMiddle } from '../../Helpers/helpers';
 import { ButtonModal } from '../../../components/ButtonModal/ButtonModal';
 import css from './AddProductForm.module.css';
+import { useState } from 'react';
+
+const AddProductForm = ({
+  toggleSuccessModal,
+  handleChange,
+  productData,
+  caclCall,
+}) => {
+  const [addProductToDiary, setAddProductToDiary] = useState({
+    product: '',
+    amount: '',
+    calories: '',
+  });
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setAddProductToDiary({
+      product: '',
+      amount: '',
+      calories: caclCall,
+    })
+  };
+
 
 import { useDispatch } from 'react-redux';
 
@@ -37,6 +60,7 @@ const AddProductForm = ({
       }),
     );
   };
+
 
   return (
     <div>

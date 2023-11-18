@@ -46,9 +46,24 @@
 </symbol>
 <symbol id="icon-x-orange" viewBox="0 0 32 32"><path fill="none" stroke="#e6533c" style="stroke:var(--color1, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-width="3.556" d="M24 8 8 24M8 8l16 16"/></symbol>
 <symbol id="icon-chevron-left" viewBox="0 0 32 32">
-<path fill="#efede8" style="fill: var(--color1, #efede8)" opacity="0.2" d="M21.086 1.086l2.828 2.828-11.586 11.586 11.586 11.586-2.828 2.828-14.414-14.414 14.414-14.414z"></path>
+<path fill="#efede8" style="fill: var(--color1, #efede8)" d="M21.086 1.086l2.828 2.828-11.586 11.586 11.586 11.586-2.828 2.828-14.414-14.414 14.414-14.414z"></path>
 </symbol>
 <symbol id="icon-chevron-right" viewBox="0 0 19 32">
 <path fill="#efede8" style="fill: var(--color1, #efede8)" d="M3.108 31.908l-3.017-3.017 12.358-12.358-12.358-12.358 3.017-3.017 15.375 15.375-15.375 15.375z"></path>
+</symbol>
+<symbol id="icon-validation-checkbox-green" viewBox="0 0 32 32">
+<path fill="#3cbf61" style="fill: var(--color1, #3cbf61)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.459 21.98l9.427-9.428-1.885-1.885-7.541 7.543-3.772-3.772-1.885 1.885 5.657 5.657z"></path>
+</symbol>
+<symbol id="icon-validation-checkbox-red" viewBox="0 0 32 32">
+<path fill="#d80027" style="fill: var(--color2, #d80027)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.459 21.98l9.427-9.428-1.885-1.885-7.541 7.543-3.772-3.772-1.885 1.885 5.657 5.657z"></path>
+</symbol>
+<symbol id="icon-chevron-left" viewBox="0 0 32 32">
+<path d="M21.086 1.086l2.828 2.829-11.586 11.586 11.586 11.586-2.828 2.829-14.414-14.414 14.414-14.414z"></path>
+</symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 32 32">
+<path d="M10.914 29.914l-2.828-2.829 11.586-11.586-11.586-11.586 2.829-2.828 14.414 14.414-14.414 14.414z"></path>
+</symbol>
+<symbol id="icon-calendar" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M25.333 5.333h-18.667c-1.473 0-2.667 1.194-2.667 2.667v18.667c0 1.473 1.194 2.667 2.667 2.667h18.667c1.473 0 2.667-1.194 2.667-2.667v-18.667c0-1.473-1.194-2.667-2.667-2.667zM21.333 2.667v5.333M10.667 2.667v5.333M4 13.333h24"></path>
 </symbol>
 </defs></svg>

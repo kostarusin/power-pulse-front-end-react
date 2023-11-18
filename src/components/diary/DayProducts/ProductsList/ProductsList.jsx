@@ -8,7 +8,6 @@ const ProductsList = ({ products, selectedDate }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -35,7 +34,7 @@ const ProductsList = ({ products, selectedDate }) => {
       {products.length !== 0 ? (
         products.map((product, index) => {
           return (
-            <div key={product._id}>
+            <div className={css.wrapperListContainer} key={product._id}>
               <ul className={css.wrapperList}>
                 <li className={css.wrapperItemTitle}>
                   <div
@@ -61,7 +60,7 @@ const ProductsList = ({ products, selectedDate }) => {
                     Category
                   </div>
 
-                  <div className={css.text}>{product.category}</div>
+                  <div className={css.text}>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
                 </li>
                 <li className={css.wrapperItemCalories}>
                   <div
@@ -99,11 +98,19 @@ const ProductsList = ({ products, selectedDate }) => {
                   >
                     Recommend
                   </div>
-
-                  <div className={css.flex}>
+                  <div className={css.wrapperRecommendContainer}>
                     <div className={css.wrapperRecommend}>
-                      <div>sv</div>
-                      <div className={css.textRecommend}>Yes</div>
+                      <div
+                        className={css.circle}
+                        style={{
+                          backgroundColor: product.groupBloodNotAllowed
+                            ? 'green'
+                            : 'red',
+                        }}
+                      ></div>
+                      <div className={css.textRecommend}>
+                        {product.groupBloodNotAllowed ? 'Yes' : 'No'}
+                      </div>
                     </div>
                     <button
                       type="button"
@@ -116,7 +123,7 @@ const ProductsList = ({ products, selectedDate }) => {
                     </button>
                   </div>
                 </li>
-              </ul>
+              </ul>{' '}
             </div>
           );
         })
