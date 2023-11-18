@@ -16,6 +16,18 @@
   }
 }
 
+.logoIconError{
+  width: 36px;
+  height: 13px;
+  fill: var(--white);
+  stroke: none;
+  
+  @media screen and (min-width: 376px) {
+    width: 44px;
+    height: 17px;
+  }
+}
+
 .logoText {
   width: 82px;
   height: 13px;

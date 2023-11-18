@@ -7,7 +7,7 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
+    <nav className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
       <div className="layoutContainer">
         <header className={css.header}>
           <div className={css.logoWrap}>
@@ -16,7 +16,7 @@ const Header = () => {
           <div className={css.user}>{isLoggedIn && <UserNav />}</div>
         </header>
       </div>
-    </div>
+    </nav>
   );
 };
 
