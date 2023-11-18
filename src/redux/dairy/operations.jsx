@@ -18,6 +18,7 @@ export const getDiary = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get(`/api/diary/${credentials}`);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -58,7 +59,19 @@ export const deleteExerciseOrProduct = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.patch(`/api/diary/${date}`, credentials);
-      console.log(res.data);
+
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const sendProductToDiary = createAsyncThunk(
+  'diary/sendProduct',
+  async (consumedProducts, thunkAPI) => {
+    try {
+      const res = await axios.post(`/api/diary:18-11-2023`, consumedProducts);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
