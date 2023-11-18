@@ -5,13 +5,18 @@ import { useAuth } from '../../redux/hooks';
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
+
   return (
-    <header className={css.header}>
-      <div className={css.logoWrap}>
-        <Logo />
+    <div className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
+      <div className="layoutContainer">
+        <header className={css.header}>
+          <div className={css.logoWrap}>
+            <Logo />
+          </div>
+          <div className={css.user}>{isLoggedIn && <UserNav />}</div>
+        </header>
       </div>
-      <div className={css.user}>{isLoggedIn && <UserNav />}</div>
-    </header>
+    </div>
   );
 };
 
