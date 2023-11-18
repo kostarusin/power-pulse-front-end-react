@@ -9,7 +9,8 @@
   --white: #efede8;
   --red: #e9101d;
   --green: #419b09;
-  --snow-white:  #fff;
+  --snow-white: #fff;
+  --error: #d80027;
 
   --gray: #303030;
   --gray-middle: rgba(239, 237, 232, 0.3);
@@ -17,7 +18,7 @@
   --gray-soft: rgba(239, 237, 232, 1);
   --grayUltraLight: rgba(239, 237, 232, 0.1);
   --grayEx: rgba(239, 237, 232, 0.4);
-  --orange:  rgba(239, 137, 100, 1);
+  --orange: rgba(239, 137, 100, 1);
   --dark: rgba(239, 237, 232, 0.05);
   --grayToolTip: rgba(239, 237, 232, 0.50);
 }
