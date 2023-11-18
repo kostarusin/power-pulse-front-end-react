@@ -35,7 +35,7 @@ const ProductsList = ({ products, selectedDate }) => {
       {products.length !== 0 ? (
         products.map((product, index) => {
           return (
-            <div key={product._id}>
+            <div className={css.wrapperListContainer} key={product._id}>
               <ul className={css.wrapperList}>
                 <li className={css.wrapperItemTitle}>
                   <div
@@ -99,8 +99,7 @@ const ProductsList = ({ products, selectedDate }) => {
                   >
                     Recommend
                   </div>
-
-                  <div className={css.flex}>
+                  <div className={css.wrapperRecommendContainer}>
                     <div className={css.wrapperRecommend}>
                       <div>sv</div>
                       <div className={css.textRecommend}>Yes</div>
@@ -116,7 +115,7 @@ const ProductsList = ({ products, selectedDate }) => {
                     </button>
                   </div>
                 </li>
-              </ul>
+              </ul>{' '}
             </div>
           );
         })

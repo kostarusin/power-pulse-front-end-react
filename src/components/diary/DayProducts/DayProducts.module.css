@@ -2,16 +2,17 @@
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background-color: rgba(239, 237, 232, 0.05);
-
+  padding-top: 16px;
+  padding-right: 7px;
+  padding-bottom: 16px;
+  padding-left: 16px;
   width: 335px;
   height: 880px;
 }
 
 .headerWrapper {
-  padding: 0 16px;
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
 }
 
 .btnWrapper {
@@ -19,6 +20,7 @@
   align-items: center;
 }
 .title {
+  color: rgba(239, 237, 232, 0.5);
   font-size: 14px;
   line-height: 1.2;
 }
@@ -37,6 +39,20 @@
 .link {
   color: #e6533c;
   margin-right: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28px; /* 128.571% */
+}
+.link:hover,
+.link:focus {
+  color: #efede8;
+}
+@media screen and (min-width: 768px) {
+  .link {
+    font-size: 16px;
+    line-height: 1.5px;
+  }
 }
 
 .errNotFound {

@@ -35,7 +35,7 @@ function ExercisesList({ exercises, selectedDate }) {
     <div className={css.wrapper}>
       {exercises.length !== 0 ? (
         exercises.map((exercise, index) => (
-          <div key={exercise._id}>
+          <div className={css.wrapperListContainer} key={exercise._id}>
             <ul className={css.wrapperList}>
               <li className={css.wrapperBodyPart}>
                 <div

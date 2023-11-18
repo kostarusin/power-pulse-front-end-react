@@ -12,7 +12,7 @@ const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
       <div onClick={onClick} ref={ref} className={css.container}>
         <div className={css.txt}>{format(selectedDate, 'dd/MM/yyyy')}</div>
         <div>
-          <svg width="20" height="20" className={css.svg}>
+          <svg className={css.svg}>
             <use href={`${sprite}#icon-calendar-bage`}></use>
           </svg>
         </div>
