@@ -61,7 +61,7 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {consumedCalories || 0}
+            {Math.floor(consumedCalories) || 0}
           </p>
         </li>
 
@@ -87,7 +87,7 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {CaloriesRemaining || 0}
+            {Math.floor(CaloriesRemaining) || 0}
           </p>
         </li>
 

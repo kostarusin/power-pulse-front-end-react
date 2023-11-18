@@ -3,10 +3,11 @@ import css from './ProductsList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
 import sprite from '../../../../assets/icons-optimized.svg';
+import { useDiary } from '../../../../hooks';
 
-const ProductsList = ({ products, selectedDate }) => {
+const ProductsList = ({ products }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
+  const { date } = useDiary();
   const dispatch = useDispatch();
   useEffect(() => {
     const handleResize = () => {
@@ -21,7 +22,7 @@ const ProductsList = ({ products, selectedDate }) => {
   const handleDeleteExercise = (product) => {
     dispatch(
       deleteExerciseOrProduct({
-        date: selectedDate,
+        date: date,
         credentials: {
           id: product._id,
         },
@@ -60,7 +61,10 @@ const ProductsList = ({ products, selectedDate }) => {
                     Category
                   </div>
 
-                  <div className={css.text}>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
+                  <div className={css.text}>
+                    {product.category.charAt(0).toUpperCase() +
+                      product.category.slice(1)}
+                  </div>
                 </li>
                 <li className={css.wrapperItemCalories}>
                   <div
