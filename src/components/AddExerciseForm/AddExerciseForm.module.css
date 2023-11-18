@@ -28,9 +28,9 @@ p {
 }
 
 .calories {
-  color: rgba(239, 237, 232, 0.30);
+  color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
-  line-height: 1.28; 
+  line-height: 1.28;
 }
 
 .calories_amount {
@@ -78,6 +78,9 @@ p {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 375px) {
@@ -109,4 +112,40 @@ p {
   .type_descr {
     line-height: 1.5;
   }
+}
+
+.button {
+  height: 42px;
+  width: 151px;
+
+  border: none;
+  border-radius: 12px;
+  background: var(--orange-dark);
+
+  font-family: Roboto;
+  font-size: 16px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--orange-light);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    height: 52px;
+
+    line-height: 1.5;
+  }
+}
+
+.button:disabled {
+  background-color: var(--gray-middle);
+  border-color: var(--gray-middle);
+  cursor: not-allowed;
+  transition: background-color 0.5s ease-out;
 }
