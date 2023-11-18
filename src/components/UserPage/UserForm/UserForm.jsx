@@ -8,7 +8,7 @@ import CloseBtn from '../../toastComponents/CloseBtn';
 import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
-import { updateInfo, refreshUser } from '../../../redux/auth/operations';
+import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../hooks';
 //datepicker
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //styles
 import css from './UserForm.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { format } from 'date-fns';
 
 import convertValues from './typesConvertedFunction';
@@ -27,10 +27,6 @@ const UserForm = ({ selectedDate }) => {
   const { user } = useAuth();
 
   const [isFormChanged, setFormChanged] = useState(false);
-
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
 
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
