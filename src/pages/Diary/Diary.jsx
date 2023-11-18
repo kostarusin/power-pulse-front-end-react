@@ -41,10 +41,6 @@ function Diary() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getDiary(date));
-  }, [dispatch, date]);
-
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
 
