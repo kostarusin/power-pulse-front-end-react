@@ -177,7 +177,7 @@
 .ErrorMessage {
   color: var(--red);
   position: absolute;
-  font-size: 12px;
+  font-size: 10px;
   z-index: 1;
 }
 
@@ -269,5 +269,9 @@
     padding-right: 56px;
     max-width: 756px;
     border-right: 1px solid var(--gray-middle);
+  }
+
+  .ErrorMessage {
+    font-size: 12px;
   }
 }

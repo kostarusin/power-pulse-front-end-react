@@ -2,7 +2,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ProfileSettingsSchema from './yapValidateSchema';
 import ToastIconError from '../../toastComponents/ToastIconError';
-// import ToastIconSuccess from '../../toastComponents/ToastIconSuccess';
+import ToastIconSuccess from '../../toastComponents/ToastIconSuccess/ToastIconSuccess';
 import CloseBtn from '../../toastComponents/CloseBtn';
 //lodash
 import isEqual from 'lodash/isEqual';
@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from './UserForm.module.css';
 import { useState } from 'react';
 import { format } from 'date-fns';
+import datePickerStyle from '../StyledDatepicker/CustomInput.module.css';
 
 import convertValues from './typesConvertedFunction';
 
@@ -30,9 +31,7 @@ const UserForm = ({ selectedDate }) => {
 
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
-    console.log('convertedUser', convertedUser);
     const convertedValues = convertValues(values);
-    console.log('convertedValues', convertedValues);
     const areEqual = isEqual(convertedUser, convertedValues);
 
     if (areEqual) {
@@ -53,7 +52,7 @@ const UserForm = ({ selectedDate }) => {
         position: 'top-center',
         className: css.customToastSuccess,
         progressClassName: css.toastProgressBar,
-        icon: false,
+        icon: ToastIconSuccess,
         closeButton: CloseBtn,
       });
     }
@@ -173,7 +172,7 @@ const UserForm = ({ selectedDate }) => {
               </label>
               <label htmlFor="birthday">
                 <Field
-                  className={`${css.infoInput} ${
+                  className={`${
                     formik.errors.birthday ? css.invalidInput : ''
                   }`}
                   name="birthday"
@@ -181,12 +180,13 @@ const UserForm = ({ selectedDate }) => {
                   selectedDate={selectedDate}
                   render={() => (
                     <StyledDatepicker
-                      onChange={(date) =>
+                      onChange={(date) => {
                         formik.setFieldValue(
                           'birthday',
                           format(date, 'yyyy-MM-dd'),
-                        )
-                      }
+                        );
+                        handleFormChange(); // Добавьте вызов этой функции, чтобы отметить изменение формы
+                      }}
                     />
                   )}
                 />
