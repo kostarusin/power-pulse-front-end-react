@@ -4,6 +4,7 @@ import {
   selectConsumedProducts,
   selectBurnedCalories,
   selectConsumedCalories,
+  selectDate,
 } from '../dairy/selectors';
 
 export const useDiary = () => {
@@ -12,5 +13,6 @@ export const useDiary = () => {
     consumedProducts: useSelector(selectConsumedProducts),
     burnedCalories: useSelector(selectBurnedCalories),
     consumedCalories: useSelector(selectConsumedCalories),
+    date: useSelector(selectDate),
   };
 };

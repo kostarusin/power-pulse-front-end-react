@@ -24,6 +24,44 @@ const AddProductForm = ({
     })
   };
 
+
+import { useDispatch } from 'react-redux';
+
+import { addExercises } from '../../../redux/dairy/operations';
+import { useDiary } from '../../../redux/hooks/useDiary';
+
+const AddProductForm = ({
+  toggleSuccessModal,
+  handleChange,
+  productData,
+  caclCall,
+  amount,
+  productId,
+  toggleSuccessModalTest,
+}) => {
+  const dispatch = useDispatch();
+  const { date } = useDiary();
+  const handleClick = (event) => {
+    event.preventDefault();
+    toggleSuccessModal()
+    toggleSuccessModalTest()
+    dispatch(
+      addExercises({
+        date: date,
+        credentials: {
+          consumedProducts: [
+            {
+              product: productId,
+              amount: amount,
+              calories: caclCall,
+            },
+          ],
+        },
+      }),
+    );
+  };
+
+
   return (
     <div>
       <form>

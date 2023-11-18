@@ -12,8 +12,7 @@ const Exercises = () => {
   const dispatch = useDispatch();
   const { exercises } = useExercises();
   const { bodyParts } = useExercises();
-  console.log(exercises);
-  console.log(bodyParts);
+
 
   useEffect(() => {
     dispatch(fetchExercises());

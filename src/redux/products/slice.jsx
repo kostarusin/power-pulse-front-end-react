@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProductCategories, fetchProducts } from './operations';
+import {
+  fetchProductCategories,
+  fetchProducts,
+} from './operations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -20,7 +23,8 @@ const productsSlice = createSlice({
     categories: [],
     filter: '',
     filterRec: '',
-    filterByText:'',
+    filterByText: '',
+
   },
   reducers: {
     findProduct(state, action) {
@@ -43,8 +47,6 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, handleRejected)
 
-
-
       .addCase(fetchProductCategories.pending, handlePending)
       .addCase(fetchProductCategories.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -52,8 +54,10 @@ const productsSlice = createSlice({
         state.categories = action.payload;
       })
       .addCase(fetchProductCategories.rejected, handleRejected)
-      
+
+
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { findProduct, findProductByRec, findProductByText } = productsSlice.actions;
+export const { findProduct, findProductByRec, findProductByText } =
+  productsSlice.actions;

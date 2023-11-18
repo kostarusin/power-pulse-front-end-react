@@ -24,3 +24,15 @@ export const fetchProductCategories = createAsyncThunk(
     }
   },
 );
+
+export const sendProductToDiary = createAsyncThunk(
+  'diary/sendProduct',
+  async (consumedProducts, thunkAPI) => {
+    try {
+      const res = await axios.post(`/api/diary:18-11-2023`, consumedProducts);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
