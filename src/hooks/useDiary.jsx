@@ -5,7 +5,7 @@ import {
   selectBurnedCalories,
   selectConsumedCalories,
   selectDate,
-} from '../dairy/selectors';
+} from '../redux/dairy/selectors';
 
 export const useDiary = () => {
   return {

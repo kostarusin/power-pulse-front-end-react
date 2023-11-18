@@ -102,7 +102,6 @@ export const getUserCalories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/calories');
-      console.log('res.data.token', res.data.token);
       setAuthHeader(res.data.token);
 
       return res.data;

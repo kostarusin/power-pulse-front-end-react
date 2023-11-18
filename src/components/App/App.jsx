@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 //redux
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/auth/operations';
-import { useAuth } from '../../redux/hooks';
+import { useAuth } from '../../hooks';
 
 //SharedLayout
 import SharedLayout from './SharedLayout';

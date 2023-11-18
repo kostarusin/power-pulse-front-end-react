@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 
 import { useDispatch } from 'react-redux';
-import { useProducts } from '../../redux/hooks/useProducts.jsx';
+import { useProducts } from '../../hooks';
 import {
   fetchProductCategories,
   fetchProducts,
@@ -32,7 +32,6 @@ const Products = () => {
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showSuccessModal1, setShowSuccessModal1] = useState(false);
-
 
   const [productData, setProductData] = useState({});
   const [caclCall, setCalcCall] = useState(0);
@@ -86,20 +85,12 @@ const Products = () => {
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
 
-
     setCalcCall(0);
   };
 
-
   const toggleSuccessModalTest = () => {
-
     setShowSuccessModal1((prevState) => !prevState);
-
-
   };
-
-
-
 
   const toggleSuccessModal1 = (data) => {
     setProductData(data);

@@ -6,7 +6,7 @@ import {
   selectLoading,
   selectProducts,
   selectfilterByText,
-} from '../products/selectors';
+} from '../redux/products/selectors';
 
 export const useProducts = () => {
   const loading = useSelector(selectLoading);
