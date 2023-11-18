@@ -82,6 +82,7 @@ function Diary() {
     if (nextDate.getDate() === currentDate.getDate()) {
       setAdditionalIconClass('opacity-right');
       setSelectedDate(nextDate);
+      handlingDate(nextDate);
       return;
     }
 
