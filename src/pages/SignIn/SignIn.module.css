@@ -1,19 +1,21 @@
 .signin {
-  padding-top: 127px;
+  padding-top: 66px;
+  padding-left: 20px;
+  width: 100%;
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    padding-top: 105px;
+    padding-left: 32px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    padding-top: 116px;
+    padding-left: 96px;
   }
 }
 
-.container {
+.container1 {
   width: 335px;
-  height: 78px;
   @media screen and (min-width: 768px) {
     width: 496px;
-    height: 84px;
   }
 }
 
@@ -47,6 +49,7 @@
   color: var(--gray-light);
   margin-top: 12px;
 }
+
 .link {
   text-decoration: underline;
   color: var(--gray-soft);
