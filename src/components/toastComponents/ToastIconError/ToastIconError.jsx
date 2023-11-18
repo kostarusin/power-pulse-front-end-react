@@ -1,6 +1,6 @@
 import icon from '../../../assets/icons.svg';
 
-const ToastIcon = () => {
+const ToastIconError = () => {
   return (
     <span>
       <svg width="20" height="20">
@@ -10,4 +10,4 @@ const ToastIcon = () => {
   );
 };
 
-export default ToastIcon;
+export default ToastIconError;

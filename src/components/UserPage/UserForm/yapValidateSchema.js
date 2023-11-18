@@ -2,9 +2,6 @@ import * as Yup from 'yup';
 
 const ProfileSettingsSchema = Yup.object().shape({
   username: Yup.string().required('User Name is a required field'),
-  email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is a required field'),
   height: Yup.number()
     .min(150, 'Must be at least 150 cm')
     .required('Height is a required field'),
