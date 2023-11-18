@@ -5,10 +5,15 @@ import DatePicker from 'react-datepicker';
 import sprite from '../../../assets/icons-optimized.svg';
 import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import css from './CustomInput.module.css';
+import { useAuth } from '../../../redux/hooks';
+import convertValues from '../UserForm/typesConvertedFunction';
 
 const StyledDatepicker = ({ onChange }) => {
-  const [selectedDate, setSelectedDate] = useState(Date.now());
-  console.log('selectedDate', selectedDate);
+  const { user } = useAuth();
+  const convertedUser = convertValues(user);
+  console.log('convertedUser', convertedUser.birthday);
+  const [selectedDate, setSelectedDate] = useState();
+
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
       <div onClick={onClick} ref={ref} className={css.container}>

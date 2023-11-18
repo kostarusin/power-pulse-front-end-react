@@ -79,9 +79,16 @@ export const refreshUser = createAsyncThunk(
 export const updateInfo = createAsyncThunk(
   'auth/info',
   async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
+      setAuthHeader(persistedToken);
+      console.log('persistedToken', persistedToken);
       const res = await axios.patch('/api/auth/updatedetails', credentials);
-      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       console.log(error.status);
@@ -95,7 +102,9 @@ export const getUserCalories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/calories');
+      console.log('res.data.token', res.data.token);
       setAuthHeader(res.data.token);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

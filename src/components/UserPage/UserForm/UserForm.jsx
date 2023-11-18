@@ -6,7 +6,6 @@ import ToastIconError from '../../toastComponents/ToastIconError';
 import CloseBtn from '../../toastComponents/CloseBtn';
 //lodash
 import isEqual from 'lodash/isEqual';
-import _, { now } from 'lodash';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
@@ -21,30 +20,19 @@ import css from './UserForm.module.css';
 import { useState } from 'react';
 import { format } from 'date-fns';
 
+import convertValues from './typesConvertedFunction';
+
 const UserForm = ({ selectedDate }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
   const [isFormChanged, setFormChanged] = useState(false);
 
-  const convertValues = (obj) => {
-    return _.omitBy(
-      _.mapValues(obj, (value, key) => {
-        if (key === 'birthday') {
-          return value.split('T')[0];
-        } else if (_.isNumber(value) || _.isString(value)) {
-          return _.isNaN(Number(value)) ? value : Number(value);
-        }
-        return value;
-      }),
-      (_, key) => key === 'avatarURL',
-    );
-  };
-
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
     console.log('convertedUser', convertedUser);
     const convertedValues = convertValues(values);
+    console.log('convertedValues', convertedValues);
     const areEqual = isEqual(convertedUser, convertedValues);
 
     if (areEqual) {
@@ -81,7 +69,7 @@ const UserForm = ({ selectedDate }) => {
     height: user.height,
     currentWeight: user.currentWeight,
     desiredWeight: user.desiredWeight,
-    birthday: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : '',
+    birthday: user.birthday,
     blood: String(user.blood),
     sex: user.sex,
     levelActivity: String(user.levelActivity),
