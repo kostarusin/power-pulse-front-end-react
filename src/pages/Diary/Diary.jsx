@@ -24,7 +24,9 @@ function Diary() {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
-  
+  const [additionalIconClass, setAdditionalIconClass] =
+    useState('opacity-right');
+
   const formattingDate = (date) => {
     return date
       .toLocaleDateString('en-GB', {
@@ -64,15 +66,30 @@ function Diary() {
 
   const handleToPreviousDay = () => {
     const previousDate = subDays(selectedDate, 1);
-    if (previousDate < minDate) return;
+    if (previousDate < minDate) {
+      setAdditionalIconClass('opacity-left');
+      return;
+    }
+    setAdditionalIconClass('');
     setSelectedDate(previousDate);
     handlingDate(previousDate);
   };
 
   const handleToNextDay = () => {
     const nextDate = addDays(selectedDate, 1);
+    const currentDate = startOfDay(new Date());
+ 
+    if (nextDate.getDate() === currentDate.getDate()) {
+      setAdditionalIconClass('opacity-right');
+      setSelectedDate(nextDate);
+      return;
+    }
+
     if (nextDate > currentDate) {
-      return};
+      return;
+    }
+
+    setAdditionalIconClass('');
     setSelectedDate(nextDate);
     handlingDate(nextDate);
   };
@@ -93,6 +110,7 @@ function Diary() {
           setSelectedDate={handleDateChange}
           handleToNextDay={handleToNextDay}
           handleToPreviousDay={handleToPreviousDay}
+          additionalIconClass={additionalIconClass}
         />
       </div>
       <div className={styles.container}>
