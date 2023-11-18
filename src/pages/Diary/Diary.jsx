@@ -9,7 +9,7 @@ import DaySwitch from '../../components/diary/DaySwitch';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
-import { getUserCalories } from '../../redux/auth/operations';
+import { getUserCalories, refreshUser } from '../../redux/auth/operations';
 import { useDiary } from '../../hooks';
 import { useAuth } from '../../hooks';
 //date lib
@@ -36,6 +36,10 @@ function Diary() {
       })
       .replace(/\//g, '-');
   };
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getDiary(date));
