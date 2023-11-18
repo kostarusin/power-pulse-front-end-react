@@ -38,16 +38,14 @@ function Diary() {
   };
 
   useEffect(() => {
-    dispatch(getDiary(date));
     dispatch(refreshUser());
-  }, [dispatch, date]);
+  }, [dispatch]);
 
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const minDate = startOfDay(parseISO(user.birthday));
-
+  const minDate = startOfDay(parseISO(user.createdAt));
   const { doneExercises, consumedProducts } = useDiary();
 
   useEffect(() => {
@@ -67,8 +65,14 @@ function Diary() {
 
   const handleToPreviousDay = () => {
     const previousDate = subDays(selectedDate, 1);
-    if (previousDate < minDate) {
+    const createdAtDate = startOfDay(parseISO(user.createdAt));
+    if (previousDate.getDate() === createdAtDate.getDate()) {
       setAdditionalIconClass('opacity-left');
+      setSelectedDate(previousDate);
+      handlingDate(previousDate);
+      return;
+    }
+    if (previousDate.getTime() < createdAtDate.getTime()) {
       return;
     }
     setAdditionalIconClass('');
@@ -78,6 +82,7 @@ function Diary() {
 
   const handleToNextDay = () => {
     const nextDate = addDays(selectedDate, 1);
+
     const currentDate = startOfDay(new Date());
 
     if (nextDate.getDate() === currentDate.getDate()) {
@@ -86,11 +91,9 @@ function Diary() {
       handlingDate(nextDate);
       return;
     }
-
     if (nextDate > currentDate) {
       return;
     }
-
     setAdditionalIconClass('');
     setSelectedDate(nextDate);
     handlingDate(nextDate);
@@ -117,8 +120,14 @@ function Diary() {
       </div>
       <div className={styles.container}>
         <div className={styles.itemsCont}>
-          <DayProducts products={consumedProducts} />
-          <DayExercises exercises={doneExercises} />
+          <DayProducts
+            products={consumedProducts}
+            selectedDate={formattedDate}
+          />
+          <DayExercises
+            exercises={doneExercises}
+            selectedDate={formattedDate}
+          />
         </div>
         <DayDashboard />
       </div>
@@ -127,3 +136,4 @@ function Diary() {
 }
 
 export default Diary;
+
