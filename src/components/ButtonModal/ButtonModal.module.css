@@ -1,8 +1,6 @@
 .button {
   height: 42px;
   width: 151px;
-  /* width: fit-content; */
-  /* padding: 12px 32px; */
 
   border: none;
   border-radius: 12px;
@@ -18,14 +16,13 @@
 
 .button:hover,
 .button:focus {
-    background: var(--orange-light);
+  background: var(--orange-light);
 }
 
 @media screen and (min-width: 768px) {
-    .button {
-        height: 52px;
-     
-        line-height: 1.5;
-      }
-}
+  .button {
+    height: 52px;
 
+    line-height: 1.5;
+  }
+}

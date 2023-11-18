@@ -117,14 +117,8 @@ function Diary() {
       </div>
       <div className={styles.container}>
         <div className={styles.itemsCont}>
-          <DayProducts
-            products={consumedProducts}
-            selectedDate={formattedDate}
-          />
-          <DayExercises
-            exercises={doneExercises}
-            selectedDate={formattedDate}
-          />
+          <DayProducts products={consumedProducts} />
+          <DayExercises exercises={doneExercises} />
         </div>
         <DayDashboard />
       </div>
