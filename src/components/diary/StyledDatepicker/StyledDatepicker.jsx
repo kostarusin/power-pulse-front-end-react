@@ -6,7 +6,7 @@ import sprite from '../../../assets/icons-optimized.svg';
 import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import css from './CustomInput.module.css';
 
-const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
+const StyledDatepicker = ({ selectedDate, onChange, minDate, maxDate }) => {
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
       <div onClick={onClick} ref={ref} className={css.container}>
@@ -27,6 +27,7 @@ const StyledDatepicker = ({ selectedDate, onChange, minDate }) => {
         onChange={onChange}
         customInput={<CustomInput />}
         minDate={minDate}
+        maxDate={maxDate}
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
       />

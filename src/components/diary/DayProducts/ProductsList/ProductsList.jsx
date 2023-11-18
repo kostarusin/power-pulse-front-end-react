@@ -61,7 +61,7 @@ const ProductsList = ({ products, selectedDate }) => {
                     Category
                   </div>
 
-                  <div className={css.text}>{product.category}</div>
+                  <div className={css.text}>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
                 </li>
                 <li className={css.wrapperItemCalories}>
                   <div
