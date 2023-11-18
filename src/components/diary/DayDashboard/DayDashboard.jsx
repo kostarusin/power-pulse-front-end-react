@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 //redux
 import { useDiary, useAuth } from '../../../hooks';
 //styles
@@ -12,6 +13,9 @@ function DayDashboard() {
 
   const { bmr, dailyExerciseTime } = colories;
 
+  const [caloriesColor, setCaloriesColor] = useState('');
+  const [sportColor, setSportColor] = useState('');
+
   const DailyCalorieIntake = Math.floor(bmr);
 
   const totalSportsRemaining = doneExercises.reduce(
@@ -19,9 +23,26 @@ function DayDashboard() {
     0,
   );
 
-  const SportsRemaining = Math.max(dailyExerciseTime - totalSportsRemaining, 0);
+  const SportsRemaining = dailyExerciseTime - totalSportsRemaining;
+  let formattedSportsRemaining;
+  if (SportsRemaining < 0) {
+    formattedSportsRemaining = `+${Math.abs(SportsRemaining)}`;
+  }
 
   const CaloriesRemaining = DailyCalorieIntake - consumedCalories;
+
+  useEffect(() => {
+    if (CaloriesRemaining <= 0) {
+      setCaloriesColor('red');
+    } else {
+      setCaloriesColor('');
+    }
+    if (SportsRemaining <= 0) {
+      setSportColor('green');
+    } else {
+      setSportColor('');
+    }
+  }, [CaloriesRemaining, SportsRemaining]);
 
   return (
     <div>
@@ -78,7 +99,12 @@ function DayDashboard() {
           </p>
         </li>
 
-        <li className={styles['user-daily-items']}>
+        <li
+          className={styles['user-daily-items']}
+          style={
+            caloriesColor === 'red' ? { border: '1px solid #e6533c' } : null
+          }
+        >
           <div className={styles['user-daily']}>
             <svg width="20" height="20">
               <use href={`${sprite}#icon-bubble`}></use>
@@ -91,7 +117,12 @@ function DayDashboard() {
           </p>
         </li>
 
-        <li className={styles['user-daily-items']}>
+        <li
+          className={styles['user-daily-items']}
+          style={
+            sportColor === 'green' ? { border: '1px solid #3CBF61' } : null
+          }
+        >
           <div className={styles['user-daily']}>
             <svg width="20" height="20">
               <use href={`${sprite}#icon-running-figure`}></use>
@@ -100,7 +131,9 @@ function DayDashboard() {
           </div>
 
           <p className={styles['user-daily-text-value']}>
-            {SportsRemaining || 0} min
+            {SportsRemaining < 0
+              ? formattedSportsRemaining + ' min'
+              : SportsRemaining + ' min'}
           </p>
         </li>
       </ul>
