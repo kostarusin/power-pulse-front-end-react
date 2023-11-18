@@ -24,6 +24,7 @@ function Diary() {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
+  
   const formattingDate = (date) => {
     return date
       .toLocaleDateString('en-GB', {
@@ -62,14 +63,17 @@ function Diary() {
   };
 
   const handleToPreviousDay = () => {
-    setSelectedDate((prevDate) => subDays(prevDate, 1));
     const previousDate = subDays(selectedDate, 1);
+    if (previousDate < minDate) return;
+    setSelectedDate(previousDate);
     handlingDate(previousDate);
   };
 
   const handleToNextDay = () => {
-    setSelectedDate((prevDate) => addDays(prevDate, 1));
     const nextDate = addDays(selectedDate, 1);
+    if (nextDate > currentDate) {
+      return};
+    setSelectedDate(nextDate);
     handlingDate(nextDate);
   };
 
@@ -84,6 +88,7 @@ function Diary() {
         <TitlePage title="Diary" />
         <DaySwitch
           minDate={minDate}
+          maxDate={currentDate}
           selectedDate={selectedDate}
           setSelectedDate={handleDateChange}
           handleToNextDay={handleToNextDay}

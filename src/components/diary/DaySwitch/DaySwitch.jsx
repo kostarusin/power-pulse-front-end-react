@@ -7,6 +7,7 @@ import css from './DaySwitch.module.css';
 
 const DaySwitch = ({
   minDate,
+  maxDate,
   selectedDate,
   setSelectedDate,
   handleToNextDay,
@@ -16,6 +17,7 @@ const DaySwitch = ({
     <div className={css.box}>
       <StyledDatepicker
         minDate={minDate}
+        maxDate={maxDate}
         selectedDate={selectedDate}
         onChange={setSelectedDate}
       />
