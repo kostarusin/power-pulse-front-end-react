@@ -3,8 +3,6 @@
   margin-top: 40px;
 }
 
-
-
 .react-select__control:hover {
   border-color: var(--grayMiddle);
 }
@@ -12,20 +10,25 @@
 .productsSection {
   padding-left: 20px;
   padding-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  display: block;
+  margin: 0 auto;
+  width: 375px;
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
+    display: block;
+    margin: 0 auto;
+    align-content: center;
+    align-items: center;
 
-    align-items: flex-start;
+    width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
     display: block;
+    margin: 0 auto;
 
     padding-left: 96px;
     padding-right: 0px;
@@ -34,7 +37,7 @@
     background-position: right;
     background-repeat: no-repeat;
     background-size: auto;
-    max-width: 100%;
+    min-width: 100%;
     min-height: 716px;
   }
 }
