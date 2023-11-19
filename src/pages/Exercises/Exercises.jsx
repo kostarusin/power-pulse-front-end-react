@@ -15,7 +15,7 @@ const Exercises = () => {
   const [activeName, setActiveName] = useState(null);
   const { bodyParts } = useExercises();
   const dispatch = useDispatch();
-
+  console.log(activeName);
   useEffect(() => {
     dispatch(fetchExercises());
   }, [dispatch]);
