@@ -1,1 +1,0 @@
-import{i as s}from"./index-e9b1bdcc.js";const o=e=>e.diary.doneExercises,r=e=>e.diary.consumedProducts,c=e=>e.diary.burnedCalories,d=e=>e.diary.consumedCalories,t=e=>e.diary.date,a=()=>({doneExercises:s(o),consumedProducts:s(r),burnedCalories:s(c),consumedCalories:s(d),date:s(t)});export{a as u};
