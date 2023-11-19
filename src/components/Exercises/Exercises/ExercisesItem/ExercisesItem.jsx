@@ -22,7 +22,6 @@ export const ExercisesItem = ({ data }) => {
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [exercise, setExercise] = useState({});
-  console.log(data);
   const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;

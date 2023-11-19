@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //import { WaistList } from '../../../src/components/Exercises/Waist/WaistList/WaistList';
+import { ExercisesList } from '../../components/Exercises/Exercises/ExercisesList/ExercisesList';
 import css from './Exercises.module.css';
-import { ExercisesMain } from '../../components/exercises/ExercisesMain/ExercisesMain';
+import { ExercisesMain } from '../../components/Exercises/ExercisesMain/ExercisesMain';
 
 //redux
 import { useDispatch } from 'react-redux';
@@ -10,6 +11,8 @@ import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 
 const Exercises = () => {
   const dispatch = useDispatch();
+  const [activeName, setActiveName] = useState(null);
+  console.log(activeName)
   // const { exercises } = useExercises();
   // const { bodyParts } = useExercises();
 
@@ -23,8 +26,9 @@ const Exercises = () => {
 
   return (
     <div className={css.div}>
-      {/* <WaistList></WaistList> */}
-      <ExercisesMain />
+      {activeName ? <ExercisesList activeName={activeName} /> : <ExercisesMain setActiveName={setActiveName} />}
+      
+      
     </div>
   );
 };

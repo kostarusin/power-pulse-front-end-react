@@ -6,23 +6,19 @@ import { useEffect } from 'react';
 import { fetchExercises } from '../../../../redux/exercises/operations';
 import images from '../img/Waist1.jpg';
 
-export const ExercisesList = ({ activeFilter }) => {
-  const dispatch = useDispatch();
+export const ExercisesList = ({  activeName }) => {
 
-  useEffect(() => {
-    dispatch(fetchExercises());
-  }, [dispatch]);
 
   const exercises = useSelector(selectExercises);
-  console.log('All Exercises:', exercises);
+  console.log(exercises)
+  
 
-  console.log('Active Filter:', activeFilter); // Добавьте эту строку для отладки
+  const visibleExercises = exercises.filter((exercise) => 
+    exercise.bodyPart === activeName
 
-  const visibleExercises = exercises.filter((exercise) => {
-    return exercise.bodyPart.toLowerCase() === activeFilter.toLowerCase() ||
-           exercise.equipment.toLowerCase() === activeFilter.toLowerCase() ||
-           exercise.target.toLowerCase() === activeFilter.toLowerCase();
-  });
+  );
+  console.log(activeName)
+
 
   console.log('Filtered Exercises:', visibleExercises);
   return (
