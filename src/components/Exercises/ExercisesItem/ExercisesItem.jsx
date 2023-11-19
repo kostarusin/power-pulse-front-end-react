@@ -28,6 +28,12 @@ export const ExercisesItem = ({ data }) => {
 
   const toggleExerciseModal = () => {
     setShowExerciseModal((prevState) => !prevState);
+    if (showExerciseModal === true) {
+      document.body.style.overflow = 'auto';
+    }
+    if (showExerciseModal === false) {
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   const toggleSuccessModal = () => {
