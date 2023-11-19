@@ -4,7 +4,7 @@ import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';
 
-export const AddProductsSuccess = ({ toggleSuccessModalTest, caclCall }) => {
+export const AddProductsSuccess = ({ toggleSuccessModalTest, caclCall, location }) => {
   return (
     <div className={css.container}>
       <img className={css.pic} src={pic} alt="Well done" />
@@ -21,7 +21,7 @@ export const AddProductsSuccess = ({ toggleSuccessModalTest, caclCall }) => {
           text={'Next product'}
           onClick={toggleSuccessModalTest}
         />
-        <Link to={'/diary'} className={css.link}>
+        <Link to={location.state?.from ?? '/diary'} className={css.link}>
           To the diary
           <svg className={css.svg}>
             <use href={icons + '#icon-arrow-modal'} />

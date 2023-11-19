@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 //components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
@@ -20,6 +20,7 @@ import styles from './Dairy.module.css';
 
 function Diary() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { date } = useParams();
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -122,11 +123,12 @@ function Diary() {
         <div className={styles.itemsCont}>
           <DayProducts
             products={consumedProducts}
-            selectedDate={formattedDate}
+            // selectedDate={formattedDate}
+            location={location}
           />
           <DayExercises
             exercises={doneExercises}
-            selectedDate={formattedDate}
+            // selectedDate={formattedDate}
           />
         </div>
         <DayDashboard />
