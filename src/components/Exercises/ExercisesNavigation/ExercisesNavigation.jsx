@@ -6,14 +6,14 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
     <ul className={styles.ExercisesNavList}>
       <li
         className={`${styles.ExercisesFilter} ${
-          activeFilter === 'Body part' ? styles.active : ''
+          activeFilter === 'Body parts' ? styles.active : ''
         }`}
       >
         <button
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={`${styles.FilterBtn} ${
-            activeFilter === 'Body part' ? styles.active : ''
+          className={`${styles.FilterBtn} ${-
+            activeFilter === 'Body parts' ? styles.active : ''
           }`}
         >
           Body parts
