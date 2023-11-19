@@ -55,11 +55,26 @@ function Diary() {
     if (date) {
       dispatch(getDiary(date));
       navigate(`/diary/${date}`);
-      return;
+    } else {
+      dispatch(getDiary(formattedDate));
+      navigate(`/diary/${formattedDate}`);
     }
-    dispatch(getDiary(formattedDate));
-    navigate(`/diary/${formattedDate}`);
-  }, [dispatch, date, formattedDate]);
+  
+    const createdAtDate = parseISO(user.createdAt); 
+    const selectedDateFormatted = date ? parse(date, 'dd-MM-yyyy', new Date()) : currentDate; 
+    
+    const currentDateFormatted = formattingDate(currentDate);
+    const createdAtDateFormatted = formattingDate(createdAtDate);
+    const selectedDateFormattedString = formattingDate(selectedDateFormatted);
+  
+    if (selectedDateFormattedString === currentDateFormatted) {
+      setAdditionalIconClass('opacity-right');
+    } else if (selectedDateFormattedString === createdAtDateFormatted) {
+      setAdditionalIconClass('opacity-left');
+    } else {
+      setAdditionalIconClass('');
+    }
+  }, [dispatch, date, formattedDate, navigate, user.createdAt]);
 
   useEffect(() => {
     dispatch(getUserCalories());
@@ -75,7 +90,6 @@ function Diary() {
     const previousDate = subDays(selectedDate, 1);
     const createdAtDate = startOfDay(parseISO(user.createdAt));
     if (previousDate.getDate() === createdAtDate.getDate()) {
-      setAdditionalIconClass('opacity-left');
       setSelectedDate(previousDate);
       handlingDate(previousDate);
       return;
@@ -83,7 +97,6 @@ function Diary() {
     if (previousDate.getTime() < createdAtDate.getTime()) {
       return;
     }
-    setAdditionalIconClass('');
     setSelectedDate(previousDate);
     handlingDate(previousDate);
   };
@@ -94,7 +107,6 @@ function Diary() {
     const currentDate = startOfDay(new Date());
 
     if (nextDate.getDate() === currentDate.getDate()) {
-      setAdditionalIconClass('opacity-right');
       setSelectedDate(nextDate);
       handlingDate(nextDate);
       return;
@@ -102,7 +114,6 @@ function Diary() {
     if (nextDate > currentDate) {
       return;
     }
-    setAdditionalIconClass('');
     setSelectedDate(nextDate);
     handlingDate(nextDate);
   };
@@ -130,12 +141,10 @@ function Diary() {
         <div className={styles.itemsCont}>
           <DayProducts
             products={consumedProducts}
-            // selectedDate={formattedDate}
             location={location}
           />
           <DayExercises
             exercises={doneExercises}
-            // selectedDate={formattedDate}
           />
         </div>
         <DayDashboard />
@@ -145,3 +154,4 @@ function Diary() {
 }
 
 export default Diary;
+
