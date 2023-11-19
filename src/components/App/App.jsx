@@ -41,7 +41,7 @@ function App() {
             <Route index element={<HomePage />} />
           )}
           <Route
-            path="login"
+            path="/login"
             element={
               <PublicRoute
                 redirectto={`/diary`}

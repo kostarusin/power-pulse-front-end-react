@@ -31,7 +31,7 @@
   display: flex;
 
   align-items: center;
-  padding: 0;
+  padding-right: 10px;
   border: none;
   color: #efede8;
 }
@@ -41,7 +41,7 @@
   margin-right: 8px;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.28px; /* 128.571% */
+  line-height: 1.28; /* 128.571% */
 }
 .link:hover,
 .link:focus {
@@ -50,7 +50,7 @@
 @media screen and (min-width: 768px) {
   .link {
     font-size: 16px;
-    line-height: 1.5px;
+    line-height: 1.5;
   }
 }
 
