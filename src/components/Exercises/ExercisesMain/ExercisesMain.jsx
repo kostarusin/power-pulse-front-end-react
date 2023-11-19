@@ -21,9 +21,6 @@ export const ExercisesMain = ({ setActiveName}) => {
   const { bodyParts } = useExercises(); 
   console.log(bodyParts)
 
-  const handleSetExName = (name) => {
-    setExerciseName(name);
-  };
 
    
 
