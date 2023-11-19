@@ -49,10 +49,9 @@ export const ExercisesMain = ({ setActiveName}) => {
           handleFilterClick={handleFilterClick}
         />
       </li>
-      {/* {activeFilter === 'Body parts' && (
+      {activeFilter === 'Body parts' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
-          handleSetExName={handleSetExName}
           setActiveName={setActiveName}
           filters={bodyParts.bodyPart}
         />
@@ -61,7 +60,6 @@ export const ExercisesMain = ({ setActiveName}) => {
       {activeFilter === 'Muscules' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
-          handleSetExName={handleSetExName}
           setActiveName={setActiveName}
           filters={bodyParts.muscles}
 
@@ -70,12 +68,11 @@ export const ExercisesMain = ({ setActiveName}) => {
       {activeFilter === 'Equipment' && (
         <BodyPartList
           handleFilterClick={handleFilterClick}
-          handleSetExName={handleSetExName}
           setActiveName={setActiveName}
           filters={bodyParts.equipment}
 
         />
-      )} */}
+      )}
       {activeFilter === 'Waist' && <ExercisesList exerciseName={exerciseName} />}
     </div>
   );
