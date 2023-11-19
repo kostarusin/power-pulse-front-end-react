@@ -44,14 +44,18 @@ const ProductsList = ({
       className={css.cardContainer}
       onScroll={handleScroll}
       ref={ulRef}
-      // style={{ overflowY: 'auto' }}
+      style={{ overflowY: 'auto' }}
     >
       {loading ? (
         <Loader />
       ) : (
         showProducts && (
           <ProductCard
-            visibleproducts={getVisibleProductsSlice()}
+            visibleproducts={
+              window.innerWidth < 1440
+                ? visibleProductsArray
+                : getVisibleProductsSlice()
+            }
             toggleSuccessModal={toggleSuccessModal}
             toggleSuccessModal1={toggleSuccessModal1}
           />
