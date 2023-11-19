@@ -15,6 +15,10 @@
 
 .backdropVisible {
   display: block;
+
+  @media (min-width: 1440px) {
+    display: none;
+  }
 }
 
 .mobileMenuWrap {
@@ -27,6 +31,7 @@
   height: 100%;
   background-color: var(--orange-dark);
   z-index: 100;
+
   @media (min-width: 768px) {
     min-width: 350px;
     padding-top: 26px;
@@ -75,9 +80,6 @@
 .mobMenuItemUpper:hover {
   border-color: var(--white);
 }
-/* .mobMenuItemUpper.active {
-  border-color: var(--white);
-} */
 
 .mobMenuItem {
   flex: 1;
