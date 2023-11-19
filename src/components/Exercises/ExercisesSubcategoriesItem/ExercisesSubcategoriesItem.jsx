@@ -4,15 +4,11 @@ import { PropTypes } from 'prop-types';
 
 export const ExercisesSubcategoriesItem = ({
   exercisesItem,
-  handleFilterClick,
-  handleSetExName,
+  // handleFilterClick,
+  // handleSetExName,
   setActiveName,
 }) => {
   const { name, filter, imgURL } = exercisesItem;
-  const onClick = (name) => {
-    handleFilterClick('Waist');
-    handleSetExName(name);
-  };
 
   const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
