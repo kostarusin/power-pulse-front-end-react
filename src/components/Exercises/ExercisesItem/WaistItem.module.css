@@ -8,15 +8,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 162px;
 }
+
 @media screen and (max-width: 767px) {
   .waistItemLi {
     margin: 0 auto;
-  }
-}
-@media screen and (min-width: 375px) {
-  .waistItemLi {
-    width: 335px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -135,4 +132,7 @@
 
 .listItemValue {
   color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,14 +1,22 @@
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
-import css from './WaistList.module.css';
+import css from './ExercisesList.module.css';
 import { useExercises } from '../../../hooks';
 import images from '../img/Waist1.jpg';
 
-export const ExercisesList = ({ activeName }) => {
+export const ExercisesList = ({ activeName, activeFilter }) => {
   const { exercises } = useExercises();
 
-  const visibleExercises = exercises.filter(
-    (exercise) => exercise.bodyPart === activeName,
-  );
+  const visibleExercises = exercises.filter((exercise) => {
+    if (activeFilter === 'Body parts') {
+      return exercise.bodyPart === activeName;
+    }
+    if (activeFilter === 'Muscules') {
+      return exercise.target === activeName;
+    }
+    if (activeFilter === 'Equipment') {
+      return exercise.equipment === activeName;
+    }
+  });
 
   return (
     <>
