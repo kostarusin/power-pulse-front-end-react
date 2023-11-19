@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import CustomSelect from '../../components/Products/customSelect.jsx';
 import css from './Products.module.css';
 
@@ -27,6 +28,7 @@ const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
 const Products = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const { products, loading, categories, filter, filterRec, filterByText } =
     useProducts();
 
@@ -191,7 +193,7 @@ const Products = () => {
         <Modal onClose={toggleSuccessModalTest}>
           <AddProductsSuccess
             toggleSuccessModalTest={toggleSuccessModalTest}
-            caclCall={caclCall}
+            caclCall={caclCall} location={location}
           />
         </Modal>
       )}
