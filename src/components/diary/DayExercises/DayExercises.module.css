@@ -37,7 +37,7 @@
 }
 
 .link {
-  color: #e6533c;
+  color: #efede8;
   margin-right: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -45,7 +45,7 @@
 }
 .link:hover,
 .link:focus {
-  color: #efede8;
+  color: #e6533c;
 }
 @media screen and (min-width: 768px) {
   .link {
