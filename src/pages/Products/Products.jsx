@@ -108,6 +108,7 @@ const Products = () => {
   };
 
   return (
+    <div className={css.background}> 
     <section className={css.productsSection}>
       <p className={css.toolTip}>Filters</p>
       <div className={css.titleSearchBox}>
@@ -155,6 +156,7 @@ const Products = () => {
         </Modal>
       )}
     </section>
+    </div>
   );
 };
 
