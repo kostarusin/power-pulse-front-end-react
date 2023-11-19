@@ -236,4 +236,5 @@ export const CalendarGlobalStyles = createGlobalStyle`
  .react-datepicker__year-option:hover, .react-datepicker__month-option:hover, .react-datepicker__month-year-option:hover {
     background-color: #ef8964;
 }
+}
 `;
