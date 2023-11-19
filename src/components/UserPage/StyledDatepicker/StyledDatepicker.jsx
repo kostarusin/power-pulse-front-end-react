@@ -9,6 +9,7 @@ import { useAuth } from '../../../hooks';
 
 const StyledDatepicker = ({ onChange }) => {
   const { user } = useAuth();
+
   const [selectedDate, setSelectedDate] = useState();
 
   useEffect(() => {
@@ -43,11 +44,10 @@ const StyledDatepicker = ({ onChange }) => {
           }
         }}
         customInput={<CustomInput />}
-        dateFormat={'dd-MM-yyyy'}
+        dateFormat={'dd.MM.yyyy'}
         calendarStartDay={1}
         showYearDropdown={true}
         yearDropdownItemNumber={3}
-        readOnly={false}
       />
       <CalendarGlobalStyles />
     </>

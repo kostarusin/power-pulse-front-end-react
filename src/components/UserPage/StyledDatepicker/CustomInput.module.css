@@ -20,6 +20,10 @@
   outline: none;
 }
 
+.invalidInput {
+  border-color: var(--error);
+}
+
 .svg {
   margin-left: 8px;
 }

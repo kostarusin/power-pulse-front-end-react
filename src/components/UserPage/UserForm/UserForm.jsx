@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from './UserForm.module.css';
 import { useState } from 'react';
 import { format } from 'date-fns';
-
+//formatDate
 import convertValues from './typesConvertedFunction';
 
 const UserForm = ({ selectedDate }) => {
@@ -171,9 +171,6 @@ const UserForm = ({ selectedDate }) => {
               </label>
               <label htmlFor="birthday">
                 <Field
-                  className={`${
-                    formik.errors.birthday ? css.invalidInput : ''
-                  }`}
                   name="birthday"
                   type="date"
                   selectedDate={selectedDate}
@@ -184,7 +181,7 @@ const UserForm = ({ selectedDate }) => {
                           'birthday',
                           format(date, 'yyyy-MM-dd'),
                         );
-                        handleFormChange(); // Добавьте вызов этой функции, чтобы отметить изменение формы
+                        handleFormChange();
                       }}
                     />
                   )}
