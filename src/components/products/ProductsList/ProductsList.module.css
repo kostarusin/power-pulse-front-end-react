@@ -1,0 +1,42 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  width: 367px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-y: scroll;
+    gap: 16px;
+    width: 718px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 858px;
+    height: 487px;
+    width: 858px;
+  }
+}
+
+/* width */
+.cardContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 153px;
+}
+
+/* Track */
+.cardContainer::-webkit-scrollbar-track {
+  background-color: var(--grayUltraLight);
+  border-radius: 12px;
+}
+
+/* Handle */
+.cardContainer::-webkit-scrollbar-thumb {
+  background: var(--orange-light);
+  border-radius: 12px;
+}
