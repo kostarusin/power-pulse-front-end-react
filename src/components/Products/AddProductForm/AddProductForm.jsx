@@ -17,6 +17,7 @@ const AddProductForm = ({
   const dispatch = useDispatch();
   const { date } = useDiary();
 
+  
   const handleClick = (event) => {
     event.preventDefault();
     toggleSuccessModal();
