@@ -1,11 +1,10 @@
-import { useSelector } from 'react-redux';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 import css from './WaistList.module.css';
-import { selectExercises } from '../../../../redux/exercises/selectors';
+import { useExercises } from '../../../hooks';
 import images from '../img/Waist1.jpg';
 
 export const ExercisesList = ({ activeName }) => {
-  const exercises = useSelector(selectExercises);
+  const { exercises } = useExercises();
 
   const visibleExercises = exercises.filter(
     (exercise) => exercise.bodyPart === activeName,

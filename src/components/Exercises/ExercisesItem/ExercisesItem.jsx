@@ -1,11 +1,11 @@
 import { useState } from 'react';
 //components
-import { Modal } from '../../../Modal/Modal';
-import { AddExerciseForm } from '../../../AddExerciseForm/AddExerciseForm';
-import { AddExerciseSuccess } from '../../../AddExerciseSuccess/AddExerciseSuccess';
+import { Modal } from '../../Modal/Modal';
+import { AddExerciseForm } from '../../AddExerciseForm/AddExerciseForm';
+import { AddExerciseSuccess } from '../../AddExerciseSuccess/AddExerciseSuccess';
 //stele
 import css from './WaistItem.module.css';
-import icons from '../../../../assets/icons.svg';
+import icons from '../../../assets/icons.svg';
 
 const texts = {
   cardLabel: 'Workout',
