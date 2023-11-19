@@ -34,24 +34,24 @@ const MobileMenu = ({ isOpen, onClose }) => {
   }, []);
 
   return (
-    <div
+    <nav
       className={`${css.backdrop} ${isOpen ? css.backdropVisible : ''}`}
       onClick={handleBackdropClick}
     >
       <div className={css.mobileMenuWrap}>
-        <div className={css.xButton} onClick={onClose}>
+        <button className={css.xButton} onClick={onClose}>
           &times;
-        </div>
+        </button>
         <div className={css.userNaviWrap}>
-          <p className={css.mobMenuItemUpper} onClick={() => handleLinkClick('/diary')}>
+          <a className={css.mobMenuItemUpper} activeclassname={css.activeLink} onClick={() => handleLinkClick('/diary')}>
             Diary
-          </p>
-          <p className={css.mobMenuItem} onClick={() => handleLinkClick('/exercises')}>
+          </a>
+          <a className={css.mobMenuItem} activeclassname={css.activeLink} onClick={() => handleLinkClick('/exercises')}>
             Exercises
-          </p>
-          <p className={css.mobMenuItem} onClick={() => handleLinkClick('/products')}>
+          </a>
+          <a className={css.mobMenuItem} activeclassname={css.activeLink} onClick={() => handleLinkClick('/products')}>
             Products
-          </p>
+          </a>
         </div>
         <div className={css.logoutWrap}>
           <Link className={css.logoutLink} onClick={() => dispatch(logOut())}>
@@ -63,7 +63,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
         </div>
 
       </div>
-    </div>
+    </nav>
   );
 };
 

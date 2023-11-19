@@ -1,13 +1,13 @@
 import Logo from '../Logo/Logo';
 import css from './Header.module.css';
 import UserNav from '../UserNav/UserNav';
-import { useAuth } from '../../redux/hooks';
+import { useAuth } from '../../hooks';
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
+    <nav className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
       <div className="layoutContainer">
         <header className={css.header}>
           <div className={css.logoWrap}>
@@ -16,7 +16,7 @@ const Header = () => {
           <div className={css.user}>{isLoggedIn && <UserNav />}</div>
         </header>
       </div>
-    </div>
+    </nav>
   );
 };
 

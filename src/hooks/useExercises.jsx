@@ -1,10 +1,14 @@
 import { useSelector } from 'react-redux';
-import { selectLoading, selectExercises, selectByType} from '../exercises/selectors';
+import {
+  selectLoading,
+  selectExercises,
+  selectByType,
+} from '../redux/exercises/selectors';
 
 export const useExercises = () => {
   const loading = useSelector(selectLoading);
   const exercises = useSelector(selectExercises);
-const bodyParts=useSelector(selectByType)
+  const bodyParts = useSelector(selectByType);
   return {
     loading,
     exercises,

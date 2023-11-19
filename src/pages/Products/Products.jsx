@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import CustomSelect from '../../components/Products/customSelect.jsx';
 import css from './Products.module.css';
 
@@ -10,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 
 import { useDispatch } from 'react-redux';
-import { useProducts } from '../../redux/hooks/useProducts.jsx';
+import { useProducts } from '../../hooks';
 import {
   fetchProductCategories,
   fetchProducts,
@@ -27,12 +28,12 @@ const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
 const Products = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const { products, loading, categories, filter, filterRec, filterByText } =
     useProducts();
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showSuccessModal1, setShowSuccessModal1] = useState(false);
-
 
   const [productData, setProductData] = useState({});
   const [caclCall, setCalcCall] = useState(0);
@@ -86,20 +87,12 @@ const Products = () => {
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
 
-
     setCalcCall(0);
   };
 
-
   const toggleSuccessModalTest = () => {
-
     setShowSuccessModal1((prevState) => !prevState);
-
-
   };
-
-
-
 
   const toggleSuccessModal1 = (data) => {
     setProductData(data);
@@ -198,7 +191,10 @@ const Products = () => {
 
       {showSuccessModal1 && (
         <Modal onClose={toggleSuccessModalTest}>
-          <AddProductsSuccess toggleSuccessModalTest={toggleSuccessModalTest} />
+          <AddProductsSuccess
+            toggleSuccessModalTest={toggleSuccessModalTest}
+            caclCall={caclCall} location={location}
+          />
         </Modal>
       )}
     </section>

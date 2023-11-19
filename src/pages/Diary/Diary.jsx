@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 //components
 import TitlePage from '../../components/diary/TitlePage';
 import DayProducts from '../../components/diary/DayProducts';
@@ -9,9 +9,9 @@ import DaySwitch from '../../components/diary/DaySwitch';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
-import { getUserCalories } from '../../redux/auth/operations';
-import { useDiary } from '../../redux/hooks';
-import { useAuth } from '../../redux/hooks';
+import { getUserCalories, refreshUser } from '../../redux/auth/operations';
+import { useDiary } from '../../hooks';
+import { useAuth } from '../../hooks';
 //date lib
 import { parseISO, startOfDay } from 'date-fns';
 import { addDays, subDays } from 'date-fns';
@@ -20,6 +20,7 @@ import styles from './Dairy.module.css';
 
 function Diary() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { date } = useParams();
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -38,15 +39,14 @@ function Diary() {
   };
 
   useEffect(() => {
-    dispatch(getDiary(date));
-  }, [dispatch, date]);
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const minDate = startOfDay(parseISO(user.birthday));
-
+  const minDate = startOfDay(parseISO(user.createdAt));
   const { doneExercises, consumedProducts } = useDiary();
 
   useEffect(() => {
@@ -66,8 +66,14 @@ function Diary() {
 
   const handleToPreviousDay = () => {
     const previousDate = subDays(selectedDate, 1);
-    if (previousDate < minDate) {
+    const createdAtDate = startOfDay(parseISO(user.createdAt));
+    if (previousDate.getDate() === createdAtDate.getDate()) {
       setAdditionalIconClass('opacity-left');
+      setSelectedDate(previousDate);
+      handlingDate(previousDate);
+      return;
+    }
+    if (previousDate.getTime() < createdAtDate.getTime()) {
       return;
     }
     setAdditionalIconClass('');
@@ -77,19 +83,18 @@ function Diary() {
 
   const handleToNextDay = () => {
     const nextDate = addDays(selectedDate, 1);
+
     const currentDate = startOfDay(new Date());
- 
+
     if (nextDate.getDate() === currentDate.getDate()) {
       setAdditionalIconClass('opacity-right');
       setSelectedDate(nextDate);
       handlingDate(nextDate);
       return;
     }
-
     if (nextDate > currentDate) {
       return;
     }
-
     setAdditionalIconClass('');
     setSelectedDate(nextDate);
     handlingDate(nextDate);
@@ -118,11 +123,12 @@ function Diary() {
         <div className={styles.itemsCont}>
           <DayProducts
             products={consumedProducts}
-            selectedDate={formattedDate}
+            // selectedDate={formattedDate}
+            location={location}
           />
           <DayExercises
             exercises={doneExercises}
-            selectedDate={formattedDate}
+            // selectedDate={formattedDate}
           />
         </div>
         <DayDashboard />
@@ -132,3 +138,4 @@ function Diary() {
 }
 
 export default Diary;
+

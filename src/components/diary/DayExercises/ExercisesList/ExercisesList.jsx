@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import css from './ExercisesList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
+import { useDiary } from '../../../../hooks';
 
 import sprite from '../../../../assets/icons-optimized.svg';
 
-function ExercisesList({ exercises, selectedDate }) {
+function ExercisesList({ exercises }) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const { date } = useDiary();
 
   const dispatch = useDispatch();
 
@@ -23,12 +25,16 @@ function ExercisesList({ exercises, selectedDate }) {
   const handleDeleteExercise = (exercise) => {
     dispatch(
       deleteExerciseOrProduct({
-        date: selectedDate,
+        date: date,
         credentials: {
           id: exercise._id,
         },
       }),
     );
+  };
+
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   return (
@@ -47,7 +53,9 @@ function ExercisesList({ exercises, selectedDate }) {
                 >
                   Body Part
                 </div>
-                <div className={css.text}>{exercise.bodyPart.charAt(0).toUpperCase() + exercise.bodyPart.slice(1)}</div>
+                <div className={css.text}>
+                  {capitalizeFirstLetter(exercise.bodyPart)}
+                </div>
               </li>
               <li className={css.wrapperEquipment}>
                 <div
@@ -59,7 +67,9 @@ function ExercisesList({ exercises, selectedDate }) {
                 >
                   Equipment
                 </div>
-                <div className={css.text}>{exercise.equipment.charAt(0).toUpperCase() + exercise.equipment.slice(1)}</div>
+                <div className={css.text}>
+                  {capitalizeFirstLetter(exercise.equipment)}
+                </div>
               </li>
               <li className={css.wrapeerName}>
                 <div
@@ -71,7 +81,9 @@ function ExercisesList({ exercises, selectedDate }) {
                 >
                   Name
                 </div>
-                <div className={css.text}>{exercise.name.charAt(0).toUpperCase() + exercise.name.slice(1)}</div>
+                <div className={css.text}>
+                  {capitalizeFirstLetter(exercise.name)}
+                </div>
               </li>
               <li className={css.wrapperTarget}>
                 <div
@@ -83,7 +95,9 @@ function ExercisesList({ exercises, selectedDate }) {
                 >
                   Target
                 </div>
-                <div className={css.text}>{exercise.target.charAt(0).toUpperCase() + exercise.target.slice(1)}</div>
+                <div className={css.text}>
+                  {capitalizeFirstLetter(exercise.target)}
+                </div>
               </li>
               <li className={css.wrapperBurnedCalories}>
                 <div

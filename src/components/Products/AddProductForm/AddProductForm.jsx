@@ -1,34 +1,9 @@
 import { grayForText, grayMiddle } from '../../Helpers/helpers';
-import { ButtonModal } from '../../../components/ButtonModal/ButtonModal';
+import { ButtonModal } from '../../ButtonModal/ButtonModal';
 import css from './AddProductForm.module.css';
-import { useState } from 'react';
-
-const AddProductForm = ({
-  toggleSuccessModal,
-  handleChange,
-  productData,
-  caclCall,
-}) => {
-  const [addProductToDiary, setAddProductToDiary] = useState({
-    product: '',
-    amount: '',
-    calories: '',
-  });
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    setAddProductToDiary({
-      product: '',
-      amount: '',
-      calories: caclCall,
-    })
-  };
-
-
 import { useDispatch } from 'react-redux';
-
 import { addExercises } from '../../../redux/dairy/operations';
-import { useDiary } from '../../../redux/hooks/useDiary';
+import { useDiary } from '../../../hooks';
 
 const AddProductForm = ({
   toggleSuccessModal,
@@ -41,10 +16,11 @@ const AddProductForm = ({
 }) => {
   const dispatch = useDispatch();
   const { date } = useDiary();
+
   const handleClick = (event) => {
     event.preventDefault();
-    toggleSuccessModal()
-    toggleSuccessModalTest()
+    toggleSuccessModal();
+    toggleSuccessModalTest();
     dispatch(
       addExercises({
         date: date,
@@ -60,7 +36,6 @@ const AddProductForm = ({
       }),
     );
   };
-
 
   return (
     <div>

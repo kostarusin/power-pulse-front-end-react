@@ -1,18 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //import { WaistList } from '../../../src/components/Exercises/Waist/WaistList/WaistList';
+import { ExercisesList } from '../../components/Exercises/Exercises/ExercisesList/ExercisesList';
 import css from './Exercises.module.css';
-import { ExercisesWrap } from '../../components/Exercises/ExercisesWrapper/ExercisesWrapper';
+import { ExercisesMain } from '../../components/exercises/ExercisesMain/ExercisesMain';
 
 //redux
 import { useDispatch } from 'react-redux';
-import { useExercises } from '../../redux/hooks';
+// import { useExercises } from '../../hooks';
 import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 
 const Exercises = () => {
   const dispatch = useDispatch();
-  const { exercises } = useExercises();
-  const { bodyParts } = useExercises();
-
+  const [activeName, setActiveName] = useState(null);
+  console.log(activeName)
+  // const { exercises } = useExercises();
+  // const { bodyParts } = useExercises();
 
   useEffect(() => {
     dispatch(fetchExercises());
@@ -24,9 +26,9 @@ const Exercises = () => {
 
   return (
     <div className={css.div}>
-       {/* <WaistList></WaistList> */}
-      <ExercisesWrap></ExercisesWrap>
-     
+      {activeName ? <ExercisesList activeName={activeName} /> : <ExercisesMain setActiveName={setActiveName} />}
+      
+      
     </div>
   );
 };

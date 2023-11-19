@@ -2,11 +2,11 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 import css from './AddExerciseForm.module.css';
 import icons from '../../assets/icons.svg';
-import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { useEffect, useState } from 'react';
 //redux
 import { useDispatch } from 'react-redux';
 import { addExercises } from '../../redux/dairy/operations';
+import { useDiary } from '../../hooks';
 
 export const AddExerciseForm = ({
   exercise,
@@ -18,6 +18,7 @@ export const AddExerciseForm = ({
   const [burnedCalories, setBurnedCalories] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const dispatch = useDispatch();
+  const { date } = useDiary();
 
   useEffect(() => {
     let timer;
@@ -61,20 +62,12 @@ export const AddExerciseForm = ({
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
 
-  const formattedDate = new Date()
-    .toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
-    .replace(/\//g, '-');
-
   const minutes = Math.floor(duration / 60);
 
   const submiExercise = () => {
     dispatch(
       addExercises({
-        date: formattedDate,
+        date: date,
         credentials: {
           doneExercises: [
             {
@@ -163,12 +156,14 @@ export const AddExerciseForm = ({
             </p>
           </div>
         </div>
-        <ButtonModal
-          btnType={'button'}
-          text={'Add to diary'}
+        <button
+          type="button"
           onClick={submiExercise}
           disabled={minutes < 1}
-        />
+          className={css.button}
+        >
+          Add to diary
+        </button>
       </div>
     </div>
   );

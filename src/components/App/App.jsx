@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 //redux
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/auth/operations';
-import { useAuth } from '../../redux/hooks';
+import { useAuth } from '../../hooks';
 
 //SharedLayout
 import SharedLayout from './SharedLayout';
@@ -27,15 +27,6 @@ function App() {
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
 
-  const currentDate = new Date();
-  const formattedDate = currentDate
-    .toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
-    .replace(/\//g, '-');
-
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -51,7 +42,12 @@ function App() {
           )}
           <Route
             path="login"
-            element={<PublicRoute redirectto="/diary" component={SignInPage} />}
+            element={
+              <PublicRoute
+                redirectto={`/diary`}
+                component={SignInPage}
+              />
+            }
           />
           <Route
             path="/register"
@@ -61,16 +57,11 @@ function App() {
           />
           <Route
             path="/diary"
-            element={
-              <PrivateRoute
-                redirectto={`/diary/${formattedDate}`}
-                component={DiarysPage}
-              />
-            }
+            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
           />
           <Route
             path="/diary/:date"
-            element={<PrivateRoute component={DiarysPage} />}
+            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
           />
           <Route
             path="/profile"
