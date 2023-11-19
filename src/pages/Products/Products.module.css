@@ -1,134 +1,9 @@
-.filtersContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 40px;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin-top: 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    margin-top: 8px;
-  }
-}
-
-.filtersContainer:hover {
-  border-color: var(--grayMiddle);
-}
-
-.searchInput {
-  position: relative;
-  max-width: 335px;
-
-  @media screen and (min-width: 768px) {
-    /* min-width: 0; */
-    max-width: 236px;
-  }
-}
-
-.searchField {
-  min-width: 100%;
-  max-width: 335px;
-  background-color: inherit;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  padding: 14px;
-  color: var(--white);
-  outline: none;
-
-  @media screen and (min-width: 768px) {
-    min-width: 236px;
-  }
-}
-
-.searchField::placeholder {
-  color: var(--white);
-}
-
-.searchField:focus {
-  border-color: var(--orange-dark);
-}
-
 .title {
   color: inherit;
   margin-top: 40px;
 }
 
-.selectContainer {
-  border-color: var(--orange-dark);
-  display: flex;
-  justify-content: flex-start;
-  gap: 16px;
 
-  @media screen and (min-width: 768px) {
-    justify-content: flex-start;
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
-}
-
-.buttonContainer {
-  position: absolute;
-  right: 6px;
-  top: 12px;
-}
-
-.searchButton {
-  background-color: inherit;
-  border: none;
-  color: var(--white);
-}
-
-.closeButton {
-  /* display: none; */
-  background-color: inherit;
-  border: none;
-  color: var(--orange-dark);
-}
-
-.cardContainer {
-  margin-top: 40px;
-  display: block;
-  width: 367px;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    gap: 16px;
-    width: 718px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    max-width: 858px;
-    height: 487px;
-    width: 858px;
-  }
-}
-
-/* width */
-.cardContainer::-webkit-scrollbar {
-  width: 8px;
-  height: 153px;
-}
-
-/* Track */
-.cardContainer::-webkit-scrollbar-track {
-  background-color: var(--grayUltraLight);
-  border-radius: 12px;
-}
-
-/* Handle */
-.cardContainer::-webkit-scrollbar-thumb {
-  background: var(--orange-light);
-  border-radius: 12px;
-}
 
 .react-select__control:hover {
   border-color: var(--grayMiddle);
@@ -139,11 +14,14 @@
   padding-right: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
+
+    align-items: flex-start;
   }
 
   @media screen and (min-width: 1440px) {

@@ -1,6 +1,6 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
-import css from './ProductCard.module.css';
+import css from './ProductsItem.module.css';
 import { grayForText } from '../../Helpers/helpers';
 
 import icons from '../../../assets/icons.svg';

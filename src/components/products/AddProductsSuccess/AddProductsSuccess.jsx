@@ -1,10 +1,12 @@
 import css from './AddProductsSuccess.module.css';
-import pic from '../../assets/avocado.svg';
-import icons from '../../assets/icons.svg';
-import { ButtonModal } from '../ButtonModal/ButtonModal';
+import pic from '../../../assets/avocado.svg';
+import icons from '../../../assets/icons.svg';
+import { ButtonModal } from '../../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';
 
 export const AddProductsSuccess = ({ toggleSuccessModalTest, caclCall, location }) => {
+ 
+ 
   return (
     <div className={css.container}>
       <img className={css.pic} src={pic} alt="Well done" />

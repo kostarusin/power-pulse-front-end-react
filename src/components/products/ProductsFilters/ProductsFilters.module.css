@@ -1,0 +1,87 @@
+.filtersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-top: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 8px;
+  }
+}
+
+.filtersContainer:hover {
+  border-color: var(--grayMiddle);
+}
+
+.searchInput {
+  position: relative;
+  max-width: 335px;
+
+  @media screen and (min-width: 768px) {
+    /* min-width: 0; */
+    max-width: 236px;
+  }
+}
+
+.searchField {
+  min-width: 100%;
+  max-width: 335px;
+  background-color: inherit;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  padding: 14px;
+  color: var(--white);
+  outline: none;
+
+  @media screen and (min-width: 768px) {
+    min-width: 236px;
+  }
+}
+
+.searchField::placeholder {
+  color: var(--white);
+}
+
+.searchField:focus {
+  border-color: var(--orange-dark);
+}
+
+.buttonContainer {
+  position: absolute;
+  right: 6px;
+  top: 12px;
+}
+
+.closeButton {
+  background-color: inherit;
+  border: none;
+  color: var(--orange-dark);
+}
+
+.searchButton {
+  background-color: inherit;
+  border: none;
+  color: var(--white);
+}
+
+.selectContainer {
+  border-color: var(--orange-dark);
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+}
