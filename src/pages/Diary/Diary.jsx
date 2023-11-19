@@ -13,7 +13,7 @@ import { getUserCalories, refreshUser } from '../../redux/auth/operations';
 import { useDiary } from '../../hooks';
 import { useAuth } from '../../hooks';
 //date lib
-import { parseISO, startOfDay } from 'date-fns';
+import { parseISO, startOfDay, parse } from 'date-fns';
 import { addDays, subDays } from 'date-fns';
 // style
 import styles from './Dairy.module.css';
@@ -45,14 +45,21 @@ function Diary() {
   const currentDate = new Date();
   const formattedDate = formattingDate(currentDate);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(
+    date ? parse(date, 'dd-MM-yyyy', new Date()) : new Date(),
+  );
   const minDate = startOfDay(parseISO(user.createdAt));
   const { doneExercises, consumedProducts } = useDiary();
 
   useEffect(() => {
+    if (date) {
+      dispatch(getDiary(date));
+      navigate(`/diary/${date}`);
+      return;
+    }
     dispatch(getDiary(formattedDate));
     navigate(`/diary/${formattedDate}`);
-  }, [dispatch, formattedDate]);
+  }, [dispatch, date, formattedDate]);
 
   useEffect(() => {
     dispatch(getUserCalories());
@@ -138,4 +145,3 @@ function Diary() {
 }
 
 export default Diary;
-
