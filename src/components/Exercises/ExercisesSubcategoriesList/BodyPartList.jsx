@@ -8,7 +8,7 @@ import { useExercises } from '../../../hooks';
 import Pagination from '../Pagination/Pagination'; 
 import { PaginationContainer } from '../Pagination/Pagination.styled'; 
  
-export const BodyPartList = ({ handleFilterClick, handleSetExName }) => { 
+export const BodyPartList = ({ handleFilterClick, handleSetExName, setActiveName, filters }) => { 
   const dispatch = useDispatch(); 
  
   useEffect(() => { 
@@ -49,11 +49,9 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
  
   const indexOfLastItem = currentPage * itemsPerPage; 
   const indexOfFirstItem = indexOfLastItem - itemsPerPage; 
-  console.log(bodyParts.bodyPart, 'bodyParts.bodyPart'); 
-  const currentItems = bodyParts.bodyPart 
+  const currentItems = filters.bodyPart 
     ? bodyParts.bodyPart.slice(indexOfFirstItem, indexOfLastItem) 
     : []; 
-  console.log(currentItems)
  
   return ( 
     <PaginationContainer> 
@@ -64,6 +62,7 @@ export const BodyPartList = ({ handleFilterClick, handleSetExName }) => {
             exercisesItem={item} 
             handleFilterClick={handleFilterClick} 
             handleSetExName={handleSetExName} 
+            setActiveName={setActiveName}
           /> 
         ))} 
       </ul> 

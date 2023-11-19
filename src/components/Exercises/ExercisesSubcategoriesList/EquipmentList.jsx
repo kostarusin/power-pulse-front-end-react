@@ -18,6 +18,7 @@ export const EquipmentList = ({ handleFilterClick, handleSetExName }) => {
   }, [dispatch]);
 
   const exercises = useSelector(selectByType);
+  console.log(exercises)
   
   const [currentPage, setCurrentPage] = useState(1);
 

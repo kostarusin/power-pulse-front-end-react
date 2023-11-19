@@ -6,6 +6,7 @@ export const ExercisesSubcategoriesItem = ({
   exercisesItem,
   handleFilterClick,
   handleSetExName,
+  setActiveName,
 }) => {
   const { name, filter, imgURL } = exercisesItem;
   const onClick = (name) => {
@@ -17,9 +18,10 @@ export const ExercisesSubcategoriesItem = ({
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
   };
+  // console.log(exercisesItem)
 
   return (
-    <li className={css.exercisesLi} onClick={() => onClick(name)}>
+    <li className={css.exercisesLi} onClick={() => setActiveName(exercisesItem.name)}>
       <img className={css.image} src={imgURL ? imgURL : assets} alt={name} />
       <div className={css.titleContainer}>
         <h3 className={css.exerciseItemTitle}>{capitalizeFirstLeter(name)}</h3>
