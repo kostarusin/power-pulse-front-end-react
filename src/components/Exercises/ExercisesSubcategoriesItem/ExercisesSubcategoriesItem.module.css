@@ -13,9 +13,10 @@
   filter: brightness(40%);
 }
 @media screen and (min-width: 375px) {
-  .image {
-    width: 335px;
+   .image {
+    object-fit: cover;
     height: 206px;
+    width: 335px;
   }
 }
 
