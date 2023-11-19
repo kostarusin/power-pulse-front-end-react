@@ -19,30 +19,30 @@ export default function CustomSelect({ placeholder, minWidth, options, name }) {
 
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     if (name === 'Categories') {
       dispatch(findProduct(selectedOption === 'all' ? '' : selectedOption));
     }
     if (name === 'Recommendations') {
-    
       if (selectedOption?.value === 'Recommended') {
-         dispatch(findProductByRec(true));
+        dispatch(findProductByRec(true));
       } else if (selectedOption?.value === 'Not recommended') {
-         dispatch(findProductByRec(false));
+        dispatch(findProductByRec(false));
       } else {
-         dispatch(findProductByRec(''));
+        dispatch(findProductByRec(''));
       }
-
     }
   }, [dispatch, name, placeholder, selectedOption]);
 
-  const optionsCategories = [];
-  options.map((product) => {
-    optionsCategories.push({
+  const capitalizeFirstLetter = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
+  const optionsCategories = options.map((product) => {
+    return {
       value: product,
-      label: product,
-    });
+      label: capitalizeFirstLetter(product),
+    };
   });
 
   return (
@@ -91,7 +91,7 @@ export default function CustomSelect({ placeholder, minWidth, options, name }) {
               width: '8px',
             },
             '&::-webkit-scrollbar-thumb': {
-              backgroundColor: grayUltraLight, // Измените цвет здесь
+              backgroundColor: grayUltraLight,
               borderRadius: '8px',
             },
             color: white,
