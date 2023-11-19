@@ -43,10 +43,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <PublicRoute
-                redirectto={`/diary`}
-                component={SignInPage}
-              />
+              <PublicRoute redirectto={`/diary`} component={SignInPage} />
             }
           />
           <Route
