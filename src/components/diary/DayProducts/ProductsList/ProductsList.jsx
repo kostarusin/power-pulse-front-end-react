@@ -30,6 +30,10 @@ const ProductsList = ({ products }) => {
     );
   };
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <div className={css.wrapper}>
       {products.length !== 0 ? (
@@ -48,7 +52,7 @@ const ProductsList = ({ products }) => {
                     Title
                   </div>
 
-                  <div className={css.text}>{product.title}</div>
+                  <div className={css.text}>{capitalizeFirstLetter(product.title)}</div>
                 </li>
                 <li className={css.wrapperItemCategory}>
                   <div
@@ -62,8 +66,7 @@ const ProductsList = ({ products }) => {
                   </div>
 
                   <div className={css.text}>
-                    {product.category.charAt(0).toUpperCase() +
-                      product.category.slice(1)}
+                    {capitalizeFirstLetter(product.category)}
                   </div>
                 </li>
                 <li className={css.wrapperItemCalories}>

@@ -33,6 +33,10 @@ function ExercisesList({ exercises }) {
     );
   };
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <div className={css.wrapper}>
       {exercises.length !== 0 ? (
@@ -50,8 +54,7 @@ function ExercisesList({ exercises }) {
                   Body Part
                 </div>
                 <div className={css.text}>
-                  {exercise.bodyPart.charAt(0).toUpperCase() +
-                    exercise.bodyPart.slice(1)}
+                  {capitalizeFirstLetter(exercise.bodyPart)}
                 </div>
               </li>
               <li className={css.wrapperEquipment}>
@@ -65,8 +68,7 @@ function ExercisesList({ exercises }) {
                   Equipment
                 </div>
                 <div className={css.text}>
-                  {exercise.equipment.charAt(0).toUpperCase() +
-                    exercise.equipment.slice(1)}
+                  {capitalizeFirstLetter(exercise.equipment)}
                 </div>
               </li>
               <li className={css.wrapeerName}>
@@ -80,8 +82,7 @@ function ExercisesList({ exercises }) {
                   Name
                 </div>
                 <div className={css.text}>
-                  {exercise.name.charAt(0).toUpperCase() +
-                    exercise.name.slice(1)}
+                  {capitalizeFirstLetter(exercise.name)}
                 </div>
               </li>
               <li className={css.wrapperTarget}>
@@ -95,8 +96,7 @@ function ExercisesList({ exercises }) {
                   Target
                 </div>
                 <div className={css.text}>
-                  {exercise.target.charAt(0).toUpperCase() +
-                    exercise.target.slice(1)}
+                  {capitalizeFirstLetter(exercise.target)}
                 </div>
               </li>
               <li className={css.wrapperBurnedCalories}>
