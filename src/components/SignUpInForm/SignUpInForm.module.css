@@ -8,11 +8,11 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
   width: 335px;
-  background-color: var(--black);
+  background-color: transparent;
   @media screen and (min-width: 768px) {
-    gap: 20px;
+    gap: 22px;
     width: 364px;
   }
 }
@@ -73,8 +73,29 @@
 }
 
 .ErrorMessage {
-  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--error);
   position: absolute;
   font-size: 12px;
   z-index: 1;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--green);
+  position: absolute;
+  font-size: 12px;
+  z-index: 1;
+}
+.inputSuccess {
+  border-color: var(--green);
+}
+.inputError {
+  border-color: var(--error);
 }
