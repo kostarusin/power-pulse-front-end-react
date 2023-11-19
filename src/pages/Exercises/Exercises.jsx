@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import style from './Exercises.module.css';
+import css from './Exercises.module.css';
 import { ExercisesNavigation } from '../../components/Exercises/ExercisesNavigation/ExercisesNavigation';
 import { BodyPartList } from '../../components/Exercises/ExercisesSubcategoriesList/BodyPartList';
 import { ExercisesList } from '../../components/Exercises/ExercisesList/ExercisesList';
@@ -7,11 +7,10 @@ import { ExercisesList } from '../../components/Exercises/ExercisesList/Exercise
 import { useDispatch } from 'react-redux';
 import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 import { useExercises } from '../../hooks';
-import css from './ExercisesWrapper.module.css';
 
 const Exercises = () => {
   const [activeFilter, setActiveFilter] = useState('Body parts');
-  const [exerciseName, setExerciseName] = useState('');
+  const [exerciseName] = useState('');
   const [activeName, setActiveName] = useState(null);
 
   const { bodyParts } = useExercises();
@@ -36,7 +35,7 @@ const Exercises = () => {
   };
 
   return (
-    <div className={style.div}>
+    <div className={css.div}>
       <div className={css.exercisesWrapper}>
         <div className={css.exercisesBox}>
           {activeName && (
@@ -81,7 +80,7 @@ const Exercises = () => {
             )}
           </>
         ) : (
-          <ExercisesList activeName={activeName} />
+          <ExercisesList activeName={activeName} activeFilter={activeFilter} />
         )}
       </div>
     </div>

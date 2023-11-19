@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import css from './ExercisesList.module.css';
+import css from './BodyPartList.module.css';
 import { ExercisesSubcategoriesItem } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
