@@ -9,10 +9,6 @@
   background-color: rgba(4, 4, 4, 0.4);
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 .backdropVisible {
   display: block;
 
@@ -81,6 +77,35 @@
   border-color: var(--white);
 }
 
+.mobMenuItemUpperActive {
+  flex: 1;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--white);
+  max-width: 86px;
+  max-height: 38px;
+  padding: 10px 27px;
+  gap: 16px;
+  background-color: var(--orange-dark);
+  color: var(--white);
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+    min-width: 91px;
+    min-height: 44px;
+  }
+}
+
 .mobMenuItem {
   flex: 1;
   flex-direction: column;
@@ -113,6 +138,35 @@
 .mobMenuItem:hover {
   border-color: var(--white);
 }
+
+.mobMenuItemActiv {
+  flex: 1;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--white);
+  max-width: 111px;
+  max-height: 38px;
+  padding: 10px 27px;
+  gap: 16px;
+  background-color: var(--orange-dark);
+  color: var(--white);
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+    min-width: 119px;
+    min-height: 44px;
+  }
+}
 .activeLink {
   border-color: var(--white);
 }
@@ -132,10 +186,12 @@
   background-color: var(--orange-dark);
   border-color: transparent;
   cursor: pointer;
+  padding-bottom: 178px;
   @media (min-width: 768px) {
     font-size: 32px;
     width: 32px;
     height: 32px;
+    padding-bottom: 222px;
   }
 }
 

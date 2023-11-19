@@ -20,7 +20,7 @@
   --grayEx: rgba(239, 237, 232, 0.4);
   --orange: rgba(239, 137, 100, 1);
   --dark: rgba(239, 237, 232, 0.05);
-  --grayToolTip: rgba(239, 237, 232, 0.50);
+  --grayToolTip: rgba(239, 237, 232, 0.5);
 }
 
 body {
@@ -98,4 +98,8 @@ button {
     padding-left: 96px;
     padding-right: 96px;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
