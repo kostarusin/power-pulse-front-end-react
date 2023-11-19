@@ -71,10 +71,10 @@
     min-width: 91px;
     min-height: 44px;
   }
-}
-
-.mobMenuItemUpper:hover {
-  border-color: var(--white);
+  &:hover,
+  &:focus {
+    border-color: var(--white);
+  }
 }
 
 .mobMenuItemUpperActive {
@@ -133,10 +133,10 @@
     min-width: 119px;
     min-height: 44px;
   }
-}
-
-.mobMenuItem:hover {
-  border-color: var(--white);
+  &:hover,
+  &:focus {
+    border-color: var(--white);
+  }
 }
 
 .mobMenuItemActiv {
@@ -167,12 +167,6 @@
     min-height: 44px;
   }
 }
-.activeLink {
-  border-color: var(--white);
-}
-/* .mobMenuItem.active {
-  border-color: var(--white);
-} */
 
 .xButton {
   display: flex;
