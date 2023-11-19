@@ -30,6 +30,7 @@
 .div {
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 @media screen and (min-width: 375px) {
@@ -48,4 +49,20 @@
   .div {
     width: 1440px;
   }
+}
+.btnBack {
+  background-color: transparent;
+  border: 0;
+  /* cursor: pointer; */
+  color: var(--grayEx);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  padding: 0;
+}
+.svgBack {
+  fill: var(--grayEx);
+  stroke: var(--grayEx);
 }

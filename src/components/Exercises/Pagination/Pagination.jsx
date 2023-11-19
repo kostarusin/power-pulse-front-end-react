@@ -40,7 +40,7 @@ const Pagination = ({
   };
 
   return (
-    <nav aria-label="Pagination">
+    <nav aria-label="Pagination" className='pagination-nav'>
       <ul className="pagination">{renderPageNumbers()}</ul>
     </nav>
   );
