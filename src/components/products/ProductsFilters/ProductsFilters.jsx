@@ -1,6 +1,5 @@
 import css from './ProductsFilters.module.css';
 
-
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import CustomSelect from '../../../components/products/customSelect.jsx';

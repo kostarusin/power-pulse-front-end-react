@@ -37,13 +37,17 @@ const AddProductForm = ({
     );
   };
 
+  const capitalizeFirstLetter = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
   return (
     <div>
       <form>
         <div className={css.inputModalBox}>
           <input
             type="text"
-            value={productData.title}
+            value={capitalizeFirstLetter(productData.title)}
             className={css.modalInput}
             style={{ color: grayMiddle }}
             disabled
