@@ -3,12 +3,12 @@ import css from './ProductsList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseOrProduct } from '../../../../redux/dairy/operations';
 import sprite from '../../../../assets/icons-optimized.svg';
+import { useDiary } from '../../../../hooks';
 
-const ProductsList = ({ products, selectedDate }) => {
+const ProductsList = ({ products }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
+  const { date } = useDiary();
   const dispatch = useDispatch();
-
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -22,12 +22,16 @@ const ProductsList = ({ products, selectedDate }) => {
   const handleDeleteExercise = (product) => {
     dispatch(
       deleteExerciseOrProduct({
-        date: selectedDate,
+        date: date,
         credentials: {
           id: product._id,
         },
       }),
     );
+  };
+
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   return (
@@ -48,7 +52,7 @@ const ProductsList = ({ products, selectedDate }) => {
                     Title
                   </div>
 
-                  <div className={css.text}>{product.title}</div>
+                  <div className={css.text}>{capitalizeFirstLetter(product.title)}</div>
                 </li>
                 <li className={css.wrapperItemCategory}>
                   <div
@@ -61,7 +65,9 @@ const ProductsList = ({ products, selectedDate }) => {
                     Category
                   </div>
 
-                  <div className={css.text}>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
+                  <div className={css.text}>
+                    {capitalizeFirstLetter(product.category)}
+                  </div>
                 </li>
                 <li className={css.wrapperItemCalories}>
                   <div
@@ -101,8 +107,17 @@ const ProductsList = ({ products, selectedDate }) => {
                   </div>
                   <div className={css.wrapperRecommendContainer}>
                     <div className={css.wrapperRecommend}>
-                      <div>sv</div>
-                      <div className={css.textRecommend}>Yes</div>
+                      <div
+                        className={css.circle}
+                        style={{
+                          backgroundColor: product.groupBloodNotAllowed
+                            ? 'green'
+                            : 'red',
+                        }}
+                      ></div>
+                      <div className={css.textRecommend}>
+                        {product.groupBloodNotAllowed ? 'Yes' : 'No'}
+                      </div>
                     </div>
                     <button
                       type="button"

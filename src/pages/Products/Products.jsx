@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import CustomSelect from '../../components/Products/customSelect.jsx';
 import css from './Products.module.css';
 
@@ -10,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
 
 import { useDispatch } from 'react-redux';
-import { useProducts } from '../../redux/hooks/useProducts.jsx';
+import { useProducts } from '../../hooks';
 import {
   fetchProductCategories,
   fetchProducts,
@@ -21,17 +22,23 @@ import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
 import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
 import Loader from '../../components/Loader/Loader.jsx';
 import NotFound from '../../components/Products/NotFound/NotFound.jsx';
+import { AddProductsSuccess } from '../../components/AddProductsSuccess/AddProductsSuccess.jsx';
 
 const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
 
 const Products = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const { products, loading, categories, filter, filterRec, filterByText } =
     useProducts();
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showSuccessModal1, setShowSuccessModal1] = useState(false);
+
   const [productData, setProductData] = useState({});
   const [caclCall, setCalcCall] = useState(0);
+  const [amount, setAmount] = useState(0);
+  const [productId, setProductId] = useState('');
 
   const showProducts =
     Array.isArray(products.products) && products.products.length > 0;
@@ -79,7 +86,12 @@ const Products = () => {
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
+
     setCalcCall(0);
+  };
+
+  const toggleSuccessModalTest = () => {
+    setShowSuccessModal1((prevState) => !prevState);
   };
 
   const toggleSuccessModal1 = (data) => {
@@ -88,7 +100,8 @@ const Products = () => {
 
   const handleChange = (event) => {
     const value = event.target.value;
-
+    setAmount(value);
+    setProductId(productData._id);
     setCalcCall((value * productData.calories) / 100);
   };
 
@@ -166,9 +179,21 @@ const Products = () => {
         <Modal onClose={toggleSuccessModal}>
           <AddProductForm
             toggleSuccessModal={toggleSuccessModal}
+            toggleSuccessModalTest={toggleSuccessModalTest}
             handleChange={handleChange}
             productData={productData}
             caclCall={caclCall}
+            amount={amount}
+            productId={productId}
+          />
+        </Modal>
+      )}
+
+      {showSuccessModal1 && (
+        <Modal onClose={toggleSuccessModalTest}>
+          <AddProductsSuccess
+            toggleSuccessModalTest={toggleSuccessModalTest}
+            caclCall={caclCall} location={location}
           />
         </Modal>
       )}

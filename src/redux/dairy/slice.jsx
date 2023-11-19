@@ -10,6 +10,7 @@ const initialState = {
     time: null,
     burnedCalories: null,
   },
+  date: null,
 };
 
 const diarySlice = createSlice({
@@ -22,12 +23,15 @@ const diarySlice = createSlice({
         state.doneExercises = payload.doneExercises;
         state.burnedCalories = payload.burnedCalories;
         state.consumedCalories = payload.consumedCalories;
-      })
+
+        state.date = payload.date;
+           })
       .addCase(getDiary.rejected, (state) => {
         state.consumedProducts = [];
         state.doneExercises = [];
         state.burnedCalories = null;
         state.consumedCalories = null;
+        state.date = null;
       })
       .addCase(deleteExerciseOrProduct.fulfilled, (state, { payload }) => {
         state.consumedProducts = payload.consumedProducts;

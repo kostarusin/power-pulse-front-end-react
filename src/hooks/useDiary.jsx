@@ -4,7 +4,8 @@ import {
   selectConsumedProducts,
   selectBurnedCalories,
   selectConsumedCalories,
-} from '../dairy/selectors';
+  selectDate,
+} from '../redux/dairy/selectors';
 
 export const useDiary = () => {
   return {
@@ -12,5 +13,6 @@ export const useDiary = () => {
     consumedProducts: useSelector(selectConsumedProducts),
     burnedCalories: useSelector(selectBurnedCalories),
     consumedCalories: useSelector(selectConsumedCalories),
+    date: useSelector(selectDate),
   };
 };

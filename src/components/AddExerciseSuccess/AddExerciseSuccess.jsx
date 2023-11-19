@@ -5,7 +5,7 @@ import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';
 
 export const AddExerciseSuccess = ({ exercise }) => {
-  console.log(exercise);
+
   return (
     <div className={css.container}>
       <img className={css.pic} src={pic} alt="Well done" />

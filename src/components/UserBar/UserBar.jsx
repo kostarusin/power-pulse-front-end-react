@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 import css from './UserBar.module.css';
 import sprite from '../../assets/icons-optimized.svg';
-import { useAuth } from '../../redux/hooks';
+import { useAuth } from '../../hooks';
 
 const UserBar = ({ onBurgerClick }) => {
   const dispatch = useDispatch();

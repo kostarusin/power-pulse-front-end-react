@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import sprite from '../../../assets/icons-optimized.svg';
 import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import css from './CustomInput.module.css';
-import { useAuth } from '../../../redux/hooks';
+import { useAuth } from '../../../hooks';
 
 const StyledDatepicker = ({ onChange }) => {
   const { user } = useAuth();

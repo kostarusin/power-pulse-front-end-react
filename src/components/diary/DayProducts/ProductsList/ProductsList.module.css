@@ -94,6 +94,7 @@
 }
 .wrapperRecommend {
   display: flex;
+  align-items: center;
   border: 1px solid var(--gray-middle);
   padding-left: 14px;
   padding-top: 10px;
@@ -196,4 +197,11 @@
   font-size: 14px;
   line-height: 18px;
   color: var(--gray-middle);
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
 }

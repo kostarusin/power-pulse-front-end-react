@@ -9,7 +9,7 @@ import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
-import { useAuth } from '../../../redux/hooks';
+import { useAuth } from '../../../hooks';
 //datepicker
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //notification
