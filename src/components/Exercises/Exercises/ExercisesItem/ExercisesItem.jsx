@@ -18,7 +18,6 @@ const texts = {
 };
 
 export const ExercisesItem = ({ data }) => {
-  console.log(data)
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [exercise, setExercise] = useState({});
