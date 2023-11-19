@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import style from './Exercises.module.css';
 import { ExercisesNavigation } from '../../components/Exercises/ExercisesNavigation/ExercisesNavigation';
 import { BodyPartList } from '../../components/Exercises/ExercisesSubcategoriesList/BodyPartList';
-import { ExercisesList } from '../../components/Exercises/Exercises/ExercisesList/ExercisesList';
+import { ExercisesList } from '../../components/Exercises/ExercisesList/ExercisesList';
 //redux
 import { useDispatch } from 'react-redux';
 import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
@@ -13,9 +13,11 @@ const Exercises = () => {
   const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName, setExerciseName] = useState('');
   const [activeName, setActiveName] = useState(null);
+
   const { bodyParts } = useExercises();
+
   const dispatch = useDispatch();
-  console.log(activeName);
+
   useEffect(() => {
     dispatch(fetchExercises());
   }, [dispatch]);

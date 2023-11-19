@@ -1,4 +1,3 @@
-import { useActionData } from 'react-router-dom';
 import css from './Modal.module.css';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
