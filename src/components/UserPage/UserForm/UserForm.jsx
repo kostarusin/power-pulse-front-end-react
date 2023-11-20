@@ -28,7 +28,7 @@ const UserForm = ({ selectedDate }) => {
   const [isFormChanged, setFormChanged] = useState(false);
 
   const { user } = useAuth();
-
+  console.log(user);
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
     const convertedValues = convertValues(values);
