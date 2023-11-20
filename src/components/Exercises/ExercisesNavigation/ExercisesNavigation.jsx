@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import styles from './ExercisesNavigation.module.css';
 
-export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
+export const ExercisesNavigation = ({
+  activeFilter,
+  handleFilterClick,
+  setActiveName,
+}) => {
   return (
     <ul className={styles.ExercisesNavList}>
       <li
@@ -11,9 +15,12 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
       >
         <button
           type="button"
-          onClick={() => handleFilterClick('Body parts')}
-          className={`${styles.FilterBtn} ${-
-            activeFilter === 'Body parts' ? styles.active : ''
+          onClick={() => {
+            handleFilterClick('Body parts');
+            setActiveName('');
+          }}
+          className={`${styles.FilterBtn} ${
+            -activeFilter === 'Body parts' ? styles.active : ''
           }`}
         >
           Body parts
@@ -26,7 +33,10 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
       >
         <button
           type="button"
-          onClick={() => handleFilterClick('Muscules')}
+          onClick={() => {
+            handleFilterClick('Muscules');
+            setActiveName('');
+          }}
           className={`${styles.FilterBtn} ${
             activeFilter === 'Muscules' ? styles.active : ''
           }`}
@@ -41,7 +51,10 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
       >
         <button
           type="button"
-          onClick={() => handleFilterClick('Equipment')}
+          onClick={() => {
+            handleFilterClick('Equipment');
+            setActiveName('');
+          }}
           className={`${styles.FilterBtn} ${
             activeFilter === 'Equipment' ? styles.active : ''
           }`}
