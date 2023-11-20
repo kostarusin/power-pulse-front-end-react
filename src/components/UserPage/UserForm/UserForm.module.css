@@ -275,3 +275,33 @@
     font-size: 12px;
   }
 }
+
+
+/* input[type="number"]::-webkit-scrollbar {
+  width: 12px;
+}
+
+input[type="number"]::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+
+input[type="number"]::-webkit-scrollbar-track {
+  background-color: lightgrey;
+}
+
+input[type="number"] {
+  scrollbar-width: thin;
+  scrollbar-color: darkgrey lightgrey;
+} */
+
+/* Пример стилей для ползунка прокрутки в поле ввода с типом "number" */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+Стилизация ползунка прокрутки WebKit (Chrome, Safari)
+input[type="number"] {
+  -moz-appearance: textfield;
+}
