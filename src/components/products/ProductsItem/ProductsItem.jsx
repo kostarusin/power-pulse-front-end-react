@@ -1,7 +1,8 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+// import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 import css from './ProductsItem.module.css';
 import { grayForText } from '../../Helpers/helpers';
+import sprite from '../../../assets/icons-optimized.svg';
 
 import icons from '../../../assets/icons.svg';
 
@@ -41,7 +42,9 @@ const ProductCard = ({
               }}
             >
               Add
-              <ArrowForwardIcon fontSize="small" />
+              <svg width="16" height="16" className={css.svg}>
+                <use href={`${sprite}#icon-add-arrow`}></use>
+              </svg>
             </button>
           </div>
         </div>
