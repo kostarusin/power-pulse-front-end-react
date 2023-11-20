@@ -29,7 +29,13 @@ const UserBar = ({ onBurgerClick }) => {
       <svg className={css.burger} onClick={onBurgerClick}>
         <use href={`${sprite}#icon-burger-menu`} />
       </svg>
-      <Link className={css.logout} onClick={() => dispatch(logOut())}>
+      <Link
+        className={css.logout}
+        onClick={async () => {
+          await dispatch(logOut());
+          window.location.reload();
+        }}
+      >
         <p className={css.logoutText}>Logout</p>
         <svg className={css.logoutIcon}>
           <use href={`${sprite}#icon-log-out`} />

@@ -96,7 +96,10 @@ const UserView = () => {
         <div className={css['user-logaut-container']}>
           <button
             className={css['user-logaut']}
-            onClick={() => dispatch(logOut())}
+            onClick={async () => {
+              await dispatch(logOut());
+              window.location.reload();
+            }}
           >
             Logout
             <svg width="24" height="24">
