@@ -3,9 +3,7 @@ import styled from 'styled-components';
 export const PaginationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding-bottom: 90px;
-  height: 100vh;
 
   ul.pagination {
     display: flex;
