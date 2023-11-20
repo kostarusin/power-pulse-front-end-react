@@ -33,6 +33,7 @@ const Products = () => {
   const [caclCall, setCalcCall] = useState(0);
   const [amount, setAmount] = useState(0);
   const [productId, setProductId] = useState('');
+  const [isAnyModalOpen, setIsAnyModalOpen] = useState(false);
 
   const showProducts =
     Array.isArray(products.products) && products.products.length > 0;
@@ -46,6 +47,14 @@ const Products = () => {
     dispatch(fetchProducts());
     dispatch(fetchProductCategories());
   }, [dispatch]);
+
+  useEffect(() => {
+    setIsAnyModalOpen(showSuccessModal || showSuccessModal1);
+  }, [showSuccessModal, showSuccessModal1]);
+
+  useEffect(() => {
+    document.body.style.overflow = isAnyModalOpen ? 'hidden' : 'auto';
+  }, [isAnyModalOpen]);
 
   const getVisibleProducts = () => {
     if (!filter || filter.value === 'all' || filter.value === 'All') {

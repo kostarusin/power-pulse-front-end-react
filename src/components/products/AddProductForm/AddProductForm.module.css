@@ -1,6 +1,5 @@
 .inputModalBox {
   display: block;
-  /* position: relative; */
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -17,11 +16,8 @@
   border: 1px solid var(--orange-dark);
   padding: 8px;
   color: var(--white);
-
   width: 100%;
-
   margin-bottom: 16px;
-
   outline: none;
 
   @media screen and (min-width: 768px) {
@@ -50,13 +46,20 @@
 
 .closeModalButton {
   align-items: center;
-  border-radius: 12px;
-  border: 1px solid var(--grayMiddle);
   width: 121px;
   height: 42px;
+  background-color: #10100f;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.12;
+  border-radius: 12px;
+  border: 1px solid #505050;
+  outline: none;
 
   @media screen and (min-width: 768px) {
     height: 52px;
+    font-size: 20px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -69,11 +72,8 @@
   border: 1px solid var(--orange-dark);
   padding: 8px;
   color: var(--white);
-
   width: 100%;
-
   margin-bottom: 16px;
-
   outline: none;
 }
 
@@ -88,10 +88,7 @@
   right: 14px;
   transform: translateY(-100%);
 
-  font-family: Roboto;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
 
   color: var(--grayEx);
@@ -99,4 +96,16 @@
 
 .inputWeigthBox {
   position: relative;
+}
+
+.warning {
+  position: absolute;
+  top: 138px;
+  right: 24px;
+  color: red;
+  font-size: 12px;
+  line-height: 1.2;
+  @media screen and (min-width: 768px) {
+    top: 86px;
+  }
 }

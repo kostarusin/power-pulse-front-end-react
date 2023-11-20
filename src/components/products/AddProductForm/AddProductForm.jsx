@@ -4,6 +4,7 @@ import css from './AddProductForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addExercises } from '../../../redux/dairy/operations';
 import { useDiary } from '../../../hooks';
+import { useEffect, useState } from 'react';
 
 const AddProductForm = ({
   toggleSuccessModal,
@@ -16,9 +17,19 @@ const AddProductForm = ({
 }) => {
   const dispatch = useDispatch();
   const { date } = useDiary();
+  const [isFormValid, setIsFormValid] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const handleClick = (event) => {
     event.preventDefault();
+    if (!amount || amount.trim() === '') {
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 3000);
+      return;
+    }
     toggleSuccessModal();
     toggleSuccessModalTest();
     dispatch(
@@ -35,6 +46,34 @@ const AddProductForm = ({
         },
       }),
     );
+  };
+
+  const validateForm = () => {
+    const amountValue = Number(amount);
+    const isAmountString =
+      typeof amount === 'string' || amount instanceof String;
+    const isFormValid =
+      isAmountString &&
+      !isNaN(amountValue) &&
+      amountValue >= 1 &&
+      amountValue <= 3000 &&
+      amount.trim() !== '';
+    setIsFormValid(isFormValid);
+  };
+
+  useEffect(() => {
+    if (hasInteracted) {
+      validateForm();
+    }
+  }, [amount, hasInteracted]);
+
+  const handleInputChange = (event) => {
+    handleChange(event);
+    setHasInteracted(true);
+    if (!event.target.value) {
+      setHasInteracted(false);
+      setIsFormValid(true);
+    }
   };
 
   const capitalizeFirstLetter = (text) => {
@@ -56,14 +95,24 @@ const AddProductForm = ({
             <input
               type="text"
               className={css.modalInputcall}
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
             <p className={css.toolTipWeigth}>grams</p>
           </div>
+          {!isFormValid && hasInteracted && amount && (
+            <p className={css.warning}>
+              Please enter a valid amount (1 to 3000)
+            </p>
+          )}
+          {showError && (
+            <p className={css.warning}>
+              Please enter a valid amount (1 to 3000)
+            </p>
+          )}
         </div>
         <p>
           <span style={{ color: grayForText }}>Calories: </span>
-          {caclCall}
+          {isFormValid ? caclCall : 0}
         </p>
       </form>
       <div className={css.buttonModalBox}>
@@ -71,6 +120,7 @@ const AddProductForm = ({
           btnType={'submit'}
           text={'Add to diary'}
           onClick={handleClick}
+          disabled={!isFormValid}
         />
         <button
           type="button"
