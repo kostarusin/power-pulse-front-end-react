@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import sprite from '../../assets/icons-optimized.svg';
 
 import css from './Exercises.module.css';
@@ -12,22 +12,26 @@ import { fetchByType, fetchExercises } from '../../redux/exercises/operations';
 import { useExercises } from '../../hooks';
 
 const Exercises = () => {
-  const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName] = useState('');
   const [activeName, setActiveName] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const { bodyParts } = useExercises();
 
   const dispatch = useDispatch();
   const location = useLocation();
 
-  useEffect(() => {
-    dispatch(fetchExercises());
-  }, [dispatch]);
+  const exercisesFiler = searchParams.get('filterName') || ''; // витягаємо із строки пошуку значення фільтру
+  const exercisesCategoryFiler = searchParams.get('category') || '';
 
   useEffect(() => {
+    dispatch(fetchExercises());
     dispatch(fetchByType());
-  }, [dispatch]);
+
+    if (!searchParams.get('filterName')) {
+      setSearchParams({filterName: 'Body parts'});
+      }
+  }, [dispatch, searchParams]);
 
   const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
@@ -35,7 +39,7 @@ const Exercises = () => {
   };
 
   const handleFilterClick = (filter) => {
-    setActiveFilter(filter);
+    setSearchParams({filterName: filter});
   };
 
   return (
@@ -54,7 +58,7 @@ const Exercises = () => {
           </button>
         )}
         <div className={css.exercisesBox}>
-          {activeFilter !== 'Waist' ? (
+          {exercisesFiler !== 'Waist' ? (
             <h2 className={css.exercisesTitle}>Exercises</h2>
           ) : (
             <h2 className={css.exercisesTitle}>
@@ -62,28 +66,28 @@ const Exercises = () => {
             </h2>
           )}
           <ExercisesNavigation
-            activeFilter={activeFilter}
+            exercisesFiler={exercisesFiler}
             handleFilterClick={handleFilterClick}
             setActiveName={setActiveName}
           />
         </div>
         {!activeName ? (
           <>
-            {activeFilter === 'Body parts' && (
+            {exercisesFiler === 'Body parts' && (
               <BodyPartList
                 handleFilterClick={handleFilterClick}
                 setActiveName={setActiveName}
                 filters={bodyParts.bodyPart}
               />
             )}
-            {activeFilter === 'Muscules' && (
+            {exercisesFiler === 'Muscules' && (
               <BodyPartList
                 handleFilterClick={handleFilterClick}
                 setActiveName={setActiveName}
                 filters={bodyParts.muscles}
               />
             )}
-            {activeFilter === 'Equipment' && (
+            {exercisesFiler === 'Equipment' && (
               <BodyPartList
                 handleFilterClick={handleFilterClick}
                 setActiveName={setActiveName}
@@ -92,7 +96,7 @@ const Exercises = () => {
             )}
           </>
         ) : (
-          <ExercisesList activeName={activeName} location={location} activeFilter={activeFilter} />
+          <ExercisesList activeName={activeName} location={location} exercisesFiler={exercisesFiler} />
         )}
       </div>
     </div>
