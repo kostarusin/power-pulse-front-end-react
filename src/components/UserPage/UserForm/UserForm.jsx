@@ -171,7 +171,7 @@ const UserForm = ({ selectedDate }) => {
                   />
                 </div>
               </label>
-              <label htmlFor="birthday">
+              <label htmlFor="birthday" className={css.birthdayForm}>
                 <Field
                   name="birthday"
                   type="date"

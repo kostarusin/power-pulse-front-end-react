@@ -167,7 +167,9 @@
 .fieldWithError {
   display: block;
 }
-
+.birthdayForm {
+  cursor: pointer;
+}
 .error {
   position: relative;
   margin-top: 2px;
@@ -301,7 +303,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-Стилизация ползунка прокрутки WebKit (Chrome, Safari)
+/* Стилизация ползунка прокрутки WebKit (Chrome, Safari) */
 input[type="number"] {
   -moz-appearance: textfield;
 }
