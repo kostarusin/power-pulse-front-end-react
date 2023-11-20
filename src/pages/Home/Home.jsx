@@ -15,7 +15,7 @@ const Home = () => {
       setCountUsers(allUsers);
     });
   }, [socket]);
-
+  console.log(countuUsers);
   return (
     <section className={`layoutContainer ${css.hero}`}>
       <div className={css.container}>
