@@ -44,7 +44,8 @@ const UserForm = ({ selectedDate }) => {
       });
       setFormChanged(false);
     } else {
-      const updatedValues = { ...values };
+      const updatedValues = { ...values, avatarURL: user.avatarURL };
+
       delete updatedValues.email;
       dispatch(updateInfo(updatedValues));
       setFormChanged(true);
