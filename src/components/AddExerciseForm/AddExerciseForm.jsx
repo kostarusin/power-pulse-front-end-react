@@ -27,7 +27,6 @@ export const AddExerciseForm = ({
       timer = setInterval(() => {
         setDuration((prevDuration) => {
           const newDuration = prevDuration + 1;
-          console.log('duration', newDuration);
 
           if (newDuration === 180) {
             clearInterval(timer);

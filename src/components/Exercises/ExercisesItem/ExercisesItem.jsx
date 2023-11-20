@@ -17,7 +17,7 @@ const texts = {
   },
 };
 
-export const ExercisesItem = ({ data }) => {
+export const ExercisesItem = ({ data, location }) => {
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [exercise, setExercise] = useState({});
@@ -87,6 +87,7 @@ export const ExercisesItem = ({ data }) => {
           <AddExerciseSuccess
             exercise={exercise}
             toggleSuccessModal={toggleSuccessModal}
+            location={location}
           />
         </Modal>
       )}
