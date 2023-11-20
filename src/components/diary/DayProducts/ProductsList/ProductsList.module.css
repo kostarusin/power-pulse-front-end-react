@@ -47,6 +47,10 @@
   }
 }
 
+.wrapperListContainer:last-child {
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 1440px) {
   .wrapperListContainer {
     margin-left: 16px;
@@ -81,6 +85,9 @@
   border-radius: 12px;
   font-size: 14px;
   line-height: 18px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 
 .textRecommend {
@@ -116,6 +123,7 @@
 .wrapperItemTitle {
   width: 297px;
 }
+
 @media screen and (min-width: 768px) {
   .wrapperItemTitle {
     width: 204px;
