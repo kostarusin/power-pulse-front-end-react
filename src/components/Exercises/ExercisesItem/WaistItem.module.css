@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 162px;
 }
 
 @media screen and (max-width: 767px) {
@@ -21,11 +20,11 @@
     width: calc((100% - 16px) / 2);
   }
 }
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .waistItemLi {
     width: 370px;
   }
-}
+} */
 
 .btnWrapper {
   display: flex;
@@ -44,11 +43,10 @@
   background: var(--dark);
   text-transform: uppercase;
 }
-
 .btnLabel {
   background: transparent;
   border: none;
-  color: var(--orange);
+  color: var(--white);
   font-size: 16px;
   line-height: 1.5;
   display: flex;
@@ -58,13 +56,10 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btnLabel:hover {
-  color: var(--white);
+.btnLabel:hover ,
+.btnLabel:focus{
+  color:var(--orange);
 }
-.btnLabel:focus {
-  color: var(--white);
-}
-
 .svgExercise {
   width: 13px;
   height: 13px;
@@ -103,16 +98,22 @@
   height: 16px;
   fill: var(--white);
 }
+.svgExerciseRun:hover,
+.svgExerciseRun:focus{
+  fill: var(--bage);
+}
 .spanExerciseRun {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--bage);
-
   border-radius: 50%;
-
   width: 24px;
   height: 24px;
+}
+.spanExerciseRun:hover,
+.spanExerciseRun:focus{
+  background-color: var(--white);
 }
 
 .list {
