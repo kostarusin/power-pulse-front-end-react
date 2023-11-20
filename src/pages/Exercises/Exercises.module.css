@@ -11,11 +11,16 @@
     margin-right: auto;
   }
 }
-
+.exercisesBox {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
 @media screen and (min-width: 768px) {
   .exercisesBox {
     display: flex;
     justify-content: space-between;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 }
 
@@ -37,14 +42,17 @@
   .div {
     width: 375px;
   }
+  
 }
 
 @media screen and (min-width: 768px) {
   .div {
     width: 768px;
   }
+    .exercisesTitle {
+      font-size: 32px;
+    }
 }
-
 @media screen and (min-width: 1440px) {
   .div {
     width: 1440px;
