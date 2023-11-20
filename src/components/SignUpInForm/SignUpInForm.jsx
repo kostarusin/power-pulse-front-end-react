@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { register, logIn, refreshUser } from '../../redux/auth/operations';
+import sprite from '../../assets/icons-optimized.svg';
+import { useState } from 'react';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -7,6 +9,12 @@ import css from './SignUpInForm.module.css';
 
 const SignUpInForm = ({ includeName }) => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = (event) => {
+    event.preventDefault();
+    setShowPassword((prevState) => !prevState);
+  };
 
   const initialValues = {
     ...(includeName && { username: '' }),
@@ -19,7 +27,7 @@ const SignUpInForm = ({ includeName }) => {
       username: Yup.string().required('Name is required'),
     }),
     email: Yup.string()
-      .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email format')
+      .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Error email')
       .required('Email is required'),
 
     password: Yup.string()
@@ -43,56 +51,117 @@ const SignUpInForm = ({ includeName }) => {
       onSubmit={handleSubmit}
       validationSchema={SignUpSchema}
     >
-      <Form className={css.container2}>
-        <div className={css.form}>
-          {includeName && (
-            <label htmlFor="username">
+      {({ errors, touched }) => (
+        <Form className={css.container2}>
+          <div className={css.form}>
+            {includeName && (
+              <label htmlFor="username">
+                <Field
+                  type="text"
+                  name="username"
+                  placeholder="Name"
+                  autocomplete="off"
+                  className={css.input}
+                />
+                <ErrorMessage
+                  component="div"
+                  name="username"
+                  className={css.ErrorMessage}
+                />
+              </label>
+            )}
+            <label htmlFor="email">
               <Field
                 type="text"
-                name="username"
-                placeholder="Name"
-                className={css.input}
+                name="email"
+                placeholder="Email"
+                autocomplete="off"
+                className={
+                  css.input +
+                  (touched.email
+                    ? errors.email
+                      ? ' ' + css.inputError
+                      : ' ' + css.inputSuccess
+                    : '')
+                }
               />
-              <ErrorMessage
-                component="div"
-                name="username"
-                className={css.ErrorMessage}
-              />
+
+              <div className={css.ErrorMessage}>
+                {errors.email && touched.email && (
+                  <svg width="16" height="16" className={css.svg}>
+                    <use href={`${sprite}#icon-validation-checkbox-red`}></use>
+                  </svg>
+                )}
+
+                <ErrorMessage component="div" name="email" />
+              </div>
+
+              {!errors.email && touched.email && (
+                <div className={css.successMessage}>
+                  <svg width="16" height="16">
+                    <use
+                      href={`${sprite}#icon-validation-checkbox-green`}
+                    ></use>
+                  </svg>
+                  Success email!
+                </div>
+              )}
             </label>
-          )}
-          <label htmlFor="email">
-            <Field
-              type="text"
-              name="email"
-              placeholder="Email"
-              className={css.input}
-            />
-            <ErrorMessage
-              component="div"
-              name="email"
-              className={css.ErrorMessage}
-            />
-          </label>
 
-          <label htmlFor="password">
-            <Field
-              type="password"
-              name="password"
-              placeholder="Password"
-              className={css.input}
-            />
-            <ErrorMessage
-              component="div"
-              name="password"
-              className={css.ErrorMessage}
-            />
-          </label>
-        </div>
+            <label htmlFor="password">
+              <Field
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                autocomplete="off"
+                className={
+                  css.input +
+                  (touched.password
+                    ? errors.password
+                      ? ' ' + css.inputError
+                      : ' ' + css.inputSuccess
+                    : '')
+                }
+              />
+              <div className={css.ErrorMessage}>
+                {errors.password && touched.password && (
+                  <svg width="16" height="16">
+                    <use href={`${sprite}#icon-validation-checkbox-red`}></use>
+                  </svg>
+                )}
 
-        <button type="submit" className={css.button}>
-          {includeName ? 'Sign Up' : 'Sign In'}
-        </button>
-      </Form>
+                <ErrorMessage component="div" name="password" />
+              </div>
+
+              {!errors.password && touched.password && (
+                <div className={css.successMessage}>
+                  <svg width="16" height="16">
+                    <use
+                      href={`${sprite}#icon-validation-checkbox-green`}
+                    ></use>
+                  </svg>
+                  Success password!
+                </div>
+              )}
+            </label>
+            <div className={css.buttonEye} onClick={togglePasswordVisibility}>
+              {showPassword ? (
+                <svg className={css.eye}>
+                  <use href={sprite + '#icon-eye-off'} />
+                </svg>
+              ) : (
+                <svg className={css.eye}>
+                  <use href={sprite + '#icon-eye'} />
+                </svg>
+              )}
+            </div>
+          </div>
+
+          <button type="submit" className={css.button}>
+            {includeName ? 'Sign Up' : 'Sign In'}
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

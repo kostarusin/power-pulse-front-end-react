@@ -24,9 +24,10 @@ import convertValues from './typesConvertedFunction';
 
 const UserForm = ({ selectedDate }) => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   const [isFormChanged, setFormChanged] = useState(false);
+
+  const { user } = useAuth();
 
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);

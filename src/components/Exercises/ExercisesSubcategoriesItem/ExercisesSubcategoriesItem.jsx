@@ -1,4 +1,4 @@
-import css from './ExercisesItem.module.css';
+import css from './ExercisesSubcategoriesItem.module.css';
 import assets from '../../../assets/0-default.jpg';
 import { PropTypes } from 'prop-types';
 
@@ -17,7 +17,10 @@ export const ExercisesSubcategoriesItem = ({
   // console.log(exercisesItem)
 
   return (
-    <li className={css.exercisesLi} onClick={() => setActiveName(exercisesItem.name)}>
+    <li
+      className={css.exercisesLi}
+      onClick={() => setActiveName(exercisesItem.name)}
+    >
       <img className={css.image} src={imgURL ? imgURL : assets} alt={name} />
       <div className={css.titleContainer}>
         <h3 className={css.exerciseItemTitle}>{capitalizeFirstLeter(name)}</h3>

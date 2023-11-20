@@ -1,26 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
-import css from './WaistList.module.css';
-import { selectExercises } from '../../../../redux/exercises/selectors';
-import { useEffect } from 'react';
-import { fetchExercises } from '../../../../redux/exercises/operations';
+import css from './ExercisesList.module.css';
+import { useExercises } from '../../../hooks';
 import images from '../img/Waist1.jpg';
 
-export const ExercisesList = ({  activeName }) => {
+export const ExercisesList = ({ activeName, activeFilter }) => {
+  const { exercises } = useExercises();
 
+  const visibleExercises = exercises.filter((exercise) => {
+    if (activeFilter === 'Body parts') {
+      return exercise.bodyPart === activeName;
+    }
+    if (activeFilter === 'Muscules') {
+      return exercise.target === activeName;
+    }
+    if (activeFilter === 'Equipment') {
+      return exercise.equipment === activeName;
+    }
+  });
 
-  const exercises = useSelector(selectExercises);
-  console.log(exercises)
-  
-
-  const visibleExercises = exercises.filter((exercise) => 
-    exercise.bodyPart === activeName
-
-  );
-  console.log(activeName)
-
-
-  console.log('Filtered Exercises:', visibleExercises);
   return (
     <>
       <div className={css.waistListContainer}>

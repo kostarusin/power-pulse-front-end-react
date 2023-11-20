@@ -1,6 +1,6 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
-import css from './ProductCard.module.css';
+import css from './ProductsItem.module.css';
 import { grayForText } from '../../Helpers/helpers';
 
 import icons from '../../../assets/icons.svg';
@@ -10,6 +10,10 @@ const ProductCard = ({
   toggleSuccessModal,
   toggleSuccessModal1,
 }) => {
+  const capitalizeFirstLetter = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
   return visibleproducts.map((product) => {
     return (
       <li key={product.item._id} className={css.card}>
@@ -28,7 +32,7 @@ const ProductCard = ({
               viewBox="0 0 24 24"
               fontSize="small"
             />
-            <p>{product.allowed ? 'Recommended' : 'Not Recommended'}</p>
+            <p>{product.allowed ? 'Recommended' : 'Not recommended'}</p>
             <button
               className={css.addButton}
               onClick={() => {
@@ -53,7 +57,9 @@ const ProductCard = ({
             />
           </svg>
 
-          <span className={css.productName}>{product.item.title}</span>
+          <span className={css.productName}>
+            {capitalizeFirstLetter(product.item.title)}
+          </span>
         </div>
         <ul className={css.productEnergyList}>
           <li className={css.productEnergyItem}>
@@ -62,7 +68,7 @@ const ProductCard = ({
           </li>
           <li className={css.productEnergyItem1}>
             <span style={{ color: grayForText }}>Category: </span>
-            {product.item.category}
+            {capitalizeFirstLetter(product.item.category)}
           </li>
           <li className={css.productEnergyItem}>
             <span style={{ color: grayForText }}>Weight: </span>

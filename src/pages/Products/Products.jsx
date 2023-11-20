@@ -1,11 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import CustomSelect from '../../components/Products/customSelect.jsx';
+
 import css from './Products.module.css';
-
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-
-import { orangeDark, white } from '../../components/Helpers/helpers.js';
 
 import { useEffect, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal.jsx';
@@ -18,13 +13,12 @@ import {
 } from '../../redux/products/operations';
 import { findProductByText } from '../../redux/products/slice.jsx';
 
-import ProductCard from '../../components/Products/ProductCard/ProductCard.jsx';
-import AddProductForm from '../../components/Products/AddProductForm/AddProductForm.jsx';
-import Loader from '../../components/Loader/Loader.jsx';
-import NotFound from '../../components/Products/NotFound/NotFound.jsx';
-import { AddProductsSuccess } from '../../components/AddProductsSuccess/AddProductsSuccess.jsx';
+import AddProductForm from '../../components/products/AddProductForm/AddProductForm.jsx';
 
-const optionsRecomendation = ['All', 'Recommended', 'Not recommended'];
+import NotFound from '../../components/products/NotFound/NotFound.jsx';
+import { AddProductsSuccess } from '../../components/products/AddProductsSuccess/AddProductsSuccess.jsx';
+import ProductsFilters from '../../components/products/ProductsFilters/ProductsFilters.jsx';
+import ProductsList from '../../components/products/ProductsList/ProductsList.jsx';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -39,6 +33,7 @@ const Products = () => {
   const [caclCall, setCalcCall] = useState(0);
   const [amount, setAmount] = useState(0);
   const [productId, setProductId] = useState('');
+  const [isAnyModalOpen, setIsAnyModalOpen] = useState(false);
 
   const showProducts =
     Array.isArray(products.products) && products.products.length > 0;
@@ -52,6 +47,14 @@ const Products = () => {
     dispatch(fetchProducts());
     dispatch(fetchProductCategories());
   }, [dispatch]);
+
+  useEffect(() => {
+    setIsAnyModalOpen(showSuccessModal || showSuccessModal1);
+  }, [showSuccessModal, showSuccessModal1]);
+
+  useEffect(() => {
+    document.body.style.overflow = isAnyModalOpen ? 'hidden' : 'auto';
+  }, [isAnyModalOpen]);
 
   const getVisibleProducts = () => {
     if (!filter || filter.value === 'all' || filter.value === 'All') {
@@ -86,8 +89,9 @@ const Products = () => {
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
-
-    setCalcCall(0);
+    if (!showSuccessModal) {
+      setCalcCall(0);
+    }
   };
 
   const toggleSuccessModalTest = () => {
@@ -102,7 +106,7 @@ const Products = () => {
     const value = event.target.value;
     setAmount(value);
     setProductId(productData._id);
-    setCalcCall((value * productData.calories) / 100);
+    setCalcCall(Math.round((value * productData.calories) / 100));
   };
 
   const handleSearchChange = (event) => {
@@ -116,88 +120,55 @@ const Products = () => {
   };
 
   return (
-    <section className={css.productsSection}>
-      <p className={css.toolTip}>Filters</p>
-      <div className={css.titleSearchBox}>
-        <h1 className={css.title}>Products</h1>
-        <div className={css.filtersContainer}>
-          <div>
-            <div className={css.searchInput}>
-              <input
-                type="text"
-                className={css.searchField}
-                placeholder="Search"
-                onChange={handleSearchChange}
-                value={filterByText}
-              />
-              <div className={css.buttonContainer}>
-                {showCloseBtn && (
-                  <button
-                    className={css.closeButton}
-                    onClick={handleClearInput}
-                  >
-                    <CloseIcon color={orangeDark} fontSize="medium" />
-                  </button>
-                )}
-                <button className={css.searchButton}>
-                  <SearchOutlinedIcon color={white} fontSize="medium" />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className={css.selectContainer}>
-            <CustomSelect
-              placeholder="Categories"
-              minWidth="146px"
-              options={categories}
-              name="Categories"
-            />
-            <CustomSelect
-              placeholder="All"
-              minWidth="173px"
-              options={optionsRecomendation}
-              name="Recommendations"
-            />
-          </div>
+    <div className={css.background}>
+      <section className={css.productsSection}>
+        <p className={css.toolTip}>Filters</p>
+        <div className={css.titleSearchBox}>
+          <h1 className={css.title}>Products</h1>
+          <ProductsFilters
+            handleClearInput={handleClearInput}
+            handleSearchChange={handleSearchChange}
+            showCloseBtn={showCloseBtn}
+            filterByText={filterByText}
+            categories={categories}
+          />
         </div>
-      </div>
 
-      {(visibleProductsByTitle?.length === 0 && <NotFound />) || (
-        <ul className={css.cardContainer}>
-          {(loading && <Loader />) ||
-            (showProducts && <Loader /> && (
-              <ProductCard
-                visibleproducts={visibleProductsByTitle}
-                toggleSuccessModal={toggleSuccessModal}
-                toggleSuccessModal1={toggleSuccessModal1}
-              />
-            ))}
-        </ul>
-      )}
-
-      {showSuccessModal && (
-        <Modal onClose={toggleSuccessModal}>
-          <AddProductForm
+        {(visibleProductsByTitle?.length === 0 && <NotFound />) || (
+          <ProductsList
+            visibleproducts={visibleProductsByTitle}
             toggleSuccessModal={toggleSuccessModal}
-            toggleSuccessModalTest={toggleSuccessModalTest}
-            handleChange={handleChange}
-            productData={productData}
-            caclCall={caclCall}
-            amount={amount}
-            productId={productId}
+            toggleSuccessModal1={toggleSuccessModal1}
+            showProducts={showProducts}
+            loading={loading}
           />
-        </Modal>
-      )}
+        )}
 
-      {showSuccessModal1 && (
-        <Modal onClose={toggleSuccessModalTest}>
-          <AddProductsSuccess
-            toggleSuccessModalTest={toggleSuccessModalTest}
-            caclCall={caclCall} location={location}
-          />
-        </Modal>
-      )}
-    </section>
+        {showSuccessModal && (
+          <Modal onClose={toggleSuccessModal}>
+            <AddProductForm
+              toggleSuccessModal={toggleSuccessModal}
+              toggleSuccessModalTest={toggleSuccessModalTest}
+              handleChange={handleChange}
+              productData={productData}
+              caclCall={caclCall}
+              amount={amount}
+              productId={productId}
+            />
+          </Modal>
+        )}
+
+        {showSuccessModal1 && (
+          <Modal onClose={toggleSuccessModalTest}>
+            <AddProductsSuccess
+              toggleSuccessModalTest={toggleSuccessModalTest}
+              caclCall={caclCall}
+              location={location}
+            />
+          </Modal>
+        )}
+      </section>
+    </div>
   );
 };
 
