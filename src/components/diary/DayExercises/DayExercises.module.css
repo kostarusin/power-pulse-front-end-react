@@ -35,18 +35,13 @@
   border: none;
   color: #efede8;
 }
-.addExerciseBtn:hover .svg {
-  fill: var(--orange-dark);
-  stroke: var(--orange-dark);
-}
 
 .addExerciseBtn:hover .link {
   color: #e6533c;
 }
 .svg {
-  fill: var(--white);
-  stroke: var(--white);
-  transition: all 0.1s linear;
+  fill: var(--orange-dark);
+  stroke: var(--orange-dark);
 }
 .link {
   color: #efede8;

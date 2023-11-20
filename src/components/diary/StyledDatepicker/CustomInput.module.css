@@ -10,6 +10,7 @@
   fill: #040404;
   stroke: #ef8964;
   cursor: pointer;
+  transition: all 0.1s linear;
 }
 .svg:hover,
 .svg:focus {
