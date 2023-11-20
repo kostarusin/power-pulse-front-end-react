@@ -15,7 +15,7 @@ function DayExercises({ exercises }) {
             <NavLink className={styles.link} to="/exercises">
               Add exercise
             </NavLink>
-            <svg width="16" height="16">
+            <svg width="16" height="16" className={styles.svg}>
               <use href={`${sprite}#icon-add-arrow`}></use>
             </svg>
           </button>
