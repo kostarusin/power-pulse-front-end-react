@@ -32,10 +32,14 @@
   border: 2px solid #e6533c;
   border-radius: 50%;
   width: 90px;
+  height: 90px;
+  object-fit: cover;
 }
 @media screen and (min-width: 768px) {
   .user-img {
     width: 150px;
+    height: 150px;
+    
   }
 }
 .user-img-input-container {
