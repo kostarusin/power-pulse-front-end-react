@@ -14,7 +14,7 @@ const ProductCard = ({
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
 
-  return visibleproducts.map((product) => {
+    return visibleproducts.map((product) => {
     return (
       <li key={product.item._id} className={css.card}>
         <div className={css.cardPart1}>

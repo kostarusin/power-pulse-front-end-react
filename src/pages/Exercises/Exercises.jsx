@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import sprite from '../../assets/icons-optimized.svg';
 
 import css from './Exercises.module.css';
@@ -18,6 +19,7 @@ const Exercises = () => {
   const { bodyParts } = useExercises();
 
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(fetchExercises());
@@ -90,7 +92,7 @@ const Exercises = () => {
             )}
           </>
         ) : (
-          <ExercisesList activeName={activeName} activeFilter={activeFilter} />
+          <ExercisesList activeName={activeName} location={location} activeFilter={activeFilter} />
         )}
       </div>
     </div>

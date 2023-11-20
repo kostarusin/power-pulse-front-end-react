@@ -5,14 +5,14 @@ import styles from './DayExercises.module.css';
 //component
 import ExercisesList from './ExercisesList/ExercisesList';
 
-function DayExercises({ exercises }) {
+function DayExercises({ exercises, location }) {
   return (
     <div className={styles.dayExercisesWrapper}>
       <div className={styles.headerWrapper}>
         <p className={styles.title}>Exercises</p>
         <div className={styles.btnWrapper}>
           <button className={styles.addExerciseBtn}>
-            <NavLink className={styles.link} to="/exercises">
+            <NavLink className={styles.link} state={{from: location}} to="/exercises">
               Add exercise
             </NavLink>
             <svg width="16" height="16" className={styles.svg}>
