@@ -20,7 +20,7 @@ export const ExercisesNavigation = ({
             setActiveName('');
           }}
           className={`${styles.FilterBtn} ${
-            -activeFilter === 'Body parts' ? styles.active : ''
+            activeFilter === 'Body parts' ? styles.active : ''
           }`}
         >
           Body parts

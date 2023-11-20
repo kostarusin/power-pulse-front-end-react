@@ -56,12 +56,10 @@ export const ExercisesItem = ({ data }) => {
           onClick={toggleExerciseModal}
         >
           {texts.btnLabel}
-          <span>
             <svg className={css.svgExercise}>
               <use href={`${icons}#icon-add-arrow`}></use>
             </svg>
-          </span>
-        </button>
+         </button>
       </div>
       <div className={css.exercisesTitleBox}>
         <span className={css.spanExerciseRun}>
