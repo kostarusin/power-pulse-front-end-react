@@ -12,11 +12,11 @@ const DaySwitch = ({
   setSelectedDate,
   handleToNextDay,
   handleToPreviousDay,
-  additionalIconClass, 
+  additionalIconClass,
 }) => {
   const isOpacityLeft = additionalIconClass === 'opacity-left';
   const isOpacityRight = additionalIconClass === 'opacity-right';
-  
+
   return (
     <div className={css.box}>
       <StyledDatepicker
@@ -32,8 +32,8 @@ const DaySwitch = ({
           onClick={handleToPreviousDay}
           style={isOpacityLeft ? { opacity: 0.2 } : null}
         >
-          <svg width="16" height="16">
-            <use href={`${sprite}#icon-chevron-left`}></use>
+          <svg className={css.svg} width="16" height="16">
+            <use href={`${sprite}#icon-chevron-left1`}></use>
           </svg>
         </button>
         <button
@@ -42,8 +42,8 @@ const DaySwitch = ({
           className={css.arrowRight}
           style={isOpacityRight ? { opacity: 0.2 } : null}
         >
-          <svg width="16" height="16">
-            <use href={`${sprite}#icon-chevron-right`}></use>
+          <svg className={css.svg} width="16" height="16">
+            <use href={`${sprite}#icon-chevron-right1`}></use>
           </svg>
         </button>
       </div>

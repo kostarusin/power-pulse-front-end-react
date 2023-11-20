@@ -52,7 +52,9 @@ const ProductsList = ({ products }) => {
                     Title
                   </div>
 
-                  <div className={css.text}>{capitalizeFirstLetter(product.title)}</div>
+                  <div className={css.text}>
+                    {capitalizeFirstLetter(product.title)}
+                  </div>
                 </li>
                 <li className={css.wrapperItemCategory}>
                   <div
