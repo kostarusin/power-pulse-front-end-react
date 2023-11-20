@@ -4,7 +4,7 @@ import icons from '../../assets/icons.svg';
 import { ButtonModal } from '../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';
 
-export const AddExerciseSuccess = ({ exercise }) => {
+export const AddExerciseSuccess = ({ exercise, toggleSuccessModal }) => {
 
   return (
     <div className={css.container}>
@@ -21,7 +21,7 @@ export const AddExerciseSuccess = ({ exercise }) => {
       </div>
 
       <div className={css.links}>
-        <ButtonModal btnType={'button'} text={'Next exercise'} />
+        <ButtonModal btnType={'button'} onClick={toggleSuccessModal} text={'Next exercise'} />
         <Link to={'/diary'} className={css.link}>
           To the diary
           <svg className={css.svg}>

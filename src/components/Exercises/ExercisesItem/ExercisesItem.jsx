@@ -86,7 +86,10 @@ export const ExercisesItem = ({ data }) => {
       )}
       {showSuccessModal && (
         <Modal onClose={toggleSuccessModal}>
-          <AddExerciseSuccess exercise={exercise} />
+          <AddExerciseSuccess
+            exercise={exercise}
+            toggleSuccessModal={toggleSuccessModal}
+          />
         </Modal>
       )}
 
