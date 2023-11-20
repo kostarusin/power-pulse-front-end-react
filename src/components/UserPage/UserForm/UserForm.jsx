@@ -9,6 +9,7 @@ import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../../redux/auth/operations';
+import { useAuth } from '../../../hooks';
 //datepicker
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //notification
@@ -21,10 +22,12 @@ import { format } from 'date-fns';
 //formatDate
 import convertValues from './typesConvertedFunction';
 
-const UserForm = ({ selectedDate, user }) => {
+const UserForm = ({ selectedDate }) => {
   const dispatch = useDispatch();
 
   const [isFormChanged, setFormChanged] = useState(false);
+
+  const { user } = useAuth();
 
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
