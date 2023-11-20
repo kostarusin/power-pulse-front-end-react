@@ -15,7 +15,7 @@ function DayProducts({ products, location }) {
             <NavLink className={styles.link} state={{from: location}} to="/products">
               Add product{' '}
             </NavLink>
-            <svg width="16" height="16">
+            <svg width="16" height="16" className={styles.svg}>
               <use href={`${sprite}#icon-add-arrow`}></use>
             </svg>
           </button>

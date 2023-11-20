@@ -43,16 +43,25 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28; /* 128.571% */
+  transition: all 0.1s linear;
 }
-.link:hover,
-.link:focus {
-  color: #e6533c;
+.addProductBtn:hover .svg {
+  fill: var(--orange-dark);
+    stroke: var(--orange-dark);
+}
+.addProductBtn:hover .link {
+    color: #e6533c;
 }
 @media screen and (min-width: 768px) {
   .link {
     font-size: 16px;
     line-height: 1.5;
   }
+}
+.svg {
+  fill: var(--white);
+  stroke: var(--white);
+  transition: all 0.1s linear;
 }
 
 .errNotFound {
