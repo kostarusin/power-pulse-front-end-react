@@ -91,7 +91,13 @@
   background-color: inherit;
   border: none;
 }
-
+.svg {
+  stroke: var(--orange-light);
+  transition: stroke 0.1s linear;
+}
+.svg:hover {
+  stroke: var(--white);
+}
 .wrapperBodyPart {
   width: 297px;
 }

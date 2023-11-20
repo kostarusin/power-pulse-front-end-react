@@ -45,10 +45,6 @@
   line-height: 1.28; /* 128.571% */
   transition: all 0.1s linear;
 }
-.addProductBtn:hover .svg {
-  fill: var(--orange-dark);
-    stroke: var(--orange-dark);
-}
 .addProductBtn:hover .link {
     color: #e6533c;
 }
@@ -59,10 +55,11 @@
   }
 }
 .svg {
-  fill: var(--white);
-  stroke: var(--white);
-  transition: all 0.1s linear;
+  fill: var(--orange-dark);
+  stroke: var(--orange-dark);
 }
+
+.lin
 
 .errNotFound {
   font-size: 16px;
