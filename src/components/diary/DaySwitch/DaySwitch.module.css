@@ -27,3 +27,10 @@
 .opacity {
   opacity: 0.2;
 }
+.svg {
+  fill: rgba(239, 237, 232, 1);
+}
+.svg:hover,
+.svg:focus {
+  fill: rgba(239, 237, 232, 0.2);
+}
