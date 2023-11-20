@@ -40,15 +40,18 @@ const Exercises = () => {
     <div className={css.div}>
       <div className={css.exercisesWrapper}>
         {activeName && (
-            <button type="button" onClick={() => setActiveName('')} className={css.btnBack}>
-              <svg className={css.svgBack} width={16} height={16} >
-                <use href={sprite + "#icon-arrow-left"}></use>
-              </svg>
-              Back
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={() => setActiveName('')}
+            className={css.btnBack}
+          >
+            <svg className={css.svgBack} width={16} height={16}>
+              <use href={sprite + '#icon-arrow-left'}></use>
+            </svg>
+            Back
+          </button>
+        )}
         <div className={css.exercisesBox}>
-          
           {activeFilter !== 'Waist' ? (
             <h2 className={css.exercisesTitle}>Exercises</h2>
           ) : (
@@ -59,6 +62,7 @@ const Exercises = () => {
           <ExercisesNavigation
             activeFilter={activeFilter}
             handleFilterClick={handleFilterClick}
+            setActiveName={setActiveName}
           />
         </div>
         {!activeName ? (

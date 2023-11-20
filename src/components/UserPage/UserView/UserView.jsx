@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { logOut, updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../hooks';
+import { getUserCalories } from '../../../redux/auth/operations';
 
 import css from './UserView.module.css';
 import sprite from '../../../assets/icons-optimized.svg';
@@ -10,12 +12,15 @@ import iconUser from '../../../assets/user.jpg';
 const UserView = () => {
   const { colories, user } = useAuth();
   const avatar = user.avatarURL;
-  console.log(colories);
 
   const dispatch = useDispatch();
 
   const { bmr, dailyExerciseTime } = colories;
   const DailyCalorieIntake = Math.floor(bmr);
+
+  useEffect(() => {
+    dispatch(getUserCalories());
+  }, [dispatch]);
 
   const handleFileChange = (event) => {
     event.preventDefault();
