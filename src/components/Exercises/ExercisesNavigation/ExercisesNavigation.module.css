@@ -36,8 +36,9 @@
   font-size: 14px;
   font-weight: 400;
   border: none;
-  opacity: 0.5;
+  line-height: 18px;
   background-color: var(--black);
+  padding: 0;
 }
 
 .FilterBtn.active {

@@ -1,25 +1,35 @@
-
+.exercisesBox {
+  list-style: none;
+}
 .exercisesWrapper{
+  padding-top: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  margin-top: 10px;
 }
-  @media screen and (min-width: 1440px) {
-    .exercisesWrapper{
+@media screen and (min-width: 1440px) {
+  .exercisesWrapper{
     padding-left: 96px;
     width: 1440px;
     margin-left: auto;
     margin-right: auto;
   }
-  }
+
+  
+}
 
 
-  @media screen and (min-width: 768px) {
-    .exercisesBox{
+@media screen and (min-width: 768px) {
+  .exercisesBox{
     display: flex;
     justify-content: space-between;
   }
+
+  .exercisesWrapper {
+    padding-top: 72px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
+}
 
 .exercisesTitle {
   color:var(--white);

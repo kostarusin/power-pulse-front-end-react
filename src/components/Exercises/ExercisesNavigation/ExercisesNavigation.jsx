@@ -12,7 +12,7 @@ export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
         <button
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={`${styles.FilterBtn} ${-
+          className={`${styles.FilterBtn} ${
             activeFilter === 'Body parts' ? styles.active : ''
           }`}
         >

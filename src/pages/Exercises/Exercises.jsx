@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-//import { WaistList } from '../../../src/components/Exercises/Waist/WaistList/WaistList';
 import { ExercisesList } from '../../components/Exercises/Exercises/ExercisesList/ExercisesList';
 import css from './Exercises.module.css';
-import { ExercisesMain } from '../../components/exercises/ExercisesMain/ExercisesMain';
+import { ExercisesMain } from '../../components/Exercises/ExercisesMain/ExercisesMain';
 
 //redux
 import { useDispatch } from 'react-redux';
