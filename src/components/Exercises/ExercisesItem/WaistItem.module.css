@@ -58,7 +58,7 @@
 }
 .btnLabel:hover ,
 .btnLabel:focus{
-  color:var(--orange);
+  color:var(--orange-dark);
 }
 .svgExercise {
   width: 13px;
