@@ -55,7 +55,7 @@ function ExercisesList({ exercises }) {
                   Body Part
                 </div>
                 <div className={css.text}>
-                  {capitalizeFirstLetter(exercise.bodyPart)}
+                  {capitalizeFirstLetter(exercise.exercise.bodyPart)}
                 </div>
               </li>
               <li className={css.wrapperEquipment}>
@@ -69,7 +69,7 @@ function ExercisesList({ exercises }) {
                   Equipment
                 </div>
                 <div className={css.text}>
-                  {capitalizeFirstLetter(exercise.equipment)}
+                  {capitalizeFirstLetter(exercise.exercise.equipment)}
                 </div>
               </li>
               <li className={css.wrapeerName}>
@@ -83,7 +83,7 @@ function ExercisesList({ exercises }) {
                   Name
                 </div>
                 <div className={css.text}>
-                  {capitalizeFirstLetter(exercise.name)}
+                  {capitalizeFirstLetter(exercise.exercise.name)}
                 </div>
               </li>
               <li className={css.wrapperTarget}>
@@ -97,7 +97,7 @@ function ExercisesList({ exercises }) {
                   Target
                 </div>
                 <div className={css.text}>
-                  {capitalizeFirstLetter(exercise.target)}
+                  {capitalizeFirstLetter(exercise.exercise.target)}
                 </div>
               </li>
               <li className={css.wrapperBurnedCalories}>
