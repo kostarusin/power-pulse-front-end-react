@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  register,
-  logIn,
-  logOut,
-  refreshUser,
-  updateInfo,
-  // getUserCalories,
-} from './operations';
+import { register, logIn, logOut, refreshUser, updateInfo } from './operations';
 
 const initialState = {
   user: {
@@ -65,9 +58,6 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       });
-    // .addCase(getUserCalories.fulfilled, (state, action) => {
-    //   state.calories = action.payload;
-    // });
   },
 });
 
