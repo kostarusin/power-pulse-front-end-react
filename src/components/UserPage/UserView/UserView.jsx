@@ -1,5 +1,10 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { logOut, updateInfo } from '../../../redux/auth/operations';
+import {
+  logOut,
+  updateInfo,
+  getUserCalories,
+} from '../../../redux/auth/operations';
 import { useAuth } from '../../../hooks';
 
 import css from './UserView.module.css';
@@ -12,6 +17,10 @@ const UserView = () => {
   const avatar = user.avatarURL;
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserCalories());
+  }, [dispatch]);
 
   const { bmr, dailyExerciseTime } = colories;
   const DailyCalorieIntake = Math.floor(bmr);
