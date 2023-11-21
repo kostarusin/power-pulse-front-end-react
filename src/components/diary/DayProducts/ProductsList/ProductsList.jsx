@@ -24,6 +24,7 @@ const ProductsList = ({ products }) => {
       deleteExerciseOrProduct({
         date: date,
         credentials: {
+          type: 'product',
           id: product._id,
         },
       }),
