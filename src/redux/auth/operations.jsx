@@ -91,7 +91,6 @@ export const updateInfo = createAsyncThunk(
       const res = await axios.patch('/api/auth/updatedetails', credentials);
       return res.data;
     } catch (error) {
-      console.log(error.status);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
