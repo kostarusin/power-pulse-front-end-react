@@ -1,6 +1,17 @@
 .title {
   color: inherit;
   margin-top: 40px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  @media screen and (min-width: 768px) {
+    margin-top: 72px;
+    font-size: 32px;
+    line-height: 1.37;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 12px;
+  }
 }
 
 .react-select__control:hover {
@@ -32,28 +43,18 @@
 
     padding-left: 96px;
     padding-right: 0px;
-
-    /* background-image: url(src/assets/products-desk.jpg);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: auto; */
-    /* min-width: 100%; */
     min-height: 716px;
     width: 1440px;
-
     max-width: 1440px;
-
   }
 }
 
-.background{
+.background {
   @media screen and (min-width: 1440px) {
-
     background-image: url(src/assets/products-desk.jpg);
     background-position: right;
     background-repeat: no-repeat;
     background-size: auto;
- 
   }
 }
 
