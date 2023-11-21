@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
