@@ -9,7 +9,7 @@ import DaySwitch from '../../components/diary/DaySwitch';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
-import { getUserCalories, refreshUser } from '../../redux/auth/operations';
+import { refreshUser } from '../../redux/auth/operations';
 import { useDiary } from '../../hooks';
 import { useAuth } from '../../hooks';
 //date lib
@@ -59,14 +59,16 @@ function Diary() {
       dispatch(getDiary(formattedDate));
       navigate(`/diary/${formattedDate}`);
     }
-  
-    const createdAtDate = parseISO(user.createdAt); 
-    const selectedDateFormatted = date ? parse(date, 'dd-MM-yyyy', new Date()) : currentDate; 
-    
+
+    const createdAtDate = parseISO(user.createdAt);
+    const selectedDateFormatted = date
+      ? parse(date, 'dd-MM-yyyy', new Date())
+      : currentDate;
+
     const currentDateFormatted = formattingDate(currentDate);
     const createdAtDateFormatted = formattingDate(createdAtDate);
     const selectedDateFormattedString = formattingDate(selectedDateFormatted);
-  
+
     if (selectedDateFormattedString === currentDateFormatted) {
       setAdditionalIconClass('opacity-right');
     } else if (selectedDateFormattedString === createdAtDateFormatted) {
@@ -75,10 +77,6 @@ function Diary() {
       setAdditionalIconClass('');
     }
   }, [dispatch, date, formattedDate, navigate, user.createdAt]);
-
-  useEffect(() => {
-    dispatch(getUserCalories());
-  }, [dispatch]);
 
   const handlingDate = (date) => {
     const formattedDate = formattingDate(date);
@@ -139,14 +137,8 @@ function Diary() {
       </div>
       <div className={styles.container}>
         <div className={styles.itemsCont}>
-          <DayProducts
-            products={consumedProducts}
-            location={location}
-          />
-          <DayExercises
-            exercises={doneExercises}
-            location={location}
-          />
+          <DayProducts products={consumedProducts} location={location} />
+          <DayExercises exercises={doneExercises} location={location} />
         </div>
         <DayDashboard />
       </div>
@@ -155,4 +147,3 @@ function Diary() {
 }
 
 export default Diary;
-

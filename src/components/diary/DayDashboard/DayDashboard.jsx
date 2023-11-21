@@ -7,11 +7,11 @@ import icon from '../../../assets/icons.svg';
 import styles from './DayDashboard.module.css';
 
 function DayDashboard() {
-  const { colories } = useAuth();
+  const { user } = useAuth();
   const { burnedCalories, consumedCalories } = useDiary();
   const { doneExercises } = useDiary();
 
-  const { bmr, dailyExerciseTime } = colories;
+  const { bmr, dailyExerciseTime } = user;
 
   const [caloriesColor, setCaloriesColor] = useState('');
   const [sportColor, setSportColor] = useState('');

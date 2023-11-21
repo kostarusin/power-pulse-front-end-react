@@ -3,7 +3,7 @@ import UserForm from '../../components/UserPage/UserForm';
 import UserTitle from '../../components/UserPage/UserTitle';
 import UserView from '../../components/UserPage/UserView';
 import { useDispatch } from 'react-redux';
-import { refreshUser, getUserCalories } from '../../redux/auth/operations';
+import { refreshUser } from '../../redux/auth/operations';
 
 import css from './UserPage.module.css';
 
@@ -12,10 +12,6 @@ const UserPage = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getUserCalories());
   }, [dispatch]);
 
   return (
