@@ -60,7 +60,7 @@ const SignUpInForm = ({ includeName }) => {
                   type="text"
                   name="username"
                   placeholder="Name"
-                  autocomplete="off"
+                  autoComplete="off"
                   className={css.input}
                 />
                 <ErrorMessage
@@ -75,7 +75,7 @@ const SignUpInForm = ({ includeName }) => {
                 type="text"
                 name="email"
                 placeholder="Email"
-                autocomplete="off"
+                autoComplete="off"
                 className={
                   css.input +
                   (touched.email
@@ -113,7 +113,7 @@ const SignUpInForm = ({ includeName }) => {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
-                autocomplete="off"
+                autoComplete="off"
                 className={
                   css.input +
                   (touched.password
