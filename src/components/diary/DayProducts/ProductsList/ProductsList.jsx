@@ -7,6 +7,7 @@ import { useDiary } from '../../../../hooks';
 
 const ProductsList = ({ products }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
   const { date } = useDiary();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -54,7 +55,7 @@ const ProductsList = ({ products }) => {
                   </div>
 
                   <div className={css.text}>
-                    {capitalizeFirstLetter(product.title)}
+                    {capitalizeFirstLetter(product.product.title)}
                   </div>
                 </li>
                 <li className={css.wrapperItemCategory}>
@@ -69,7 +70,7 @@ const ProductsList = ({ products }) => {
                   </div>
 
                   <div className={css.text}>
-                    {capitalizeFirstLetter(product.category)}
+                    {capitalizeFirstLetter(product.product.category)}
                   </div>
                 </li>
                 <li className={css.wrapperItemCalories}>
