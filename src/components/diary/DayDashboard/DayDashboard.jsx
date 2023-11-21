@@ -10,7 +10,7 @@ function DayDashboard() {
   const { user } = useAuth();
   const { burnedCalories, consumedCalories } = useDiary();
   const { doneExercises } = useDiary();
-  console.log(user);
+
   const { bmr, dailyExerciseTime } = user;
 
   const [caloriesColor, setCaloriesColor] = useState('');
