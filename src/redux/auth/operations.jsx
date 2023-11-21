@@ -87,7 +87,6 @@ export const updateInfo = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      console.log('persistedToken', persistedToken);
       const res = await axios.patch('/api/auth/updatedetails', credentials);
       return res.data;
     } catch (error) {
