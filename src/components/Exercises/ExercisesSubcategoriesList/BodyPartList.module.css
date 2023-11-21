@@ -7,17 +7,17 @@
 }
 @media screen and (min-width: 768px) {
   .exercisesUl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 16px 32px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .exercisesUl {
-    flex-wrap: wrap;
-    justify-content: start;
-    column-gap: 22px;
+    width: 1248px;
+    display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+  gap: 16px 32px; /* горизонтальна відстань 16px, вертикальна відстань 32px */
   }
 }
