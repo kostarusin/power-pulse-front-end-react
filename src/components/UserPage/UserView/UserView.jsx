@@ -8,12 +8,12 @@ import icon from '../../../assets/icons.svg';
 import iconUser from '../../../assets/user.jpg';
 
 const UserView = () => {
-  const { colories, user } = useAuth();
+  const { user } = useAuth();
   const avatar = user.avatarURL;
 
   const dispatch = useDispatch();
 
-  const { bmr, dailyExerciseTime } = colories;
+  const { bmr, dailyExerciseTime } = user;
   const DailyCalorieIntake = Math.floor(bmr);
 
   const handleFileChange = (event) => {

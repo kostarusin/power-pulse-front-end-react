@@ -5,7 +5,7 @@ import {
   logOut,
   refreshUser,
   updateInfo,
-  getUserCalories,
+  // getUserCalories,
 } from './operations';
 
 const initialState = {
@@ -64,10 +64,10 @@ const authSlice = createSlice({
         state.user = { ...state.user, ...action.payload };
         state.isLoggedIn = true;
         state.isRefreshing = false;
-      })
-      .addCase(getUserCalories.fulfilled, (state, action) => {
-        state.calories = action.payload;
       });
+    // .addCase(getUserCalories.fulfilled, (state, action) => {
+    //   state.calories = action.payload;
+    // });
   },
 });
 

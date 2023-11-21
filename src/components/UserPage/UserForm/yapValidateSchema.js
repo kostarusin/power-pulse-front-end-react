@@ -4,7 +4,8 @@ const ProfileSettingsSchema = Yup.object().shape({
   username: Yup.string().required('User Name is a required field'),
   height: Yup.number()
     .min(150, 'Must be at least 150 cm')
-    .required('Height is a required field'),
+    .required('Height is a required field')
+    .max(300, 'Must be at most 300 cm'),
   currentWeight: Yup.number()
     .min(35, 'Must be at least 35 kg')
     .required('Current weight is a required field'),
