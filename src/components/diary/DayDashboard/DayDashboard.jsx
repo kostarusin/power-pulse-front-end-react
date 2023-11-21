@@ -132,8 +132,8 @@ function DayDashboard() {
 
           <p className={styles['user-daily-text-value']}>
             {SportsRemaining < 0
-              ? formattedSportsRemaining || 0 + ' min'
-              : SportsRemaining || 0 + ' min'}
+              ? formattedSportsRemaining + ' min'
+              : SportsRemaining + ' min'}
           </p>
         </li>
       </ul>
