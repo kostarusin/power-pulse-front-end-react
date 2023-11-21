@@ -5,7 +5,6 @@ margin: 0;
 .exercisesWrapper {
   padding-left: 20px;
   padding-right: 20px;
-  margin-top: 10px;
 }
 @media screen and (min-width: 1440px) {
   .exercisesWrapper {
@@ -17,7 +16,7 @@ margin: 0;
 }
 .exercisesBox {
   margin-top: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -26,8 +25,7 @@ margin: 0;
     justify-content: space-between;
     align-items: baseline;
     margin-top: 0;
-    margin-bottom: 32px;
-  }
+     }
 }
 
 .exercisesTitle {
@@ -82,11 +80,34 @@ margin: 0;
     margin-top: 32px;
     margin-bottom: 16px;
   }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 21px;
-  }
-}
+ }
 .svgBack {
   fill: var(--grayEx);
   stroke: var(--grayEx);
+}
+
+.buttonsWrapper {
+  margin-top: 32px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-top: 72px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
+}
+
+.buttonsWrapper.activeClass {
+  margin-top: 0px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 12px;
+  }
+ }
+
+@media screen and (min-width: 768px) {
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
