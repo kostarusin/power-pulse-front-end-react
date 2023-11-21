@@ -74,3 +74,9 @@
   color: var(--grayEx);
   transition: transform 0.2s linear;
 }
+
+@media screen and (min-width: 1440px) {
+  .image {
+    width: 237px;
+  }
+}

@@ -29,8 +29,8 @@ const Exercises = () => {
     dispatch(fetchByType());
 
     if (!searchParams.get('filterName')) {
-      setSearchParams({filterName: 'Body parts'});
-      }
+      setSearchParams({ filterName: 'Body parts' });
+    }
   }, [dispatch, searchParams]);
 
   const capitalizeFirstLeter = (string) => {
@@ -39,38 +39,43 @@ const Exercises = () => {
   };
 
   const handleFilterClick = (filter) => {
-    setSearchParams({filterName: filter});
+    setSearchParams({ filterName: filter });
   };
 
   return (
     <div className={css.div}>
       <div className={css.exercisesWrapper}>
-        {activeName && (
-          <button
-            type="button"
-            onClick={() => setActiveName('')}
-            className={css.btnBack}
-          >
-            <svg className={css.svgBack} width={16} height={16}>
-              <use href={sprite + '#icon-arrow-left'}></use>
-            </svg>
-            Back
-          </button>
-        )}
-        <div className={css.exercisesBox}>
-          {exercisesFiler !== 'Waist' ? (
-            <h2 className={css.exercisesTitle}>Exercises</h2>
-          ) : (
-            <h2 className={css.exercisesTitle}>
-              {capitalizeFirstLeter(exerciseName)}
-            </h2>
+        <div className={css.head}>
+          <div className={`${css.buttonsWrapper} ${activeName ? css.activeClass : ''}`}>
+          {activeName && (
+            <button
+              type="button"
+              onClick={() => setActiveName('')}
+              className={css.btnBack}
+            >
+              <svg className={css.svgBack} width={16} height={16}>
+                <use href={sprite + '#icon-arrow-left'}></use>
+              </svg>
+              Back
+            </button>
           )}
-          <ExercisesNavigation
-            exercisesFiler={exercisesFiler}
-            handleFilterClick={handleFilterClick}
-            setActiveName={setActiveName}
-          />
+          <div className={css.exercisesBox}>
+            {exercisesFiler !== 'Waist' ? (
+              <h2 className={css.exercisesTitle}>Exercises</h2>
+            ) : (
+              <h2 className={css.exercisesTitle}>
+                {capitalizeFirstLeter(exerciseName)}
+              </h2>
+            )}
+          </div>
         </div>
+        <ExercisesNavigation
+          exercisesFiler={exercisesFiler}
+          handleFilterClick={handleFilterClick}
+          setActiveName={setActiveName}
+        />
+        </div>
+        
         {!activeName ? (
           <>
             {exercisesFiler === 'Body parts' && (
@@ -96,7 +101,11 @@ const Exercises = () => {
             )}
           </>
         ) : (
-          <ExercisesList activeName={activeName} location={location} exercisesFiler={exercisesFiler} />
+          <ExercisesList
+            activeName={activeName}
+            location={location}
+            exercisesFiler={exercisesFiler}
+          />
         )}
       </div>
     </div>

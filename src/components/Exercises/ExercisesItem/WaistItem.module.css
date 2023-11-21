@@ -10,6 +10,20 @@
   justify-content: space-between;
 }
 
+@media screen and (min-width: 375px) {
+  .waistItemLi {
+    min-height: 141px;
+    max-height: 163px;
+    max-width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .waistItemLi {
+    width: calc((100% - 16px) / 2);
+  }
+}
+
 @media screen and (max-width: 767px) {
   .waistItemLi {
     margin: 0 auto;
@@ -17,14 +31,18 @@
 }
 @media screen and (min-width: 768px) {
   .waistItemLi {
-    width: calc((100% - 16px) / 2);
+    width: 335px;
+    height: 163px;
   }
 }
-/* @media screen and (min-width: 1440px) {
+
+@media screen and (min-width: 1440px) {
   .waistItemLi {
-    width: 370px;
+    width: 405px;
+    max-width: 405px;
+    height: 141px;
   }
-} */
+}
 
 .btnWrapper {
   display: flex;
@@ -45,6 +63,7 @@
 }
 .btnLabel {
   background: transparent;
+  text-align: center;
   border: none;
   color: var(--white);
   font-size: 16px;
@@ -77,10 +96,10 @@
 }
 .title {
   position: relative;
-  font-size: 24px;
-  line-height: 1.333;
+  font-size: 20px;
+  line-height: 1.2;
   color: var(--white);
-
+  font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -89,7 +108,8 @@
 }
 @media screen and (min-width: 768px) {
   .title {
-    width: 285px;
+    font-size: 24px;
+    line-height: 1.33;
   }
 }
 
@@ -137,3 +157,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+

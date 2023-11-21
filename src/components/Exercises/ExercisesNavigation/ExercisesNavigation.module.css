@@ -1,12 +1,16 @@
 .ExercisesNavList {
+
   display: flex;
   gap: 28px;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
-@media screen and (min-width: 1440px) {
+
+@media screen and (min-width: 768px) {
   .ExercisesNavList {
-  padding-right: 96px;
-}}
+    margin-top: 74px;
+  }
+}
+
 .ExercisesFilter {
   color: var(--greyEx);
   font-size: 14px;
@@ -38,8 +42,13 @@
   border: none;
   opacity: 0.5;
   background-color: transparent;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
 }
 
 .FilterBtn.active {
   color: var(--white);
 }
+

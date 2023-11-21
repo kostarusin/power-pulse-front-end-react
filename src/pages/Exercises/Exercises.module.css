@@ -1,7 +1,11 @@
+h2 {
+margin: 0;
+}
+
 .exercisesWrapper {
+  margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  margin-top: 10px;
 }
 @media screen and (min-width: 1440px) {
   .exercisesWrapper {
@@ -12,16 +16,17 @@
   }
 }
 .exercisesBox {
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .exercisesBox {
     display: flex;
     justify-content: space-between;
-    margin-top: 32px;
-    margin-bottom: 32px;
-  }
+    align-items: baseline;
+    margin-top: 0;
+     }
 }
 
 .exercisesTitle {
@@ -30,6 +35,9 @@
   font-weight: 700;
   line-height: 1.16;
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
 .div {
@@ -61,16 +69,55 @@
 .btnBack {
   background-color: transparent;
   border: 0;
-  /* cursor: pointer; */
+  line-height: 1.2;
   color: var(--grayEx);
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 16px;
+  margin-top: 10px;
+  margin-bottom: 12px;
   padding: 0;
-}
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+ }
 .svgBack {
   fill: var(--grayEx);
   stroke: var(--grayEx);
+}
+
+.buttonsWrapper {
+  margin-top: 32px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-top: 72px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
+}
+
+.buttonsWrapper.activeClass {
+  margin-top: 0px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 12px;
+  }
+ }
+
+@media screen and (min-width: 768px) {
+  .head {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 704px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .head {
+    margin: 0;
+    width: 1248px;
+  
+  }
 }
