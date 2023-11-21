@@ -77,6 +77,7 @@ const UserForm = ({ selectedDate }) => {
 
   return (
     <Formik
+      enableReinitialize={true}
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
@@ -173,6 +174,9 @@ const UserForm = ({ selectedDate }) => {
               </label>
               <label htmlFor="birthday" className={css.birthdayForm}>
                 <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.birthday ? css.invalidInput : ''
+                  }`}
                   name="birthday"
                   type="date"
                   selectedDate={selectedDate}
