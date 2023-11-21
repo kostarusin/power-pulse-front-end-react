@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
+import { useDispatch } from 'react-redux';
+import { getStatistics } from '../../redux/statistics/operations';
 // import io from 'socket.io-client';
 
 const Home = () => {
+  const dispatch = useDispatch();
   // const socket = io('https://power-pulse-fx29.onrender.com');
   // const [countuUsers, setCountUsers] = useState(null);
 
@@ -16,6 +19,10 @@ const Home = () => {
   //   });
   // }, [socket]);
   // console.log(countuUsers);
+  useEffect(() => {
+    dispatch(getStatistics());
+  }, [dispatch]);
+
   return (
     <section className={`layoutContainer ${css.hero}`}>
       <div className={css.container}>
