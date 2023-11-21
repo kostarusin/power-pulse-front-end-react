@@ -12,6 +12,7 @@ import SharedLayout from './SharedLayout';
 //routes
 import PublicRoute from '../routes/PublicRoute';
 import PrivateRoute from '../routes/PrivateRoute';
+import UpdateInfo from '../routes/UpdateInfo';
 
 //components
 const HomePage = lazy(() => import('../../pages/Home/Home'));
@@ -54,23 +55,23 @@ function App() {
           />
           <Route
             path="/diary"
-            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
+            element={<PrivateRoute component={DiarysPage} />}
           />
           <Route
             path="/diary/:date"
-            element={<PrivateRoute redirectto="/" component={DiarysPage} />}
+            element={<PrivateRoute component={DiarysPage} />}
           />
           <Route
             path="/profile"
-            element={<PrivateRoute redirectto="/" component={UserPage} />}
+            element={<UpdateInfo component={UserPage} />}
           />
           <Route
             path="/products"
-            element={<PrivateRoute redirectto="/" component={ProductsPage} />}
+            element={<PrivateRoute component={ProductsPage} />}
           />
           <Route
             path="/exercises"
-            element={<PrivateRoute redirectto="/" component={ExercisesPage} />}
+            element={<PrivateRoute component={ExercisesPage} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Route>

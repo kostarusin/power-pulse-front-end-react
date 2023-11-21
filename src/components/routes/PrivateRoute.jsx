@@ -1,11 +1,18 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 
-const PrivateRoute = ({ component: Component, redirectto = '/' }) => {
-  const { isLoggedIn, isRefreshing } = useAuth();
+const PrivateRoute = ({ component: Component }) => {
+  const { isLoggedIn, isRefreshing, user } = useAuth();
   const shouldRedirect = !isLoggedIn && !isRefreshing;
+  const UpdateInfoRedirect = isLoggedIn && !user.height;
 
-  return shouldRedirect ? <Navigate to={redirectto} /> : <Component />;
+  if (shouldRedirect) {
+    return <Navigate to="/" />;
+  } else if (UpdateInfoRedirect) {
+    return <Navigate to="/profile" />;
+  } else {
+    return <Component />;
+  }
 };
 
 export default PrivateRoute;
