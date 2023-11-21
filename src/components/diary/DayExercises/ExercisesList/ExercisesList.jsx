@@ -130,7 +130,7 @@ function ExercisesList({ exercises }) {
                     className={css.btnDelete}
                     onClick={() => handleDeleteExercise(exercise)}
                   >
-                    <svg width="20" height="20">
+                    <svg width="20" height="20" className={css.svg}>
                       <use href={`${sprite}#icon-trash`}></use>
                     </svg>
                   </button>

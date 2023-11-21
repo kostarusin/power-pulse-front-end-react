@@ -17,7 +17,7 @@ const texts = {
   },
 };
 
-export const ExercisesItem = ({ data }) => {
+export const ExercisesItem = ({ data, location }) => {
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [exercise, setExercise] = useState({});
@@ -28,10 +28,22 @@ export const ExercisesItem = ({ data }) => {
 
   const toggleExerciseModal = () => {
     setShowExerciseModal((prevState) => !prevState);
+    if (showExerciseModal === true) {
+      document.body.style.overflow = 'auto';
+    }
+    if (showExerciseModal === false) {
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
+    if (showSuccessModal === true) {
+      document.body.style.overflow = 'auto';
+    }
+    if (showSuccessModal === false) {
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   return (
@@ -44,12 +56,10 @@ export const ExercisesItem = ({ data }) => {
           onClick={toggleExerciseModal}
         >
           {texts.btnLabel}
-          <span>
             <svg className={css.svgExercise}>
               <use href={`${icons}#icon-add-arrow`}></use>
             </svg>
-          </span>
-        </button>
+         </button>
       </div>
       <div className={css.exercisesTitleBox}>
         <span className={css.spanExerciseRun}>
@@ -74,7 +84,11 @@ export const ExercisesItem = ({ data }) => {
       )}
       {showSuccessModal && (
         <Modal onClose={toggleSuccessModal}>
-          <AddExerciseSuccess exercise={exercise} />
+          <AddExerciseSuccess
+            exercise={exercise}
+            toggleSuccessModal={toggleSuccessModal}
+            location={location}
+          />
         </Modal>
       )}
 

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { register, logIn, refreshUser } from '../../redux/auth/operations';
 import sprite from '../../assets/icons-optimized.svg';
+import { useState } from 'react';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +9,12 @@ import css from './SignUpInForm.module.css';
 
 const SignUpInForm = ({ includeName }) => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = (event) => {
+    event.preventDefault();
+    setShowPassword((prevState) => !prevState);
+  };
 
   const initialValues = {
     ...(includeName && { username: '' }),
@@ -53,6 +60,7 @@ const SignUpInForm = ({ includeName }) => {
                   type="text"
                   name="username"
                   placeholder="Name"
+                  autocomplete="off"
                   className={css.input}
                 />
                 <ErrorMessage
@@ -67,6 +75,7 @@ const SignUpInForm = ({ includeName }) => {
                 type="text"
                 name="email"
                 placeholder="Email"
+                autocomplete="off"
                 className={
                   css.input +
                   (touched.email
@@ -101,9 +110,10 @@ const SignUpInForm = ({ includeName }) => {
 
             <label htmlFor="password">
               <Field
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
+                autocomplete="off"
                 className={
                   css.input +
                   (touched.password
@@ -134,6 +144,17 @@ const SignUpInForm = ({ includeName }) => {
                 </div>
               )}
             </label>
+            <div className={css.buttonEye} onClick={togglePasswordVisibility}>
+              {showPassword ? (
+                <svg className={css.eye}>
+                  <use href={sprite + '#icon-eye-off'} />
+                </svg>
+              ) : (
+                <svg className={css.eye}>
+                  <use href={sprite + '#icon-eye'} />
+                </svg>
+              )}
+            </div>
           </div>
 
           <button type="submit" className={css.button}>

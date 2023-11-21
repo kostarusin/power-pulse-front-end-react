@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
+// import io from 'socket.io-client';
 
 const Home = () => {
+  // const socket = io('https://power-pulse-fx29.onrender.com');
+  // const [countuUsers, setCountUsers] = useState(null);
+
+  // useEffect(() => {
+  //   socket.emit('getUsers');
+  //   socket.on('totalUsers', (allUsers) => {
+  //     console.log(allUsers);
+  //     setCountUsers(allUsers);
+  //   });
+  // }, [socket]);
+  // console.log(countuUsers);
   return (
     <section className={`layoutContainer ${css.hero}`}>
       <div className={css.container}>

@@ -12,6 +12,13 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
+  transition: background-color 0.5s ease-out;
+}
+
+.button:disabled {
+  background-color: var(--gray-middle);
+  border-color: var(--gray-middle);
+  cursor: not-allowed;
 }
 
 .button:hover,

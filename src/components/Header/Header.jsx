@@ -7,7 +7,9 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={isLoggedIn ? css.bottomLine : css.bottomLineNone}>
+    <div
+      className={isLoggedIn ? css.stickyBottomLine : css.stickyBottomLineNone}
+    >
       <div className="layoutContainer">
         <header className={css.header}>
           <div className={css.logoWrap}>

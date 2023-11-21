@@ -99,3 +99,30 @@
 .inputError {
   border-color: var(--error);
 }
+
+.buttonEye {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  bottom: 34px;
+  left: 170px;
+  width: 16px;
+  height: 16px;
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+    bottom: 37px;
+    left: 300px;
+  }
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0 1000px #000 inset;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; 
+  border: 1px solid var(--orange-dark);
+}

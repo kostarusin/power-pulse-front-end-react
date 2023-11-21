@@ -37,16 +37,16 @@
   color: #efede8;
 }
 .link {
-  color: #e6533c;
+  color: #efede8;
   margin-right: 8px;
 
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28; /* 128.571% */
+  transition: all 0.1s linear;
 }
-.link:hover,
-.link:focus {
-  color: #efede8;
+.addProductBtn:hover .link {
+    color: #e6533c;
 }
 @media screen and (min-width: 768px) {
   .link {
@@ -54,6 +54,12 @@
     line-height: 1.5;
   }
 }
+.svg {
+  fill: var(--orange-dark);
+  stroke: var(--orange-dark);
+}
+
+.lin
 
 .errNotFound {
   font-size: 16px;

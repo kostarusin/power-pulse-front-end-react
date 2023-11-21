@@ -52,7 +52,9 @@ const ProductsList = ({ products }) => {
                     Title
                   </div>
 
-                  <div className={css.text}>{capitalizeFirstLetter(product.title)}</div>
+                  <div className={css.text}>
+                    {capitalizeFirstLetter(product.title)}
+                  </div>
                 </li>
                 <li className={css.wrapperItemCategory}>
                   <div
@@ -124,7 +126,7 @@ const ProductsList = ({ products }) => {
                       className={css.btnDelete}
                       onClick={() => handleDeleteExercise(product)}
                     >
-                      <svg width="20" height="20">
+                      <svg width="20" height="20" className={css.svg}>
                         <use href={`${sprite}#icon-trash`}></use>
                       </svg>
                     </button>

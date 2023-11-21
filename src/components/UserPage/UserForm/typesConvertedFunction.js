@@ -11,7 +11,7 @@ const convertValues = (obj) => {
       }
       return value;
     }),
-    (_, key) => key === 'avatarURL',
+    (_, key) => ['avatarURL', 'email', 'bmr', 'createdAt'].includes(key),
   );
 };
 

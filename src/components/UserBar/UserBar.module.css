@@ -28,6 +28,7 @@
   align-items: center;
   border: solid 1px #e6533c;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatarIcon {

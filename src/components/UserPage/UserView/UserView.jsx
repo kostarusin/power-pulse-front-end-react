@@ -10,7 +10,6 @@ import iconUser from '../../../assets/user.jpg';
 const UserView = () => {
   const { colories, user } = useAuth();
   const avatar = user.avatarURL;
-  console.log(colories);
 
   const dispatch = useDispatch();
 
@@ -91,7 +90,10 @@ const UserView = () => {
         <div className={css['user-logaut-container']}>
           <button
             className={css['user-logaut']}
-            onClick={() => dispatch(logOut())}
+            onClick={async () => {
+              await dispatch(logOut());
+              window.location.reload();
+            }}
           >
             Logout
             <svg width="24" height="24">

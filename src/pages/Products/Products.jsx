@@ -33,6 +33,7 @@ const Products = () => {
   const [caclCall, setCalcCall] = useState(0);
   const [amount, setAmount] = useState(0);
   const [productId, setProductId] = useState('');
+  const [isAnyModalOpen, setIsAnyModalOpen] = useState(false);
 
   const showProducts =
     Array.isArray(products.products) && products.products.length > 0;
@@ -46,6 +47,14 @@ const Products = () => {
     dispatch(fetchProducts());
     dispatch(fetchProductCategories());
   }, [dispatch]);
+
+  useEffect(() => {
+    setIsAnyModalOpen(showSuccessModal || showSuccessModal1);
+  }, [showSuccessModal, showSuccessModal1]);
+
+  useEffect(() => {
+    document.body.style.overflow = isAnyModalOpen ? 'hidden' : 'auto';
+  }, [isAnyModalOpen]);
 
   const getVisibleProducts = () => {
     if (!filter || filter.value === 'all' || filter.value === 'All') {
@@ -80,6 +89,9 @@ const Products = () => {
 
   const toggleSuccessModal = () => {
     setShowSuccessModal((prevState) => !prevState);
+    if (!showSuccessModal) {
+      setCalcCall(0);
+    }
   };
 
   const toggleSuccessModalTest = () => {
@@ -94,7 +106,7 @@ const Products = () => {
     const value = event.target.value;
     setAmount(value);
     setProductId(productData._id);
-    setCalcCall((value * productData.calories) / 100);
+    setCalcCall(Math.round((value * productData.calories) / 100));
   };
 
   const handleSearchChange = (event) => {
@@ -108,54 +120,54 @@ const Products = () => {
   };
 
   return (
-    <div className={css.background}> 
-    <section className={css.productsSection}>
-      <p className={css.toolTip}>Filters</p>
-      <div className={css.titleSearchBox}>
-        <h1 className={css.title}>Products</h1>
-        <ProductsFilters
-          handleClearInput={handleClearInput}
-          handleSearchChange={handleSearchChange}
-          showCloseBtn={showCloseBtn}
-          filterByText={filterByText}
-          categories={categories}
-        />
-      </div>
+    <div className={css.background}>
+      <section className={css.productsSection}>
+        <p className={css.toolTip}>Filters</p>
+        <div className={css.titleSearchBox}>
+          <h1 className={css.title}>Products</h1>
+          <ProductsFilters
+            handleClearInput={handleClearInput}
+            handleSearchChange={handleSearchChange}
+            showCloseBtn={showCloseBtn}
+            filterByText={filterByText}
+            categories={categories}
+          />
+        </div>
 
-      {(visibleProductsByTitle?.length === 0 && <NotFound />) || (
-        <ProductsList
-          visibleproducts={visibleProductsByTitle}
-          toggleSuccessModal={toggleSuccessModal}
-          toggleSuccessModal1={toggleSuccessModal1}
-          showProducts={showProducts}
-          loading={loading}
-        />
-      )}
-
-      {showSuccessModal && (
-        <Modal onClose={toggleSuccessModal}>
-          <AddProductForm
+        {(visibleProductsByTitle?.length === 0 && <NotFound />) || (
+          <ProductsList
+            visibleproducts={visibleProductsByTitle}
             toggleSuccessModal={toggleSuccessModal}
-            toggleSuccessModalTest={toggleSuccessModalTest}
-            handleChange={handleChange}
-            productData={productData}
-            caclCall={caclCall}
-            amount={amount}
-            productId={productId}
+            toggleSuccessModal1={toggleSuccessModal1}
+            showProducts={showProducts}
+            loading={loading}
           />
-        </Modal>
-      )}
+        )}
 
-      {showSuccessModal1 && (
-        <Modal onClose={toggleSuccessModalTest}>
-          <AddProductsSuccess
-            toggleSuccessModalTest={toggleSuccessModalTest}
-            caclCall={caclCall}
-            location={location}
-          />
-        </Modal>
-      )}
-    </section>
+        {showSuccessModal && (
+          <Modal onClose={toggleSuccessModal}>
+            <AddProductForm
+              toggleSuccessModal={toggleSuccessModal}
+              toggleSuccessModalTest={toggleSuccessModalTest}
+              handleChange={handleChange}
+              productData={productData}
+              caclCall={caclCall}
+              amount={amount}
+              productId={productId}
+            />
+          </Modal>
+        )}
+
+        {showSuccessModal1 && (
+          <Modal onClose={toggleSuccessModalTest}>
+            <AddProductsSuccess
+              toggleSuccessModalTest={toggleSuccessModalTest}
+              caclCall={caclCall}
+              location={location}
+            />
+          </Modal>
+        )}
+      </section>
     </div>
   );
 };

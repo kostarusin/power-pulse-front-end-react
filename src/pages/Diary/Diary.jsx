@@ -145,6 +145,7 @@ function Diary() {
           />
           <DayExercises
             exercises={doneExercises}
+            location={location}
           />
         </div>
         <DayDashboard />

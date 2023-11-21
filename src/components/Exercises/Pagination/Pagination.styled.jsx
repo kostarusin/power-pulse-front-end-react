@@ -3,9 +3,7 @@ import styled from 'styled-components';
 export const PaginationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding-bottom: 90px;
-  height: 100vh;
 
   ul.pagination {
     display: flex;
@@ -33,6 +31,9 @@ export const PaginationContainer = styled.div`
     justify-content: center;
     align-items: center;
   }
+  nav.pagination-nav {
+    padding-bottom: 90px;
+  }
 
   button.page-link:not(.active) {
     background-color: rgba(239, 237, 232, 0.1);
@@ -47,13 +48,6 @@ export const PaginationContainer = styled.div`
     height: 14px;
   }
 
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-    justify-content: baseline;
-    height: 100%;
-  }
 `;
 
 export const PaginationItem = styled.li`

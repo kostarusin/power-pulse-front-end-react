@@ -36,16 +36,20 @@
   color: #efede8;
 }
 
-.link {
+.addExerciseBtn:hover .link {
   color: #e6533c;
+}
+.svg {
+  fill: var(--orange-dark);
+  stroke: var(--orange-dark);
+}
+.link {
+  color: #efede8;
   margin-right: 8px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28; /* 128.571% */
-}
-.link:hover,
-.link:focus {
-  color: #efede8;
+  transition: all 0.1s linear;
 }
 @media screen and (min-width: 768px) {
   .link {

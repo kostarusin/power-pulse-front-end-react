@@ -1,6 +1,8 @@
 .exercisesLi {
   position: relative;
   cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .image {
@@ -11,11 +13,14 @@
   border: 1px #efede8;
   border-radius: 12px;
   filter: brightness(40%);
+  transition: transform 0.2s linear;
 }
+
 @media screen and (min-width: 375px) {
-  .image {
-    width: 335px;
+   .image {
+    object-fit: cover;
     height: 206px;
+    width: 335px;
   }
 }
 
@@ -24,6 +29,15 @@
     width: 224px;
     height: 206px;
   }
+    .exercisesLi:hover .image {
+      transform: scale(1.1);
+    }
+        .exercisesLi:hover .exerciseItemTitle {
+          transform: scale(1.1);
+        }
+        .exercisesLi:hover .exerciseItemtext {
+            transform: scale(1.1);
+        }
 }
 
 .titleContainer {
@@ -37,13 +51,15 @@
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  /* width: 100%; */
   height: auto;
 }
 .exerciseItemTitle {
+  text-align: center;
   font-size: 20px;
   line-height: 1.2;
   color: var(--white);
+  transition: transform 0.2s linear;
 }
 @media screen and (min-width: 375px) {
   .exerciseItemTitle {
@@ -52,8 +68,15 @@
   }
 }
 
-.exerciseItemText {
+.exerciseItemtext {
   font-size: 12px;
   line-height: 1.5;
   color: var(--grayEx);
+  transition: transform 0.2s linear;
+}
+
+@media screen and (min-width: 1440px) {
+  .image {
+    width: 237px;
+  }
 }

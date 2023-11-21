@@ -24,9 +24,10 @@ import convertValues from './typesConvertedFunction';
 
 const UserForm = ({ selectedDate }) => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   const [isFormChanged, setFormChanged] = useState(false);
+
+  const { user } = useAuth();
 
   const handleSubmit = (values) => {
     const convertedUser = convertValues(user);
@@ -43,7 +44,8 @@ const UserForm = ({ selectedDate }) => {
       });
       setFormChanged(false);
     } else {
-      const updatedValues = { ...values };
+      const updatedValues = { ...values, avatarURL: user.avatarURL };
+
       delete updatedValues.email;
       dispatch(updateInfo(updatedValues));
       setFormChanged(true);
@@ -75,6 +77,7 @@ const UserForm = ({ selectedDate }) => {
 
   return (
     <Formik
+      enableReinitialize={true}
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={ProfileSettingsSchema}
@@ -169,8 +172,11 @@ const UserForm = ({ selectedDate }) => {
                   />
                 </div>
               </label>
-              <label htmlFor="birthday">
+              <label htmlFor="birthday" className={css.birthdayForm}>
                 <Field
+                  className={`${css.infoInput} ${
+                    formik.errors.birthday ? css.invalidInput : ''
+                  }`}
                   name="birthday"
                   type="date"
                   selectedDate={selectedDate}

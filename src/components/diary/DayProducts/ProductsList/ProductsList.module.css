@@ -18,7 +18,14 @@
     margin-top: 19px;
   }
 }
+.svg {
+  stroke: var(--orange-light);
+  transition: stroke 0.1s linear;
+}
 
+.svg:hover {
+  stroke: var(--white);
+}
 /* Стили для скроллбара вебкита (Chrome, Safari) */
 .wrapper::-webkit-scrollbar {
   margin-right: -12px; /* Отступ влево */
@@ -45,6 +52,10 @@
   @media screen and (min-width: 768px) {
     margin-left: 8px;
   }
+}
+
+.wrapperListContainer:last-child {
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 1440px) {
@@ -81,6 +92,9 @@
   border-radius: 12px;
   font-size: 14px;
   line-height: 18px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 
 .textRecommend {
@@ -116,6 +130,7 @@
 .wrapperItemTitle {
   width: 297px;
 }
+
 @media screen and (min-width: 768px) {
   .wrapperItemTitle {
     width: 204px;

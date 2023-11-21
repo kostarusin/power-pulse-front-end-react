@@ -3,17 +3,17 @@ import css from './ExercisesList.module.css';
 import { useExercises } from '../../../hooks';
 import images from '../img/Waist1.jpg';
 
-export const ExercisesList = ({ activeName, activeFilter }) => {
+export const ExercisesList = ({ activeName, exercisesFiler, location }) => {
   const { exercises } = useExercises();
 
   const visibleExercises = exercises.filter((exercise) => {
-    if (activeFilter === 'Body parts') {
+    if (exercisesFiler === 'Body parts') {
       return exercise.bodyPart === activeName;
     }
-    if (activeFilter === 'Muscules') {
+    if (exercisesFiler === 'Muscules') {
       return exercise.target === activeName;
     }
-    if (activeFilter === 'Equipment') {
+    if (exercisesFiler === 'Equipment') {
       return exercise.equipment === activeName;
     }
   });
@@ -25,7 +25,7 @@ export const ExercisesList = ({ activeName, activeFilter }) => {
           {visibleExercises.length ? (
             visibleExercises
               .slice(0, 50)
-              .map((el) => <ExercisesItem key={el._id} data={el} />)
+              .map((el) => <ExercisesItem key={el._id} location={location} data={el} />)
           ) : (
             <h2 className={css.noExercisesTitle}>
               There are no exercises in this category, please try again later!
