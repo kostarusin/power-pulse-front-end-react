@@ -14,11 +14,6 @@
     width: 44px;
     height: 17px;
   }
-
-  &:hover,
-  &:focus {
-    fill: var(--gray-light);
-  }
 }
 
 .logoIconError {
@@ -31,10 +26,6 @@
   @media screen and (min-width: 376px) {
     width: 44px;
     height: 17px;
-  }
-  &:hover,
-  &:focus {
-    fill: var(--gray-light);
   }
 }
 
@@ -49,9 +40,9 @@
     width: 100px;
     height: 16px;
   }
+}
 
-  &:hover,
-  &:focus {
-    fill: var(--gray-light);
-  }
+.logoWrap:hover .logoIcon,
+.logoWrap:hover .logoText {
+  fill: var(--gray-light);
 }
