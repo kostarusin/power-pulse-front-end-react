@@ -1,7 +1,10 @@
 import css from './HomeBackground.module.css';
 import sprite from '../../assets/icons-optimized.svg';
+import { useStatistics } from '../../hooks';
 
 const HomeBackground = ({ darkPhoto }) => {
+  const { statistics } = useStatistics();
+  console.log(statistics);
   return (
     <div className={css.image + (darkPhoto ? ' ' + css.image2 : '')}>
       <div className={css.statistic1}>
