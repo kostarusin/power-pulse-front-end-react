@@ -10,7 +10,7 @@ function DayDashboard() {
   const { user } = useAuth();
   const { burnedCalories, consumedCalories } = useDiary();
   const { doneExercises } = useDiary();
-
+  console.log(user);
   const { bmr, dailyExerciseTime } = user;
 
   const [caloriesColor, setCaloriesColor] = useState('');
@@ -132,8 +132,8 @@ function DayDashboard() {
 
           <p className={styles['user-daily-text-value']}>
             {SportsRemaining < 0
-              ? formattedSportsRemaining + ' min'
-              : SportsRemaining + ' min'}
+              ? formattedSportsRemaining || 0 + ' min'
+              : SportsRemaining || 0 + ' min'}
           </p>
         </li>
       </ul>

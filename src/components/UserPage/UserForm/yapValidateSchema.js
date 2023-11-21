@@ -8,10 +8,12 @@ const ProfileSettingsSchema = Yup.object().shape({
     .max(300, 'Must be at most 300 cm'),
   currentWeight: Yup.number()
     .min(35, 'Must be at least 35 kg')
-    .required('Current weight is a required field'),
+    .required('Current weight is a required field')
+    .max(200, 'currentWeight" should be maximum 200'),
   desiredWeight: Yup.number()
     .min(35, 'Must be at least 35 kg')
-    .required('Desired weight is a required field'),
+    .required('Desired weight is a required field')
+    .max(200, 'desiredWeight" should be maximum 200'),
   birthday: Yup.date()
     .max(
       new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
