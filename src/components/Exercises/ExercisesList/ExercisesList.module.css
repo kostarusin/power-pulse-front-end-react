@@ -1,5 +1,6 @@
 .waistListContainer {
   display: flex;
+  justify-content: center;
 }
 
 .imgWaist {
@@ -15,6 +16,7 @@
   }
   .waistListContainer {
     height: 487px;
+   justify-content: flex-start;
   }
 }
 
@@ -46,6 +48,7 @@
     max-width: 100%;
     max-height: 726px;
     padding-right: 10px;
+    width: 704px;
   }
 }
 @media screen and (min-width: 1440px) {
