@@ -8,7 +8,7 @@ import CloseBtn from '../../toastComponents/CloseBtn';
 import isEqual from 'lodash/isEqual';
 //redux
 import { useDispatch } from 'react-redux';
-import { updateInfo, getUserCalories } from '../../../redux/auth/operations';
+import { updateInfo } from '../../../redux/auth/operations';
 import { useAuth } from '../../../hooks';
 //datepicker
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
@@ -56,7 +56,6 @@ const UserForm = ({ selectedDate }) => {
         icon: ToastIconSuccess,
         closeButton: CloseBtn,
       });
-      dispatch(getUserCalories());
     }
   };
 
