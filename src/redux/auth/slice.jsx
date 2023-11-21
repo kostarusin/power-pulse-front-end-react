@@ -14,7 +14,6 @@ const initialState = {
     levelActivity: null,
     avatarURL: null,
   },
-  calories: {},
   token: '',
   isLoggedIn: false,
   isRefreshing: true,
