@@ -27,6 +27,7 @@ function ExercisesList({ exercises }) {
       deleteExerciseOrProduct({
         date: date,
         credentials: {
+          type: 'exercise',
           id: exercise._id,
         },
       }),
