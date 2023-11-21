@@ -1,5 +1,5 @@
 import css from './AddProductsSuccess.module.css';
-import pic from '../../../assets/avocado.svg';
+import pic from '../../../assets/avocado.png';
 import icons from '../../../assets/icons.svg';
 import { ButtonModal } from '../../ButtonModal/ButtonModal';
 import { Link } from 'react-router-dom';

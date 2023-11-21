@@ -33,7 +33,7 @@ const ProductCard = ({
               viewBox="0 0 24 24"
               fontSize="small"
             />
-            <p>{product.allowed ? 'Recommended' : 'Not recommended'}</p>
+            <p className={css.productEnergyItem}>{product.allowed ? 'Recommended' : 'Not recommended'}</p>
             <button
               className={css.addButton}
               onClick={() => {

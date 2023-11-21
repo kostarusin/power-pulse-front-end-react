@@ -26,6 +26,8 @@
   padding: 5px 7.5px;
   border: 1px;
   border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
   background: rgba(239, 237, 232, 0.05);
 }
 
