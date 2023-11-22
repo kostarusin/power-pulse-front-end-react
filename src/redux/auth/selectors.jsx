@@ -5,3 +5,5 @@ export const selectUser = (state) => state.auth.user;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 export const selectCalories = (state) => state.auth.calories;
+
+export const selectIsLoading = (state) => state.auth.isLoading;
