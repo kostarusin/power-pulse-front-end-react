@@ -1,0 +1,9 @@
+.customToastSuccess {
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--green);
+}
+
+.toastProgressBar {
+  background-color: var(--white);
+}

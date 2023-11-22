@@ -1,0 +1,9 @@
+.customToastError {
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--error);
+}
+
+.toastProgressBar {
+  background-color: var(--white);
+}

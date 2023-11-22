@@ -15,6 +15,8 @@ import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 //notification
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import cssError from '../../toastComponents/ToastIconError/ToastIconError.module.css';
+import cssSuccess from '../../toastComponents/ToastIconSuccess/ToastIconSuccess.module.css';
 //styles
 import css from './UserForm.module.css';
 import { useState } from 'react';
@@ -37,8 +39,8 @@ const UserForm = ({ selectedDate }) => {
     if (areEqual) {
       toast.info('Please, choose new options!', {
         position: 'top-center',
-        className: css.customToastError,
-        progressClassName: css.toastProgressBar,
+        className: cssError.customToastError,
+        progressClassName: cssError.toastProgressBar,
         icon: ToastIconError,
         closeButton: CloseBtn,
       });
@@ -51,8 +53,8 @@ const UserForm = ({ selectedDate }) => {
       setFormChanged(true);
       toast.info('Information successfully saved!', {
         position: 'top-center',
-        className: css.customToastSuccess,
-        progressClassName: css.toastProgressBar,
+        className: cssSuccess.customToastSuccess,
+        progressClassName: cssSuccess.toastProgressBar,
         icon: ToastIconSuccess,
         closeButton: CloseBtn,
       });
