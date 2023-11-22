@@ -1,0 +1,1 @@
+import{k as s}from"./index-a71f7571.js";const o=e=>e.diary.doneExercises,r=e=>e.diary.consumedProducts,d=e=>e.diary.burnedCalories,c=e=>e.diary.consumedCalories,n=e=>e.diary.date,t=e=>e.diary.isLoading,a=()=>({doneExercises:s(o),consumedProducts:s(r),burnedCalories:s(d),consumedCalories:s(c),date:s(n),isLoading:s(t)});export{a as u};
