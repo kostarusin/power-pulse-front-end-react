@@ -1,7 +1,7 @@
 # PowerPulse FrontEnd
 
-Dies ist das abschließende Studentenprojekt, das im Rahmen des gemeinsamen
-PowerPulse-Anwendungsprojekts erstellt wurde. Die
+Dies React App ist das abschließende Studentenprojekt, das im Rahmen des
+gemeinsamen PowerPulse-Anwendungsprojekts erstellt wurde. Die
 [Backend-Komponente befindet sich hier](https://github.com/kostarusin/power-pulse-back-end-node-js).
 Diese Anwendung ermöglicht es Benutzern, ihr Gewicht, ihr Aktivitätsniveau, ihre
 Kalorienaufnahme und mehr zu überwachen.
