@@ -23,10 +23,7 @@ const SignUp = () => {
 
         <p className={css.text2}>
           Already have an account?
-          <a
-            className={css.link}
-            href="http://localhost:5173/power-pulse-front-end-react/login"
-          >
+          <a className={css.link} href="/login">
             {' '}
             Sign In
           </a>
