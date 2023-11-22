@@ -6,7 +6,7 @@ import DayProducts from '../../components/diary/DayProducts';
 import DayExercises from '../../components/diary/DayExercises';
 import DayDashboard from '../../components/diary/DayDashboard';
 import DaySwitch from '../../components/diary/DaySwitch';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../components/Loader/index';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
