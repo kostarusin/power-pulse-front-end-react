@@ -1,5 +1,10 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ToastIconError from '../../components/toastComponents/ToastIconError';
+import CloseBtn from '../../components/toastComponents/CloseBtn';
+import css from '../../components/toastComponents/ToastIconError/ToastIconError.module.css';
 
 axios.defaults.baseURL = 'https://power-pulse-fx29.onrender.com';
 
@@ -32,6 +37,15 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.response.status === 401) {
+        toast.info('Invalid email or password', {
+          position: 'top-center',
+          className: css.customToastError,
+          progressClassName: css.toastProgressBar,
+          icon: ToastIconError,
+          closeButton: CloseBtn,
+        });
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   },
