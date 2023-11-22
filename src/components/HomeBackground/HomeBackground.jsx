@@ -7,7 +7,7 @@ const HomeBackground = ({ darkPhoto }) => {
   const { statistics } = useStatistics();
   const amountOfBurnedCalories = `${Math.floor(statistics.totalBurnedCalories / 1000)}+k`;
   const hoursOfExercises = `${Math.floor(statistics.totalExerciseTime / 60)}+h`  
-  // console.log(statistics);
+
   return (
     <div className={css.image + (darkPhoto ? ' ' + css.image2 : '')}>
       <div className={css.statistic1}>
@@ -29,7 +29,7 @@ const HomeBackground = ({ darkPhoto }) => {
           </svg>
         </div>
         <div className={css.boxp}>
-          <p className={css.number1}>{statistics.totalExerciseTime}</p>
+          <p className={css.number1}>{statistics.totalExercises}</p>
           <p className={css.vid}>Video tutorial</p>
         </div>
       </div>
