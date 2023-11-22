@@ -1,6 +1,6 @@
 # PowerPulse FrontEnd
 
-This is the final student project created as a part of the unified PowerPulse
+This React App is the final student project created as a part of the unified PowerPulse
 application project, with the
 [back-end portion located here](https://github.com/kostarusin/power-pulse-back-end-node-js).
 This application allows users to monitor their weight, level of physical
