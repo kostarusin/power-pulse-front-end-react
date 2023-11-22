@@ -1,10 +1,14 @@
 import SignUpInForm from '../../components/SignUpInForm/SignUpInForm';
 import css from './SignUp.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
+import Loader from '../../components/Loader';
+import { useAuth } from '../../hooks/useAuth';
 
 const SignUp = () => {
+  const { isLoading } = useAuth();
   return (
     <section className={`layoutContainer ${css.signup}`}>
+      {isLoading && <Loader />}
       <div>
         <div className={css.container1}>
           <h2 className={css.title}>Sign Up</h2>

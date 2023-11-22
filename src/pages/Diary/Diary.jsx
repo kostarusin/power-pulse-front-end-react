@@ -6,6 +6,7 @@ import DayProducts from '../../components/diary/DayProducts';
 import DayExercises from '../../components/diary/DayExercises';
 import DayDashboard from '../../components/diary/DayDashboard';
 import DaySwitch from '../../components/diary/DaySwitch';
+import Loader from '../../components/Loader/index';
 //redux
 import { useDispatch } from 'react-redux';
 import { getDiary } from '../../redux/dairy/operations';
@@ -24,6 +25,7 @@ function Diary() {
   const { date } = useParams();
   const dispatch = useDispatch();
   const { user } = useAuth();
+  const { isLoading } = useDiary();
 
   const [additionalIconClass, setAdditionalIconClass] =
     useState('opacity-right');
@@ -124,6 +126,7 @@ function Diary() {
   return (
     <div className={`${styles.backGround} layoutContainer`}>
       <div className={styles.titleCont}>
+        {isLoading && <Loader />}
         <TitlePage title="Diary" />
         <DaySwitch
           minDate={minDate}

@@ -25,7 +25,9 @@ export const ExercisesList = ({ activeName, exercisesFiler, location }) => {
           {visibleExercises.length ? (
             visibleExercises
               .slice(0, 50)
-              .map((el) => <ExercisesItem key={el._id} location={location} data={el} />)
+              .map((el) => (
+                <ExercisesItem key={el._id} location={location} data={el} />
+              ))
           ) : (
             <h2 className={css.noExercisesTitle}>
               There are no exercises in this category, please try again later!

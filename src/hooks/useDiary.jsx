@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
+  selectIsLoading,
   selectDoneExercises,
   selectConsumedProducts,
   selectBurnedCalories,
@@ -14,5 +15,6 @@ export const useDiary = () => {
     burnedCalories: useSelector(selectBurnedCalories),
     consumedCalories: useSelector(selectConsumedCalories),
     date: useSelector(selectDate),
+    isLoading: useSelector(selectIsLoading),
   };
 };
