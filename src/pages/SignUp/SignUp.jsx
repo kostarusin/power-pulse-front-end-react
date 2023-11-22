@@ -3,6 +3,7 @@ import css from './SignUp.module.css';
 import HomeBackground from '../../components/HomeBackground/HomeBackground';
 import Loader from '../../components/Loader';
 import { useAuth } from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const { isLoading } = useAuth();
@@ -23,10 +24,10 @@ const SignUp = () => {
 
         <p className={css.text2}>
           Already have an account?
-          <a className={css.link} href="/login">
+          <Link className={css.link} to="/login">
             {' '}
             Sign In
-          </a>
+          </Link>
         </p>
       </div>
       <HomeBackground darkPhoto />

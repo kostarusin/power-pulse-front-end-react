@@ -3,6 +3,7 @@ import SignUpInForm from '../../components/SignUpInForm/SignUpInForm';
 import Loader from '../../components/Loader';
 import css from './SignIn.module.css';
 import { useAuth } from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const { isLoading } = useAuth();
@@ -21,13 +22,10 @@ const SignIn = () => {
 
       <p className={css.text2}>
         Don’t have an account?
-        <a
-          className={css.link}
-          href="http://localhost:5173/power-pulse-front-end-react/register"
-        >
+        <Link className={css.link} to="/register">
           {' '}
           Sign Up
-        </a>
+        </Link>
       </p>
       <HomeBackground darkPhoto />
     </section>
