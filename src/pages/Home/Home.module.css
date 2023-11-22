@@ -17,8 +17,11 @@
 
 .title {
   font-weight: 500;
-  font-size: 38px;
+  font-size: 34px;
   line-height: 40px;
+  @media screen and (min-width: 375px) {
+    font-size: 38px;
+  }
   @media screen and (min-width: 768px) {
     font-size: 70px;
     line-height: 78px;
