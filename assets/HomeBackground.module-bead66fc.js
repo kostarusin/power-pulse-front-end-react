@@ -1,1 +1,0 @@
-const c="_image_13cv2_1",s="_image2_13cv2_26",_="_statistic1_13cv2_32",t="_boxsvg1_13cv2_55",o="_boxp_13cv2_65",i="_number1_13cv2_76",v="_vid_13cv2_87",n="_statistic2_13cv2_99",a="_boxsvg2_13cv2_125",b="_number2_13cv2_136",e="_cal_13cv2_153",g={image:c,image2:s,statistic1:_,boxsvg1:t,boxp:o,number1:i,vid:v,statistic2:n,boxsvg2:a,number2:b,cal:e};export{g as c};
