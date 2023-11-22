@@ -21,6 +21,7 @@
 .productsSection {
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 80px;
 
   display: block;
   margin: 0 auto;
@@ -29,6 +30,7 @@
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 48px;
     display: block;
     margin: 0 auto;
     align-content: center;
@@ -43,6 +45,7 @@
 
     padding-left: 96px;
     padding-right: 0px;
+    padding-bottom: 81px;
     min-height: 716px;
     width: 1440px;
     max-width: 1440px;
