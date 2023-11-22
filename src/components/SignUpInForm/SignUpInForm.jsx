@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { register, logIn, refreshUser } from '../../redux/auth/operations';
+import { register, logIn } from '../../redux/auth/operations';
 import sprite from '../../assets/icons-optimized.svg';
 import { useState } from 'react';
+import { getStatistics } from '../../redux/statistics/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -10,6 +12,10 @@ import css from './SignUpInForm.module.css';
 const SignUpInForm = ({ includeName }) => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    dispatch(getStatistics());
+  }, [dispatch]);
 
   const togglePasswordVisibility = (event) => {
     event.preventDefault();
