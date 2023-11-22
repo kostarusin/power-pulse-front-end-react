@@ -9,6 +9,7 @@
   width: var(--container-width);
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 66px;
   margin: 0 auto;
 }
 
@@ -23,6 +24,7 @@
   .layoutContainer {
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 54px;
   }
 }
 
@@ -30,5 +32,6 @@
   .layoutContainer {
     padding-left: 96px;
     padding-right: 96px;
+    padding-bottom: 44px;
   }
 }
